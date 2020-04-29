@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> Ubuntu15.04のproftpdでFTP over TLSを設定する話 &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/35288466/">Ubuntu15.04のproftpdでFTP over TLSを設定する話</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>ぶっちゃけた話、「<a href="https://www.server-world.info/query?os:Ubuntu_15.04&amp;p:ftp&amp;f:7" target:"_blank"><a href="https://www.server-world.info/query?os:Ubuntu_15.04&amp;p:ftp&amp;f:7">https://www.server-world.info/query?os:Ubuntu_15.04&amp;p:ftp&amp;f:7</a></a>」を参照して行いました。<br/>　これ以外にすることはパッシブモードで応答するグローバルIPアドレス(またはfqdn名)を「MasqueradeAddress」で指定し、パッシブモードで使用するポートを「PassivePorts」で指定する、だけです。私の場合はDDNSを使っているのでfqdn名を記入し、使用するポートを60000～65534にしました(こんなにいらない)。ただ、DDNSで使用する場合はサーバーモードはstandaloneではなくinetdにする必要があり、また「DynMasqRefresh」を適切な秒数を指定します(私は300秒にしました)。あとルーターでパッシブポートを開ける必要があります。<br/>　そしてこれをやると通信が暗号化できますが、LAN内からFTPサーバーにつなぐとファイル一覧が見れなくなります。ヘアピンNATを実装しているルーターならばおそらくできると思いますが、それを実装しているのは一部のルーターだけなのでだいたい見れなくなります。<br/>　それを解決するにはどうするかというとFTPクライアントの設定でパッシブモードを使わないようにするだけです。FFFTPならば「PASVモードを使う」のチェックを外すだけです。これで見れるようになります。<br/>　また、一部クライアントではファイル一覧表示までの時間がかかるようになるようです。もしかしたらサーバーが遅いだけかもしれませんが…。ネットワーク経路の問題？遅いと言われてスマホの4G回線からつないでみましたが普通の早さでファイル一覧が表示されたので…。この辺はよくわかりません。もしかしたらサーバーにキャッシュがあるのかな…。<br/>　煮え切らない終わり方でごめんなさい。</p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/293238931.html/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/31876187/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

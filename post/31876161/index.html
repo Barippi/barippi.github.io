@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> Chromium OSを触ってみた &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/31876161/">Chromium OSを触ってみた</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p><a href="https://goo.gl/EX9dz6">日経Linux 2013年12月号</a>で「最新Chrome OSで軽量マシン」という特集があったのでついついビルド環境作って触ってみました。まあオープンソース版なので正確にはChromium OSですが。<br/>
+　「Chrome OS」とはなんぞやということですが、GoogleがUbuntuを元にして作ったGoogle Chromeブラウザ内ですべてが完結するOSです。日本国外ではエイサー、サムスン、ヒューレット・パッカード、レノボ、グーグルがChromebook、Chromebox(デスクトップマシン)として製品を出しています。輸入もできるんじゃないかな。<br/>
+　うちにはもうすぐサポートが終わってしまうWindows XPのネットブック(最初のAspire One)があったのでそれに入れてみよう、と。思い立ってしまったわけです。<br/>
+　ちょっと前までデイリーでビルドしてライブイメージを提供してた人がいたのですが、やめてしまったみたいで、最新のを使おうとすると自分でソースコードからビルドするしかありません。ビルドします。はい。<br/>
+　公式のビルド環境はUbuntu 12.04 LTSの64bit版。提供されている開発環境が64bit版しかないからみたいです。でも初期ネットブックに対応する32bit版もここからビルドすることができます。<br/>
+　私はビルド環境がなかったので仮想マシンを作り、そこにUbuntu 64bit版を入れました。メモリは4GB、HDDが100GB(実はこんなにいらない)、CPUコアは2つにしました。もしSSDを50GBくらい使えるならそうした方がいいです。ビルド速度とかライブイメージ作成速度がさらに早くなります。<br/>
+　ソースコードのダウンロード、ビルド環境のダウンロード、ビルド、ライブイメージ作成、USBメモリにダンプで大体2～3時間といったところでしょうか。できあがりです。<br/>
+　USBメモリをネットブックに挿してブート。USB2.0でも1分くらいで立ち上がります。最初に言語とキーボードとネットワークの設定。Chromium OSはネットワークがないと何もできないのでネットワーク重要です。無線LANも変なのを使って無ければ最初から使えます。Gmailのアカウントを入れてログイン。最初のログインには2段階認証がかかります。一度2段階認証をすれば次からはパスワードだけで入れるようになります。<br/>
+　この特集ではUSBブートだけではなく実際のマシンにインストールができるように仕掛けがしてあります。ほいほいと入れてリブートしてみると30～40秒くらいでログイン画面が立ち上がりました。ちょっとUSBよりも早い。というか長いことサーバー機として使ってたものだからHDDが壊れかけててこんなにかかるのかもしれません。実際はもうちょっと早いかも。<br/>
+　感想としては「よく出来てるけどローカルの記憶領域がどうなってるのかよくわからん」といったものでした。ネットラジオとかYouTubeとかあるからいらないかもしれませんが自分のCDからリッピングしたmp3とかは聴きたい。でもどうやって？どこに保存してそしてブラウザで聴けるの？見れるの？と。Chromiumブラウザからできるんですかね。今日はChromeアプリを掘ったりとかはできなかったんで調査不足かもしれません。今後の課題とします。え、言い出しっぺの法則？…聞かなかったことにします。<br/>
+　自分でソース書いたわけじゃありませんがビルドって楽しいですね！(ぇ そう思うのは一部かもしれませんが……。ただ、自分で使ってるOSがもともとどういうものでどのような過程を経てDVDやらになってるのかの一部を見れるのはいいかもしれません。来週の週末あたりどうでしょう、やってみませんか？<br/>
+<a href="https://goo.gl/EX9dz6">Amazon.co.jp： 日経 Linux (リナックス) 2013年 12月号: 日経Linux: 本</a><br/>
+ <br/>
+追記：<br/>
+　Chromium OSは売ってるChrome OSと違いFLASHやらmp3とかmp4とかh.264のコーデックは入っていないようです。これではネットラジオも聞けないしYouTubeも見れない。雑誌のほうにもインストールの仕方は書いてあるんですが、これが上手くいかない。で、探してみたところ<br/>
+<a href="https://gist.github.com/rikels/4031126/">https://gist.github.com/rikels/4031126/</a><br/>
+を読んで、書いてある通りにするとFLASHとかもろもろ入ります。FLASHのプレーヤーを使うネットラジオで音が聞けることを確認しました。<br/></p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/categories/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/31876125/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> フリーのXサーバー、XmingでWindowsからLinuxのGUIソフトを操作する &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/53238475/">フリーのXサーバー、XmingでWindowsからLinuxのGUIソフトを操作する</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>Linux等の*NIXを遠隔操作するというと真っ先に思い浮かぶのはtelnetやssh等のCUI環境による操作です。また最近ではGUIで操作するにはVNCも対応しているのでそうしている人もいることでしょう。<br/>　ですが今回は、*NIX使いならば一度は憧れる「XserverをWindowsで動かしてGUI操作する」という感じの話を。<br/>　Windows上で動くXserverと言えば、Software Design等に載ってる広告で有名な<a href="https://www.astec-x.com/" target:"_blank">ASTEC-X</a>ですが、完成度が非常に高いもののお値段も高いのです。個人で遊びで使うにはちょっと出せないお値段。<br/>　ということで今回はXmingが開発している「Xming X Server for Windows」をインストールして使ってみます。<br/>　インストールは非常に簡単で、<a href="https://osdn.jp/projects/sfnet_xming/releases/" target:"_blank"><a href="https://osdn.jp/projects/sfnet_xming/releases/">https://osdn.jp/projects/sfnet_xming/releases/</a></a>からセットアップファイルをダウンロードし、実行し、設定するだけです。PuTTyを入れるかどうかオプションがありますが、すでに入れている人は入れなくてて大丈夫です。<br/>　最初の起動時に設定が行われますが、表示モードで便利なのはMultiple windowsモードです。アプリがあたかもWindowsアプリのように表示されます。ユーザ名とホストを設定します。最初に立ち上げるアプリはとりあえずxtermでいいでしょう(gnome-terminalがいい人はそれで)。sshで鍵認証してる場合は設定の最後の画面でPuTTyへの追加オプションのところで「-i 鍵ファイル(適宜置き換えて)」とする必要があります。<br/>　これでできあがったアイコンをダブルクリックするとパスワードを聞かれ、ログインに成功するとxtermが起動します。<br/>　私の家の環境ではVNCだとホストがハングアップすることが多いのでGUIでやらなきゃいけない場合はこちらを使っています。あんまり出番はないですが…。</p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/248475913.html/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/248474339.html/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

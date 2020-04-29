@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> WebMatrixを使ってWordPressをインストールしてみたよ！ &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/248475909.html/">WebMatrixを使ってWordPressをインストールしてみたよ！</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p><a href="https://www.forest.impress.co.jp/docs/special/20110901_473168.html" target:"_blank"><a href="https://www.forest.impress.co.jp/docs/special/20110901_473168.html">https://www.forest.impress.co.jp/docs/special/20110901_473168.html</a></a> と <a href="https://www.forest.impress.co.jp/docs/special/20110908_473925.html" target:"_blank"><a href="https://www.forest.impress.co.jp/docs/special/20110908_473925.html">https://www.forest.impress.co.jp/docs/special/20110908_473925.html</a></a> を見ながらやってみました。<br/><br/>WordPressを選ぶとPHPとかMySQLを勝手に入れてくれるんで「こりゃラクチンじゃわい、ふぉっふぉっふぉ」とか思ってたらMySQLを入れてる時に数十分待たされるハメに。スタートメニュー見るとMySQLの項目が増えているので入れるのは成功してるんだろうけど何かがおかしい。<br/><br/>「入れなおすかー」とキャンセル押しても戻らない……。覚悟を決めてプロセスキル。これが長い旅の始まりだった。<br/><br/>WebMatrixを再起動し、WordPressを入れなおすとMySQLはインストール完了しているようでWordPressでのパスワード設定などが現れる。記入し「OK」ボタンを押下するもののMySQLに繋がらないというエラーが出る。「あれ、なんで俺こんなお気楽アプリでハマってんの？」とか思いつつWebMatrixを終了させる。<br/><br/>コントロールパネルの「プログラムと機能」を見てみるとMySQLちゃんが.Net用コネクションツールと一緒に鎮座していた。「まー、上手く動かないならとりあえずアンインストールだな」と思い、ご両人ともアンインストール。<br/><br/>再びWebMatrix君にご登場いただき、インストール開始。……またMySQLインストールの最後の段階で止まる。管理ツールのサービスを見る限りではサービスを登録できてない？っぽい。キャンセルしてまたWebMatrix君のプロセスを切る。で、MySQLをアンインストール。<br/><br/>俺の環境ではWebMatrixを利用してMySQLを入れるのは困難と判断。「なら自前で」となるのも自明である。<br/><br/>さっそくMySQLの配布サイトに行き、最新のWindows版を手に入れる。バージョンは5.5～だったかな。最新版を「うおりゃっ」と気合を入れつつも優しくボタンをクリックしインストール完了。サービスも登録できているようだ。<br/><br/>ここでまたWebMatrix君のお出まし。「あとはWordPress入れるだけ～」とボタンをクリックしたら「MySQL入れますよ～」と出た。えーーーーーーー。最新版のMySQLはダメなようだ……。悲しみに暮れながらアンインストール。<br/><br/>MySQLのインストーラーをよく見ると5.1が入れられるっぽい。そういやWebMatrixで入れるのも5.1くらいのバージョンだったなとダメ元で入れてみる。あと.Netとかのコネクションツールももりもり入れる。そしてWebMatrix。MySQLは認識されたがコネクションツールを入れなおすときた。入れる。WordPressに諸所パスワードを入力しOKボタン押下。<br/><br/>……！通った！数時間に及ぶ苦闘の末なんとかWordPressがインストールできました。IIS Expressを立ち上げ、ブログの初期設定を行い、ブログのページが～。やーはー。<br/><br/>とまあ、同じ症状に陥る人はいないとは思いますが参考までに。</p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/73504958/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/248475678.html/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

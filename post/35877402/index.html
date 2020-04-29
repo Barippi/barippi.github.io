@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> プログラミング、Terminalに最適なフォント「Ricty」をWindows7で生成する話 &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/35877402/">プログラミング、Terminalに最適なフォント「Ricty」をWindows7で生成する話</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>Rictyは2009年の外国におけるアンケートで「プログラミングに最適なフォント」1位に輝いた「Inconsolata」と視認性の高い日本語等幅フォント「Migu 1M」の合成フォントです。ラテン文字(ASCII文字？)はInconsolataが使われて、それ以外はMigu 1Mが使われる、という寸法です。例えばこんな感じになります。<br/><a href="/images/0815ee96.jpg" title:"WS000007" target:"_blank"><img src="/images/0815ee96.jpg" alt:"WS000007" class:"pict" border:"0" width:"480" height:"293" hspace:"5"/></a><br/>　minttyでncmpcppを動かしているところです。アイマス10thライブの予習中です。ドラマパートとかM@STER BOX系を抜かしても再生時間2日以上になりました。これは再生したファイルをプレイリストから削除していくモードで再生しているので残りが1日と18時間になっていますが。まあ、らびゅらびゅなんて歌うはずがないのですが…。<br/>　閑話休題。どうでしょう？綺麗でしょ？「なぜこんなに良さげなフォントが出回ってないの？」と思われるかもしれませんが、Rictyの批准しているライセンスにより生成したフォントの再配布が禁止されているのです。「フォントが配布されていない」ってどうすんだ？ってことですが、Rictyは生成スクリプトを配布しているのです。Rictyを使っている人はみんな自分でスクリプトを走らせて自分のために生成しているのです。<br/>　このスクリプトは「Fontforge」というアプリケーションを使用しますが、このFontforgeが基本<em>NIXにしか対応していない、WindowsでFontforgeを使うにはCygwinでビルドする必要がある、ということであんまり存在を知られていなかった(知らなかったの私だけかもしれないけど)ということです。<br/>　しかしいろいろブログやらホームページを読んでいると公式にCygwinを使わないビルド済みのバイナリファイルがあるということで試してみました。<br/>　今回は「<a href="https://blog.nanoway.net/pc/ricty-win7" target:"_blank">Rictyフォントのインストール(windows7)</a>」を参考に進めてみたいと思います。<br/>　まずはFontforgeのダウンロードをします。「<a href="https://sourceforge.net/projects/fontforge/files/fontforge-executables/" target:"_blank"><a href="https://sourceforge.net/projects/fontforge/files/fontforge-executables/">https://sourceforge.net/projects/fontforge/files/fontforge-executables/</a></a>」からポータブル版と書いてあるファイルをダウンロードします。7z拡張子のファイルは7Zipと呼ばれる形式で圧縮されたファイルです。Lhaplusなんかで展開できます。展開したフォルダの中にある「run_fontforge.exe」をダブルクリックして起動することを確認して下さい。<br/>　そしてRicty生成スクリプトをダウンロードします。「<a href="https://github.com/yascentur/Ricty" target:"_blank"><a href="https://github.com/yascentur/Ricty">https://github.com/yascentur/Ricty</a></a>」に行って、画面の右側にある「Download ZIP」ボタンをクリックして一括ダウンロードします。gitが使える人は普通にcloneしてもいいです。展開したファイルをすべて咲ほどのFontforgeのフォルダにコピー(または移動)します。フォルダをコピーではなくて中のファイルをコピーです。<br/>　次にInconsolataフォントをダウンロードします。「<a href="https://levien.com/type/myfonts/inconsolata.html" target:"_blank"><a href="https://levien.com/type/myfonts/inconsolata.html">https://levien.com/type/myfonts/inconsolata.html</a></a>」から「OpenType file」をダウンロードします。圧縮などはされていないOpenType Fontファイルがそのままダウンロードされます。これもFontforgeフォルダにコピーします。<br/>　Migu 1Mをダウンロードします。ダウンロードするファイルはこれで最後です。「<a href="https://mix-mplus-ipa.osdn.jp/migu/" target:"_blank"><a href="https://mix-mplus-ipa.osdn.jp/migu/">https://mix-mplus-ipa.osdn.jp/migu/</a></a>」からMigu 1Mをダウンロードして展開して出てきた拡張子「ttf」のファイルをFontforgeフォルダにコピーします。<br/>　そしてFontforgeフォルダに入っている「fontforge.bat」ファイルを編集します。このためにしか使わないと言っても過言ではないので直接編集してもいいですし(どうせ圧縮ファイルの中にオリジナルはある)、コピーして別の名前にして編集してもいいです。コピーする場合は拡張子を「bat」から変えないでください。具体的な編集は以下のとおりです。<br/><br/>&rdquo;%FF%\bin\Xming_close.exe&rdquo; -wait<br/><br/>&rdquo;%FF%\bin\fontforge.exe&rdquo; -nosplash %</em><br/><br/>&rdquo;%FF%\bin\Xming_close.exe&rdquo; -close<br/><br/>と書いてある行が下3行ですが、これの真ん中の行を消して(fontforgeを起動させるという命令です)、その行に<br/><br/>sh ricty_generator.sh Inconsolata.otf migu-1m-regular.ttf migu-1m-bold.ttf<br/><br/>sh misc/os2version_reviser.sh Ricty-<em>.ttf RictyDiscord-</em>.ttf<br/><br/>と2行書き込みます。そして保存します。最後に1行足して「pause」と書き込むと終わったあとすぐウインドウが消えずに実行結果を確認することができるのでオススメです。<br/>　あとは編集したバッチファイルをダブルクリックするだけです、が、私の環境ではtmpファイルができないエラーが出て止まってしまいました。その場合は「<a href="https://www.geocities.jp/meir000/fontforge/" target:"_blank"><a href="https://www.geocities.jp/meir000/fontforge/">https://www.geocities.jp/meir000/fontforge/</a></a>」からCygwin版をダウンロードしてそちらで試してみてください。こちらもfontforge.batのなかに似たような3行がありますので同様に編集してください。私はこちらでうまくいきました。ですがカスペルスキーでウイルス認定されてしまうので保護を切ってやりました。実行したあと全ファイルスキャンしましたがウイルスに感染した様子はありませんでした。でもその辺は自己責任でお願いします。<br/>　5分から10分くらい待つと<br/><ul><li>Ricty-Regular.ttf</li><li>Ricty-Bold.ttf</li><li>RictyDiscord-Bold.ttf</li><li>RictyDiscord-Regular.ttf</li></ul>の4ファイルができあがります。おめでとうございます！Discordとついてるのは7とかZにひげがついてるバージョンです。おこのみでどうぞ。　「こんなことすんのめんどくせぇ！」という人は「<a href="https://github.com/yascentur/RictyDiminished" target:"_blank">Ricty Diminished</a>」からttfファイルをダウンロードして使ってください。ではでは。<br/></p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/248474530.html/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/248474441.html/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ハードウェア on 取るに足らぬ者</title>
+    <link>https://barippi.github.io/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/index.xml</link>
+    <description>Recent content in ハードウェア on 取るに足らぬ者</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://barippi.github.io/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>203SH Xx 3日目</title>
+      <link>https://barippi.github.io/post/31876198/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876198/</guid>
+      <description>&lt;p&gt;グーグルアカウントを新規に取った、と書きましたがクロームのブックマーク等の同期で結局今のアカウントにしました。&lt;br/&gt;
+　Firefoxも入れた。最初使い方わからんかった(笑。アドレスバータップすればいいのね。&lt;br/&gt;
+　で、スピードテスト入れて測ってみたら4Gで下り20M、上り2M出てた。まあいいんじゃないでしょうか。iPhoneに力入れてるSBMですが、その他も忘れてませんよ、と。&lt;br/&gt;
+　IRCクライアントはAiCiAにして、ツイッタークライアントはJanetterにしました。AiCiA文字小さいけどUIがWindowsであるようなクライアントと似ているのでヘルプさえ見ればすぐにIRCにつながるようになります。JanetterはPCで使っているので同じにしとけばすぐ使えるだろうとの目論見。&lt;br/&gt;
+　アイコンの配列も少し考えてみました。ブラウザ系を1画面目の下に配置したり。&lt;br/&gt;
+　あー、あとFLASH入れました。どうもFirefoxでしか働かないようなのでモバゲはFirefoxで。&lt;br/&gt;
+　とまあ、そんなところで。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Amazon Kindleを3ヶ月間使ってみての感想</title>
+      <link>https://barippi.github.io/post/74972693/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/74972693/</guid>
+      <description>&lt;p&gt;Amazonのサイバーマンデーセールで、Prime会員だと5500円引きだったのでおもちゃ感覚でKindleを買ってみました。3ヶ月ほど使ってどうだったかのお話をしてみたいと思います。&lt;br/&gt;　まずWifi版だったのですがWifiにつながらない&amp;hellip;。WPSでお気楽につながるもんだと思ってたんですが、ヘルプを見るとチャンネルが1～11を推奨してました。ルーターの設定をそのようにしたところ無事WPSを使いつながりました。&lt;br/&gt;　Prime ReadingというPrime会員向けのサービスがあり、同時に10冊までそのPrime Readingとして登録されてる電子書籍を借りることができます。いろいろな種別の本があり、これだけで元が取れます。まあ、5500円引きの時点でPrime会費の元は取れているのですが。&lt;br/&gt;　Zenpad S8.0にもKindleアプリ入れてあってそれで本を読んだりもしてたのですがKindleのほうが若干いいかなと思えるのはやはり軽さ。160g強ということで鞄に入れても重さを感じません。あと電池の持ち。基本的にE-inkはページを変えるときにしか電池を使わないので数週間持つというのは本当です。タブレットだとどうしてもバックライトを点灯しないと読めないので電子書籍を読むだけでも持って3日といったところでしょうか。タブレットの時にも感じてたのですが、テーブルの上などに置いたまま読めるというのも利点でしょうか。紙の本だと開いたまま置くことはやりづらく、ブックスタンドなどを別途買わないと無理なところはありますが、Kindleは置いてもページが閉じることはないので「本を持つのもめんどくさい」というときには重宝します。&lt;br/&gt;　自炊本は読めないのかなーと思ってましたが、PCとUSBケーブルでつなぐことによりKindleがUSBストレージとして認識されますので、Kindleのルートフォルダに「images」というフォルダを作り、そこにZipファイルを転送すると見られます。PDFの場合はDocumentsフォルダに転送してください。&lt;br/&gt;　KindleとKindleペーパーホワイト、どちらがいいかなーということですが、お金があるなら断然ペーパーホワイトのほうをおすすめします。Kindleの167ppiでも十分きれいですが、文字を小さくするとちょっとにじんだかんじがするのです。ペーパーホワイトは300ppiあるのでおそらく綺麗に文字が出て読みやすいと思います。&lt;br/&gt;　本を読むのに特化したデバイスいらないだろと思ってましたがKindleを実際手にしてみて「これはいる」と思わされました。E-ink最高。あなたも是非。&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;div class:&#34;amazon Default&#34;&gt;&lt;div align:&#34;left&#34; class:&#34;pictBox&#34;&gt;&lt;a target:&#34;_blank&#34; href=&#34;https://www.amazon.co.jp/Amazon-SY69JL-Kindle-New%E3%83%A2%E3%83%87%E3%83%AB-Wi-Fi%E3%80%81%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%80%81%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%9A%E3%83%BC%E3%83%B3%E6%83%85%E5%A0%B1%E3%81%A4%E3%81%8D%E3%83%A2%E3%83%87%E3%83%AB%E3%80%81%E9%9B%BB%E5%AD%90%E6%9B%B8%E7%B1%8D%E3%83%AA%E3%83%BC%E3%83%80%E3%83%BC/dp/B0186FESEE?psc:1&amp;amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;amp;tag:anmarikousins-22&amp;amp;linkCode:xm2&amp;amp;camp:2025&amp;amp;creative:165953&amp;amp;creativeASIN:B0186FESEE&#34;&gt;&lt;img class:&#34;pict&#34; style:&#34;margin-right:10px&#34; align:&#34;left&#34; hspace:&#34;5&#34; border:&#34;0&#34; alt:&#34;Kindle (Newモデル) Wi-Fi、ブラック、キャンペーン情報つきモデル、電子書籍リーダー&#34; src=&#34;https://images-fe.ssl-images-amazon.com//images/I/51q4KM6hEaL._SL160_.jpg&#34;/&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class:&#34;itemTitle&#34;&gt;&lt;a target:&#34;_blank&#34; href=&#34;https://www.amazon.co.jp/Amazon-SY69JL-Kindle-New%E3%83%A2%E3%83%87%E3%83%AB-Wi-Fi%E3%80%81%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%80%81%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%9A%E3%83%BC%E3%83%B3%E6%83%85%E5%A0%B1%E3%81%A4%E3%81%8D%E3%83%A2%E3%83%87%E3%83%AB%E3%80%81%E9%9B%BB%E5%AD%90%E6%9B%B8%E7%B1%8D%E3%83%AA%E3%83%BC%E3%83%80%E3%83%BC/dp/B0186FESEE?psc:1&amp;amp;amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;amp;amp;tag:anmarikousins-22&amp;amp;amp;linkCode:xm2&amp;amp;amp;camp:2025&amp;amp;amp;creative:165953&amp;amp;amp;creativeASIN:B0186FESEE&#34;&gt;Kindle (Newモデル) Wi-Fi、ブラック、キャンペーン情報つきモデル、電子書籍リーダー [エレクトロニクス]&lt;/a&gt;&lt;/div&gt;&lt;div class:&#34;itemSubTxt&#34;&gt;Amazon&lt;/div&gt;&lt;div class:&#34;itemSubTxt&#34;&gt;2016-07-20&lt;/div&gt;&lt;/div&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;div class:&#34;amazon Default&#34;&gt;&lt;div align:&#34;left&#34; class:&#34;pictBox&#34;&gt;&lt;a target:&#34;_blank&#34; href=&#34;https://www.amazon.co.jp/Amazon-DP75SDI-Kindle-Paperwhite-Wi-Fi%E3%80%81%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF/dp/B00QJDOM6U?psc:1&amp;amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;amp;tag:anmarikousins-22&amp;amp;linkCode:xm2&amp;amp;camp:2025&amp;amp;creative:165953&amp;amp;creativeASIN:B00QJDOM6U&#34;&gt;&lt;img class:&#34;pict&#34; style:&#34;margin-right:10px&#34; align:&#34;left&#34; hspace:&#34;5&#34; border:&#34;0&#34; alt:&#34;Kindle Paperwhite Wi-Fi、ブラック&#34; src=&#34;https://images-fe.ssl-images-amazon.com//images/I/51mr3heFUaL._SL160_.jpg&#34;/&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class:&#34;itemTitle&#34;&gt;&lt;a target:&#34;_blank&#34; href=&#34;https://www.amazon.co.jp/Amazon-DP75SDI-Kindle-Paperwhite-Wi-Fi%E3%80%81%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF/dp/B00QJDOM6U?psc:1&amp;amp;amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;amp;amp;tag:anmarikousins-22&amp;amp;amp;linkCode:xm2&amp;amp;amp;camp:2025&amp;amp;amp;creative:165953&amp;amp;amp;creativeASIN:B00QJDOM6U&#34;&gt;Kindle Paperwhite Wi-Fi、ブラック [エレクトロニクス]&lt;/a&gt;&lt;/div&gt;&lt;div class:&#34;itemSubTxt&#34;&gt;Amazon&lt;/div&gt;&lt;div class:&#34;itemSubTxt&#34;&gt;2015-06-30&lt;/div&gt;&lt;/div&gt;&lt;br style:&#34;clear:left&#34; clear:&#34;left&#34;/&gt;&lt;br style:&#34;clear:left&#34; clear:&#34;left&#34;/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Aterm WR8700NとSBM 945SHの関係</title>
+      <link>https://barippi.github.io/post/31876239/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876239/</guid>
+      <description>&lt;p&gt;どうにも調子が悪いのですよ。&lt;br/&gt;
+ &lt;br/&gt;
+2段階パケット定額でもWifiを使えるのを知ったので加入して、自室にあるNECアクセステクニカのルーターWR8700N経由でWebページ見たりしてるんですけど、数分に1回の頻度でルーターが再起動してしまうんですよね。&lt;br/&gt;
+ &lt;br/&gt;
+他の無線LAN機器では起こらなくて、このWifiケータイであるところの945SHをつなげた時だけルーターが再起動します。明日ショップに相談しに行ってみよう。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Aterm WR8700NとSBM 945SHの関係2(解決編)</title>
+      <link>https://barippi.github.io/post/31876233/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876233/</guid>
+      <description>&lt;p&gt;結論：ルーターのデグレードバグでした。&lt;br/&gt;
+WR8700Nの最新ファームウェアバージョンは1.0.13なんですけど、いっこ前の1.0.4にしたらルーターがリセットしなくなった。YouTubeも見れた。いやっはー！&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Aterm WR8700NとSBM 945SHの関係3</title>
+      <link>https://barippi.github.io/post/31876232/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876232/</guid>
+      <description>&lt;p&gt;不具合情報を出したわけだが、「前例なし」とのこと。Mmm…。&lt;br/&gt;
+相性なんですかね。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Aterm WR8700NとSBM 945SHの関係4</title>
+      <link>https://barippi.github.io/post/31876231/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876231/</guid>
+      <description>&lt;p&gt;いつの間にかルーターのファームウェアがバージョンアップしていた。1.0.14。早速入れてみたけどまたダメ。ケータイをつなぐだけでルーターが再起動を繰り返す。&lt;br/&gt;
+何が悪いんだろうなぁ。俺には皆目見当もつかない。貸出機でもなったけど同じモデルだからどっちが悪いとは言えないんだけど。あと7ヶ月使わないといけないのでファームウェアを不具合のでない1.0.4に戻した。ぐぅ…。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HP ProLiant ML110 G7のメモリを交換した</title>
+      <link>https://barippi.github.io/post/31876213/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876213/</guid>
+      <description>&lt;p&gt;NTT-Xストアで買ったサーバー機ですが2GBのメモリが刺さってます。まあUbuntuなんで2GBでも超絶余裕で動くのですがなんとなく+2GBしたくなってアマゾンにメモリを探しに行った。&lt;br/&gt;
+ &lt;br/&gt;
+話によればこのメモリは「Unbuffered ECC メモリ」でないとダメだと検索で知り、アマゾンで探してみると下記があった。&lt;br/&gt;
+ &lt;br/&gt;
+&lt;a href=&#34;https://amzn.to/PyKxks&#34;&gt;Transcend 240PIN デスクトップPC用増設メモリ DDR3-1333 ECC機能付 4GB 永久保証 TS512MLK72V3N&lt;/a&gt;&lt;br/&gt;
+ &lt;br/&gt;
+ホントは2GBのメモリ買ってデュアルチャネルでうふふふ～んとしたかったのだけれど、もう数がないのか上記のメモリより高い。ということでこれに決定した。&lt;br/&gt;
+ &lt;br/&gt;
+今日届きさっそく挿してみた。2GB+4GBのデュアルチャネルはダメかなーと思い2GBを引っこ抜きそこに4GBを入れた。&lt;br/&gt;
+ &lt;br/&gt;
+起動するとメモリチェックがぴょっと走り無事認識された。Ubuntu上でもちゃんと4GB認識されている。&lt;br/&gt;
+ &lt;br/&gt;
+さて、この2GBメモリ、どうしてくれよう…。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Linuxマシンに中古PCを使う良し悪し</title>
+      <link>https://barippi.github.io/post/31876178/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876178/</guid>
+      <description>&lt;p&gt;Linux関係では「余ったPCに入れる」というのが少なからず書かれているのですが、個人的にはNTT-Xストアにあるような新品のサーバー機に入れるのが良いのではと思っています。&lt;br/&gt;
+　その言葉に乗せられて3年落ちのマシンに入れたことがあるのですがしょっちゅうフリーズに悩まされました。&lt;br/&gt;
+　中古ということでLinux的にも枯れてて問題なく入るのですが中古PCだといろいろガタがきているのです。それがフリーズする原因。&lt;br/&gt;
+　耐え切れなくなってNTT-Xストアで売っていたhpのML110 G7を買ってそれに今入れてるのですがまったく落ちない。順調に動いております。&lt;br/&gt;
+　まあ個人的には型落ちマシンに入れてみて使えるようであればそれに越したことはないのですが、フリーズするなら安鯖をかって安定運用した方がいいと思います。初期ストレージとして250GBクラスのHDDがついてるので軽いファイルサーバーやらWebサーバーなどにいいと思います。ML110 G7なら空きHDDスロットが3つあるのでそれにHDDを載せてRAIDというのも良いかと思います。今は空きスロットの3台3TB HDDを載せて怖いもんなしのRAID0運用してます。ファイル転送速度も早くていいです。HDD1台壊れるとすべてのデータをロストしてしまいますが…。万全を期すなら2台入れてRAID1運用ですがリビルド中にもう一個が壊れるという懸念もあります。&lt;br/&gt;
+　本格的に使うなら新しいマシン、サーバーを用意しといたほうがいいです。1万円ちょっとで買えます(OSなし構成の場合)し。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MicroSDカードが届いたのでM1の話をもう少し</title>
+      <link>https://barippi.github.io/post/72242210/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/72242210/</guid>
+      <description>&lt;p&gt;&lt;a target:&#34;_blank&#34; title:&#34;Screenshot_20170819-163359&#34; href=&#34;https://barippi.github.io/images/fe0c0a97.png&#34;&gt;&lt;img class:&#34;pict&#34; hspace:&#34;5&#34; alt:&#34;Screenshot_20170819-163359&#34; border:&#34;0&#34; height:&#34;853&#34; width:&#34;480&#34; src=&#34;https://barippi.github.io/images/fe0c0a97.png&#34;/&gt;&lt;/a&gt;&lt;br/&gt;&lt;a target:&#34;_blank&#34; title:&#34;1503127987567&#34; href=&#34;https://barippi.github.io/images/f14ac426.jpg&#34;&gt;&lt;img class:&#34;pict&#34; hspace:&#34;5&#34; alt:&#34;1503127987567&#34; border:&#34;0&#34; height:&#34;853&#34; width:&#34;480&#34; src=&#34;https://barippi.github.io/images/f14ac426.jpg&#34;/&gt;&lt;/a&gt;&lt;br/&gt;　Hiby Linkの様子。再生中の楽曲がスマホにも表示されている。&lt;br/&gt;&lt;br/&gt;　MicroSDカードが届いたのでファームウェアを3.0にアップした。ハイゲインに設定し、HD650で普通に聞けた。この小さい筐体のどこにこのドライブぢからが！&lt;br/&gt;&lt;br/&gt;　MicroSDカードは128GBのを買いまして、ほぼフルに楽曲詰め込んでスキャンさせたが15000曲を約9分でスキャン完了。すごく早いのではと思いました。つか楽曲登録上限が15000曲なんですかね。適当に詰め込んできっかり15000曲ということはないと思うのですが・・・。ファイル17000以上あるなぁ。やっぱり上限なのかも。&lt;br/&gt;&lt;br/&gt;　mp3も普通にいい音で聞こえる。ハイレゾFLAC、DSDは言わずもがな。15k円の低価格帯DAPでDSDが普通に聞ける時代が来るとは思いませんでした。いい時代になったのものです。&lt;br/&gt;&lt;br/&gt;　Hiby Linkも試してみました。まずはM1のほうでHiby LinkをONにしてスマホにファームウェアが入っていたzipファイルからHiby Musicのapkファイルを転送し、インストールします。私が入れた時には更新が入りました。で、Hiby MusicからM1に接続する形になります。Bluetoothで接続されます。接続されると楽曲一覧等がスマホに転送され、スマホからM1を操作できるようになります。&lt;br/&gt;&lt;br/&gt;　これがすごく便利。M1の小ささが災いして楽曲、フォルダ一覧が少々見づらいんですけど、Hiby Linkだと一度スマホに転送されるとスワイプでビャーっと見られるのでいいですね。フォルダ長押しでその下のファイル全部プレイになるといいんですがスマホでもフォルダを削除するになっててそこは残念。&lt;br/&gt;&lt;br/&gt;　あとはスマホの方で再生中の楽曲が確認できたり、ですね。スキップとかもできる。&lt;br/&gt;&lt;br/&gt;　Hiby Link搭載ですごく便利になったM1、いかがですか！？&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;div class:&#34;amazon Default&#34;&gt;&lt;div align:&#34;left&#34; class:&#34;pictBox&#34;&gt;&lt;a target:&#34;_blank&#34; href=&#34;https://www.amazon.co.jp/%E3%80%90%E5%9B%BD%E5%86%85%E6%AD%A3%E8%A6%8F%E5%93%81%E3%80%91SHANLING-%E3%83%8F%E3%82%A4%E3%83%AC%E3%82%BE%E5%AF%BE%E5%BF%9C%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%83%E3%82%AF%E3%83%97%E3%83%AC%E3%83%BC%E3%83%A4%E3%83%BC-M1-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF-M1-BK/dp/B01N433WIM?psc:1&amp;amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;amp;tag:anmarikousins-22&amp;amp;linkCode:xm2&amp;amp;camp:2025&amp;amp;creative:165953&amp;amp;creativeASIN:B01N433WIM&#34;&gt;&lt;img class:&#34;pict&#34; style:&#34;margin-right:10px&#34; align:&#34;left&#34; hspace:&#34;5&#34; border:&#34;0&#34; alt:&#34;【国内正規品】SHANLING ハイレゾ対応ミュージックプレーヤー M1 ブラック M1-BK&#34; src=&#34;https://images-fe.ssl-images-amazon.com//images/I/41lHsQOls8L._SL160_.jpg&#34;/&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class:&#34;itemTitle&#34;&gt;&lt;a target:&#34;_blank&#34; href=&#34;https://www.amazon.co.jp/%E3%80%90%E5%9B%BD%E5%86%85%E6%AD%A3%E8%A6%8F%E5%93%81%E3%80%91SHANLING-%E3%83%8F%E3%82%A4%E3%83%AC%E3%82%BE%E5%AF%BE%E5%BF%9C%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%83%E3%82%AF%E3%83%97%E3%83%AC%E3%83%BC%E3%83%A4%E3%83%BC-M1-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF-M1-BK/dp/B01N433WIM?psc:1&amp;amp;amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;amp;amp;tag:anmarikousins-22&amp;amp;amp;linkCode:xm2&amp;amp;amp;camp:2025&amp;amp;amp;creative:165953&amp;amp;amp;creativeASIN:B01N433WIM&#34;&gt;【国内正規品】SHANLING ハイレゾ対応ミュージックプレーヤー M1 ブラック M1-BK [エレクトロニクス]&lt;/a&gt;&lt;/div&gt;&lt;div class:&#34;itemSubTxt&#34;&gt;SHANLING(シャンリン)&lt;/div&gt;&lt;/div&gt;&lt;br style:&#34;clear:left&#34; clear:&#34;left&#34;/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PC内蔵のBDドライブでCDがリッピングできなかった話(解決済み)</title>
+      <link>https://barippi.github.io/post/31876149/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876149/</guid>
+      <description>&lt;p&gt;PCを買った時に内蔵されていたBDドライブが、BDとかDVD見れるのにCDがリッピングできない、そんな症状を起こしていました。&lt;br/&gt;
+　厄介なのはソフトによってできるできないの差があったこと。EACとCDexでできなくてWinampとxrecordIIとWindows Media Playerではできていた。後者の3つは日常的には使わない。EACでリッピングしたい。なので緊急時に備えて買っていたUSB接続のDVDドライブを使ってリッピングしていた。&lt;br/&gt;
+　ちょっと前に似たような人の体験談を見ていたら「SATAケーブルを挿し直したら直った」というのを見て「やるかー」と思っていたもののケース開けるのめんどくさくて今日まで放置していた。&lt;br/&gt;
+　で、ついさっきやる気起こしてやってみたらビンゴ。普通にリッピングできるようになった。どんな些細な事でもやってみるものである。よーく見ると端子が斜めになっていたので接触が悪かったのか。&lt;br/&gt;
+　これからはちょっと読み込みの遅いUSB-DVDドライブを使わなくて良くなったのはいいことである。誰だかしらないが書いといてくれてありがとう。あなたのおかげで直った。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SBMショップに行ってきた</title>
+      <link>https://barippi.github.io/post/31876234/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876234/</guid>
+      <description>&lt;p&gt;シャープさんの方では事象を再現することはできなかった、とのこと。基板交換だけされて戻って来ました。あんしん保証パックだかに入っていたので修理代金はダータ。&lt;br/&gt;
+家に戻りルーターにつなげてみるも、またルーター再起動の繰り返し。うーん…。ルーターが悪いんかねぇ。でも他の機器は問題なく使えてるしなぁ……。&lt;br/&gt;
+あー、めんどい…。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SHANLING M1を買いました</title>
+      <link>https://barippi.github.io/post/72234405/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/72234405/</guid>
+      <description>&lt;p&gt;&lt;a target:&#34;_blank&#34; title:&#34;storageemulated0SilentCameraSoft1503063667637&#34; href=&#34;https://barippi.github.io/images/7541f9be.jpg&#34;&gt;&lt;img class:&#34;pict&#34; hspace:&#34;5&#34; alt:&#34;storageemulated0SilentCameraSoft1503063667637&#34; border:&#34;0&#34; height:&#34;270&#34; width:&#34;480&#34; src=&#34;https://barippi.github.io/images/7541f9be.jpg&#34;/&gt;&lt;/a&gt;&lt;br/&gt;　左がオーパーツ(言い過ぎ)alneo XA-V80。右がUSB接続中のM1。&lt;br/&gt;&lt;br/&gt;　昨日軽率にSHANLING M1を買ってしまいました。&lt;br/&gt;&lt;br/&gt;　理由「小さくて、音がいい(らしい)から！」&lt;br/&gt;&lt;br/&gt;　MicroSDカードが届いてないのでUSB DACとしての評価になります。&lt;br/&gt;&lt;br/&gt;　alneoが容量以外が良すぎて最近のDAP知らなかったんですけど、このM1が非常に多機能で音質も値段の割には良いというレビューをそれなりに見て「ならば！」ということで。MicroSD 256GBまで使えるのもいいですね。&lt;br/&gt;&lt;br/&gt;　HA-FX850、HFI-780で聞いてみましたがローゲインで音量30あたりでちょうどいい音量になります。買うまで知らなかったんですけどヘッドホン出力でローゲイン、ハイゲインが選べてΩ値が高いお値段のお高いヘッドホンも駆動できるらしい。あとでHD650を繋げてみよう。&lt;br/&gt;&lt;br/&gt;　で、USB DACとして使うにはSHANLINGのサイトからドライバーをダウンロードしてインストールします。1MBくらいの小さいファイルです。速度が遅いけど1MBならすぐにダウンロードできます。ASIOドライバーもあるのがいいですね。&lt;br/&gt;&lt;br/&gt;　肝心の音質ですがフラット目です。変に音を作ったりしてないのは良かったなぁと。解像度はそんなに高くない。はっきりくっきりというところより若干まろやか。alneoがそんな音だったので、好きな音ですね。&lt;br/&gt;&lt;br/&gt;　女性ボーカルが得意じゃないというレビューも見られますがこれは多分耳が良すぎる人たちの意見という感じかなぁ。普通の人が聞く分には得意とか不得意とかわからないと思います。それだけ完成度は高いです。&lt;br/&gt;&lt;br/&gt;　alneoから移ってくるにはちょうどいいのかなぁと思います。値段的にも音質的にも。&lt;br/&gt;&lt;br/&gt;　操作感は悪くないです。ジョグダイヤルいいね！かっちりしたダイヤルで好きです。ジョグダイヤルがあるおかげで側面のボタンも探しやすいと思います。&lt;br/&gt;&lt;br/&gt;　総合的に見ると「買ってよかった」ですね。15k円でこれ以上望むのは酷というものです。大きさ大満足、音質満足、機能大満足です。&lt;br/&gt;&lt;br/&gt;&lt;div class:&#34;amazon Default&#34;&gt;&lt;div align:&#34;left&#34; class:&#34;pictBox&#34;&gt;&lt;a target:&#34;_blank&#34; href=&#34;https://www.amazon.co.jp/%E3%80%90%E5%9B%BD%E5%86%85%E6%AD%A3%E8%A6%8F%E5%93%81%E3%80%91SHANLING-%E3%83%8F%E3%82%A4%E3%83%AC%E3%82%BE%E5%AF%BE%E5%BF%9C%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%83%E3%82%AF%E3%83%97%E3%83%AC%E3%83%BC%E3%83%A4%E3%83%BC-M1-%E3%83%96%E3%83%AB%E3%83%BC-M1-BL/dp/B01N77GXZ0?psc:1&amp;amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;amp;tag:anmarikousins-22&amp;amp;linkCode:xm2&amp;amp;camp:2025&amp;amp;creative:165953&amp;amp;creativeASIN:B01N77GXZ0&#34;&gt;&lt;img class:&#34;pict&#34; style:&#34;margin-right:10px&#34; align:&#34;left&#34; hspace:&#34;5&#34; border:&#34;0&#34; alt:&#34;【国内正規品】SHANLING ハイレゾ対応ミュージックプレーヤー M1 ブルー M1-BL&#34; src=&#34;https://images-fe.ssl-images-amazon.com//images/I/41wJQBQJxmL._SL160_.jpg&#34;/&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class:&#34;itemTitle&#34;&gt;&lt;a target:&#34;_blank&#34; href=&#34;https://www.amazon.co.jp/%E3%80%90%E5%9B%BD%E5%86%85%E6%AD%A3%E8%A6%8F%E5%93%81%E3%80%91SHANLING-%E3%83%8F%E3%82%A4%E3%83%AC%E3%82%BE%E5%AF%BE%E5%BF%9C%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%83%E3%82%AF%E3%83%97%E3%83%AC%E3%83%BC%E3%83%A4%E3%83%BC-M1-%E3%83%96%E3%83%AB%E3%83%BC-M1-BL/dp/B01N77GXZ0?psc:1&amp;amp;amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;amp;amp;tag:anmarikousins-22&amp;amp;amp;linkCode:xm2&amp;amp;amp;camp:2025&amp;amp;amp;creative:165953&amp;amp;amp;creativeASIN:B01N77GXZ0&#34;&gt;【国内正規品】SHANLING ハイレゾ対応ミュージックプレーヤー M1 ブルー M1-BL [エレクトロニクス]&lt;/a&gt;&lt;/div&gt;&lt;div class:&#34;itemSubTxt&#34;&gt;SHANLING(シャンリン)&lt;/div&gt;&lt;/div&gt;&lt;br style:&#34;clear:left&#34; clear:&#34;left&#34;/&gt;&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SOFTBANK MOBILEの203SH Xxに機種変した</title>
+      <link>https://barippi.github.io/post/31876199/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876199/</guid>
+      <description>&lt;p&gt;昨日はヨドバシカメラに行って携帯電話の機種変更をして来ました。&lt;br/&gt;
+　機種は発表時から決めていた203SH Xx。初スマフォです。&lt;br/&gt;
+　モバイルSuicaの移行でちょっとトラブルがありましたが40分くらいで完了。&lt;br/&gt;
+　帰りに触ってみたんですが、よくわからない(笑。&lt;br/&gt;
+　家に帰ってじっくり触ってみることに。GoogleアカウントはPC用と分けたかったので新規取り直し。使いたい名前がことごとく取られててあまり人に教えたくないアカウント名に。まあ人に教えるのはvodafone時代のメアドなのでその辺はどうにかなりそう。カレンダーも重ねればいいだけですね。&lt;br/&gt;
+　UULAとYahoo!プレミアムは無事電話で解約完了。こういう強制オプションってどうにかならないんですかねぇ。&lt;br/&gt;
+　モバイルSuicaも無事再発行完了。500円持っていかれました(笑。&lt;br/&gt;
+　モバゲも移行完了。ブラウザから「モバゲー」って検索してわざわざ行ったのに下の方に「モバゲー」のボタンが。ギギギ。&lt;br/&gt;
+　あー、あとテザリングやってみました。割と簡単にできる。「USBで接続した時」って書いてたんですがあれアリなんですかね。パケホ対象じゃないとどこかで聞いた気がしますがモデムとして使った時とテザリングで使った時になにか違いがあるのでしょうか。よくわかりません。&lt;br/&gt;
+　まだ買いたてほやほやなので能力の10%も使ってないと思う。ぼちぼち触っていきたいと思います。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SONY MDR-XD150を買いました</title>
+      <link>https://barippi.github.io/post/74423463/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/74423463/</guid>
+      <description>&lt;p&gt;あけましておめでとうございます。本年も弊ブログをよろしくお願いします。&lt;br/&gt;　SNSで「いにしえの名機MDR-CD380持ってるぜ」と自慢したところ「おい、おっさん今はMDR-XD150がきてるんだぜ」と教えていただいたので値段もヨドバシで1970円と手頃だったため購入してみました。アマゾンでは&lt;a target:&#34;_blank&#34; href=&#34;https://amzn.to/2qExPNG&#34;&gt;こちら&lt;/a&gt;です。&lt;br/&gt;　密閉型ですがあんまり遮音性はありません。まあ2000円しないヘッドホンだしそんなもんかと音を聞いてみたらめっちゃびっくり。MDR-CD380より音が良い！大体15年の歳月がドライバー技術を底上げさせたのかそれとも側をコストダウンさせまくってドライバーにコストを集中させたのかはわかりませんがアンダー2000円クラスでこの音質はあっぱれ。&lt;br/&gt;　ヨドバシではテレビ向けとして売っていましたが音楽を聴くのもよくて、中高音が結構得意で女性ボーカルをよく聞く人はいいんじゃないでしょうか。だからといって低音がおろそかかといわれればそうではなく、必要十分な量は出てます。&lt;br/&gt;　前述したように遮音性がない、また逆もしかりで密閉型の割には音漏れするので外で使うには向いてません。パッケージにも「室内用」とシールが貼ってあります。&lt;br/&gt;　後特筆したいのは圧倒的な軽さ。コード抜き重量が確か160gということで、かなり軽いです。ヘッドホンを付けているのを忘れるくらいの軽さです。側圧も強くなく、メガネをかけてても耳が痛くなりません。&lt;br/&gt;　アンダー2000円クラスのヘッドホンはこれ一個しか持ってませんが「もしかしてアンダー2000円クラスでベストバイなのでは？」と思えるくらいのヘッドホンです。&lt;br/&gt;　2000円しないのでだまされたと思って買ってみてください。きっとびっくりします。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>TEAC UD-H01を1ヶ月ほど使ってみて</title>
+      <link>https://barippi.github.io/post/31876210/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876210/</guid>
+      <description>&lt;p&gt;いまさら気づいたんですが、スピーカーの存在感が消えました。これは結構すごいことだと思うんですよ。スピーカーから音が出てるように聴こえなくて、その2つのスピーカーの間から音が出てるように聴こえる。&lt;br/&gt;
+あと、アップサンプリングはON/OFF切り替えられたらもうちょい遊べたかなーと。&lt;br/&gt;
+このDACに代えてからはPC音源はUSB経由で聴いてるんですけど、いきなり接続がおかしくなる。音が出なくなるんですよ。本体の電源を入れなおすと直るんだけど、何回かやるとUSBが原因でブルースクリーンになる。&lt;br/&gt;
+ショップブランドPCは保証の範囲外だそうで文句言いたくても言えない。今時どうかと思うんですがねぇ。完全自作PCと違って動作はショップが保証してるんだし保証内に入れてもいいと思う。&lt;br/&gt;
+foobar2000のWASAPI(event)のアウトプットで音の同期がずれる。タイマーだとそもそも音が出ない。Winampのout_maikoとかuLILITHだとならないんですがねぇ。なのでWinampで聴いてますわ。ずれても再生し続けると直ったりするのでよく分からない。が、他でそうなってないのでfoobar2000のプラグインがおかしいんだと思う。つかUSBはまだ不安定なのかな。ドライバのバージョン上がるまではUSB以外で聴くか…。&lt;br/&gt;
+こんなところでしょうか。ドライバのメンテだけはしっかりやって欲しいですねぇ。&lt;br/&gt;
+ &lt;br/&gt;
+以上。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

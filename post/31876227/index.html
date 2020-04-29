@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> Rhythmboxの曲名とか文字化けする話のまとめ &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/31876227/">Rhythmboxの曲名とか文字化けする話のまとめ</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>NASとして作ったUbuntuマシンですが、デスクトップアプリも入ってるということでプリインストールされているRhythmboxのライブラリにmp3突っ込んでmp3聴いてみようとしたら案の定文字化け。<br/>
+ <br/>
+これはWindowsで作成したmp3ファイルのID3タグの文字コードにShift-JISが使用されているからで、デフォルトでUTF-8を使うUbuntuでは表示できないというもの。最近の日本語CDDBではユニコードを返すことが多くなり、CDリッパーの設定でユニコードを使用することもできるので最近のmp3ファイルは文字化けしなかったりします。<br/>
+ <br/>
+これを直すべく検索してみて、まず <a href="https://ubuntumusichour.blog69.fc2.com/blog-entry-7.html">https://ubuntumusichour.blog69.fc2.com/blog-entry-7.html</a> を参考にEasy TAGにてタグ変換を行いましたがあまり上手くいかず。変換しなくていいファイルまでしちゃった感じ。あとID3タグVer1しかないファイルがあったのがまずかったのかもしれない。Ver1では確か多言語対応してなかった(というか決まりがなかった)から。<br/>
+ <br/>
+次。「iTunesで簡単に変換できますよ」と <a href="https://forums.ubuntulinux.jp/viewtopic.php?id:1811">https://forums.ubuntulinux.jp/viewtopic.php?id:1811</a> にあったので試してみた。宗教上の理由でiTunesは入れてなかったのですが、このためだけにインストール。全曲をライブラリに突っ込み、曲をすべて選択して右クリックから「ID3タグを変換」を選び、出てきたダイアログでID3タグバージョンを「Ver 2.4」を選び、OKボタンを押す。UTF-8がタグに使えるのはVer 2.4だけです。これでもあまり上手くいかず。アルバム名がどこの文字なんだかよくわからないものになったりした。<br/>
+ <br/>
+最後に試したのが <a href="https://d.hatena.ne.jp/over80/20100224/1267021620">https://d.hatena.ne.jp/over80/20100224/1267021620</a> の環境変数を設定する方法。端末を立ち上げ、「export GST_TAG_ENCODING:CP932」を打ち込み、設定をし、その端末からRhythmboxを立ち上げる。ライブラリをすべて選び、メニューの「編集」から「削除」を選びファイルをライブラリに登録し直す。これで上手くいきました。この方法のいいところはUTF-8で書かれているタグもちゃんと読み込めるところ。エントリにある通り、「~/.xprofile」に登録しておけば今後再起動しても設定が有効になります。<br/>
+ <br/>
+これでようやく安心して音楽が聴けます。やれやれ。<br/></p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/248475618.html/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/31876148/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

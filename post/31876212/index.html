@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> 液晶が割れたまま放置してたネットブックにLubuntuを入れた(追記アリ) &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/31876212/">液晶が割れたまま放置してたネットブックにLubuntuを入れた(追記アリ)</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>うちにはネットブックが3台あります。最初に買って寝てる間に液晶を割った1号と簡易サーバーにしている2号と現在Lubuntuを入れて布団サイドPCとして使っている3号です。どれも世代は最古の部類に入るネットブックです。<br/>
+ <br/>
+今回は1号のお話。ネットブックには幸いにしてD-SUB15ピン出力があるのでそれにディスプレイをつないで作業しました。<br/>
+ <br/>
+インストールそのものはUSBメモリから立ち上げてインストールのいつものやり方。もう何回もやってるので迷うこと無く無事インストール完了。有線LANから無線LANへの切り替えも行った。<br/>
+ <br/>
+次にリモートデスクトップ環境を構築します。これはapt-get一発です。<br/>
+<ul><br/>
+<li>$ sudo apt-get install xrdp xvfb vnc4server lxde-common</li><br/>
+</ul><br/>
+これでxrdpを起動し直す(sudo service xrdp restart)するだけでつながるようになります。Windows7ならスタートボタン→アクセサリ→リモートデスクトップ接続でrdpクライアントを立ちあげて、マシン名入力を行い接続ボタンをクリックしてID、PASSを入れると画面がバーンと出てきます。テーマ等はLubuntuオリジナルのではなくLXDE標準のものになります。<br/>
+ <br/>
+ですが、そんなにうまく事が進まないのは世の常で、今の状態だとキーボードが英語配列になってしまうのです。まあもともとUS配列の人はそれでいいんでしょうけど、日本語キーボード使いには困った問題。 <a href="https://www.eonet.ne.jp/~smallbear/X/xrdp-jpkeymap.html">https://www.eonet.ne.jp/~smallbear/X/xrdp-jpkeymap.html</a> で解決方法を書いているが、これでも直らない。Lubuntu側のキーマップを変更するアプレットも立ち上がらない。まあ自力でKeymap作ってもいいのでしょうがそこまでやるような事でも無いと思いそのまま使ってます。(追記あり)<br/>
+ <br/>
+ここまできたらディスプレイケーブルを外し、熱のこもらないところに放置。<br/>
+ <br/>
+というか、このマシン、何に使おう……。<br/>
+ <br/>
+追記&ndash;<br/>
+<a href="https://gihyo.jp/admin/serial/01/ubuntu-recipe/0208">https://gihyo.jp/admin/serial/01/ubuntu-recipe/0208</a> このページで公開されているリポジトリのxrdpを入れたら日本語キーボードが認識されました。大変ありがたいことです。<br/></p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/248474403.html/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/248475759.html/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

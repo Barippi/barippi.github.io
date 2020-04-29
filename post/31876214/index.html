@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> MUNIN＋SNMPでパソコンを監視する &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/31876214/">MUNIN＋SNMPでパソコンを監視する</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>ねぇMUNIN こっちむ～いて～♪(お約束)<br/>
+ <br/>
+「MUNIN SNMP」で検索したらいろいろ出てきたのでSNMPを使用してステータスを表示してみました。環境はノードのWindowsXP、Windows7、そしてノード＋サーバーのUbuntu 12.04です。<br/>
+ <br/>
+まずサーバーであるUbuntuにPerlを入れます。多分入ってると思いますが…。そしてCPANからNet::SNMPをインストールします。多分入ってると思いますが…。<br/>
+ <br/>
+WindwosXPとWindwos7にSNMPモジュールをインストールします。例としてWindows7ではコントロールパネルの「プログラムと機能」から左上の「Windowsの機能の有効化または無効化」を選び「簡易ネットワーク管理プロトコル(SNMP)」にチェックを入れて「OK」ボタンを押下します。これでSNMPサービスがインストールされます。<br/>
+ <br/>
+そしてサービスの設定を行います。コントロールパネルの「管理ツール」から「サービス」を立ち上げ、サービスの「SNMP Service」をダブルクリックしてプロパティを出します。そしてプロパティの「トラップ」タブに移行し、コミュニティ名を設定しますコミュニティ名は自分が分かるならなんでも構いません。ただ「public」という名前はやめておいた方が無難です。「一覧に追加」ボタンを押下したら今度は「トラップ送信先」の「追加」ボタンを押下し、MUNINサーバーのIPアドレスを追加します。設定を終えたら次は「セキュリティ」タブに移行します。そうすると先程追加したコミュニティ名があるのでコミュニティを選び「編集」ボタンを押下します。権利は「読み取りのみ」にしてください。そして「これらのホストからSNMPパケットを受け付けるを押下し、ホストを追加します。これはMUNINサーバーのIPアドレスを指定してください。これでWindows側の設定は終わりです。SNMP Serviceを再起動してください。<br/>
+ <br/>
+サーバー機もSNMP経由で見たい場合は、サーバーにもsnmpdを入れます。Ubuntuサーバーとか他はどうだか知りませんがUbuntuデスクトップはsnmpdが入ってないので(GUIが無いとダメなヘタレっ子なのでUbuntuデスクトップをサーバーにしています)<br/>
+<ul><br/>
+<li>$ sudo apt-get install snmpd</li><br/>
+</ul><br/>
+としてインストールを行なってください。<br/>
+「/etc/snmp/snmpd.conf」の編集は例を見ながらということで。そんなに難しくないです。<a href="https://netlog.jpn.org/r271-635/2007/07/ubuntusnmp.html">https://netlog.jpn.org/r271-635/2007/07/ubuntusnmp.html</a> そっけない書き方ですがわかりやすい。<br/>
+ <br/>
+ MUNINページにIPアドレスが出るのが嫌なので「/etc/hosts」にホストを追加します。localhostの書き方を参考にして「192.168.0.10 hogehoge」等と入れてください。<br/>
+ <br/>
+次は「/etc/munin/munin.conf」の編集。追加するマシン名が「hogehoge」の場合。<br/>
+<pre>[hogehoge]<br/>
+    address localhost<br/>
+    use_node<em>name no</pre><br/>
+のようにします。アドレスがlocalhostなのがミソです。自ノードのmunin-nodeから対象マシンにアクセスしてるみたいなんですね。だからSNMP経由で見たいマシンの場合、アドレスはすべてlocalhostになります。<br/>
+<ul><br/>
+<li>$ sudo munin-node-configure &ndash;snmpversion 1 &ndash;snmp hogehoge</li><br/>
+</ul><br/>
+としてSNMPを話しているか確認ができます。話しているとわかったら、<br/>
+<ul><br/>
+<li>$ sudo munin-node-configure &ndash;snmpversion 1 &ndash;snmp hogehoge &ndash;shell &gt;munin.sh</li><br/>
+</ul><br/>
+と「&ndash;shell」オプションを付けるとプラグイン設定のためのシェルスクリプトを自動で書いてくれます。マシンによってはプラグインが多すぎる事があるのでテキストエディタを使って各々欲しい機能以外を削除するといいでしょう。<br/>
+<ul><br/>
+<li>$ sudo sh munin.sh</li><br/>
+</ul><br/>
+としてシェルを実行します。<br/>
+「/etc/munin/plugin-conf.d/munin-node」の編集をします。<br/>
+<pre>[snmp</em>*]<br/>
+env.version 1<br/>
+env.community public</pre><br/>
+とします。コミュニティ名は最初のほうで指定したコミュニティ名にします。そして最後に<br/>
+<ul><br/>
+<li>$ sudo service munin-node restart</li><br/>
+</ul><br/>
+を実行するとあとは勝手に各マシンにSNMP経由で値を取りに行きます。<br/>
+ <br/>
+お疲れ様でした。<br/></p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/31876221/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/31876145/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

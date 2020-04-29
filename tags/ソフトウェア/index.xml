@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ソフトウェア on 取るに足らぬ者</title>
+    <link>https://barippi.github.io/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/index.xml</link>
+    <description>Recent content in ソフトウェア on 取るに足らぬ者</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://barippi.github.io/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>(自分は)ノンプログラミングでMovableType形式のファイルをHexoのマークダウン形式ファイルに変換した話</title>
+      <link>https://barippi.github.io/post/2019/0519-MovabletypetoHexo/</link>
+      <pubDate>Sun, 19 May 2019 21:41:12 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/2019/0519-MovabletypetoHexo/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://qiita.com/barippi/items/fe0e6914d6d6efd0ff03&#34;&gt;(自分は)ノンプログラミングでMovableType形式のファイルをHexoのマークダウン形式ファイルに変換した話&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;書きました。対戦よろしくお願い致します。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2ヶ月Ubuntuデスクトップをサーバーとして使ってみて</title>
+      <link>https://barippi.github.io/post/31876223/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876223/</guid>
+      <description>&lt;p&gt;早いもので余ったマシンにUbuntuデスクトップを入れて2ヶ月弱になります。使ってみての雑感を。お断りですが、私のマシンが以下の症状の原因である事も考えられますので、一般的にそうという事ではありません。&lt;br/&gt;
+ &lt;br/&gt;
+Sambaがよく止まる。ファイルコピーやらでSambaのお世話になる機会が多いんですが、システムまで巻き込んで止まるのはどうなのかなーと。Sambaが悪いのではないのですかね。OOMキラーが働いているとか？ギガビットイーサなのでファイルコピーに100MB/s出たりするのは良い。でも音楽聴く時のチョロチョロファイル受け渡すのでもたまに止まる。何が悪いのか良く分からない。システム巻き込むってことはカーネルが弱い？あー、メモリかな？まあ古いマシンなのでありえますね。&lt;br/&gt;
+ &lt;br/&gt;
+PS3 MediaServerもたまに止まる。これも原因が分からない。Sambaが落ちるのと原因は一緒な気がするが…。ファイルシステムが悪い？調子こいてRaid 0で運用してるからかなぁ。&lt;br/&gt;
+ &lt;br/&gt;
+そして復帰に時間が掛かる。リセットボタン押して20分たっても画面に何も出てこない、そしてブートドライブを読んでないとかよくあります。これも原因がわからない。2回目のリセットでリカバリモード選択するとうまくいく感じ。ブートドライブがUSBメモリというのは悪くないと思うんだけど…。&lt;br/&gt;
+ &lt;br/&gt;
+aptシステムはいいですね。GUIでもCUIでも思い立った時にセキュリティアップデートができる。しかもMicrosoft Updateよりも速い。カーネルとかX Window System以外のアップデートなら再起動しなくてもよい。これは本当に素晴らしい。Microsoft Updateはたいてい再起動要求されますからね…。&lt;br/&gt;
+ &lt;br/&gt;
+あと速い。元のサーバーがAtomだったせいもあるけどね。Core2Duoになって激速。cgiでそう感じる。&lt;br/&gt;
+ &lt;br/&gt;
+そんな感じです。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Chromium OSを触ってみた</title>
+      <link>https://barippi.github.io/post/31876161/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876161/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://goo.gl/EX9dz6&#34;&gt;日経Linux 2013年12月号&lt;/a&gt;で「最新Chrome OSで軽量マシン」という特集があったのでついついビルド環境作って触ってみました。まあオープンソース版なので正確にはChromium OSですが。&lt;br/&gt;
+　「Chrome OS」とはなんぞやということですが、GoogleがUbuntuを元にして作ったGoogle Chromeブラウザ内ですべてが完結するOSです。日本国外ではエイサー、サムスン、ヒューレット・パッカード、レノボ、グーグルがChromebook、Chromebox(デスクトップマシン)として製品を出しています。輸入もできるんじゃないかな。&lt;br/&gt;
+　うちにはもうすぐサポートが終わってしまうWindows XPのネットブック(最初のAspire One)があったのでそれに入れてみよう、と。思い立ってしまったわけです。&lt;br/&gt;
+　ちょっと前までデイリーでビルドしてライブイメージを提供してた人がいたのですが、やめてしまったみたいで、最新のを使おうとすると自分でソースコードからビルドするしかありません。ビルドします。はい。&lt;br/&gt;
+　公式のビルド環境はUbuntu 12.04 LTSの64bit版。提供されている開発環境が64bit版しかないからみたいです。でも初期ネットブックに対応する32bit版もここからビルドすることができます。&lt;br/&gt;
+　私はビルド環境がなかったので仮想マシンを作り、そこにUbuntu 64bit版を入れました。メモリは4GB、HDDが100GB(実はこんなにいらない)、CPUコアは2つにしました。もしSSDを50GBくらい使えるならそうした方がいいです。ビルド速度とかライブイメージ作成速度がさらに早くなります。&lt;br/&gt;
+　ソースコードのダウンロード、ビルド環境のダウンロード、ビルド、ライブイメージ作成、USBメモリにダンプで大体2～3時間といったところでしょうか。できあがりです。&lt;br/&gt;
+　USBメモリをネットブックに挿してブート。USB2.0でも1分くらいで立ち上がります。最初に言語とキーボードとネットワークの設定。Chromium OSはネットワークがないと何もできないのでネットワーク重要です。無線LANも変なのを使って無ければ最初から使えます。Gmailのアカウントを入れてログイン。最初のログインには2段階認証がかかります。一度2段階認証をすれば次からはパスワードだけで入れるようになります。&lt;br/&gt;
+　この特集ではUSBブートだけではなく実際のマシンにインストールができるように仕掛けがしてあります。ほいほいと入れてリブートしてみると30～40秒くらいでログイン画面が立ち上がりました。ちょっとUSBよりも早い。というか長いことサーバー機として使ってたものだからHDDが壊れかけててこんなにかかるのかもしれません。実際はもうちょっと早いかも。&lt;br/&gt;
+　感想としては「よく出来てるけどローカルの記憶領域がどうなってるのかよくわからん」といったものでした。ネットラジオとかYouTubeとかあるからいらないかもしれませんが自分のCDからリッピングしたmp3とかは聴きたい。でもどうやって？どこに保存してそしてブラウザで聴けるの？見れるの？と。Chromiumブラウザからできるんですかね。今日はChromeアプリを掘ったりとかはできなかったんで調査不足かもしれません。今後の課題とします。え、言い出しっぺの法則？…聞かなかったことにします。&lt;br/&gt;
+　自分でソース書いたわけじゃありませんがビルドって楽しいですね！(ぇ そう思うのは一部かもしれませんが……。ただ、自分で使ってるOSがもともとどういうものでどのような過程を経てDVDやらになってるのかの一部を見れるのはいいかもしれません。来週の週末あたりどうでしょう、やってみませんか？&lt;br/&gt;
+&lt;a href=&#34;https://goo.gl/EX9dz6&#34;&gt;Amazon.co.jp： 日経 Linux (リナックス) 2013年 12月号: 日経Linux: 本&lt;/a&gt;&lt;br/&gt;
+ &lt;br/&gt;
+追記：&lt;br/&gt;
+　Chromium OSは売ってるChrome OSと違いFLASHやらmp3とかmp4とかh.264のコーデックは入っていないようです。これではネットラジオも聞けないしYouTubeも見れない。雑誌のほうにもインストールの仕方は書いてあるんですが、これが上手くいかない。で、探してみたところ&lt;br/&gt;
+&lt;a href=&#34;https://gist.github.com/rikels/4031126/&#34;&gt;https://gist.github.com/rikels/4031126/&lt;/a&gt;&lt;br/&gt;
+を読んで、書いてある通りにするとFLASHとかもろもろ入ります。FLASHのプレーヤーを使うネットラジオで音が聞けることを確認しました。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DI.fmの改悪にClementineという救世主がいた</title>
+      <link>https://barippi.github.io/post/32190621/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/32190621/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.di.fm/&#34; target:&#34;_blank&#34;&gt;Digitally Imported&lt;/a&gt;が基本Webブラウザで聞くようになり、外部プレーヤーで聞くにはPlayer Settingからプレイリストをダウンロードしなくてはいけなくなってもう長いですが、Webブラウザで聞くとBGMにして放置してると途中で止まり、いちいちプレイリストをダウンロードしなくてはいけないのはめんどい、ということで簡単に聞ける方法はないかと思っていました。&lt;br/&gt;　ネットブックのOSをBasixにして、さて音楽プレーヤーは何にしようということで探していると&lt;a href=&#34;https://www.clementine-player.org/ja/&#34; target:&#34;_blank&#34;&gt;Clementine&lt;/a&gt;というソフトが見つかりました。これでDI.fmを聞いている画面がこれです。Windows、Mac、Linuxのマルチプラットフォームアプリです。&lt;br/&gt;&lt;br/&gt;&lt;a href=&#34;https://barippi.github.io/images/2d186255.jpg&#34; title:&#34;WS000001&#34; target:&#34;_blank&#34;&gt;&lt;img src=&#34;https://barippi.github.io/images/2d186255.jpg&#34; alt:&#34;WS000001&#34; class:&#34;pict&#34; border:&#34;0&#34; height:&#34;300&#34; width:&#34;480&#34; hspace:&#34;5&#34;/&gt;&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;　Web上からチャンネル情報を受信し、常に最新状態で聞けます。またPremiumにも対応しており、アプリ上でログインするとPremium音質で聞けるようになります。DI.fmは&lt;a href=&#34;https://www.radiotunes.com/&#34; target:&#34;_blank&#34;&gt;Radio Tunes&lt;/a&gt;とのシスターネットワークなのでRadio Tunesで課金したという人もDI.fmのところでログインすればRadio TunesのPremium放送が聞けます。&lt;br/&gt;&lt;br/&gt;&lt;a href=&#34;https://barippi.github.io/images/53b9cc78.jpg&#34; title:&#34;WS000000&#34; target:&#34;_blank&#34;&gt;&lt;img src=&#34;https://barippi.github.io/images/53b9cc78.jpg&#34; alt:&#34;WS000000&#34; class:&#34;pict&#34; border:&#34;0&#34; height:&#34;457&#34; width:&#34;480&#34; hspace:&#34;5&#34;/&gt;&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;　この設定画面をみても多様なインターネットラジオやストリーミングサービスに対応しているのがわかります。まあ、GrooveSharkなんかは終わってしまったしSpotifyはまだ日本には来てないので聞けないのですが。また、Dropboxなどのクラウドストレージサービスはログインするとクラウド上から直接楽曲が聞けるようになります。&lt;br/&gt;　惜しむらくはWindows版ではDirect Sound出力(WASAPI共有モード)にしか対応していないということですね。まあインターネットラジオは不可逆圧縮音源なのでどうでもいいといえばどうでもいいのですが。&lt;br/&gt;　なにはともあれ、いいプレーヤーに巡り合えました。あなたも是非。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GOランチャーEXを入れてみた</title>
+      <link>https://barippi.github.io/post/31876194/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876194/</guid>
+      <description>&lt;p&gt;&lt;span&gt;　今日はAndroidのホームアプリの定番であるGOランチャーEXを入れて遊びました。&lt;/span&gt;&lt;br/&gt;
+&lt;span&gt;&lt;img class:&#34;hatena-fotolife&#34; title:&#34;f:id:CBX:20130403213058p:plain&#34; src=&#34;https://barippi.github.io/images/7485a690.png&#34; alt:&#34;f:id:CBX:20130403213058p:plain&#34;/&gt;&lt;/span&gt;&lt;br/&gt;
+ &lt;br/&gt;
+&lt;span&gt;　入れてちょっとした時間でここまでできました。そして数時間経ったら、&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ID3タグのUTF-8化にあのソフトが対応していた</title>
+      <link>https://barippi.github.io/post/31876185/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876185/</guid>
+      <description>&lt;p&gt;昔の記事で「ID3Uni」が良いと書きましたが、かつて常用していたあのソフトがID3タグのUTF-8化できるのを教えてもらった。&lt;br/&gt;
+　それは「&lt;a href=&#34;https://hp.vector.co.jp/authors/VA012911/STEP/step.html&#34;&gt;STEP&lt;/a&gt;」です。チェックボックスが付いているファイルの列をドラッグでダーっと選択してメニューの「変換」→「ID3 2のバージョン/文字コードの変換」→出てきたダイアログで「バージョン」を「v2.4」、「文字エンコード」を「UTF-8」にして「はい」ボタンを押下、順次変換され、終わったら「タグ情報の更新」をします。これでおしまい。&lt;br/&gt;
+　Windows7なのにメモリが3GBと貧弱なせいもあるのか大量のファイルをドロップすると落ちますけど一気に変換できるのは良い。みなさんも是非お試しを。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JPLAYを買ったのでネットワークプレイの環境構築をした話</title>
+      <link>https://barippi.github.io/post/69143044/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/69143044/</guid>
+      <description>&lt;p&gt;JPLAY買っちゃいました。どうしてもJPLAYの音が良く、99ユーロの価値はあると思いまして。&lt;br/&gt;　ただのASIOドライバ的に使ってもいいのですが、せっかくなのでOpenHomeでネットワークプレイできる環境を作りました。&lt;br/&gt;&lt;br/&gt;・MinimserverをUbuntu16.10に入れる&lt;br/&gt;・Kazoo、またはKinskyを各Windowsクライアントに入れる&lt;br/&gt;・ネットワークプレイで音楽を楽しむ&lt;br/&gt;&lt;br/&gt;と言った感じで。&lt;br/&gt;&lt;br/&gt;　Minimserverに使うJavaはOpenJDKでは動かなかったので&lt;a target:&#34;_blank&#34; href=&#34;https://qiita.com/TsutomuNakamura/items/f12fdf0a8502e634584d&#34;&gt;&lt;a href=&#34;https://qiita.com/TsutomuNakamura/items/f12fdf0a8502e634584d&#34;&gt;https://qiita.com/TsutomuNakamura/items/f12fdf0a8502e634584d&lt;/a&gt;&lt;/a&gt;を参考にOracle Javaを導入します。&lt;br/&gt;　MinimserverのサイトにLinuxでのインストールの仕方が書いてあるのでその通りにします。大した難しい英語で書いてるわけじゃないので、わかると思います。必要に応じてMinimwatchも入れます。で、&lt;a target:&#34;_blank&#34; href=&#34;https://www.jplay.info/streamer&#34;&gt;JPLAYサイト&lt;/a&gt;の解説にあるように設定を行います。Ubuntuマシンにffmpegが入ってなかったらインストールします。whichコマンドでffmpegのパスが出るのでそれをsystem.converterに入れます。&lt;br/&gt;　これで音楽ライブラリのスキャンが終わるとKazooやKinskyに出てきます。&lt;br/&gt;&lt;a target:&#34;_blank&#34; title:&#34;jplay&#34; href=&#34;https://barippi.github.io/images/684c210d.png&#34;&gt;&lt;img class:&#34;pict&#34; alt:&#34;jplay&#34; src=&#34;https://barippi.github.io/images/684c210d.png&#34; width:&#34;480&#34; border:&#34;0&#34; hspace:&#34;5&#34; height:&#34;281&#34;/&gt;&lt;/a&gt;&lt;br/&gt;　すでにWindows機にも入れていたのでここでは2つ出てきています。&lt;br/&gt;&lt;br/&gt;　私はWindowsタブレットとWindowsノートPCを所有しているのでこれらにKazooをインストール。これでネットワークプレイ環境が整いました。Kazooは再生中の曲を大写しできるのでなんとなく専門機で動かしてるような感じを受けます。&lt;br/&gt;　本当はこれでデュアルPCモードに移行できればよかったのですが、DACをつけているPCがメインPCなのでハイバネートモードに移行させるとチャットのログとかが取れなくなっちゃうので残念ながらそのままで。&lt;br/&gt;　お粗末ですがこの辺で。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Linuxサーバー&#43;Raspberry PiでSqueezeBoxを作った話</title>
+      <link>https://barippi.github.io/post/79452690/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/79452690/</guid>
+      <description>&lt;p&gt;&lt;a target:&#34;_blank&#34; href=&#34;https://qiita.com/barippi/items/73f5e57c7f17d9de9ebe&#34;&gt;&lt;a href=&#34;https://qiita.com/barippi/items/73f5e57c7f17d9de9ebe&#34;&gt;https://qiita.com/barippi/items/73f5e57c7f17d9de9ebe&lt;/a&gt;&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;はい。Qiitaには初投稿になります(その前日に一個あるけどこれはGithubから持ってきてお試しで投稿してみただけ)。1年前の東海道らぐ横浜で「そもそもラズパイっていくらするんですか？」という初心者丸出しの質問をしてから私のラズパイぢからはここまで上がりました。対戦よろしくお願い致します。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MPD 0.19.10をCygwinでビルドし、Windowsサービスで動かす話</title>
+      <link>https://barippi.github.io/post/35546711/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/35546711/</guid>
+      <description>&lt;p&gt;なんとなくMPD(Music Player Daemon)に興味が湧いてUbuntuに入れて動かしてみたらいいねってことでこれをWindowsサービスで動かすところまでやってみました。&lt;br/&gt;　MPD 0.17.04なら&lt;a href=&#34;https://www.musicpd.org/download.html&#34; target:&#34;_blank&#34;&gt;公式サイト&lt;/a&gt;でダウンロードできて、&lt;a href=&#34;https://www.nanshiki.co.jp/software/index.html?sexe&#34; target:&#34;_blank&#34;&gt;sexe&lt;/a&gt;を使って簡単にWindowsサービス化させることができるのですが、このバージョンはあまりに古い。そして日本語解釈に難があるのです。3時間くらい格闘して「こりゃ駄目だ」ってことで最新版をCygwinを使ってビルドしてそのバイナリをWindowsサービスにしました。&lt;br/&gt;　Cygwinを使ってビルドするのは「&lt;a href=&#34;https://qiita.com/fabiiw05/items/7687348a410897eca2bc&#34; target:&#34;_blank&#34;&gt;Windows(Cygwin)でも mpd + ncmpcppを使いたい&lt;/a&gt;」で詳しく書いてくれた人がいたのでそれを参考にしながらやってみました。cyg-fastでパッケージ入れようとしたけどMD5値が違うとか言って延々とダウンロードしてたので諦めてsetup-x86_64.exeから入れました。選ぶのが面倒臭かったのでフルインストールしました。フルインストールすると10GBくらいダウンロードしてインストールフォルダが40GBくらい必要になります。ディスク容量に余裕のない場合は上記ページの通りやりましょう。&lt;br/&gt;　上記ページでのMPDは0.19.09ですがwgetで0.19.10のソースコード「&lt;a href=&#34;https://www.musicpd.org/download/mpd/0.19/mpd-0.19.10.tar.xz」にして解凍、ディレクトリ移動は落としたファイルに準じて行えば大丈夫です。makeでエラーが出るソースファイルも同じで、直すところも同じです。vimエディタの使い方がわからないのであればnanoというエディタもあるのでそれを使ってみてください。&#34;&gt;https://www.musicpd.org/download/mpd/0.19/mpd-0.19.10.tar.xz」にして解凍、ディレクトリ移動は落としたファイルに準じて行えば大丈夫です。makeでエラーが出るソースファイルも同じで、直すところも同じです。vimエディタの使い方がわからないのであればnanoというエディタもあるのでそれを使ってみてください。&lt;/a&gt;&lt;br/&gt;　mpd.confも上記ページの通りで動きます。楽曲フォルダを移動するなら、ですが。もともと別フォルダ、または別ドライブにある場合はその旨を書かなければなりません。例えば「Z:\music」フォルダに楽曲が入っているならばCygwinでの書き方は「/cygdrive/Z/music」になります。頭に「/cygdrive」がついてフォルダ区切り文字が「/」になります。サウンドデバイスはOSSを使うことになるかと思いますが、そこに「dsd_usb &amp;ldquo;yes&amp;rdquo;」と入れるとDSDネイティブ再生に対応したUSBサウンドデバイスにDSDのまま垂れ流します。確かDoP形式での対応だったと思います。&lt;br/&gt;　上記のビルド解説ページを下まで行えばNcmppもできあがって、とりあえず曲が聞けるようになったと思います。MPDクライアントはこれだけではなくてぐぐればいろいろ出てきます。日本語が文字化けしない優秀Windowsアプリとしては「&lt;a href=&#34;https://www.soramimi.jp/skympc/&#34; target:&#34;_blank&#34;&gt;SkyMPC&lt;/a&gt;」などがあります。iOS、Androidのアプリもたくさんあります。&lt;br/&gt;　が、なぜかlocalhostからしかつなげられない…。セキュリティソフトの保護を切ってみてもダメ。まあ、今のところはこれでもいいんだけど、原因がわかった方、または「他端末から全然つながるし」って人は詳細な環境を是非教えてください。よろしくお願いします。bind_ip_addressも&amp;rdquo;any&amp;rdquo;なんだけどなぁ。telnetでつなげてみると一瞬つながってコネクションを切られます。Ubuntuのは普通につながるのになぁ。変なの。Cygwin版の制限なのかしら。&lt;br/&gt;　気を取り直してMPDのWindowsサービス化を行うことにします。まずは「cygserver」をサービス化しましょう。詳細なやり方は「&lt;a href=&#34;https://www.saitoh.inzai.chiba.jp/report/r20120103-0.html&#34; target:&#34;_blank&#34;&gt;Cygwinを使い倒そう 【3】 cygserver編&lt;/a&gt;」で分かります。そしてWindowsのシステム環境変数の「Path」に「d:\cygwin64\bin;d:\cygwin64\usr\sbin」を追加。これはCygwinを「D:\cygwin64」にインストールした場合です。私の場合なので各々のインストールパスに対応した値を追加してください。&lt;br/&gt;　そしてWindowsサービス用のmpd.confを「/etc/mpd.conf」として作成してください。ビルドした際のmpd.confだとホームディレクトリ以下にプレイリストやデータベースを作成する形となりましたが、Windowsサービスを起動するユーザーである「SYSTEM」はそこを見ることもファイルを作ることもできませんので適当に「/var/mpd」とかディレクトリを作ったり、もしくは音楽ファイルの入っているディレクトリに「mpd」ディレクトリを作りそこに入れるという手もあります。SYSTEMユーザーは「/var」も見れないので「$ chown -R SYSTEM /var」とし「/var」ディレクトリの所有者をSYSTEMに変えてください。同様に「/etc」ディレクトリも変えておきましょう。いや「/etc」は変える必要はないかもしれないです。でも保険として。&lt;br/&gt;　次にinitをWindowsサービス化します。これも「&lt;a href=&#34;https://www.saitoh.inzai.chiba.jp/report/r20150526-0.html&#34; target:&#34;_blank&#34;&gt;Cygwinを使い倒そう 【4】 init編&lt;/a&gt;」を読んでください。&lt;br/&gt;　そして「/etc/inittab」 のどこかに「md:3:wait:/usr/local/bin/mpd.exe /etc/mpd.conf」と記入します。rc.dの後ろあたりがいいかもしれません。最初の「md」はIDなので他と被らないようにしてください。&lt;br/&gt;　そうしてCygwin上で「cygrunsrv &amp;ndash;start init」とすればWindowsサービスの「CYGWIN init」が起動し、同時にMPDが動き始めるはずです。HDDがガリガリ言い出して音楽ファイルを読み込んでいるようであれば成功です(データベースファイルをコピーしたらしないかも)。&lt;br/&gt;　おめでとうございます。これで作業は全て終了です。楽しいミュージックライフをお楽しみください。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MPD ClientのCantataの2.3.3をWindows10で動くバイナリにした話</title>
+      <link>https://barippi.github.io/post/78652565/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/78652565/</guid>
+      <description>&lt;p&gt;4日かかりました。ので&lt;a target:&#34;_blank&#34; href=&#34;https://github.com/Barippi/CantataWin/blob/master/README.md&#34;&gt;共有&lt;/a&gt;しときます。長くても1日で終わると思います。&lt;br/&gt;　別に最新版にこだわる必要が無ければ&lt;a target:&#34;_blank&#34; href=&#34;https://github.com/CDrummond/cantata/releases&#34;&gt;2.3.2のWindowsインストーラーがあります&lt;/a&gt;のでそれで。&lt;br/&gt;　「1日で終わるだろー」とやってみたらかなりハマりました。楽しかった。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MUNINでWindowsをチェックしよう</title>
+      <link>https://barippi.github.io/post/31876215/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876215/</guid>
+      <description>&lt;p&gt;何気なく「MUNIN Windows」で検索したらあったので入れてみました。&lt;br/&gt;
+ &lt;br/&gt;
+&lt;a href=&#34;https://sourceforge.net/projects/munin-nodewin32/&#34;&gt;https://sourceforge.net/projects/munin-nodewin32/&lt;/a&gt; からmsiファイルをダウンロードし、インストール。特になにも考えるところはありません。&lt;br/&gt;
+ &lt;br/&gt;
+そしてMUNINサーバーの「/etc/munin/munin.conf」を編集。&lt;br/&gt;
+&lt;pre class:&#34;bash&#34; style:&#34;font-family: monospace;&#34;&gt;&lt;span style:&#34;color: #7a0874; font-weight: bold;&#34;&gt;[&lt;/span&gt;TargetPC&lt;span style:&#34;color: #7a0874; font-weight: bold;&#34;&gt;]&lt;/span&gt; &lt;span style:&#34;color: #666666; font-style: italic;&#34;&gt;#Windows PC&lt;/span&gt;&lt;br/&gt;
+address xxx.xxx.xxx.xxx &lt;span style:&#34;color: #666666; font-style: italic;&#34;&gt;#IP Address&lt;/span&gt;&lt;br/&gt;
+memory.swap.label swap&lt;br/&gt;
+memory.swap.draw STACK&lt;br/&gt;
+memory.swap.info Swap memory used.&lt;/pre&gt;&lt;br/&gt;
+のように追加。「memory～」はこうしないと出てこないという話。俺の環境ではこれでも出なかったが…。&lt;br/&gt;&lt;br/&gt;一応これでMUNINのページに出てきます。&lt;br/&gt;
+ &lt;br/&gt;
+SpeedFANの値については、SpeedFANのxAPを有効にして、「munin-node.ini」のブロードキャストIPを「0.0.0.0」にします。通信するのでWindowsファイアウォールなどPCにファイアウォールを設定している人はポートの開放をお忘れなく。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MUNINをUbuntu 12.04LTSに入れてみた</title>
+      <link>https://barippi.github.io/post/31876221/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876221/</guid>
+      <description>&lt;p&gt;ツイッターで「MUNINはよい」的な事を言ってる人がいたのでどのようなものか確かめるために入れてみました。&lt;br/&gt;
+ &lt;br/&gt;
+こちら &lt;a href=&#34;https://itfun.jp/2010/06/ubuntu-servermunin.html&#34;&gt;https://itfun.jp/2010/06/ubuntu-servermunin.html&lt;/a&gt; を参考にインストールしました。インストールはかなり簡単で、&lt;br/&gt;
+&lt;ul&gt;&lt;br/&gt;
+&lt;li&gt;$ sudo apt-get install munin munin-node munin-plugins-extra&lt;/li&gt;&lt;br/&gt;
+&lt;/ul&gt;&lt;br/&gt;
+で完了。APT最高です。「munin」が情報をまとめてhtmlドキュメントを作るサーバー、「munin-node」が情報を収集するエージェント的なもの、「munin-plugins-extra」がMUNINの情報収集プラグイン集です。&lt;br/&gt;
+ &lt;br/&gt;
+で、インストールしたらconfファイルの編集です。「/etc/munin/munin.conf」を編集します。「htmldir /var/www/munin」のところをコメント(#)を外して適宜htmlドキュメントを入れるディレクトリを指定します。apache2を入れてデフォルトのままだとこのままで良い気がします。もちろんmuninディレクトリを作ることになりますが…。そして、「/etc/munin/apache.conf」も編集します。これもディレクトリ定義等を適宜修正します。デフォルトのままだとhtmlドキュメントをサーバー本体からしか見れないので「Allow from 192.168.0.0/24」等とするのが良いでしょう。そうするとLAN内のマシンから見られるようになります。&lt;br/&gt;
+ &lt;br/&gt;
+ここまできたらapacheとmunin-nodeを再起動します。&lt;br/&gt;
+&lt;ul&gt;&lt;br/&gt;
+&lt;li&gt;$ sudo /etc/init.d/munin-node restart&lt;/li&gt;&lt;br/&gt;
+&lt;li&gt;$ sudo /etc/init.d/apache2 restart&lt;/li&gt;&lt;br/&gt;
+&lt;/ul&gt;&lt;br/&gt;
+これで遅くとも10分後には指定したディレクトリにhtmlドキュメントができあがり、グラフが見られるようになります。&lt;br/&gt;
+ &lt;br/&gt;
+まあ、MRTGも入れてるんですが、インストール、設定はMUNINの方がはるかに簡単ですね。サーバー監視にオススメです。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MUNIN＋SNMPでパソコンを監視する</title>
+      <link>https://barippi.github.io/post/31876214/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876214/</guid>
+      <description>&lt;p&gt;ねぇMUNIN こっちむ～いて～♪(お約束)&lt;br/&gt;
+ &lt;br/&gt;
+「MUNIN SNMP」で検索したらいろいろ出てきたのでSNMPを使用してステータスを表示してみました。環境はノードのWindowsXP、Windows7、そしてノード＋サーバーのUbuntu 12.04です。&lt;br/&gt;
+ &lt;br/&gt;
+まずサーバーであるUbuntuにPerlを入れます。多分入ってると思いますが…。そしてCPANからNet::SNMPをインストールします。多分入ってると思いますが…。&lt;br/&gt;
+ &lt;br/&gt;
+WindwosXPとWindwos7にSNMPモジュールをインストールします。例としてWindows7ではコントロールパネルの「プログラムと機能」から左上の「Windowsの機能の有効化または無効化」を選び「簡易ネットワーク管理プロトコル(SNMP)」にチェックを入れて「OK」ボタンを押下します。これでSNMPサービスがインストールされます。&lt;br/&gt;
+ &lt;br/&gt;
+そしてサービスの設定を行います。コントロールパネルの「管理ツール」から「サービス」を立ち上げ、サービスの「SNMP Service」をダブルクリックしてプロパティを出します。そしてプロパティの「トラップ」タブに移行し、コミュニティ名を設定しますコミュニティ名は自分が分かるならなんでも構いません。ただ「public」という名前はやめておいた方が無難です。「一覧に追加」ボタンを押下したら今度は「トラップ送信先」の「追加」ボタンを押下し、MUNINサーバーのIPアドレスを追加します。設定を終えたら次は「セキュリティ」タブに移行します。そうすると先程追加したコミュニティ名があるのでコミュニティを選び「編集」ボタンを押下します。権利は「読み取りのみ」にしてください。そして「これらのホストからSNMPパケットを受け付けるを押下し、ホストを追加します。これはMUNINサーバーのIPアドレスを指定してください。これでWindows側の設定は終わりです。SNMP Serviceを再起動してください。&lt;br/&gt;
+ &lt;br/&gt;
+サーバー機もSNMP経由で見たい場合は、サーバーにもsnmpdを入れます。Ubuntuサーバーとか他はどうだか知りませんがUbuntuデスクトップはsnmpdが入ってないので(GUIが無いとダメなヘタレっ子なのでUbuntuデスクトップをサーバーにしています)&lt;br/&gt;
+&lt;ul&gt;&lt;br/&gt;
+&lt;li&gt;$ sudo apt-get install snmpd&lt;/li&gt;&lt;br/&gt;
+&lt;/ul&gt;&lt;br/&gt;
+としてインストールを行なってください。&lt;br/&gt;
+「/etc/snmp/snmpd.conf」の編集は例を見ながらということで。そんなに難しくないです。&lt;a href=&#34;https://netlog.jpn.org/r271-635/2007/07/ubuntusnmp.html&#34;&gt;https://netlog.jpn.org/r271-635/2007/07/ubuntusnmp.html&lt;/a&gt; そっけない書き方ですがわかりやすい。&lt;br/&gt;
+ &lt;br/&gt;
+ MUNINページにIPアドレスが出るのが嫌なので「/etc/hosts」にホストを追加します。localhostの書き方を参考にして「192.168.0.10 hogehoge」等と入れてください。&lt;br/&gt;
+ &lt;br/&gt;
+次は「/etc/munin/munin.conf」の編集。追加するマシン名が「hogehoge」の場合。&lt;br/&gt;
+&lt;pre&gt;[hogehoge]&lt;br/&gt;
+    address localhost&lt;br/&gt;
+    use_node&lt;em&gt;name no&lt;/pre&gt;&lt;br/&gt;
+のようにします。アドレスがlocalhostなのがミソです。自ノードのmunin-nodeから対象マシンにアクセスしてるみたいなんですね。だからSNMP経由で見たいマシンの場合、アドレスはすべてlocalhostになります。&lt;br/&gt;
+&lt;ul&gt;&lt;br/&gt;
+&lt;li&gt;$ sudo munin-node-configure &amp;ndash;snmpversion 1 &amp;ndash;snmp hogehoge&lt;/li&gt;&lt;br/&gt;
+&lt;/ul&gt;&lt;br/&gt;
+としてSNMPを話しているか確認ができます。話しているとわかったら、&lt;br/&gt;
+&lt;ul&gt;&lt;br/&gt;
+&lt;li&gt;$ sudo munin-node-configure &amp;ndash;snmpversion 1 &amp;ndash;snmp hogehoge &amp;ndash;shell &amp;gt;munin.sh&lt;/li&gt;&lt;br/&gt;
+&lt;/ul&gt;&lt;br/&gt;
+と「&amp;ndash;shell」オプションを付けるとプラグイン設定のためのシェルスクリプトを自動で書いてくれます。マシンによってはプラグインが多すぎる事があるのでテキストエディタを使って各々欲しい機能以外を削除するといいでしょう。&lt;br/&gt;
+&lt;ul&gt;&lt;br/&gt;
+&lt;li&gt;$ sudo sh munin.sh&lt;/li&gt;&lt;br/&gt;
+&lt;/ul&gt;&lt;br/&gt;
+としてシェルを実行します。&lt;br/&gt;
+「/etc/munin/plugin-conf.d/munin-node」の編集をします。&lt;br/&gt;
+&lt;pre&gt;[snmp&lt;/em&gt;*]&lt;br/&gt;
+env.version 1&lt;br/&gt;
+env.community public&lt;/pre&gt;&lt;br/&gt;
+とします。コミュニティ名は最初のほうで指定したコミュニティ名にします。そして最後に&lt;br/&gt;
+&lt;ul&gt;&lt;br/&gt;
+&lt;li&gt;$ sudo service munin-node restart&lt;/li&gt;&lt;br/&gt;
+&lt;/ul&gt;&lt;br/&gt;
+を実行するとあとは勝手に各マシンにSNMP経由で値を取りに行きます。&lt;br/&gt;
+ &lt;br/&gt;
+お疲れ様でした。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Media Player Classic HCをAndroidスマホで操作する</title>
+      <link>https://barippi.github.io/post/31876145/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876145/</guid>
+      <description>&lt;p&gt;常用しているMedia Player Classic HCではDLNAデジタルメディアレンダラーとしては使えない風味。ただオプションを見ていたら「ウェブインターフェイス」なる項目が。ONにして同じPCから接続してみると割と軽い。これはコントローラーアプリあるだろうと思ってGoogle Playを見ると「MPC-HC Remote Control」なるアプリが。&lt;br/&gt;
+　早速インストールして設定するともうそこは桃源郷。UIはださいものの普通に使うことができた。フルスクリーン再生もタップ1回でできる。&lt;br/&gt;
+　と、若干遠回りしたものの、オーディオもムービーもスマホからリモートコントロールで再生できる環境ができあがりました。めでたしめでたし。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MopidyでSpotifyなどを聞く</title>
+      <link>https://barippi.github.io/post/70337842/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/70337842/</guid>
+      <description>&lt;p&gt;MopidyとはPythonで実装されたMPD互換の音楽プレーヤーです。「なんだそりゃ、MPDでいいじゃないか」と言うかもしれませんが、こちらはSpotifyやプラグインを入れればAudio Addict運営のラジオ局やSoundCroud、Google Play Musicなどにも対応します。GUIソフトで言えばClementineみたいな感じでしょうか。「UbuntuならSpotifyの公式プレーヤーがあるじゃないか」と思うかもしれませんがそれはそれ。なんとなくやってみたくなったのです。&lt;br/&gt;　前提条件はUbuntu16.10、Spotifyは私がプレミアム会員なのでプレミアム会員です。無料会員ではどうなるか分かりません。また、systemdで常駐させます。ユーザー権限でも立ち上げることはできますが、confファイルの場所が違ったり使うコマンドが違ったりしますので、ご注意を。&lt;br/&gt;　インストールする前のお断りとしてはMPDクライアントから見たMopidyは日本語ファイル名が化けてたりでイマイチなのでローカルファイルを再生するだけなら素直にMPD入れたほうがいいと思いますし、逆にSpotifyしか使わないと言う事ならばSpotify公式のプレーヤーの方が使いやすいです。プラグインも思ったように動かなかったりで一言で言えば「これからのソフトウェア」です。&lt;br/&gt;　では、まずはリポジトリの登録から。&lt;br/&gt;&amp;gt;・$ wget -q -O - &lt;a href=&#34;https://apt.mopidy.com/mopidy.gpg&#34;&gt;https://apt.mopidy.com/mopidy.gpg&lt;/a&gt; | sudo apt-key add -・$ sudo wget -q -O /etc/apt/sources.list.d/mopidy.list &lt;a href=&#34;https://apt.mopidy.com/jessie.list　そしてリポジトリをアップデートしてインストールします。&#34;&gt;https://apt.mopidy.com/jessie.list　そしてリポジトリをアップデートしてインストールします。&lt;/a&gt;&lt;br/&gt;&amp;gt;・$ sudo apt update・$ sudo apt install mopidy mopidy-spotify　MopidyとMopidyのSpotifyプラグインをインストールしてます。&lt;br/&gt;　次にSpotifyの設定をします。「/etc/mopidy/mopidy.conf」を管理者権限で開いて( $ sudo vi /etc/mopidy/mopidy.conf など)、&lt;br/&gt;&lt;br/&gt;&amp;gt;[spotify] enabled : true username : YOURUSERNAME(日本語も大丈夫でした) password : YOURPASSWORD bitrate : 320 timeout : 10&lt;br/&gt;　を付け足します。&lt;br/&gt;　次はWeb Clientをセットアップします。Pythonのパッケージインストーラーの「pip」を使うので、入れていない人は&lt;br/&gt;&amp;gt;・$ sudo apt install pip　でインストールしてください。それではWeb Clientをインストールします。今回はMopidy Mopedを試しに入れてみます。&lt;br/&gt;&amp;gt;・$ sudo su・# pip install Mopidy-Moped　管理者(root)になってインストールしてください。そうしないとログインしているユーザーの環境にファイルをインストールしてしまいます。管理者になってインストールすると「/usr/local/lib/python2.7/dist-packages/mopidy_moped/」以下にインストールされます。これを「/etc/mopidy/mopidy.conf」の[http]のところに書きます。&lt;br/&gt;&lt;br/&gt;&amp;gt;[http] enabled : true hostname : 192.168.1.250 port : 6680 static_dir : /usr/local/lib/python2.7/dist-packages/mopidy_moped/static/&lt;br/&gt;　hostnameは環境に合わせて設定してください。そしてファイアウォールにも穴を開けます。&lt;br/&gt;&amp;gt;・$ sudo ufw allow 6680・$ sudo ufw enable　systemdで起動するようにして、まずは起動してみます。&lt;br/&gt;&amp;gt;・$ sudo systemctl enable mopidy.service・$ sudo systemctl restart mopidy　そして「&lt;a href=&#34;https://192.168.1.250:6680/」にインストールしたマシン、または他のマシンからアクセスしてみます。そうするとWebブラウザに画面が出てくると思います。mopedをクリックし、Searchのところにアーティスト名などを入力しEnterキーを押下するとその結果が右ペインに出てきます。このように。&#34;&gt;https://192.168.1.250:6680/」にインストールしたマシン、または他のマシンからアクセスしてみます。そうするとWebブラウザに画面が出てくると思います。mopedをクリックし、Searchのところにアーティスト名などを入力しEnterキーを押下するとその結果が右ペインに出てきます。このように。&lt;/a&gt;&lt;br/&gt;&lt;a target:&#34;_blank&#34; title:&#34;11&#34; href=&#34;https://barippi.github.io/images/84425b40.png&#34;&gt;&lt;img class:&#34;pict&#34; alt:&#34;11&#34; src=&#34;https://barippi.github.io/images/84425b40.png&#34; width:&#34;480&#34; height:&#34;564&#34; hspace:&#34;5&#34; border:&#34;0&#34;/&gt;&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;　曲をクリックするとそのプレイリストかアルバムごとMopidyのプレイリストに反映され再生されます。・・が、うちでは音が出なかったのです。ユーザー権限起動では聞けました。結論から行くと犯人はPulseaudioでした。Ubuntuはユーザーがログインしている時、Pulseaudio→ALSAと音声を橋渡ししています。デフォルト設定のMopidyはPulseaudioが起動している時はPulseaudio経由で再生しようとするのですが、systemdで起動したMopidyはユーザー権限で起動しているPulseaudioに権限の関係で音声を渡せないのです。ユーザー起動しているPulseaudioにMopidyから音を渡す方法はあるにはあるのですが(&lt;a href=&#34;https://docs.mopidy.com/en/latest/service/#configure-pulseaudio)、めんどい割には音がよくない、と。ハイレゾ音源を聴く時にも不便。音楽を聴く以外にはファイルサーバーなどとして使っていて、YouTubeで動画を見たりしないのでPulseaudioを殺してALSAに直で渡してやれば音が出ると思い、調べました。&#34;&gt;https://docs.mopidy.com/en/latest/service/#configure-pulseaudio)、めんどい割には音がよくない、と。ハイレゾ音源を聴く時にも不便。音楽を聴く以外にはファイルサーバーなどとして使っていて、YouTubeで動画を見たりしないのでPulseaudioを殺してALSAに直で渡してやれば音が出ると思い、調べました。&lt;/a&gt;&lt;br/&gt;　「/etc/pulse/client.conf」を管理者権限で開いて、&lt;br/&gt;&lt;br/&gt;&amp;gt;;autospawn : yes;daemon-binary : /usr/bin/pulseaudio↓autospawn : nodaemon-binary : /bin/true &lt;br/&gt;　として、保存し(「;」を外すのを忘れないこと)&lt;br/&gt;&amp;gt;・$ pulseauio &amp;ndash;kill　するとPulseaudioが起動しなくなります。次にPythonでALSAをいじるのに必要なパッケージをインストールします。&lt;br/&gt;&amp;gt;・$ sudo apt install python-alsaaudio　次にMopidy-ALSAMixerをインストールします。&lt;br/&gt;&amp;gt;・# pip install Mopidy-ALSAMixer・$ sudo systemctl restart mopidy　そして、「/etc/asound.conf」を編集します。無ければ作ってください。&lt;br/&gt;&lt;br/&gt;&amp;gt;pcm.!default {        type hw card 0}ctl.!default {        type hw card 0}&lt;br/&gt;　cardの番号は( $ cat /proc/asound/cards )で見て出したい所の番号にします。これでALSAを直に叩いて音を出すようになります。&lt;br/&gt;　これでSpotifyでアルバム単位で楽曲聴取できるようになりました。アルバムごとに聴く人はこれでいいのですが、私はプレイリスト単位で聴くことが多いのでプレイリストを参照、再生できるプラグインが欲しい。ということで探してみると、「Mopidy-Spotify-Tunigo」、「Mopidy-Spotify-Web」が対応しているようでしたのでこれをインストールしました。ついでにAudio Addict運営のネットラジオ局が聴けるプラグイン「Mopidy-AudioAddict」もインストールしました。先に言っておくと上手くいくときと上手くいかない時があったのでこれはオプションでお願いします。&lt;br/&gt;&amp;gt;・# pip install Mopidy-Spotify-Tunigo Mopidy-AudioAddict Mopidy-Spotify-Web　そして「/etc/mopidy/mopidy.conf」に[spotify_tunigo]、[spotify_web]、[audioaddict]を追加します。&lt;br/&gt;&lt;br/&gt;&amp;gt;[spotify_tunigo] region : jp[audioaddict] enabled : true username : YOURMAILADDRESS #OPTIONAL password : YOURPASSWORD    #OPTIONAL quality : 320k[spotify_web] client_id : &amp;hellip; client_id value you got from mopidy.com &amp;hellip; client_secret : &amp;hellip; client_secret value you got from mopidy.com &amp;hellip;&lt;br/&gt;　そして&lt;br/&gt;&amp;gt;・$ sudo systemctl restart mopidy　Audio Addictもプレミアム会員なので320kとしてますが、無料会員またはアカウントを持ってない人は40k、もしくは64kに制限されます。プレミアム会員だとそれに加えて128kと320kが選べるようになります。Mopidy-Spotify-Webのclient_idとclient_secretは「&lt;a href=&#34;https://www.mopidy.com/authenticate/#spotify」でSpotifyにログインすると下のボックスに出てきます。これをコピペすればいいです。またこの値は他の人に見られてはいけません。注意して扱うようにしてください。&#34;&gt;https://www.mopidy.com/authenticate/#spotify」でSpotifyにログインすると下のボックスに出てきます。これをコピペすればいいです。またこの値は他の人に見られてはいけません。注意して扱うようにしてください。&lt;/a&gt;&lt;br/&gt;　で、結果を書いておきましたが、うまく行きませんでした。見れるプレイリストと見れないプレイリストがあり、またAudio Addictの方はリストが表示されるもののクリックしても再生できず・・・。&lt;br/&gt;　最低でもSpotifyのプレイリストが再生できるところまではやってみようと、Web Clientを別のものに変えてみました。&lt;br/&gt;&amp;gt;・# pip install Mopidy-Iris・$ sudo systemctl restart mopidy　「/etc/mopidy/mopidy.conf」を編集。&lt;br/&gt;&lt;br/&gt;&amp;gt;[iris] enabled : true pusherport : 6681 country : JP locale : ja_JP&lt;br/&gt;　これにして、SETTINGでポチポチ設定した所無事Spotifyのプレイリストも再生できるようになりました。Audio Addictの方は宿題としておきます。&lt;br/&gt;&lt;a target:&#34;_blank&#34; title:&#34;54&#34; href=&#34;https://barippi.github.io/images/0c3261a6.png&#34;&gt;&lt;img class:&#34;pict&#34; alt:&#34;54&#34; src=&#34;https://barippi.github.io/images/0c3261a6.png&#34; width:&#34;480&#34; height:&#34;564&#34; hspace:&#34;5&#34; border:&#34;0&#34;/&gt;&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;　ここまでストリーミング系の設定をしてきましたが、ここからはローカルファイルを登録し、ローカルファイルを再生できるようにします。MPDをすでにインストールして使ってる方はやってもやらなくてもいいです。&lt;br/&gt;&amp;gt;・# pip install Mopidy-Local-Images　「/etc/mopidy/mopidy.conf」を編集&lt;br/&gt;&lt;br/&gt;&amp;gt;[mpd] enabled : true hostname : 192.168.1.250 port : 6601 #すでにMPDがあったのでport変更[local] media_dir : /var/lib/mpd/music scan_follow_symlinks : true library : images&lt;br/&gt;　それぞれ環境に合わせて変更しましょう。そして、&lt;br/&gt;&amp;gt;・$ sudo systemctl restart mopidy・$ sudo mopidyctl local scan　終わったら、&lt;br/&gt;&amp;gt;・$ sudo systemctl restart mopidy　楽曲の多さによりますが数分～数十分かかります。数万曲ある場合はご飯でも食べましょう。&lt;br/&gt;　Web Clientから見ると日本語もちゃんとしてるんですが、MPD Clientから見ると文字がバケバケ(環境または設定によるのかも)なのであまり期待しない方がいいでしょう。&lt;br/&gt;　またMopedから見るとローカルファイルはしっかり見えてSpotify関係が微妙ですが、Irisだと逆でSpotify関係はバッチリですがローカルファイルは微妙です・・・。使い分けるといいかもしれません。&lt;br/&gt;　最後に、Last.fmへのScrobbleを行いましょう。Scrobbleしてない人はもちろんする必要はありません。&lt;br/&gt;&amp;gt;・# pip install Mopidy-Scrobbler　「/etc/mopidy/mopidy.conf」を編集。&lt;br/&gt;&lt;br/&gt;&amp;gt;[scrobbler] username : YOURUSERNAME password : YOURPASSWORD&lt;br/&gt;&amp;gt;・$ sudo systemctl restart mopidy　これで一通り、と言ったところでしょうか。&lt;br/&gt;　お疲れ様でした。これでSpotifyとローカルメディアファイルの一元管理ができるようになりました。Web Clientをとっかえひっかえしなければいけないのが面倒ですが・・・。Mopidyがこれからどんどん良くなることを願いつつ終わりにしたいと思います。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

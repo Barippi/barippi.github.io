@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> MPD 0.19.10をCygwinでビルドし、Windowsサービスで動かす話 &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/35546711/">MPD 0.19.10をCygwinでビルドし、Windowsサービスで動かす話</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>なんとなくMPD(Music Player Daemon)に興味が湧いてUbuntuに入れて動かしてみたらいいねってことでこれをWindowsサービスで動かすところまでやってみました。<br/>　MPD 0.17.04なら<a href="https://www.musicpd.org/download.html" target:"_blank">公式サイト</a>でダウンロードできて、<a href="https://www.nanshiki.co.jp/software/index.html?sexe" target:"_blank">sexe</a>を使って簡単にWindowsサービス化させることができるのですが、このバージョンはあまりに古い。そして日本語解釈に難があるのです。3時間くらい格闘して「こりゃ駄目だ」ってことで最新版をCygwinを使ってビルドしてそのバイナリをWindowsサービスにしました。<br/>　Cygwinを使ってビルドするのは「<a href="https://qiita.com/fabiiw05/items/7687348a410897eca2bc" target:"_blank">Windows(Cygwin)でも mpd + ncmpcppを使いたい</a>」で詳しく書いてくれた人がいたのでそれを参考にしながらやってみました。cyg-fastでパッケージ入れようとしたけどMD5値が違うとか言って延々とダウンロードしてたので諦めてsetup-x86_64.exeから入れました。選ぶのが面倒臭かったのでフルインストールしました。フルインストールすると10GBくらいダウンロードしてインストールフォルダが40GBくらい必要になります。ディスク容量に余裕のない場合は上記ページの通りやりましょう。<br/>　上記ページでのMPDは0.19.09ですがwgetで0.19.10のソースコード「<a href="https://www.musicpd.org/download/mpd/0.19/mpd-0.19.10.tar.xz」にして解凍、ディレクトリ移動は落としたファイルに準じて行えば大丈夫です。makeでエラーが出るソースファイルも同じで、直すところも同じです。vimエディタの使い方がわからないのであればnanoというエディタもあるのでそれを使ってみてください。">https://www.musicpd.org/download/mpd/0.19/mpd-0.19.10.tar.xz」にして解凍、ディレクトリ移動は落としたファイルに準じて行えば大丈夫です。makeでエラーが出るソースファイルも同じで、直すところも同じです。vimエディタの使い方がわからないのであればnanoというエディタもあるのでそれを使ってみてください。</a><br/>　mpd.confも上記ページの通りで動きます。楽曲フォルダを移動するなら、ですが。もともと別フォルダ、または別ドライブにある場合はその旨を書かなければなりません。例えば「Z:\music」フォルダに楽曲が入っているならばCygwinでの書き方は「/cygdrive/Z/music」になります。頭に「/cygdrive」がついてフォルダ区切り文字が「/」になります。サウンドデバイスはOSSを使うことになるかと思いますが、そこに「dsd_usb &ldquo;yes&rdquo;」と入れるとDSDネイティブ再生に対応したUSBサウンドデバイスにDSDのまま垂れ流します。確かDoP形式での対応だったと思います。<br/>　上記のビルド解説ページを下まで行えばNcmppもできあがって、とりあえず曲が聞けるようになったと思います。MPDクライアントはこれだけではなくてぐぐればいろいろ出てきます。日本語が文字化けしない優秀Windowsアプリとしては「<a href="https://www.soramimi.jp/skympc/" target:"_blank">SkyMPC</a>」などがあります。iOS、Androidのアプリもたくさんあります。<br/>　が、なぜかlocalhostからしかつなげられない…。セキュリティソフトの保護を切ってみてもダメ。まあ、今のところはこれでもいいんだけど、原因がわかった方、または「他端末から全然つながるし」って人は詳細な環境を是非教えてください。よろしくお願いします。bind_ip_addressも&rdquo;any&rdquo;なんだけどなぁ。telnetでつなげてみると一瞬つながってコネクションを切られます。Ubuntuのは普通につながるのになぁ。変なの。Cygwin版の制限なのかしら。<br/>　気を取り直してMPDのWindowsサービス化を行うことにします。まずは「cygserver」をサービス化しましょう。詳細なやり方は「<a href="https://www.saitoh.inzai.chiba.jp/report/r20120103-0.html" target:"_blank">Cygwinを使い倒そう 【3】 cygserver編</a>」で分かります。そしてWindowsのシステム環境変数の「Path」に「d:\cygwin64\bin;d:\cygwin64\usr\sbin」を追加。これはCygwinを「D:\cygwin64」にインストールした場合です。私の場合なので各々のインストールパスに対応した値を追加してください。<br/>　そしてWindowsサービス用のmpd.confを「/etc/mpd.conf」として作成してください。ビルドした際のmpd.confだとホームディレクトリ以下にプレイリストやデータベースを作成する形となりましたが、Windowsサービスを起動するユーザーである「SYSTEM」はそこを見ることもファイルを作ることもできませんので適当に「/var/mpd」とかディレクトリを作ったり、もしくは音楽ファイルの入っているディレクトリに「mpd」ディレクトリを作りそこに入れるという手もあります。SYSTEMユーザーは「/var」も見れないので「$ chown -R SYSTEM /var」とし「/var」ディレクトリの所有者をSYSTEMに変えてください。同様に「/etc」ディレクトリも変えておきましょう。いや「/etc」は変える必要はないかもしれないです。でも保険として。<br/>　次にinitをWindowsサービス化します。これも「<a href="https://www.saitoh.inzai.chiba.jp/report/r20150526-0.html" target:"_blank">Cygwinを使い倒そう 【4】 init編</a>」を読んでください。<br/>　そして「/etc/inittab」 のどこかに「md:3:wait:/usr/local/bin/mpd.exe /etc/mpd.conf」と記入します。rc.dの後ろあたりがいいかもしれません。最初の「md」はIDなので他と被らないようにしてください。<br/>　そうしてCygwin上で「cygrunsrv &ndash;start init」とすればWindowsサービスの「CYGWIN init」が起動し、同時にMPDが動き始めるはずです。HDDがガリガリ言い出して音楽ファイルを読み込んでいるようであれば成功です(データベースファイルをコピーしたらしないかも)。<br/>　おめでとうございます。これで作業は全て終了です。楽しいミュージックライフをお楽しみください。</p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/248475640.html/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/78652565/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

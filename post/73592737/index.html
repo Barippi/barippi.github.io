@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> WSLからXmingを使ってデスクトップ環境(Xfce)を動かす話 &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/73592737/">WSLからXmingを使ってデスクトップ環境(Xfce)を動かす話</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>WSLからデスクトップ環境動かせんるんですねー。思わず作っちゃいました。<br/>　まずはXmingを入れます。10ポンド寄付すると最新版が手に入れられます。積極的に寄付していきましょう。日本からだと弾かれるのでメールで連絡して代替手段を送ってもらいましょう。そしてWSL(Ubuntu)を入れます。そしてbash上から<br/>&gt;$ sudo apt install xfce4-sesson xfce4-goodies gnome-keyring fonts-vlgothic fcitx-mozc　をいれます。そしてどこでもいいのでXmingのショートカットを作りましょう。ショートカットの内容は<br/>&gt;&ldquo;C:\Program Files\Xming\Xming.exe&rdquo; :1 -clipboard -xkbmodel jp106 -xkblayout jp -dpi 100 -nodecorationとします。x64版でなければXmingのパスが変わります。次に起動バッチを作りましょう。内容は<br/>&gt;@echo offstart /min &ldquo;&rdquo; &ldquo;Xming.lnk&rdquo;&ldquo;C:\Windows\System32\bash.exe&rdquo; -c &#39;export DISPLAY:localhost:1.0;export XMODIFIERS:&ldquo;@im:fcitx&rdquo;;export GTK_IM_MODULE:fcitx;export QT_IM_MODULE:fcitx; xfce4-session&#39;taskkill /f /im Xming.exe<div>です。start /min &ldquo;&rdquo; &ldquo;Xming.lnk&rdquo;は各々の環境によって異なってくるでしょう。<br/>　だいぶはしょりましたが、これで、バッチファイルをダブルクリックするとXmingが立ち上がり次いでデスクトップ環境が見えるようになります。<br/>　なんというか意味があるのかと言われると無いとしかいえませんが割と軽く動くのでデスクトップ環境が欲しいがために仮想マシン作るよりは楽かなーという感じです。<br/>　みなさんもWindowsでUbuntuライフを送ってみましょう、では！</div></p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/31876146/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/73504958/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> ブログの文章の保存を考えてみた２ &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/248474999.html/">ブログの文章の保存を考えてみた２</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>早くも2ですよ。<br/>
+<br/>
+紹介したWeBoxはうちの環境ではどうにもマシンが不安定になってしまう。なんなんでしょうね。<br/>
+<br/>
+ということで解決法を探るより違うソフトウェアを試してみようと考えた。今回は<a href="https://hp.vector.co.jp/authors/VA024591/">Irvine</a>。定番ダウンロードソフトですね。<br/>
+<br/>
+早速方法を。メニューの「ツール」→「リンクのインポート」でリンクウインドウを開きます。そしてブログのトップページのURL、うちなら「 <a href="https://cbx.ameblo.jp/" target:"_blank"><a href="https://cbx.ameblo.jp/">https://cbx.ameblo.jp/</a></a> 」をアドレスのリストボックスに書きます。で、階層数を自分のエントリした数に応じて (うちはエントリ数485で階層数15で足りた)入力します。この辺は一度に表示するエントリ数にも左右されそうですね。<br/>
+<br/>
+で、多分これで大丈夫！と思ったら赤い三角のボタン(リンクの取得開始)を押します。そしてしばし待つ。ガンガンリンク先が登録されていくので、設定した階層数に達したら落としたいURLを選択して「Alt+D(選択したファイルをキューフォルダに登録)」。そうするとダウンロードが開始されます。「entry-～～～」が一個一個のエントリ、「archive?????～～～」が月ごとのアーカイブになります。<br/>
+<br/>
+ダウンロードしたファイルはスタイルシートが無いのでダブルクリック等してブラウザで見ても見栄えは良くありません。スタイルシートもダウンロードしたい場合はページのソースを見て、＜link rel:&ldquo;stylesheet&rdquo; href=&ldquo;skin/templates/81/019bccf1103e21fe4e9bc931a3fb42be_c.tpl&rdquo; type:&ldquo;text/css&rdquo;＞といったような場所を見つけ、「トップページのURL+前述のhref以下のURL」といった場所からダウンロードします。うちの場合は「 <a href="https://cbx.ameblo.jp/skin/templates/81/019bccf1103e21fe4e9bc931a3fb42be_c.tpl" target:"_blank"><a href="https://cbx.ameblo.jp/skin/templates/81/019bccf1103e21fe4e9bc931a3fb42be_c.tpl">https://cbx.ameblo.jp/skin/templates/81/019bccf1103e21fe4e9bc931a3fb42be_c.tpl</a></a> 」になります。<br/>
+<br/>
+そして、ダウンロードできたファイルをこの場合は「ダウンロードしたフォルダ\skin\templates\81」というフォルダに保存します。そうすると見栄えも同じようになります。ソースを良く見ると＜link rel:&ldquo;stylesheet&rdquo; href=&rdquo;<a href="https://ameblo.jp/ad_css/blue.css" target:"_blank"><a href="https://ameblo.jp/ad_css/blue.css">https://ameblo.jp/ad_css/blue.css</a></a>&rdquo; type:&ldquo;text/css&rdquo;＞というのもありますので、基本的にはネットにつながってないとダメみたいですね。これも落としてもいいけどそうするとファイル全部書き換えになってしまうのでそのへんは妥協しましょう。<br/>
+<br/>
+といった感じでごり押しでなんとかバックアップが完了しました。このままCDに焼いておくもよし、文章部分だけテキストエディタ等を使って取り出しておくのもよし、です。<br/>
+<br/>
+やっぱめんどくせーなー。ということで、早くエクスポート機能実装してください＞アメブロ開発部隊の方々。</p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/248474994.html/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/31876203/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

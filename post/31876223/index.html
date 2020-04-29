@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> 2ヶ月Ubuntuデスクトップをサーバーとして使ってみて &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/31876223/">2ヶ月Ubuntuデスクトップをサーバーとして使ってみて</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>早いもので余ったマシンにUbuntuデスクトップを入れて2ヶ月弱になります。使ってみての雑感を。お断りですが、私のマシンが以下の症状の原因である事も考えられますので、一般的にそうという事ではありません。<br/>
+ <br/>
+Sambaがよく止まる。ファイルコピーやらでSambaのお世話になる機会が多いんですが、システムまで巻き込んで止まるのはどうなのかなーと。Sambaが悪いのではないのですかね。OOMキラーが働いているとか？ギガビットイーサなのでファイルコピーに100MB/s出たりするのは良い。でも音楽聴く時のチョロチョロファイル受け渡すのでもたまに止まる。何が悪いのか良く分からない。システム巻き込むってことはカーネルが弱い？あー、メモリかな？まあ古いマシンなのでありえますね。<br/>
+ <br/>
+PS3 MediaServerもたまに止まる。これも原因が分からない。Sambaが落ちるのと原因は一緒な気がするが…。ファイルシステムが悪い？調子こいてRaid 0で運用してるからかなぁ。<br/>
+ <br/>
+そして復帰に時間が掛かる。リセットボタン押して20分たっても画面に何も出てこない、そしてブートドライブを読んでないとかよくあります。これも原因がわからない。2回目のリセットでリカバリモード選択するとうまくいく感じ。ブートドライブがUSBメモリというのは悪くないと思うんだけど…。<br/>
+ <br/>
+aptシステムはいいですね。GUIでもCUIでも思い立った時にセキュリティアップデートができる。しかもMicrosoft Updateよりも速い。カーネルとかX Window System以外のアップデートなら再起動しなくてもよい。これは本当に素晴らしい。Microsoft Updateはたいてい再起動要求されますからね…。<br/>
+ <br/>
+あと速い。元のサーバーがAtomだったせいもあるけどね。Core2Duoになって激速。cgiでそう感じる。<br/>
+ <br/>
+そんな感じです。<br/></p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/248475762.html/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/248474342.html/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

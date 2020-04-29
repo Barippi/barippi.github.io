@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> ConoHaを契約してメールサーバーを立ててみた(OB25B対策も) &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/31876139/">ConoHaを契約してメールサーバーを立ててみた(OB25B対策も)</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>ConoHa( <a href="https://www.conoha.jp/">https://www.conoha.jp/</a> )を契約してメールサーバーを立ててみました。<br/>
+　<a href="https://www.conoha.jp/blog/books/1522.html">https://www.conoha.jp/blog/books/1522.html</a> を見ればさくさく立てられる(main.cfで最後に追加するパラメーターで分けるところの空白が見えなくてそのまま書いたら続けて書いていることになってしまって起動失敗したりもしましたが)のですが、困ったことに私の使ってるプロバイダはOB25B(詳しくはぐぐってね)されてて薄い本のままではメールを受け取ることができても送れないのです。<br/>
+　よくある対策はGmail等を使ってメールをリレーさせる方法ですが、スマートじゃない。もっとスマートな方法は無いかと探していたらあったあった。<br/>
+　「/etc/postfix/master.cf」の「#submission inet n - n - - smtpd」と書いてある行のコメントアウトを外してpostfixを立ち上げ直せばば587番ポートで待機してくれます。VPSの587番ポートを開けて、メールクライアントで送信に587番ポートを使うようにしてSMTP認証もするようにするとバッチリ送れました。<br/>
+　ご参考までに。<br/></p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/31876137/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/248474312.html/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

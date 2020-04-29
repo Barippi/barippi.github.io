@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2020s on 取るに足らぬ者</title>
+    <link>https://barippi.github.io/2020/index.xml</link>
+    <description>Recent content in 2020s on 取るに足らぬ者</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://barippi.github.io/2020/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title></title>
+      <link>https://barippi.github.io/2020/0112-linuxldac/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/2020/0112-linuxldac/</guid>
+      <description>
+
+&lt;p&gt;title: Linuxでbluez-alsaを使いLDACやらAACやらaptXをBluetoothで送信する話
+categories:
+  - ソフトウェア
+tags:
+  - null
+date: &amp;ldquo;2020-01-12T15:30:06+00:00&amp;rdquo;&lt;/p&gt;
+
+&lt;h2 id=&#34;updated-2020-01-12-15-30-06&#34;&gt;updated: 2020-01-12 15:30:06&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://qiita.com/barippi/items/4379170a274d5c96eb94&#34;&gt;Linuxでbluez-alsaを使いLDACやらAACやらaptXをBluetoothで送信する話&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;書きました。よろしくお願い致します。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://barippi.github.io/2020/0123-cheero/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/2020/0123-cheero/</guid>
+      <description>
+
+&lt;p&gt;title: cheeroのフルワイヤレスイヤホンCHE-624を買ったのでレビューする
+categories:
+  - ハードウェア
+tags:
+  - null
+date: &amp;ldquo;2020-01-23T20:27:53+00:00&amp;rdquo;&lt;/p&gt;
+
+&lt;h2 id=&#34;updated-2020-01-23-20-27-53&#34;&gt;updated: 2020-01-23 20:27:53&lt;/h2&gt;
+
+&lt;p&gt;まずCM。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://amzn.to/36l8g3C&#34;&gt;https://amzn.to/36l8g3C&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;はい。&lt;/p&gt;
+
+&lt;p&gt;まず、アンダー4K円で出たって事が驚きで、さらに音を聴いてびっくり。&lt;/p&gt;
+
+&lt;p&gt;「この値段でこの音だしていいんですか！？しかもフルワイヤレスで！？！？！？！？」&lt;/p&gt;
+
+&lt;p&gt;ってなる。「タイムドメインラボ監修」とわざわざ書いてあるだけある。&lt;/p&gt;
+
+&lt;p&gt;あなたも是非フルワイヤレスイヤホンの入口に入りましょう。&lt;/p&gt;
+
+&lt;p&gt;もっかいCM。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://amzn.to/36l8g3C&#34;&gt;https://amzn.to/36l8g3C&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;はい。是非。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://barippi.github.io/2020/temp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/2020/temp/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

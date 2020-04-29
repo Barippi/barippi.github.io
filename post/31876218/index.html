@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> 古いネットブックにLubuntu12.04をインストールした &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/31876218/">古いネットブックにLubuntu12.04をインストールした</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>ネットブックにインストールされているWindowsXPが2014年にサポート期間が終了してしまう(参照 <a href="https://128bit.blog41.fc2.com/blog-entry-241.html">https://128bit.blog41.fc2.com/blog-entry-241.html</a>)ので、よっしゃ先手必勝やと思い立ちLubuntuをインストールした次第でございます。<br/>
+ <br/>
+ネットブックはAspire One KAV60(裏に「KAV60」としか書いてなかった)。日本の型番だといくつだったか忘れました。まあ相当古いネットブックです。うちでは寝床PC、帰省時PCとして活躍しております。<br/>
+ <br/>
+さて、私のうちではNAS、Web、FTPサーバーとしてUbuntuを使っておりますが、ネットブックのような非力なマシンではUbuntu(特にUnity)はかなり荷が重いのです。Atomだしメモリ1GBだし。ということで今回は軽量版Ubuntuの<a href="https://lubuntu.net/">Lubuntu</a>を採用しました。LubuntuはLXDE(Lightweight X11 Desktop Environment)を使用することでCPUがPentium 4あたりでもそこそこ軽快に動作します。UIもWindowsXPに似ていてスタートボタンっぽいのからアプリケーションを起動させます。この様にLubuntuはWindowsXPから乗り換えるのには非常に相性がいいディストリビューションと言えます。お試しでちょっとだけという人はインストール前にHDDのイメージをバックアップしておくといいでしょう。基本的にUbuntu系はHDDをWindowsXPのリカバリ領域までまっさらにしてからインストールしますので。まあLiveで使ってみてもいいのですが。<br/>
+ <br/>
+さてインストール。今回はUSBメモリブートでHDDにインストールしました。USBメモリは1GBのがあれば十分です。まずは<a href="https://lubuntu.net/">Lubuntuサイト</a>からブータブルCDイメージをダウンロードします。トレントで落とすと若干早いようです。そして <a href="https://linux-kotohajime.blogspot.jp/2010/10/lubuntu.html">https://linux-kotohajime.blogspot.jp/2010/10/lubuntu.html</a> を参照しながらブータブルUSBメモリを作成します。<br/>
+ <br/>
+作成したらネットブックにUSBメモリを挿しブート。BIOSでUSBメモリからブートするようにします。無線LANのドライバは基本的にダウンロードしなければいけないのでひとまず有線LANでインストールに臨みます。メニューが出てきたら「インストール」をクリック。ロケール、ユーザー等を設定しつつインストールが進みます。つつがなく進むと最後に「再起動をしてください」とダイアログが出るので再起動ボタンを押下しUSBメモリを抜いてください。<br/>
+ <br/>
+再起動したらUbuntu Japan Teamのリポジトリを追加します。<a href="https://www.ubuntulinux.jp/japanese">https://www.ubuntulinux.jp/japanese</a> を参照して追加してください。追加したらとりあえず何も考えずに<br/>
+<ul><br/>
+<li>$ sudo apt-get update</li><br/>
+<li>$ sudo apt-get upgrade</li><br/>
+</ul><br/>
+をしてください。まあ何もなければ幸い、何かあってもこれでOK。<br/>
+ <br/>
+IMEがanthyなのは心もとないのでmozcを入れます。<br/>
+<ul><br/>
+<li>$ sudo apt-get install ibus-mozc</li><br/>
+</ul><br/>
+これで周辺パッケージも入れてくれます。入ったら「設定」→「キーボード・インプットメソッド」でmozcを上にします。<br/>
+ <br/>
+そしてNASにつなぐためにはsambaが必要です。クライアントで使うだけなので基本的に設定は不要です(ワークグループを合わせるぐらいはしてもいいけどしなくてもつながる)。<br/>
+<ul><br/>
+<li>$ sudo apt-get install samba</li><br/>
+</ul><br/>
+これでつながります。ファイルマネージャーの「移動」→「ネットワーク・ドライブ」から見れるようになります。<br/>
+ <br/>
+あと必要なのはIPAフォントくらいかな。デフォルトのままだとWebブラウズがしにくいので。これは「システムツール」→「Synapticパッケージマネージャー」から「IPA」とかで検索してみてください。入れたらChromiumの設定でフォントを変えてください。<br/>
+ <br/>
+あとはお好みでアプリを入れてください。私の場合はVLCメディアプレーヤーやxchatくらいでした。あとは無線LANの設定か。設定ツールがWPSに対応してればものの1分で終わるんですが。まあ普通に設定しても5分ですね。<br/>
+ <br/>
+おそらくここまでで3時間経ってないはずです。Linux便利になりましたねぇ。ただで使えることを感謝しつつ終えたいと思います。<br/></p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/248474381.html/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/248474517.html/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

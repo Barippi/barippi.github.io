@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> WSLでNode.jsを入れてGithub PagesにHexoで静的ページblogを作るお話 &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/73504958/">WSLでNode.jsを入れてGithub PagesにHexoで静的ページblogを作るお話</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>Hexoってなんて読むんでしょうね。という話は置いといて、静的サイトジェネレーター、Hexoを使ってgithub.ioにブログを作るお話です。<br/>
+　HexoはNode.jsで動くのでNode.jsが何はなくとも必要です。しかし、Node.jsはバージョンがたくさんある上、バージョンに寄ってその上で動くアプリケーションが動いたり動かなかったりするので、ひとまずNode.jsのバージョン管理ソフトを入れます。nvmと呼ばれるものを今回は入れます。<br/>
+&gt;&gt;$ git clone <a href="https://github.com/creationix/nvm.git">https://github.com/creationix/nvm.git</a> ~/.nvm$ source ~/.nvm/nvm.shとすればnvmが入ります。かんたんですね。gitはWSLのUbuntuでは標準で入ってました。<br/>
+　次はNode.jsを入れます。<br/>
+&gt;$ nvm ls-remoteとすることで、今インストール可能なバージョン一覧がずらーっと現れます。本番環境で使うにはLTS版の方が安心なので偶数バージョンを入れます(奇数バージョンは開発版らしいです)。私は当時最新LTSのv6.11.4を入れました。今はv6.11.5らしいです。それを入れましょう。<br/>
+&gt;$ nvm install 6.11.5で入ります。かんたんですね。そしてデフォルトで使うNode.jsのバージョンを指定します。<br/>
+$ nvm alias default v6.11.5<br/>このコマンドを実行して「default -&gt; v6.11.5」と出てくればOKです。<br/>
+　次はWSLを起動した時にnvmが使えるように設定します。具体的に言うと「.bashrc」というファイルをいじります。<br/>
+&gt;$ nano .bashrcとして<br/><img class:"pict" hspace:"5" alt:"2017-11-06" border:"0" height:"338" width:"480" src="/images/e47fb3f3.png"/><br/><br/>
+　上の画像のように(上の画像は.bash_profileを開いてますが)<br/>
+&gt;if [[ -s ~/.nvm/nvm.sh ]]; then source ~/.nvm/nvm.shfi<div>を書き込みます。書いたらCtrl+Oを押下して保存してCtrl+Xを押下して終了させます。これでwslttyを起動した時にnvmが使えて、Node.jsも使えるようになりました。<br/>
+　githubにアカウントがない方は作ってください。非公開のプライベートリポジトリを作らないならばタダでアカウントを作れます。作れたら<br/><br/>
+<img class:"pict" hspace:"5" alt:"86f7788f-ea83-4877-84ac-b9838d01c9f4" border:"0" height:"26" width:"480" src="/images/57ce8775.png"/><br/>
+の右の「＋」を押下し、「New Repository」を押下します。現れたページで「ユーザ名.github.io」という名前のリポジトリを作ります。私なら「barippi.github.io」ですね。「Initialize this repository with a README」はチェックを外しておきましょう。<br/>
+<img class:"pict" hspace:"5" alt:"6855711e-967d-414c-825a-37dd7fcbb876" border:"0" height:"333" width:"480" src="/images/3ed785c2.png"/></p>
+
+<p>のように(私はもうページを作ってるのでこうなってますが)リポジトリができたよというページが表示されればOKです。<br/>
+　次に、githubにPushできるように鍵を作ります。<br/>
+</div>&gt;$ mkdir ./.ssh$ cd .ssh$ ssh-keygen<div>として現れた質問(パスフレーズを設定してねと英語で出る)に答えれば秘密鍵と公開鍵が作成されます。<br/></div>
+&gt;$ cat id_rsa.pub<div>として出てきた内容をgithubに登録します。ページの右上の自分のアイコンを押下し、Settingを選び、出てきたページの左ペインからSSH and GPG keysを選びます。出てきたページにおいてAdd SSH keyボタンを押下し、先程catした内容をコピーアンドペーストします。成功するとその旨ページに現れて、これでHexoから直にPushできるようになります。ちょっとむずかしくなってきましたね。<br/>
+　さて、ここまでで「Hexoの話は？」となった方もいるかもしれませんが、やっとです、やっとHexoを入れます！インストールします！<br/></div>
+&gt;$ npm install -g hexo<div>これでOKです！かんたんになりましたね。次はBlogの雛形を作ります。<br/></div>
+&gt;$ hexo init ○○(myblogとかでOK)<div>これでmyblogとした方ならmyblogというディレクトリができています。<br/></div>
+&gt;$ cd myblog$ npm install<div>で必要なモジュールがインストールされます。お手本としてHello Worldの記事があるのでこれをgithub上にPushしてみます。_config.ymlを編集します。<br/>
+$ nano _config.yml<br/><br/><img class:"pict" hspace:"5" alt:"2017-11-06 (1)" border:"0" height:"338" width:"480" src="/images/9e13c0b0.png"/><br/>
+こんな感じでタイトルとか付けて<br/><br/><img class:"pict" hspace:"5" alt:"2017-11-06 (3)" border:"0" height:"338" width:"480" src="/images/e4c08657.png"/><br/>
+&gt;こんな感じにデプロイ先を書きます。下のfeedはRSSをatom形式で配信する設定です(要後述プラグイン)。deployのrepoは個人個人で異なります。上の方のthemeは上画像ではlightになってますが、今のところはいじらないでください。ではデプロイしてみましょう。<br/></div>&gt;$ hexo deploy -g<div>これでサイトを生成してデプロイまでやってくれます。成功したでしょうか。成功して数分経つと<a target:"_blank" href="https://barippi.github.io"><a href="https://barippi.github.io">https://barippi.github.io</a></a>のようにサイトができあがります。いやー、かんたんかんたん。<br/>
+　「新しい記事を書きたい」。そうですよねー。新しい記事を書くときは<br/></div>
+&gt;$ hexo new &ldquo;書きたい記事タイトル”<div>です。「~/myblog/source/_posts」にMarkdown形式で保存されています。Markdown形式で書き書きしてデプロイさせると新しい記事が追加されます。<br/>
+　「テーマを変えたい」。そうですよねー。これも簡単です。<br/></div>
+&gt;$ git clone 適用させたいテーマのgitリポジトリ theme/テーマ名<div>です。そして上スクリーンショットのようにテーマ名を変えればいいです。<br/>
+　atomを配信するにはnpmでhexo-generator-feedというパッケージをインストールしてください<br/></div>
+&gt;$ npm search hexo<div>とすればhexoで使用できるプラグインが多数見つかります。簡単な説明もついてるので参考にしつつインストールしたりしなかったりしてみてください。</div></p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/73592737/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/248475909.html/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

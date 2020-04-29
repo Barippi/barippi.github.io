@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> PulseaudioでUbuntuのサウンドをWindowsで出力する話 &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/43946369/">PulseaudioでUbuntuのサウンドをWindowsで出力する話</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>mpdをWindowsで動かすようになって最近はあまりやっていないのだが備忘録として書いておくことにする。<br/>　PulseaudioはLinuxで動作するサウンドサーバーの一種である。一般的にはLinuxカーネルに含まれるALSAというサウンドサーバーを使うのであまり表立って出てこないがネットワーク転送でサウンドが出力できるので頭の隅に入れておくといざという時便利なソフトウェアである。<br/>　簡単にこちらの環境を列挙しておく。<br/>・Windows機のIPアドレスは192.168.1.201<br/>・Ubuntu機のIPアドレスは192.168.1.250<br/>　ということで具体的な設定を書いていく。<br/>　Ubuntuには標準でPulseaudioが入っているがWindowsにはもちろん入っていないので <a href="https://www.freedesktop.org/wiki/Software/PulseAudio/Ports/Windows/Support/">https://www.freedesktop.org/wiki/Software/PulseAudio/Ports/Windows/Support/</a> からダウンロードし、適当なフォルダ(C:\app\pulse など)に展開する。<br/>　「etc\pulse」フォルダ内の「default.pa」ファイルに変更を加える。<br/>・load-module module-native-protocol-tcp auth-anonymous:1<br/>　これはどこからでも、どのマシンからでも受け付ける書き方で、ルータでIPマスカレード設定等をしていると誰でもいたずらできてしまうので、<br/>・load-module module-native-protocol-tcp auth-ip-acl:192.168.1.250<br/>　などとしてIPアドレスの制限を行ったほうが良い。サブネット全体を受け付けるには<br/>・load-module module-native-protocol-tcp auth-ip-acl:192.168.1.0/24<br/>　などとすると良い。また、<br/>・load-module module-waveout<br/>　も追加する。そして「bin/pulseaudio.exe」を立ち上げると待ち受け体制に入る。<br/>　Ubuntu側の設定は簡単で、「/etc/pulse/client.conf」に<br/>・default-server : 192.168.1.201<br/>　を追加しPulseaudioを再起動させる。これでPulseaudioに対応したソフトウェアはネットワークを通じてWindows機で再生される。<br/><br/><br/>&ndash; 追記 2018/11/15 &ndash;<br/>JACKだともっと簡単に出せるはずなんだけど上手く行ってない</p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/31795613/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/248475255.html/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

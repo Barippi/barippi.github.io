@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> foobar2000でラジオ配信環境を作る話 &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/39059634/">foobar2000でラジオ配信環境を作る話</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>foobar2000のVer 1.3.8で構築します。また、icecast serverまたはShoutcast Serverがすでに構築してある前提で書きます。<br/>　まず<a href="https://www.altacast.com/" target:"_blank">AltaCast</a>からAltaCast for foobar2000 1.xをダウンロードしてインストールします。そしてfoobar2000の「file」→「preference」を開き、「DSP Manager」でAltaCast 1.0をアクティブにします。<br/><br/><a href="/images/c383a000.jpg" title:"WS000008" target:"_blank"><img src="/images/c383a000.jpg" alt:"WS000008" class:"pict" border:"0" width:"480" height:"350" hspace:"5"/></a><br/><br/>　基本的な構築はこれで終わりです。曲を流すとAltaCastの画面が開き、AltaCastの「Add Encoder」からサーバーのアドレス、ポートなどを設定し、「Connect」すれば配信が開始されます。曲順に流すこともシャッフルプレイすることもランダムプレイもできます。<br/>　しかしこれでは「あ、プレイリストにあるこの曲、今聴きたい」といった時に対処ができません。そんな時のために「ソングリクエスタ」を導入しましょう。<br/>　<a href="https://wikiwiki.jp/foobar2000/?FrontPage" target:"_blank">foobar2000 日本語 Wiki</a>の左ペインのメニューから「コンポーネント一覧→General→通信」と進み、「foo_request_http」の「ミラー」からダウンロードします。ダウンロードしたファイルを展開し「readme_jp.txt」を読みながら設定しましょう。一番簡単なのは中のファイルを全部「components」フォルダに置き、そこから設定する方法でしょう。<br/><br/><a href="/images/f6078dc9.jpg" title:"WS000009" target:"_blank"><img src="/images/f6078dc9.jpg" alt:"WS000009" class:"pict" border:"0" width:"480" height:"350" hspace:"5"/></a><br/><br/>　こんな感じ。64bit版Windowsでの設定です。32bit版だと「Program Files (x86)」のところが変わります。で、「Start」ボタンを押下し、「<a href="https://localhost:4095/」にアクセスするとページが表示されます。リクエスト環境も整いました。">https://localhost:4095/」にアクセスするとページが表示されます。リクエスト環境も整いました。</a><br/>　外から聞く場合は配信サーバーのポートもソングリクエスタのポートもルーターでポートマッピングしてください。で、外から聞くとなると気になるのが転送量。多かれ少なかれ最近のプロバイダは転送量制限があります。なるべく少ない転送量でいい音で聞きたい。mp3やoggは128kbps無いと論外だし、AACでも96kbpsは欲しい。でもそれだと転送量が多いのです。<br/>　そんな時のためのAAC Plus。これは48kbpsあれば上記と大体同じ音質が出せますし、24kbpsでもそれなりに聞けます。これだ。でもfoobar2000にはエンコーダーがないのです。どうするかというとWinampにあったものを持ってきます。ファイル名は「enc_aacplus.dll」です。ない場合はインターネットは広いので誰かがアップロードしてます。私が見つけたところは直リンク禁止と書いていたので「Winamp enc_aacplus」とでも検索してみてください。これを「foobar2000.exe」と同じフォルダに置きます。そしてfoobar2000を再起動するとAltaCastのエンコーダーのところに「AAC Plus」が出てきます。やりましたね。<br/>　ということで、foobar2000でのインターネットラジオ配信環境を整えてみました。まあ、ひきこもりなんで使い道は無いんですが…。ではでは。<br/></p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/248475905.html/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/31876153/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

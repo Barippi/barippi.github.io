@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>インターネットサービス on 取るに足らぬ者</title>
+    <link>https://barippi.github.io/categories/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/index.xml</link>
+    <description>Recent content in インターネットサービス on 取るに足らぬ者</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://barippi.github.io/categories/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>EXCITE MEC光に乗り換えてから1ヶ月近く経ちます</title>
+      <link>https://barippi.github.io/post/2019/1122-excitemec/</link>
+      <pubDate>Fri, 22 Nov 2019 20:06:45 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/2019/1122-excitemec/</guid>
+      <description>&lt;p&gt;どうも、IPv6マン、ばりっぴです。&lt;/p&gt;
+
+&lt;p&gt;タイトルにあるとおり、業界最安水準のIPoEでIPv6のサービスであるEXCITE MEC光に1日から乗り換えて3週間経ちました。感想でも述べていこうかと。&lt;/p&gt;
+
+&lt;p&gt;まず「IPv6は速い」、これはウソ。PPPoE IPv4より遅いときがあった。まあ、IPoEなのでプロバイダのさじ加減次第ですね。EXCITE光はIIJのホールセールで、どれだけ金をIIJに投げることができるか、で速度が変わります。「速度」というと怒る人がいるので「帯域幅」と言っておきましょうか。EXCITEが「ブロードバンド回線」というものを「どれだけの帯域幅が出ればいいか」という考え方次第ですが、さすがにMbps出なかったときはお気持ち表明しようかと思いました。&lt;/p&gt;
+
+&lt;p&gt;これがそのスピードテスト。
+&lt;img src=&#34;https://barippi.github.io/images/speedtest.jpg&#34; alt=&#34;Google Speed test&#34; /&gt;
+びっくりしますよね。そのころEXCITEのv4の友人(同じ県内)は数十Mbpsでていました。&lt;/p&gt;
+
+&lt;p&gt;あと家鯖関係は、EXCITE MEC光はtransix(DS-Lite)なのでIPv4でつながる家鯖を作ろうと思うのであれば別にIPv4接続のアカウントが必要になります。transixではv4のIPアドレスを共有して使うためどうにもこうにもできず、そのような形となります。&lt;/p&gt;
+
+&lt;p&gt;IPv6で家鯖は普通にできます。ルーターの設定次第。ポート80でも443でも、です。ただ、IPv4の人からはつながらなくなります。これは時機に解消していくのでまあ、いまv4の人は我慢してねって感じです。最近のプロバイダはいつの間にかv6サービスを提供していてv4だと思い込んでいた人がうちの鯖につながったと言う事例もあるので一度任意のサーバーのnslookupしてみると面白いかも知れませんね。&lt;/p&gt;
+
+&lt;p&gt;総括としましては「帯域幅はプロバイダのやる気次第」と言ったところでしょうか。IPoEだとNTT関係なくバックボーンを増設できますからね。&lt;/p&gt;
+
+&lt;p&gt;今後のEXCITE MEC光に期待しつつエディタを閉じます。アデュー。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Amazon Music HDを体験しました</title>
+      <link>https://barippi.github.io/post/2019/0922-AmazonMusicHD/</link>
+      <pubDate>Sun, 22 Sep 2019 19:46:52 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/2019/0922-AmazonMusicHD/</guid>
+      <description>&lt;p&gt;どうも、まさかAmazonがロスレスサブスクに吶喊してくるとは思ってませんでした、ばりっぴです。&lt;/p&gt;
+
+&lt;p&gt;mora qualitasがまごついてるなか(今年春には始まってるはずだった)、スッと入り込んできたのがAmazon Music HDです。ロスレス配信としてはDeezerが国内では初プレーヤーとなっていましたが、FLACでもCD音質までで、Windowsアプリストアからも公式アプリがダウンロードできない状況です。Google Playからはダウンロードできるのですが…。&lt;/p&gt;
+
+&lt;p&gt;Deezerが月1980円というなか、Amazon Music HDはプライム会員なら月1780円(会員でない場合は月1980円)、さらにストリーミングで聞くことができるハイレゾ音源数が数百万曲ということでこれはDeezerなどを凌駕しています。&lt;/p&gt;
+
+&lt;p&gt;まあ、先駆者であるDeezerを使わずにAmazon Music HDを評価するのもどうかと思い、Deezerに登録してみましたが、前述したとおり、Windowsストアアプリがインストールできず、WindowsPCからはWebプレーヤーしか使えず、これだとmp3でしか聴取できないようです。ええ…。&lt;/p&gt;
+
+&lt;p&gt;ということで、国内ではもうDeezerは問題外の状況で(ChromecastとかではFLACで聞けるらしいけど)、WindowsだとプレーヤーはAmazon Music HDしかいないという状況です。私の環境のせい(Windows Insiderだから)かしら。&lt;/p&gt;
+
+&lt;p&gt;ということで、改めてAmazon Music HDを体験しましたが、HD音源(CD相当の音質)もよいのですが、Ultra HDと銘打っているいわゆるハイレゾ音源のラインナップがエグい。今お金を持っている層がグッとくるラインナップ(パッと見たところで、松任谷由実、井上陽水、尾崎豊)。なかなか分かってるというか、この辺がお金を落としてくれるボリュームゾーンなのね、という感じ。新しい人がないのかといえばそうでもなくて、割と幅広く邦楽がある印象。宇多田ヒカル、あいみょん、SKY-HIなどなど。&lt;/p&gt;
+
+&lt;p&gt;まあ、ハイレゾを知っちゃったら戻れないですよね。これ継続かなー。1年先払いだと17800円と少し安くなります。ここもポイント。&lt;/p&gt;
+
+&lt;p&gt;あと注意点としてはWindowsの場合はWindowsのサウンドの設定をハイレゾにしておくことですね。そうしないといくら頑張ってもAmazon MusicアプリはCD音源相当の音質までしか再生できません。多分Macも同様に設定してあげないと恩恵に預かることはできないと思います。あとはインターネットの帯域ですね。混んでるとどうしても上手いこと最高の音質を得ることはできません。この辺はアプリ側で決めているようで、設定で変えてみてもダメでした。&lt;/p&gt;
+
+&lt;p&gt;ではその辺も鑑みつつ、&lt;a href=&#34;https://amzn.to/32XxEv4&#34;&gt;Amazon Music HD&lt;/a&gt;で良きMusic Lifeを！&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

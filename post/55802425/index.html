@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> パブリックβになったLet&#39;s Encryptでドメイン証明書を無料で取得する話 &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/55802425/">パブリックβになったLet&#39;s Encryptでドメイン証明書を無料で取得する話</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>みなさんHTTPSしてますか？最近はSNSでもHTTPSが普通になってきましたが、VPS等を使った個人サイトでまともなCAの証明書を取得するにはちょっと敷居が高い。日本の代理店を通すにしても英語が必要になったりします。日本語のみで証明書を取得しようとすると今度はお値段が高いのです。<br/>　大した情報は私のドメインには置いてないのですが、それでも気になるわけです。Free Wifiが普及した今日、悪意のあるスニッファーがいないとも限りませんし、ワイヤード接続であっても経路上でなにがされているかは分かりません。<br/>　そんなセキュリティは気になる、でも英語ほとんどできない、お金もないという私のような人のために無料で、しかもほぼ自動でドメイン証明書を発行してくれる団体が現れました。それが「<a href="https://letsencrypt.org/" target:"_blank">Let&#39;s Encryptプロジェクト</a>」です(<a href="https://letsencrypt.jp/" target:"_blank">日本語訳サイト</a>)。<br/>　このLet&#39;s Encryptで発行された証明書はアメリカの大手認証局「<a href="https://www.identrust.com/" target:"_blank">IdenTrust</a>」とのクロス署名によっていわゆる「オレオレ証明書」ではなく現在主流のブラウザでなんの手続きもなくブラウザのアドレスバーに鍵マークが付きます。また、メールサーバーやftpサーバーにもこの証明書は使えるので、オレオレ証明書を使用するよりもとりわけ安全にデータをやり取りすることができます。<br/>　能書きが長くなりましたが、今回はUbuntu15.10、apache 2.4.11での証明書の取得から設定を書いていこうと思います。<br/><br/>　証明書作成ツールのダウンロードは適切なディレクトリを作り<br/>$ git clone <a href="https://github.com/letsencrypt/letsencrypt">https://github.com/letsencrypt/letsencrypt</a><br/>　とし、スクリプトファイルを取得します。そしてletsencryptディレクトリに移動し<br/>$ ./letsencrypt-auto &ndash;help<br/>　とします。これで証明書に必要なツール類をインストールし、それが終わるとヘルプを表示します。パラパラと読んでおいてください。<br/>　今回使用するOS、UbuntuはDebian系のOSであり、またバージョンも15.10ということで入っているapacheのバージョン等も新しいため、apacheプラグインが使用できます。なので<br/>$ ./letsencrypt-auto &ndash;apache<br/>　でほぼ自動的に証明書がインストールされます。聞かれるのはドメイン名と緊急連絡時のメールアドレス、HTTPでアクセスした時にHTTPSにリダイレクトするかくらいで、あとは利用規約への同意が必要です。<br/>　スクリプトが終了したらすでにapacheではSSLを使ったHTTPS通信が可能になっています。<br/><br/>　さて、この作成された証明書の有効期限は90日間です。「短い！」と思われた方がほとんどでしょうけど、短いのには理由があって「1年とかだと更新するの忘れちゃったりする。短い期間だと自動で更新する手段を使うようになる」みたいな感じのことを書いてました。ということで更新の自動化です。<br/>　あなたが考えたようにcronを使います。<br/>&gt;#!/bin/shif ! /path/to/letsencrypt-auto renew &gt; /var/log/letsencrypt/renew.log 2&gt;&amp;1 ; then    echo Automated renewal failed:    cat /var/log/letsencrypt/renew.log    exit 1fiapachectl graceful　のようなシェルスクリプト(上記は公式サイトにあったシェルスクリプトの丸パクリ)を作って「/etc/cron.monthry」あたりに+xして置いておけば自動でそのうち更新してくれます。してくれるはずです。<br/><br/>　証明書は「/etc/letsencrypt/live/(ドメイン名)/」の配下にシンボリックリンクされてます。「サーバー証明書→cert.pem、秘密鍵→privkey.pem、中間証明書→chain.pem、サーバー証明書と中間証明書が一緒になったの→fullchain.pem」です。renewするごとに本体のファイル名は末尾の数字がインクリメントされていきますがシンボリックし直されているので、メールサーバーやftpサーバーに適用するときもこのシンボリックリンクされているものを使うのが簡単です。<br/><br/>　以上簡単に説明してきましたが、詳しいことは公式サイトの英語を読むなり「読むのも苦手」という人は日本語訳サイトを読んでください。<br/></p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/248475791.html/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/248474598.html/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

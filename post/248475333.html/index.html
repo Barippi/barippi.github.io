@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> 秀丸を使ったamebloのRSS配信先の置換 &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/248475333.html/">秀丸を使ったamebloのRSS配信先の置換</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>RSS配信URLが<a href="https://ameblo.jp/blog/rss.php?uid:cbxからhttps://ameblo.jp/cbx/rss.htmlに変更になりました。">https://ameblo.jp/blog/rss.php?uid:cbxからhttps://ameblo.jp/cbx/rss.htmlに変更になりました。</a><br/><br/>自分ひとりだけの分だと別に手間ではないのですが、俺は80近くアメブロのブログをRSSリーダーに登録してます。これらをいちいち手で変換するのはめんどいので秀丸Ver4.13で一気に置換してみました。まあ、自己責任でどうぞ。<br/><br/>RSSリーダーのOPMLをテキストファイルにエクスポートして(うちはSharp Readerを使ってます)、そのエクスポートしたファイルを秀丸で開きます。<br/><br/>多分一個のブログ分が<br/><br/>      ＜outline type:&ldquo;rss&rdquo; title:&ldquo;読んでも面白くないです&rdquo; description:&ldquo;つまらないブログでもいい、
+たくましくエントリしてほしい&rdquo; xmlUrl:&ldquo;<a href="https://ameblo.jp/blog/rss.php?uid:cbx&quot;">https://ameblo.jp/blog/rss.php?uid:cbx&quot;</a> htmlUrl:&ldquo;<a href="https://cbx.ameblo.jp&quot;">https://cbx.ameblo.jp&quot;</a> /&gt;<br/><br/>こんな感じで出てればオッケーです。<br/><br/>・まずはメニューの「検索」→「置換」を選びます。<br/><br/>・出てきたダイアログボックスの真ん中らへんにある「正規表現」のチェックをONにします。<br/><br/>・で、「検索」のテキストボックスの中に「<a href="https://ameblo.jp/blog/rss.php?uid:f[a-z|0-9|-]+f&quot;」を入れます。かぎ括弧からかぎ括弧の中だけです。最後のダブルクォーテーションも忘れないでください。">https://ameblo.jp/blog/rss.php?uid:f[a-z|0-9|-]+f&quot;」を入れます。かぎ括弧からかぎ括弧の中だけです。最後のダブルクォーテーションも忘れないでください。</a><br/><br/>・そして「置換」のテキストボックスの中に「<a href="https://ameblo.jp/1/rss.html&quot;」を入れます。これも同じようにかぎ括弧からかぎ括弧の中、最後のダブルクォーテーションを忘れないでください。">https://ameblo.jp/1/rss.html&quot;」を入れます。これも同じようにかぎ括弧からかぎ括弧の中、最後のダブルクォーテーションを忘れないでください。</a><br/><br/>・で、「全置換」ボタンを押下。<br/><br/>・置換の直前で確認ダイアログが出た場合は「一気」ボタンを押下してください。<br/><br/>これで、RSS配信URLの変換が完了しました。<br/><br/>あとはRSSリーダーでOPMLファイル(変換処理したファイル)をインポートしてください。<br/><br/>俺ができてるんで、多分、多分、大丈夫だと、思う。</p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/248475662.html/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/248474402.html/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

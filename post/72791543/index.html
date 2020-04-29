@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> RadioDJでIcecast2に配信しよう &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/72791543/">RadioDJでIcecast2に配信しよう</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>インターネットラジオ好きが高じていろいろソフトを試しています。<br/>　今回はロシア製のRadioDJというソフトを紹介します。<br/>　<a target:"_blank" href="https://www.radiodj.ro"><a href="https://www.radiodj.ro/">https://www.radiodj.ro/</a></a>が公式サイトになります。<br/>　本来はサウンドカードを通して放送波に乗せるようなソフトなんですが、Altacastの作成者がIcecastやShoutcastに配信させるプラグインを書いていて、それが標準装備されています。今回はこれを使ってIcecastで配信するというお話。動作画面は以下になります。<br/><a target:"_blank" title:"14" href="/images/79189d2a.png"><img class:"pict" hspace:"5" alt:"14" border:"0" height:"287" width:"480" src="/images/79189d2a.png"/></a><br/><br/>　まずは公式サイトから最新版をダウンロードします。Zipファイルを展開します。それを「C:\RadioDJ」など適当な所に保存します。これでRadioDJの方は終わり。<br/>　次にMySQLをインストールします。これも最新版をインストール。MySQL Community EditionをダウンロードしServerのみをインストールします。あとはデフォルトで構いません。rootのパスワードは一応他人がわかりづらく自分がわかりやすいパスワードを入力してください。これでMySQLのインストールも完了です。<br/>　その次にRadioDJの入っているフォルダーの中に「Setup」というフォルダーがあります。これを開いて、「Database Setup.exe」を開いてください。先程MySQLをインストールする時に設定したパスワードを入力し、画面右のVALIDATEボタンを押下してください。そうするとデータベースのセットアップは完了です。右下のOKボタンを押下して終了してください。<br/>　やっとRadioDJを立ち上げます。「RadioDJ.exe」を起動してください。でかい画面が出てきます。まずは画面左下のTRACKS MANAGERボタンを押下し、メニューの「Import」→「Folder」を選択して、楽曲が入っているフォルダを指定し、楽曲をデータベースにインポートしてください。楽曲数によりますがだいぶ時間がかかります。<br/>　楽曲のインポートが終わったら画面右下のCloseボタンを押下し、終了させてください。次にPLAYLIST BUILDERボタンを押下し、流す楽曲を選びます。m3uファイルがあるならそれを放送時に使うこともできますのでm3uファイルがいっぱいあるよーという人はPLAYLISTを作る必要はありません。ない人はここでPLAYLISTを作ってください。100曲ごとにページが分かれているのでその辺を注意して行ってください。データベースに格納しているのでもちろん検索もモリモリできます。PLAYLISTはデータベースに格納することもできますし、m3u形式で保存することもできます。<br/>　ここまできたらRadioDJの画面に戻り、画面右より上の「ALTACAST」タブを選びます。下の方に「＋」と書かれたボタンがあるのでそれを押下するとAltacastの設定画面になります。Icecastの場合、ユーザー名はsourceになります。そして必要事項を設定して画面を閉じるとリスト画面にサーバー名が出てきます。画面右側のConnectedとEnabledが緑色になっていれば配信準備は完了しています。<br/>　そして画面左の真ん中あたりにあるフォルダーのボタンを押下するとPLAYLISTを選ぶ画面が出てきます。先程作ったPLAYLISTや既存のm3uファイルを読み込ませると画面左に楽曲群がズラーッと並びます。そのまま流すも良し、シャッフルして流すも良し、です。<br/>　最後に配信開始ですが画面左上の再生ボタンを押下することで開始されます。もちろんマイクからの入力もできます。画面下のOPTIONSボタンを押下し、出てきたダイアログからOPTIONSを選び、Sound CardsからInputでマイクを繋いでいるサウンドカードを選んでください。またはWebカメラについているマイクでも大丈夫です。声を入れる時はPLAYLIST右のボタン群からINPUTボタンを押下すると入力されるので思う存分話してください。<br/>　セットアップが割りとめんどいですが、一度セットアップしてしまえばプレイリスト作るのもかんたんなので使ってて楽しいと思います。<br/>　長めになりましたがこれで終わります。</p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/248475136.html/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/248475380.html/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

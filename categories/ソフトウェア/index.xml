@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ソフトウェア on 取るに足らぬ者</title>
+    <link>https://barippi.github.io/categories/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/index.xml</link>
+    <description>Recent content in ソフトウェア on 取るに足らぬ者</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://barippi.github.io/categories/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Linuxでbluez-alsaを使いLDACやらAACやらaptXをBluetoothで送信する話</title>
+      <link>https://barippi.github.io/post/2020/0112-linuxldac/</link>
+      <pubDate>Sun, 12 Jan 2020 15:30:06 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/2020/0112-linuxldac/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://qiita.com/barippi/items/4379170a274d5c96eb94&#34;&gt;Linuxでbluez-alsaを使いLDACやらAACやらaptXをBluetoothで送信する話&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;書きました。よろしくお願い致します。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ACID Pro NEXT Suiteを買いました</title>
+      <link>https://barippi.github.io/post/2019/0824-acidpro/</link>
+      <pubDate>Sat, 24 Aug 2019 14:05:22 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/2019/0824-acidpro/</guid>
+      <description>&lt;p&gt;何度目かの正直です。ばりっぴです。FL StudioもABLITYも挫折して「もうDTMやんない！！」って思ってましたが、10年くらいの時を経てACID Proがバージョンアップして、さらになんか新しい物が出たらしいとの情報を受け取り、ソースネクストへと旅立ったら8月31日まで77％オフとのことで思わず買ってしまいました。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.sourcenext.com/product/vegas/acidpro-next-suite&#34;&gt;https://www.sourcenext.com/product/vegas/acidpro-next-suite&lt;/a&gt;から買うことができます。&lt;/p&gt;
+
+&lt;p&gt;77％オフの77％の由縁なのかは分かりませんが、これだけのソフトが15000円程度なのははっきり言ってお買い得。ACID Pro、メロダイン、Independenceとかが全部セットになっています。3800円相当のACIDループネタも一つタダになるバウチャーも付いてます。本来なら$599だそうです。日本円にして65k円くらい。欲しくなってきませんか。&lt;/p&gt;
+
+&lt;p&gt;ACIDのいいところは楽器が弾けなくても、楽譜が読めなくてもループネタを重ねていけばなんとなく曲になる、そういう所だと思います。これを機に是非DTMにチャレンジしてみませんか。私からは以上です。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MIXTRAXがすごい</title>
+      <link>https://barippi.github.io/post/2019/0619-MIXTRAX/</link>
+      <pubDate>Wed, 19 Jun 2019 20:03:41 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/2019/0619-MIXTRAX/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://www.mixtrax-global.com/jp/&#34;&gt;MIXTRAX&lt;/a&gt;というアプリケーションがあるのを知って、ちょっと試してみているのですが、予想以上にすごくて今試しつつブログを書いています。&lt;/p&gt;
+
+&lt;p&gt;どういうソフトかって言うと、DJ風に曲をつなげてくれるプレーヤーソフトです。&lt;/p&gt;
+
+&lt;p&gt;まずは曲解析が必要で、私のCore i7 4770で4万曲弱を1日掛けて解析してました。曲解析が終わり、どれどれと再生ボタン押したらもう予想以上にDJプレイで「さすがパイオニアだー」って思いました。&lt;/p&gt;
+
+&lt;p&gt;これ、語彙がなくなる。みなさんも是非お試しください。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>まーだジョルテ使ってるんですか！？これからはOne Calendarの時代でしょ！？</title>
+      <link>https://barippi.github.io/post/2019/0609-onecalendar/</link>
+      <pubDate>Sun, 09 Jun 2019 16:16:09 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/2019/0609-onecalendar/</guid>
+      <description>&lt;p&gt;長いことジョルテを使ってまいりましたが、この度AndroidのカレンダーアプリをOne Calendarに変更しました。なぜかというと、Android版があると分かったからです。&lt;/p&gt;
+
+&lt;p&gt;そもそもWindowsストアアプリで出ていたOne Calendarですが、ちょっとバグがあると☆2とか1をつけがちな日本人が軒並み☆4、5という高評価をつけていて「それならば」とWindowsストアアプリをダウンロードしたのが始まり。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Windows Live&lt;/li&gt;
+&lt;li&gt;Outlook.com&lt;/li&gt;
+&lt;li&gt;Googleカレンダー&lt;/li&gt;
+&lt;li&gt;Windows Exchange&lt;/li&gt;
+&lt;li&gt;Office 365&lt;/li&gt;
+&lt;li&gt;Facebookの誕生日とかのイベント&lt;/li&gt;
+&lt;li&gt;iCloud&lt;/li&gt;
+&lt;li&gt;Webcal&lt;/li&gt;
+&lt;li&gt;CalDAV&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;に対応していて、Windows版、Android版で同じエクスペリエンス(iPhone版もあるけどそちらは持ってないので試せない)。特にWindows版だとスタート画面にピン止めするとライブタイルでその日以降の予定が見られるのが素晴らしい。&lt;/p&gt;
+
+&lt;p&gt;ジョルテに課金はしなかったが、One Calendarには速攻で課金してしまった。そのくらいWindows8.1以降と相性がいいアプリです。&lt;/p&gt;
+
+&lt;p&gt;ジョルテに飽きてきたなーという方は是非。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.onecalendar.nl/onecalendar/overview&#34;&gt;One Calendar&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>(自分は)ノンプログラミングでMovableType形式のファイルをHexoのマークダウン形式ファイルに変換した話</title>
+      <link>https://barippi.github.io/post/2019/0519-MovabletypetoHexo/</link>
+      <pubDate>Sun, 19 May 2019 21:41:12 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/2019/0519-MovabletypetoHexo/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://qiita.com/barippi/items/fe0e6914d6d6efd0ff03&#34;&gt;(自分は)ノンプログラミングでMovableType形式のファイルをHexoのマークダウン形式ファイルに変換した話&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;書きました。対戦よろしくお願い致します。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

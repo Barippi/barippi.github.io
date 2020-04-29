@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Onecalender ジョルテ カレンダーアプリ on 取るに足らぬ者</title>
+    <link>https://barippi.github.io/tags/onecalender-%E3%82%B8%E3%83%A7%E3%83%AB%E3%83%86-%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E3%82%A2%E3%83%97%E3%83%AA/index.xml</link>
+    <description>Recent content in Onecalender ジョルテ カレンダーアプリ on 取るに足らぬ者</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://barippi.github.io/tags/onecalender-%E3%82%B8%E3%83%A7%E3%83%AB%E3%83%86-%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E3%82%A2%E3%83%97%E3%83%AA/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>まーだジョルテ使ってるんですか！？これからはOne Calendarの時代でしょ！？</title>
+      <link>https://barippi.github.io/post/2019/0609-onecalendar/</link>
+      <pubDate>Sun, 09 Jun 2019 16:16:09 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/2019/0609-onecalendar/</guid>
+      <description>&lt;p&gt;長いことジョルテを使ってまいりましたが、この度AndroidのカレンダーアプリをOne Calendarに変更しました。なぜかというと、Android版があると分かったからです。&lt;/p&gt;
+
+&lt;p&gt;そもそもWindowsストアアプリで出ていたOne Calendarですが、ちょっとバグがあると☆2とか1をつけがちな日本人が軒並み☆4、5という高評価をつけていて「それならば」とWindowsストアアプリをダウンロードしたのが始まり。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Windows Live&lt;/li&gt;
+&lt;li&gt;Outlook.com&lt;/li&gt;
+&lt;li&gt;Googleカレンダー&lt;/li&gt;
+&lt;li&gt;Windows Exchange&lt;/li&gt;
+&lt;li&gt;Office 365&lt;/li&gt;
+&lt;li&gt;Facebookの誕生日とかのイベント&lt;/li&gt;
+&lt;li&gt;iCloud&lt;/li&gt;
+&lt;li&gt;Webcal&lt;/li&gt;
+&lt;li&gt;CalDAV&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;に対応していて、Windows版、Android版で同じエクスペリエンス(iPhone版もあるけどそちらは持ってないので試せない)。特にWindows版だとスタート画面にピン止めするとライブタイルでその日以降の予定が見られるのが素晴らしい。&lt;/p&gt;
+
+&lt;p&gt;ジョルテに課金はしなかったが、One Calendarには速攻で課金してしまった。そのくらいWindows8.1以降と相性がいいアプリです。&lt;/p&gt;
+
+&lt;p&gt;ジョルテに飽きてきたなーという方は是非。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.onecalendar.nl/onecalendar/overview&#34;&gt;One Calendar&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> Ubuntu Server15.10でHubot＋IRCを試す話 &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/51172274/">Ubuntu Server15.10でHubot＋IRCを試す話</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>アイドルマスターつながりの友人たちとお話してるIRCのチャンネルにbotがいなくなりはや数年。Software DesignでHubotというものがあることを知り早速ためしてみることに。<br/>　ただ、Software DesignではSlackやHip Chat、はたまた自家製のチャットツールとの連携でIRCはもう時代遅れな感じで書かれてました。でもWebを見渡せばやってる人はいるもので、それを参考にしながら(古い情報もありましたが)「Hubot＋IRC」環境を構築してみました。<br/><br/>・# apt-get install nodejs npm<br/><br/>　これでNode.jsとnpmをインストールします。まあNode.jsを入れる時点でnpmも入ると思いますが。IRCnetJP(ISO-2022-JPを使うIRCサーバー)の場合はここでZNCも入れておいてください。freenodeとかのUTF-8を使うサーバーの場合はZNCは基本的に必要ありません。<br/><br/>・# ln -s /usr/bin/nodejs /usr/bin/node<br/><br/>　とシンボリックリンクを張ります。Ubuntuはなぜかnodeじゃなくてnodejsで、そのまま進めるとあとあとめんどいのでここで解決しておきます(もしかしたらいらないかも)。<br/><br/>・# npm install -g yo generator-hubot<br/><br/>　でYeomenとHubotのインストーラーをインストールします。ここまで終えたら一般ユーザーに戻ります。<br/><br/>・$ mkdir -p /your/botname<br/><br/>　として適当な場所(いい加減な場所という意味ではなく)にディレクトリを掘り、そこに移動します。ディレクトリ名はあくまで例です。<br/><br/>・$ yo hubot<br/><br/>　でHubotのインストールが始まります。アダプターは「irc」を入力し、それ以外は自分の環境にあった文字列を入れていけばいいと思います。<br/><br/>・$ ./bin/hubot -n botname<br/><br/>　でまずは動くか試してみてください(最初の「.」を忘れずに)。もりっと文字が出たあとに「botname＞」と書かれたプロンプトが現れるはずです。<br/><br/>・botname＞ botname ping<br/><br/>　でHubotがPONGを返してきます。ピンポンですね。疎通完！これからIRCに接続するための設定をします。IRCに接続するためのもろもろの設定は環境変数として設定していきます。のちのち面倒がないようにシェルスクリプトにするのが手っ取り早いでしょう。例えば「runbot.sh」として、<br/><br/>&ndash;runbot.shここから&ndash;<br/>#!/bin/bash<br/><br/>export HUBOT_IRC_NICK:&ldquo;botname&rdquo;<br/>export HUBOT_IRC_SERVER:&ldquo;irc.example.com&rdquo;<br/>export HUBOT_IRC_ROOMS:&ldquo;#hogehoge&rdquo;<br/>export HUBOT_IRC_REALNAME:&ldquo;Bot&#39;s Real Name&rdquo; #optional<br/>export HUBOT_IRC_PASSWORD:&ldquo;serverpass&rdquo; #optional<br/>export HUBOT_IRC_USERNAME:&ldquo;serverusername&rdquo;  #optional<br/><br/>bin/hubot -a irc<br/>&ndash;runbot.shここまで&ndash;<br/><br/>　こんな感じでいいでしょう。UTF-8を使うfreenodeなどのサーバーにつなぐならここまででOKです。runbot.shを立ち上げてHubotがチャンネルに入るかどうか試してみましょう。<br/>　IRCnetJPなどのISO-2022-JPを使うサーバーはZNCを介してメッセージを相互に文字コード変換しながら通信することになります。ZNCの設定やらは「<a href="https://blog.livedoor.jp/barippi/archives/31876131.html" target:"_blank">Ubuntu Server 14.10でIRC Bouncer 「ZNC」をデーモン化して使う</a>」あたりを見ていただくとよいです。で、繋がるようになったら「/var/lib/znc/configs/znc.conf」を編集します。Hubotが使う「Userセクション」に「LoadModule : charset -force UTF-8 ISO-2022-JP」を追加します。「クライアント側→サーバー側」の順に書けば例えばサーバーの文字コードがEUC-jpを使っていればISO-2022-JPをEUC-jpに書き換えればそのようになります。あとはrunbot.shをZNC経由でつなぐように編集するだけです。これで文字コードの問題をあまり気にすること無く使えるようになります。<br/><br/>　Botと言えば最近は多機能なのが売りなものが多いですが、Hubotは多機能さでは群を抜いています。Coffee-ScriptやJavaScriptでプラグインを書ける手軽さや、もともとアプリ開発者向けだったBotなだけにGitHubにPushしたりPullしたりTravis-CIでBuildしたりデプロイしたりと開発関係はなんでもあります。運用系でもZabbix等の監視ソフトからアラートが出たらそれをチャットに流したりなどやはりいろいろあります。<br/>　しかし、私は今は一般人なのでそういうのはとりあえず置いておいて、IRC Botの機能の花形であるOP権限配布のプラグインを探しました。「<a href="https://gist.github.com/ConnorWGarvey/6089889" target:"_blank"><a href="https://gist.github.com/ConnorWGarvey/6089889">https://gist.github.com/ConnorWGarvey/6089889</a></a>」にひな形とも呼べるものがあったのでこれをちょっといじってみました。元のプラグインでは「botname make me an op」と書かなければOP権限がもらえなかったものを「なるとちょうだい」で配るようにしました。またHubotインストール時ですでにそれなりのプラグインが入っていて「botname help」で使い方が出てきます。中にはGoogleのAPIコードが必要だったりするものもありますが<a href="https://github.com/hubot-scripts/hubot-google-images#cse-setup-details" target:"_blank">導入のヘルプ</a>もあるのでGmailアカウントがある方は挑戦してみてはいかがでしょうか。また、Software Designの2016/01号のChatOpsの特集の中でもIRCであっても使えるプラグインが紹介されています。合わせて挑戦してみるのも面白いでしょう。<br/><br/>※IRC接続時に「node-icu-charset-detector」のBuildでエラーが出ますが接続はできます。ソースファイルが無くてBuildに失敗しているようでしたら「# apt-get install libicu-dev」で解決するはずです。以上。</p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/31876131/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/31876176/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

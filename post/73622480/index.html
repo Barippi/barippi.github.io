@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> mstdn.barippi.comを作った時の話とか &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/73622480/">mstdn.barippi.comを作った時の話とか</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p><a target:"_blank" href="https://adventar.org/calendars/2265">Mastodon 2 Advent Calendar 2017</a>の3日目の記事です。2日目はosaponさんの「<a target:"_blank" href="https://diary.osa-p.net/2017/12/blog-post.html">マストドンのフォロー状態可視化ツール「フォローリンク」</a>」です。<br/><br/>　最初Mastodonを知ったのは多くの人がそうであったように2017年4月12日だったか13日だったかのITMediaの記事からです。友人から記事を教えてもらって「へー、こんなのあるんだな」と思いつつjpに登録したのを思い出します。ぼーっとLTLを眺めているとどんどん新規インスタンスができてきて「俺でもできるんじゃないか？」と無謀にも思いついてしまいました。<br/>　Mastodonのリポジトリにたどり着くと丁寧なインスタンスの建て方がUbuntu向けで書いてあって「ああ、建てろと言っている」と思ってしまったのが運の尽き。真夜中にインスタンスを建て始めました。<br/>　ConoHaのVPSを契約してたのでそれに入れようとして、俺はWebのバーチャルドメインの建て方も知らないのに気づいたのでした。<br/>　当時はApache2でhttpdを建てていて、それでバーチャルドメインの建て方を調べ、とりあえず静的ページが出たところでMastodonに着手しました。<br/>　先のバーチャルドメインを建てるのと合計して5時間くらいで立ち上がりました。2017年4月14日の早朝だったと思います。花の4月14日組です(？)。意気揚々とjpとtwitterで宣伝してみたものの全然ユーザー数は増えず…。2017年11月14日現在で私を含め37人のユーザーさんがいますがほとんどが幽霊ユーザーさんです。<br/>　アイマスPに来てもらえればいいかなーとも思っていたのですが、私が建てた直後にアイマストドンができてしまい「ああ、これは名前で負けてる」と思って私のユーザー登録ページでもアイマストドンに誘導させていただきました。何人誘導されたかはわかりませんが…。<br/>　結果的には過疎インスタンスで良かったかなーと思いました。ConoHaの50GBストレージでは長期運用は難しいのかなーと。メディア系をオブジェクトストレージに逃がせますが、本格的にOpenSwift Stackに対応したのがVer2.0.0ということで(他のリポジトリからCherrypickするという技を私は持ち合わせていなかった)今のアイマストドンのメディア系トゥート数からするととてもじゃないけど50GBでは半年もたなかったんじゃないかと思います。<br/>　Ver1.5だったか1.6でフロントエンドがApache2のリバースプロキシじゃ難しくなったので素直にNginxに入れ替えもしました。<br/>　Mastodonのお陰でほんの少しバックエンドの設定に詳しくなれたのはいい経験でした。コントリビュートもしてみたいのですが、Rubyを勉強するところから始めないといけないのはちょっとツライ…。<br/>　ということでLinux歴が浅く、私みたいなタコでもMastodonインスタンスを建てることができます。ぜひ皆さんも建ててみましょう！</p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/74211553/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/248474830.html/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

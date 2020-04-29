@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> Misskeyを入れたときのNginxのコンフィグを忘れないように書いておく &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/77577110/">Misskeyを入れたときのNginxのコンフィグを忘れないように書いておく</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p><div>server {</div><div>  listen 443 ssl http2;</div><div>  server_name ドメイン名;</div><br/><div>  ssl_certificate     /etc/letsencrypt/live/ドメイン名/fullchain.pem;</div><div>  ssl_certificate_key /etc/letsencrypt/live/ドメイン名/privkey.pem;</div><div>  ssl_protocols TLSv1.2;</div><div>  ssl_ciphers HIGH:!MEDIUM:!LOW:!aNULL:!NULL:!SHA;</div><div>  ssl_prefer_server_ciphers on;</div><div>  ssl_session_cache shared:SSL:10m;</div><div>  root /home/misskey/misskey;</div><div>  keepalive_timeout    70;</div><div>  sendfile             on;</div><div>  client_max_body_size 8m;</div><div>  gzip on;</div><div>  gzip_disable &ldquo;msie6&rdquo;;</div><div>  gzip_vary on;</div><div>  gzip_proxied any;</div><div>  gzip_comp_level 6;</div><div>  gzip_buffers 16 8k;</div><div>  gzip_http_version 1.1;</div><div>  gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;</div><br/><div>  add_header Strict-Transport-Security &ldquo;max-age:31536000&rdquo;;</div><br/><div>  location / {</div><div>    proxy_set_header Upgrade $http_upgrade; #ここ重要</div><div>    proxy_set_header Connection &ldquo;upgrade&rdquo;; #ここも重要</div><div>    proxy_pass https://ドメイン名:ポート;</div><div>     proxy_set_header Host $host;</div><div>    proxy_set_header X-Real-IP $remote_addr;</div><div>    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</div><div>    proxy_set_header X-Forwarded-Proto https;</div><div>    proxy_set_header Proxy &ldquo;&rdquo;;</div><div>    proxy_pass_header Server;</div><br/><div>    proxy_buffering off;</div><div>    proxy_redirect off;</div><div>    proxy_http_version 1.1;</div><div>    tcp_nodelay on;  }</div><div>}</div><br/><div>server {</div><div>    if ($host : ドメイン名) {</div><div>        return 301 https://$host$request_uri;</div><div>    } # managed by Certbot</div><br/><br/><div>  listen 80;</div><div>  server_name ドメイン名 root ドキュメントルート;</div><div>    return 404; # managed by Certbot</div><div>}</div><br/></p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/72242210/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/70337842/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

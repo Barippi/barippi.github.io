@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> MopidyでSpotifyなどを聞く &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/70337842/">MopidyでSpotifyなどを聞く</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>MopidyとはPythonで実装されたMPD互換の音楽プレーヤーです。「なんだそりゃ、MPDでいいじゃないか」と言うかもしれませんが、こちらはSpotifyやプラグインを入れればAudio Addict運営のラジオ局やSoundCroud、Google Play Musicなどにも対応します。GUIソフトで言えばClementineみたいな感じでしょうか。「UbuntuならSpotifyの公式プレーヤーがあるじゃないか」と思うかもしれませんがそれはそれ。なんとなくやってみたくなったのです。<br/>　前提条件はUbuntu16.10、Spotifyは私がプレミアム会員なのでプレミアム会員です。無料会員ではどうなるか分かりません。また、systemdで常駐させます。ユーザー権限でも立ち上げることはできますが、confファイルの場所が違ったり使うコマンドが違ったりしますので、ご注意を。<br/>　インストールする前のお断りとしてはMPDクライアントから見たMopidyは日本語ファイル名が化けてたりでイマイチなのでローカルファイルを再生するだけなら素直にMPD入れたほうがいいと思いますし、逆にSpotifyしか使わないと言う事ならばSpotify公式のプレーヤーの方が使いやすいです。プラグインも思ったように動かなかったりで一言で言えば「これからのソフトウェア」です。<br/>　では、まずはリポジトリの登録から。<br/>&gt;・$ wget -q -O - <a href="https://apt.mopidy.com/mopidy.gpg">https://apt.mopidy.com/mopidy.gpg</a> | sudo apt-key add -・$ sudo wget -q -O /etc/apt/sources.list.d/mopidy.list <a href="https://apt.mopidy.com/jessie.list　そしてリポジトリをアップデートしてインストールします。">https://apt.mopidy.com/jessie.list　そしてリポジトリをアップデートしてインストールします。</a><br/>&gt;・$ sudo apt update・$ sudo apt install mopidy mopidy-spotify　MopidyとMopidyのSpotifyプラグインをインストールしてます。<br/>　次にSpotifyの設定をします。「/etc/mopidy/mopidy.conf」を管理者権限で開いて( $ sudo vi /etc/mopidy/mopidy.conf など)、<br/><br/>&gt;[spotify] enabled : true username : YOURUSERNAME(日本語も大丈夫でした) password : YOURPASSWORD bitrate : 320 timeout : 10<br/>　を付け足します。<br/>　次はWeb Clientをセットアップします。Pythonのパッケージインストーラーの「pip」を使うので、入れていない人は<br/>&gt;・$ sudo apt install pip　でインストールしてください。それではWeb Clientをインストールします。今回はMopidy Mopedを試しに入れてみます。<br/>&gt;・$ sudo su・# pip install Mopidy-Moped　管理者(root)になってインストールしてください。そうしないとログインしているユーザーの環境にファイルをインストールしてしまいます。管理者になってインストールすると「/usr/local/lib/python2.7/dist-packages/mopidy_moped/」以下にインストールされます。これを「/etc/mopidy/mopidy.conf」の[http]のところに書きます。<br/><br/>&gt;[http] enabled : true hostname : 192.168.1.250 port : 6680 static_dir : /usr/local/lib/python2.7/dist-packages/mopidy_moped/static/<br/>　hostnameは環境に合わせて設定してください。そしてファイアウォールにも穴を開けます。<br/>&gt;・$ sudo ufw allow 6680・$ sudo ufw enable　systemdで起動するようにして、まずは起動してみます。<br/>&gt;・$ sudo systemctl enable mopidy.service・$ sudo systemctl restart mopidy　そして「<a href="https://192.168.1.250:6680/」にインストールしたマシン、または他のマシンからアクセスしてみます。そうするとWebブラウザに画面が出てくると思います。mopedをクリックし、Searchのところにアーティスト名などを入力しEnterキーを押下するとその結果が右ペインに出てきます。このように。">https://192.168.1.250:6680/」にインストールしたマシン、または他のマシンからアクセスしてみます。そうするとWebブラウザに画面が出てくると思います。mopedをクリックし、Searchのところにアーティスト名などを入力しEnterキーを押下するとその結果が右ペインに出てきます。このように。</a><br/><a target:"_blank" title:"11" href="/images/84425b40.png"><img class:"pict" alt:"11" src="/images/84425b40.png" width:"480" height:"564" hspace:"5" border:"0"/></a><br/><br/>　曲をクリックするとそのプレイリストかアルバムごとMopidyのプレイリストに反映され再生されます。・・が、うちでは音が出なかったのです。ユーザー権限起動では聞けました。結論から行くと犯人はPulseaudioでした。Ubuntuはユーザーがログインしている時、Pulseaudio→ALSAと音声を橋渡ししています。デフォルト設定のMopidyはPulseaudioが起動している時はPulseaudio経由で再生しようとするのですが、systemdで起動したMopidyはユーザー権限で起動しているPulseaudioに権限の関係で音声を渡せないのです。ユーザー起動しているPulseaudioにMopidyから音を渡す方法はあるにはあるのですが(<a href="https://docs.mopidy.com/en/latest/service/#configure-pulseaudio)、めんどい割には音がよくない、と。ハイレゾ音源を聴く時にも不便。音楽を聴く以外にはファイルサーバーなどとして使っていて、YouTubeで動画を見たりしないのでPulseaudioを殺してALSAに直で渡してやれば音が出ると思い、調べました。">https://docs.mopidy.com/en/latest/service/#configure-pulseaudio)、めんどい割には音がよくない、と。ハイレゾ音源を聴く時にも不便。音楽を聴く以外にはファイルサーバーなどとして使っていて、YouTubeで動画を見たりしないのでPulseaudioを殺してALSAに直で渡してやれば音が出ると思い、調べました。</a><br/>　「/etc/pulse/client.conf」を管理者権限で開いて、<br/><br/>&gt;;autospawn : yes;daemon-binary : /usr/bin/pulseaudio↓autospawn : nodaemon-binary : /bin/true <br/>　として、保存し(「;」を外すのを忘れないこと)<br/>&gt;・$ pulseauio &ndash;kill　するとPulseaudioが起動しなくなります。次にPythonでALSAをいじるのに必要なパッケージをインストールします。<br/>&gt;・$ sudo apt install python-alsaaudio　次にMopidy-ALSAMixerをインストールします。<br/>&gt;・# pip install Mopidy-ALSAMixer・$ sudo systemctl restart mopidy　そして、「/etc/asound.conf」を編集します。無ければ作ってください。<br/><br/>&gt;pcm.!default {        type hw card 0}ctl.!default {        type hw card 0}<br/>　cardの番号は( $ cat /proc/asound/cards )で見て出したい所の番号にします。これでALSAを直に叩いて音を出すようになります。<br/>　これでSpotifyでアルバム単位で楽曲聴取できるようになりました。アルバムごとに聴く人はこれでいいのですが、私はプレイリスト単位で聴くことが多いのでプレイリストを参照、再生できるプラグインが欲しい。ということで探してみると、「Mopidy-Spotify-Tunigo」、「Mopidy-Spotify-Web」が対応しているようでしたのでこれをインストールしました。ついでにAudio Addict運営のネットラジオ局が聴けるプラグイン「Mopidy-AudioAddict」もインストールしました。先に言っておくと上手くいくときと上手くいかない時があったのでこれはオプションでお願いします。<br/>&gt;・# pip install Mopidy-Spotify-Tunigo Mopidy-AudioAddict Mopidy-Spotify-Web　そして「/etc/mopidy/mopidy.conf」に[spotify_tunigo]、[spotify_web]、[audioaddict]を追加します。<br/><br/>&gt;[spotify_tunigo] region : jp[audioaddict] enabled : true username : YOURMAILADDRESS #OPTIONAL password : YOURPASSWORD    #OPTIONAL quality : 320k[spotify_web] client_id : &hellip; client_id value you got from mopidy.com &hellip; client_secret : &hellip; client_secret value you got from mopidy.com &hellip;<br/>　そして<br/>&gt;・$ sudo systemctl restart mopidy　Audio Addictもプレミアム会員なので320kとしてますが、無料会員またはアカウントを持ってない人は40k、もしくは64kに制限されます。プレミアム会員だとそれに加えて128kと320kが選べるようになります。Mopidy-Spotify-Webのclient_idとclient_secretは「<a href="https://www.mopidy.com/authenticate/#spotify」でSpotifyにログインすると下のボックスに出てきます。これをコピペすればいいです。またこの値は他の人に見られてはいけません。注意して扱うようにしてください。">https://www.mopidy.com/authenticate/#spotify」でSpotifyにログインすると下のボックスに出てきます。これをコピペすればいいです。またこの値は他の人に見られてはいけません。注意して扱うようにしてください。</a><br/>　で、結果を書いておきましたが、うまく行きませんでした。見れるプレイリストと見れないプレイリストがあり、またAudio Addictの方はリストが表示されるもののクリックしても再生できず・・・。<br/>　最低でもSpotifyのプレイリストが再生できるところまではやってみようと、Web Clientを別のものに変えてみました。<br/>&gt;・# pip install Mopidy-Iris・$ sudo systemctl restart mopidy　「/etc/mopidy/mopidy.conf」を編集。<br/><br/>&gt;[iris] enabled : true pusherport : 6681 country : JP locale : ja_JP<br/>　これにして、SETTINGでポチポチ設定した所無事Spotifyのプレイリストも再生できるようになりました。Audio Addictの方は宿題としておきます。<br/><a target:"_blank" title:"54" href="/images/0c3261a6.png"><img class:"pict" alt:"54" src="/images/0c3261a6.png" width:"480" height:"564" hspace:"5" border:"0"/></a><br/><br/>　ここまでストリーミング系の設定をしてきましたが、ここからはローカルファイルを登録し、ローカルファイルを再生できるようにします。MPDをすでにインストールして使ってる方はやってもやらなくてもいいです。<br/>&gt;・# pip install Mopidy-Local-Images　「/etc/mopidy/mopidy.conf」を編集<br/><br/>&gt;[mpd] enabled : true hostname : 192.168.1.250 port : 6601 #すでにMPDがあったのでport変更[local] media_dir : /var/lib/mpd/music scan_follow_symlinks : true library : images<br/>　それぞれ環境に合わせて変更しましょう。そして、<br/>&gt;・$ sudo systemctl restart mopidy・$ sudo mopidyctl local scan　終わったら、<br/>&gt;・$ sudo systemctl restart mopidy　楽曲の多さによりますが数分～数十分かかります。数万曲ある場合はご飯でも食べましょう。<br/>　Web Clientから見ると日本語もちゃんとしてるんですが、MPD Clientから見ると文字がバケバケ(環境または設定によるのかも)なのであまり期待しない方がいいでしょう。<br/>　またMopedから見るとローカルファイルはしっかり見えてSpotify関係が微妙ですが、Irisだと逆でSpotify関係はバッチリですがローカルファイルは微妙です・・・。使い分けるといいかもしれません。<br/>　最後に、Last.fmへのScrobbleを行いましょう。Scrobbleしてない人はもちろんする必要はありません。<br/>&gt;・# pip install Mopidy-Scrobbler　「/etc/mopidy/mopidy.conf」を編集。<br/><br/>&gt;[scrobbler] username : YOURUSERNAME password : YOURPASSWORD<br/>&gt;・$ sudo systemctl restart mopidy　これで一通り、と言ったところでしょうか。<br/>　お疲れ様でした。これでSpotifyとローカルメディアファイルの一元管理ができるようになりました。Web Clientをとっかえひっかえしなければいけないのが面倒ですが・・・。Mopidyがこれからどんどん良くなることを願いつつ終わりにしたいと思います。</p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/77577110/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/31876120/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> Ubuntu 12.04LTSで作ったNASの起動USBメモリを入れ替えた &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/31876226/">Ubuntu 12.04LTSで作ったNASの起動USBメモリを入れ替えた</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>私のNASマシンはUSBメモリにUbuntu 12.04LTSを入れて使ってます。USBメモリは16GBのを使ってました。やりたい事が増えるたびアプリケーションを入れてたのでUSBメモリの残りが50%に。いやまあ全然余裕なんですが、今後LOGなどが増えてくるときついかなぁと思って32GBのUSBメモリを買ってきて入れ替えました。ここではその作業ログを書いていきます。HDDを移行する場合でも要領は同じはずです。<br/>
+ <br/>
+まず、参考にしたのは <a href="https://nblog.jp/078"><a href="https://nblog.jp/078">https://nblog.jp/078</a> </a>こちらと、その元になった記事の <a href="https://www.itmedia.co.jp/enterprise/articles/0811/20/news019.html">https://www.itmedia.co.jp/enterprise/articles/0811/20/news019.html</a> こちら。主に前者を読み進めて作業しました。<br/>
+ <br/>
+まず始めに。Ubuntu 12.04LTSのLiveCDを用意します。私はインストール時に作ったものを使用しました。容量が1GBあればいいので使い古しのUSBメモリでもいいですがそうするとどれがどのUSBメモリなのかがわかりづらくなるのでCD(DVD)で用意した方がいいと思います。今はコンビニでもCD-R、DVD-Rを売ってるので真夜中にやろうと思い立っても大丈夫です。あとは雑誌の付録で付いてたりしますね。<br/>
+ <br/>
+なぜLiveCDを用意するか。それは稼働中のOSだとコピー中にコピー元の内容が変わる場合があるからです。結果整合性が取れなくなり、最悪の場合起動できなくなります。そういうのを防ぐため、第三のメディアからのブートが必要となります。<br/>
+ <br/>
+コピー元のUSBメモリ、コピー先のUSBメモリを挿してCDから起動します。お試しで使うかメディアにインストールするか聞かれるのでお試しの方を選びましょう。余談ですが、私のマシンでは一発目にネットワークに繋がらず焦りました。DHCPも働いてなかったのです。再起動して事なきを得ましたが。ネットワークに繋がらないと次の作業ができないのでもしそうなった場合は焦らず再起動しましょう。<br/>
+ <br/>
+起動しました。今回はGpartedとddrescueとfdiskを使います。Gparted、fdiskはLiveCDに入ってますがddrescueは入っていません。ということなのでインストールしましょう。端末に「sudo apt-get install ddrescue」としてインストール。ネットワークにさえつながっていればすぐ終わります。<br/>
+ <br/>
+次は「sudo fdisk -l(エル)」コマンドを打ち、USBメモリがどこにマウントされているかを確認します。コピー元はパーティション詳細が出て「ブート」のところにしるしがついてて、コピー先にはパーティション詳細が出ないのでそれで判断します。重要なのでメモを取るほうがいいでしょう。私の場合はコピー元が「/dev/sde」、コピー先が「/dev/sdd」となったので必ずしも元からある方が若い順番とは限りません。<br/>
+ <br/>
+やっとコピーの段階に来ました。先程インストールしたddrescueを使います。端末に「sudo dd_rescue -v /dev/sde /dev/sdd(デバイス名はそれぞれ各々の環境に即したデバイス名を)」としてディスクコピーを開始します。ここで例えばデバイスを逆にしてしまうと空っぽのUSBメモリが2個できます。十分注意してください。ディスクそのもののダンプのコピーなので16GBのUSBメモリなら16GBに達するまでコピーが続きます。だいたい20～30分くらいかかります。最近の大きなHDDだとどれくらいかかるんでしょうね……。<br/>
+ <br/>
+ddrescueが終わったら一度旧USBメモリを外して新USBメモリから立ち上げてみてください。不審なところがなければシャットダウンし、再びLiveCDから立ち上げて、端末に「sudo fsck.ext3 -f /dev/sda1(新USBメモリのLinuxパーティション)」とし、ディスクチェックを行なってください。私の場合はいくつかエラーが出ましたが全てyesで問題なかったです。チェックが終わったら、ダッシュボードからGpartedを立ち上げます。新USBメモリを選び、以下の要領でパーティションを拡張します(USBメモリが/dev/sdaの場合。各々の環境に合わせて読み替えてください)。<br/>
+&gt;
+sda5がswapなので後ろに動かしたいところだがsda2の中にあるので、sda2を最大
+sda5を後ろに移動する
+sda2を最小にする
+sda1を最大にする
+<br/>
+ グラフィカルにクリック＆ドラッグでぐにょーんとできるわけではなさそうです。パーティションを右クリックしてダイアログを出して設定してください。詳しくは <a href="https://www.itmedia.co.jp/enterprise/articles/0811/20/news019_2.html">https://www.itmedia.co.jp/enterprise/articles/0811/20/news019_2.html</a> こちらを参照してください。<br/>
+ <br/>
+最後にUUIDの確認を行いましょう。/etc/fstabと「sudo blkid /dev/sda1」で出てきたUUIDが一緒ならば大丈夫です。swapの方も「sudo blkid /dev/sda5」で確認。私の環境ではこちらも一緒でした。もしかしたらfsckの時に修正されたのかも。また参考にしたページには「/boot/grub/menu.lst」なるファイルがあるとのことでしたが私の環境ではそのファイルはありませんでした。という事で新しいUSBメモリに移し替える事ができました。情報を公開しているみなさんありがとうございました。<br/>
+ <br/>
+しかし、買ってきたバッファローのUSBメモリ、公称Read 70MB/sなんだけどCrystal Disc Markでシーケンシャルリード32MB/sだった。バッファローさんちょっと盛りすぎじゃね？<br/>
+ <br/>
+あと、学生時代に同じ事をWindowsNT4 Serverでやってた。xcopy使って。<br/></p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/31876128/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/31876225/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

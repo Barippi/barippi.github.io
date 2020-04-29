@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> Ubuntu Server 14.10でIRC Bouncer 「ZNC」をデーモン化して使う &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/31876131/">Ubuntu Server 14.10でIRC Bouncer 「ZNC」をデーモン化して使う</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>IRC(うちのアイマスコミュニティはLINEやカカオトークなどを入れてる人がほとんどいないのとキーボードの方が打つのが早いのでIRCでチャットしている)で話してると「VPSでIRCプロキシ建てるか」ととある男。tiarraでやってました。<br/>
+　なんか面白そうだったので俺もやってみた。<br/>
+　情報を集めていると「<a href="https://wiki.znc.in/ZNC">ZNC</a>」というのがUbuntuのリポジトリに入っているらしい。日本語のドキュメントもそこそこあったのでこれに決めた。<br/>
+　インストールは<br/>
+$ sudo apt-get install znc<br/>
+　でおしまい。Daemonで動かさないなら<br/>
+$ znc &ndash;makeconf<br/>
+　でいろいろ設定をして(プラグインはwebadminくらいしかyesにしなかった)「~/.znc」以下に設定が保存されて自動的にバックグラウンドでの動作になる。再起動するたびにZNCを自分で起動しないといけない($ znc   で起動)けどこれがお気軽。<br/>
+　しかし、やっぱり不測のVPSメンテナンスに備えDaemon化はしたい。ログが取れないとか常駐ができないダメなIRC Bouncerにはしたくない。ということで以下はDaemon化させるための手順。基本的に<a href="https://wiki.znc.in/Running_ZNC_as_a_system_daemon">Running ZNC as a system daemon</a>を見ればいいけど英語やだと言う人のために。<br/>
+$ sudo useradd &ndash;system &ndash;shell /sbin/nologin &ndash;comment &ldquo;Account to run ZNC daemon&rdquo; &ndash;user-group znc<br/>
+　としてDaemonを動作させるユーザーを作成する。そして「/var/lib/znc」ディレクトリを作りパーミッションを666あたりにして<br/>
+$ sudo -u znc /usr/bin/znc &ndash;datadir:/var/lib/znc &ndash;makeconf<br/>
+　を起動し、ユーザーzncでコンフィグを作成する。そのまま実行され常駐するがここでいったんZNCを止める。init.dスクリプトは「/etc/init.d/znc」とし、内容は<br/>
+&gt;
+#! /bin/sh### BEGIN INIT INFO# Provides:          znc# Required-Start:    $remote_fs $syslog# Required-Stop:     $remote_fs $syslog# Default-Start:     2 3 4 5# Default-Stop:      0 1 6# Short-Description: ZNC IRC bouncer# Description:       ZNC is an IRC bouncer### END INIT INFO PATH:/sbin:/usr/sbin:/bin:/usr/binDESC:&ldquo;ZNC daemon&rdquo;NAME:zncDAEMON:/usr/bin/$NAMEDATADIR:/var/lib/zncDAEMON<em>ARGS:&ldquo;&ndash;datadir:$DATADIR&rdquo;PIDDIR:/var/run/zncPIDFILE:$PIDDIR/$NAME.pidSCRIPTNAME:/etc/init.d/$NAMEUSER:zncGROUP:znc# Exit if the package is not installed[ -x &ldquo;$DAEMON&rdquo; ] || exit 0# Read configuration variable file if it is present[ -r /etc/default/$NAME ] &amp;&amp; . /etc/default/$NAME# Load the VERBOSE setting and other rcS variables. /lib/init/vars.sh# Define LSB log</em>* functions.# Depend on lsb-base (&gt;: 3.2-14) to ensure that this file is present# and status_of_proc is working.. /lib/lsb/init-functions## Function that starts the daemon/service#do_start(){    # Return    #   0 if daemon has been started    #   1 if daemon was already running    #   2 if daemon could not be started    if [ ! -d $PIDDIR ]    then        mkdir $PIDDIR    fi    chown $USER:$GROUP $PIDDIR    start-stop-daemon &ndash;start &ndash;quiet &ndash;pidfile $PIDFILE &ndash;exec $DAEMON &ndash;test &ndash;chuid $USER &gt; /dev/null || return 1    start-stop-daemon &ndash;start &ndash;quiet &ndash;pidfile $PIDFILE &ndash;exec $DAEMON &ndash;chuid $USER &ndash; $DAEMON_ARGS &gt; /dev/null || return 2}## Function that stops the daemon/service#do_stop(){    # Return    #   0 if daemon has been stopped    #   1 if daemon was already stopped    #   2 if daemon could not be stopped    #   other if a failure occurred    start-stop-daemon &ndash;stop &ndash;quiet &ndash;retry:TERM/30/KILL/5 &ndash;pidfile $PIDFILE &ndash;name $NAME &ndash;chuid $USER    RETVAL:&ldquo;$?&ldquo;    [ &ldquo;$RETVAL&rdquo; : 2 ] &amp;&amp; return 2    # Wait for children to finish too if this is a daemon that forks    # and if the daemon is only ever run from this initscript.    # If the above conditions are not satisfied then add some other code    # that waits for the process to drop all resources that could be    # needed by services started subsequently.  A last resort is to    # sleep for some time.    start-stop-daemon &ndash;stop &ndash;quiet &ndash;oknodo &ndash;retry:0/30/KILL/5 &ndash;exec $DAEMON &ndash;chuid $USER    [ &ldquo;$?&rdquo; : 2 ] &amp;&amp; return 2    # Many daemons don&#39;t delete their pidfiles when they exit.    rm -f $PIDFILE    return &ldquo;$RETVAL&rdquo;}## Function that sends a SIGHUP to the daemon/service#do_reload() {    start-stop-daemon &ndash;stop &ndash;signal 1 &ndash;quiet &ndash;pidfile $PIDFILE &ndash;name $NAME &ndash;chuid $USER    return 0}case &ldquo;$1&rdquo; in  start)    [ &ldquo;$VERBOSE&rdquo; !: no ] &amp;&amp; log_daemon_msg &ldquo;Starting $DESC&rdquo; &ldquo;$NAME&rdquo;    do_start    case &ldquo;$?&rdquo; in        0|1) [ &ldquo;$VERBOSE&rdquo; !: no ] &amp;&amp; log_end_msg 0 ;;        2) [ &ldquo;$VERBOSE&rdquo; !: no ] &amp;&amp; log_end_msg 1 ;;    esac    ;;  stop)    [ &ldquo;$VERBOSE&rdquo; !: no ] &amp;&amp; log_daemon_msg &ldquo;Stopping $DESC&rdquo; &ldquo;$NAME&rdquo;    do_stop    case &ldquo;$?&rdquo; in        0|1) [ &ldquo;$VERBOSE&rdquo; !: no ] &amp;&amp; log_end_msg 0 ;;        2) [ &ldquo;$VERBOSE&rdquo; !: no ] &amp;&amp; log_end_msg 1 ;;    esac    ;;  status)    status_of_proc -p $PIDFILE &ldquo;$DAEMON&rdquo; &ldquo;$NAME&rdquo; &amp;&amp; exit 0 || exit $?    ;;  reload)    log_daemon_msg &ldquo;Reloading $DESC&rdquo; &ldquo;$NAME&rdquo;    do_reload    log_end_msg $?    ;;  restart)    log_daemon_msg &ldquo;Restarting $DESC&rdquo; &ldquo;$NAME&rdquo;    do_stop    case &ldquo;$?&rdquo; in      0|1)        do_start        case &ldquo;$?&rdquo; in            0) log_end_msg 0 ;;            1) log_end_msg 1 ;; # Old process is still running            *) log_end_msg 1 ;; # Failed to start        esac        ;;      *)        # Failed to stop        log_end_msg 1        ;;    esac    ;;  *)    echo &ldquo;Usage: $SCRIPTNAME {status|start|stop|reload|restart}&rdquo; &gt;&amp;2    exit 3    ;;esac
+<br/>
+　とし、 保存(これは元サイトからコピペしたほうがいいかも)。そして<br/>
+$ sudo chmod 755 /etc/init.d/znc<br/>
+　で、スクリプトに実行権限を与える。最後に<br/>
+$ sudo update-rc.d znc defaults<br/>
+　でinit.dで動くように登録する。これでシステム起動時に自動でZNCが起動され、チャンネルに常駐するように設定していれば常駐するようになる。<br/>
+$ sudo service znc start<br/>
+　でDaemonとして起動するし、stopで止まるしreloadでコンフィグ読み直すしrestartで再起動する。あとはstatusで状態を見ることができる。<br/>
+　スクリプトが長いだけでやることは少ないです。IRC、スマホからもできるしiTunesカード買ってくれって言われることもないし、便利ですよ。<br/></p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/31876168/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/51172274/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>インターネットサービス on 取るに足らぬ者</title>
+    <link>https://barippi.github.io/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/index.xml</link>
+    <description>Recent content in インターネットサービス on 取るに足らぬ者</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://barippi.github.io/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ConoHaその後</title>
+      <link>https://barippi.github.io/post/31876137/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876137/</guid>
+      <description>&lt;p&gt;CentOSでの運用を諦め、Ubuntu Serverで運用してます。yum文化に慣れなかったのが原因です。&lt;br/&gt;
+　家にもサーバーがありまして、それはUbuntu Desktopで運用してるのでapt-get文化に慣れ親しんでるという背景もあります。慣れた環境が一番いい。&lt;br/&gt;
+　メールサーバーもLAMP環境もインストールしてWordpressでブログ環境を構築してみました。メールサーバーの構築にはディストリビューションは違えど薄い本が役に立ちました。Webで情報をあさったりもしましたが。まあ、同じアプリケーションですからね。&lt;br/&gt;
+　FreeBSDが使えるようになったりWindows Serverプランもできたりと自分の好きなOSで構築できるようになったのでConoHaはかなりいいかもしれません。オススメです。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DI.fmグループが大きくなっていた</title>
+      <link>https://barippi.github.io/post/63996737/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/63996737/</guid>
+      <description>&lt;p&gt;何度か出しているDigitally Imported Internet Radioとかのグループがいつの間にか大きくなっていました。&lt;br/&gt;　まずは&lt;a href=&#34;https://www.di.fm/&#34; target:&#34;_blank&#34;&gt;DI.fm&lt;/a&gt;。ダンスミュージック特化インターネットラジオ局です。&lt;br/&gt;　そして&lt;a href=&#34;https://www.radiotunes.com/&#34; target:&#34;_blank&#34;&gt;Radio Tunes&lt;/a&gt;。いろんなジャンルがまんべんなく入ったラジオ局です。&lt;br/&gt;　で、新しくできてたのが、&lt;a href=&#34;https://www.rockradio.com/&#34; target:&#34;_blank&#34;&gt;ROCKRADIO.com&lt;/a&gt;、&lt;a href=&#34;https://www.jazzradio.com/&#34; target:&#34;_blank&#34;&gt;JAZZRADIO.com&lt;/a&gt;、&lt;a href=&#34;https://www.classicalradio.com/&#34; target:&#34;_blank&#34;&gt;Classical Radio.com&lt;/a&gt;です。それぞれ、ロック、ジャズ、クラシックのいろんなジャンルがあります。&lt;br/&gt;　また、これら5つのラジオ局は同じアカウントで聞くことができます。プレミアムもそれぞれに課金する形ではなく、どれか一つに課金すれば5つのラジオ局全部においてプレミアムの高音質、コマーシャルなしで聞くことができます。日本ではスマホでUSENが1000チャンネル超という恐ろしいチャンネル数を誇っていますが、似たような金額で一つのチャンネルにつき20時間以上の曲が保証されているという点ではDI.fmグループもなかなか魅力があります。スマホでUSENだと1チャンネル3時間番組というのが主流ですので、BGMとして聞き続けるにはちょっと・・・という場合もあります。&lt;br/&gt;　BGMとして流し続けるとかにはとっても便利なこの5つのインターネットラジオ局。私もプレミアムに登録してよく聞いています。オススメです。是非。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Misskeyを入れたときのNginxのコンフィグを忘れないように書いておく</title>
+      <link>https://barippi.github.io/post/77577110/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/77577110/</guid>
+      <description>&lt;p&gt;&lt;div&gt;server {&lt;/div&gt;&lt;div&gt;  listen 443 ssl http2;&lt;/div&gt;&lt;div&gt;  server_name ドメイン名;&lt;/div&gt;&lt;br/&gt;&lt;div&gt;  ssl_certificate     /etc/letsencrypt/live/ドメイン名/fullchain.pem;&lt;/div&gt;&lt;div&gt;  ssl_certificate_key /etc/letsencrypt/live/ドメイン名/privkey.pem;&lt;/div&gt;&lt;div&gt;  ssl_protocols TLSv1.2;&lt;/div&gt;&lt;div&gt;  ssl_ciphers HIGH:!MEDIUM:!LOW:!aNULL:!NULL:!SHA;&lt;/div&gt;&lt;div&gt;  ssl_prefer_server_ciphers on;&lt;/div&gt;&lt;div&gt;  ssl_session_cache shared:SSL:10m;&lt;/div&gt;&lt;div&gt;  root /home/misskey/misskey;&lt;/div&gt;&lt;div&gt;  keepalive_timeout    70;&lt;/div&gt;&lt;div&gt;  sendfile             on;&lt;/div&gt;&lt;div&gt;  client_max_body_size 8m;&lt;/div&gt;&lt;div&gt;  gzip on;&lt;/div&gt;&lt;div&gt;  gzip_disable &amp;ldquo;msie6&amp;rdquo;;&lt;/div&gt;&lt;div&gt;  gzip_vary on;&lt;/div&gt;&lt;div&gt;  gzip_proxied any;&lt;/div&gt;&lt;div&gt;  gzip_comp_level 6;&lt;/div&gt;&lt;div&gt;  gzip_buffers 16 8k;&lt;/div&gt;&lt;div&gt;  gzip_http_version 1.1;&lt;/div&gt;&lt;div&gt;  gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;&lt;/div&gt;&lt;br/&gt;&lt;div&gt;  add_header Strict-Transport-Security &amp;ldquo;max-age:31536000&amp;rdquo;;&lt;/div&gt;&lt;br/&gt;&lt;div&gt;  location / {&lt;/div&gt;&lt;div&gt;    proxy_set_header Upgrade $http_upgrade; #ここ重要&lt;/div&gt;&lt;div&gt;    proxy_set_header Connection &amp;ldquo;upgrade&amp;rdquo;; #ここも重要&lt;/div&gt;&lt;div&gt;    proxy_pass https://ドメイン名:ポート;&lt;/div&gt;&lt;div&gt;     proxy_set_header Host $host;&lt;/div&gt;&lt;div&gt;    proxy_set_header X-Real-IP $remote_addr;&lt;/div&gt;&lt;div&gt;    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;&lt;/div&gt;&lt;div&gt;    proxy_set_header X-Forwarded-Proto https;&lt;/div&gt;&lt;div&gt;    proxy_set_header Proxy &amp;ldquo;&amp;rdquo;;&lt;/div&gt;&lt;div&gt;    proxy_pass_header Server;&lt;/div&gt;&lt;br/&gt;&lt;div&gt;    proxy_buffering off;&lt;/div&gt;&lt;div&gt;    proxy_redirect off;&lt;/div&gt;&lt;div&gt;    proxy_http_version 1.1;&lt;/div&gt;&lt;div&gt;    tcp_nodelay on;  }&lt;/div&gt;&lt;div&gt;}&lt;/div&gt;&lt;br/&gt;&lt;div&gt;server {&lt;/div&gt;&lt;div&gt;    if ($host : ドメイン名) {&lt;/div&gt;&lt;div&gt;        return 301 https://$host$request_uri;&lt;/div&gt;&lt;div&gt;    } # managed by Certbot&lt;/div&gt;&lt;br/&gt;&lt;br/&gt;&lt;div&gt;  listen 80;&lt;/div&gt;&lt;div&gt;  server_name ドメイン名 root ドキュメントルート;&lt;/div&gt;&lt;div&gt;    return 404; # managed by Certbot&lt;/div&gt;&lt;div&gt;}&lt;/div&gt;&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Spotifyを1ヶ月プレミアム版で使ってみて</title>
+      <link>https://barippi.github.io/post/67280014/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/67280014/</guid>
+      <description>&lt;p&gt;Spotifyプレミアムを1ヶ月使ってみての感想とオススメを少し。&lt;br/&gt;　まず4000万曲と言われている楽曲量ですが、ふと「これはないだろう」思って検索してみてもどんなジャンルもだいたいあるということがわかりました。ちょっと工夫も要りましたが。&lt;br/&gt;　Spotify Connectは本当に便利です。これだけのためにプレミアムに入るのもありです。foobar2000などでスマホ操作するためにあれこれしたのがバカみたいに思えるほど簡単に同様の環境を手に入れることができます。スマホで操作してPCで聞くのも同じLAN内にあるだけで勝手にコネクトします。いろいろなところで言われているようにPC→スマホで続きを聞くとかその逆、はたまたWindows→LinuxとかWindows→Mac、Mac→Linuxなども同様にできます。&lt;br/&gt;　音質も十分。ほぼWindows環境でしか聞かないので高音質モードにしてますが、圧縮音源とは気づかないんじゃないかと思うくらいですね。Ogg Vorbisが採用されていると言う話を聞きましたが、まあ圧縮音源何でもですけど320kbpsもあればほぼCD音源と聞き分けがつきません。&lt;br/&gt;　ここからは個人的なオススメアーティストを。&lt;br/&gt;&lt;br/&gt;・SKY-HI &lt;a target:&#34;_blank&#34; href=&#34;https://open.spotify.com/artist/4Kbxm7oCQujaslLxf9q7k2&#34;&gt;&lt;a href=&#34;https://open.spotify.com/artist/4Kbxm7oCQujaslLxf9q7k2&#34;&gt;https://open.spotify.com/artist/4Kbxm7oCQujaslLxf9q7k2&lt;/a&gt;&lt;/a&gt;&lt;br/&gt;　言わずと知れたAAA日高くんです。個人になるとSKY-HIになります。&lt;br/&gt;&lt;br/&gt;・SEKAI NO OWARI &lt;a target:&#34;_blank&#34; href=&#34;https://open.spotify.com/artist/7HwzlRPa9Ad0I8rK0FPzzK&#34;&gt;&lt;a href=&#34;https://open.spotify.com/artist/7HwzlRPa9Ad0I8rK0FPzzK&#34;&gt;https://open.spotify.com/artist/7HwzlRPa9Ad0I8rK0FPzzK&lt;/a&gt;&lt;/a&gt;&lt;br/&gt;　これも知らない人はほぼいないでしょう。&lt;br/&gt;&lt;br/&gt;・上妻宏光 &lt;a target:&#34;_blank&#34; href=&#34;https://open.spotify.com/artist/1kv5ThAYsRa4590r4AlEEX&#34;&gt;&lt;a href=&#34;https://open.spotify.com/artist/1kv5ThAYsRa4590r4AlEEX&#34;&gt;https://open.spotify.com/artist/1kv5ThAYsRa4590r4AlEEX&lt;/a&gt;&lt;/a&gt;&lt;br/&gt;　津軽三味線奏者。三味線を取り入れたポップスも。&lt;br/&gt;&lt;br/&gt;・Ravi Shankar &lt;a target:&#34;_blank&#34; href=&#34;https://open.spotify.com/artist/4uE9TgBW0AaPDHL1qYbtd0&#34;&gt;&lt;a href=&#34;https://open.spotify.com/artist/4uE9TgBW0AaPDHL1qYbtd0&#34;&gt;https://open.spotify.com/artist/4uE9TgBW0AaPDHL1qYbtd0&lt;/a&gt;&lt;/a&gt;&lt;br/&gt;　シタール奏者。&lt;br/&gt;&lt;br/&gt;・Tirta Sari Peliatan Ubud &lt;a target:&#34;_blank&#34; href=&#34;https://open.spotify.com/artist/49IGobJHy0lOs40BFAMPj2&#34;&gt;&lt;a href=&#34;https://open.spotify.com/artist/49IGobJHy0lOs40BFAMPj2&#34;&gt;https://open.spotify.com/artist/49IGobJHy0lOs40BFAMPj2&lt;/a&gt;&lt;/a&gt;&lt;br/&gt;　ガムラン奏者。&lt;br/&gt;&lt;br/&gt;　これらからいろんなアーティストを聞いてみましょう。是非。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>[小ネタ] Mastodon1.4.1にアップデートしたら真っ白ページでハマった話</title>
+      <link>https://barippi.github.io/post/71243556/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/71243556/</guid>
+      <description>&lt;p&gt;ApacheをフロントサイドにしてMastodonを動かしてたんですけど、1.4.1にしたら新規で入れ直したりとか何をどうしても真っ白ページで悩んでたんですが、Nginxにしたらあっさり動きました。&lt;br/&gt;　なんでApacheだったかというともともと動かしてたのがApacheでめんどいからそのままでいいやって感じでApacheを使ってました。&lt;br/&gt;　Webpack？とかいうのがApacheだといまいち対応してないらしくてNginxに乗り換える人がいたので、同じように乗り換えました。&lt;br/&gt;　もともとApacheを動かしてた人じゃないとApacheをフロントサイドにしてやってる人はいないだろうから少数派だと思うけど解決の一助になれば。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>[小ネタ] Mastodonの連合カラムに他のインスタンスのTootを表示するには</title>
+      <link>https://barippi.github.io/post/70497029/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/70497029/</guid>
+      <description>&lt;p&gt;「Mastodon鯖建てたけど連合カラムに他インスタンスのTootが流れてこないよー」とお困りの方もいらっしゃると思います。&lt;br/&gt;　その方法を書きたいと思います。&lt;br/&gt;　ズバリ「他インスタンスのユーザーをリモートフォローをする」です。そうするとそのユーザーのTootが連合カラムに流れます。過疎鯖だと「あいつpawooのエロいのフォローした」とかわかっちゃう感じなのですが、今のところそうする以外に方法はありません。&lt;br/&gt;　他インスタンスの全部のTootを流す機能もありません。するにはそのインスタンスのユーザーを全部リモートフォローするしかありません。現実的ではありませんね。&lt;br/&gt;　リモートフォローの仕方は&lt;a target:&#34;_blank&#34; href=&#34;https://coron.tech/mastodon/remotefollow/&#34;&gt;&lt;a href=&#34;https://coron.tech/mastodon/remotefollow/&#34;&gt;https://coron.tech/mastodon/remotefollow/&lt;/a&gt;&lt;/a&gt;です。では良きMastodonライフを！&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>[小ネタ] NTTサービス故障時のフリーダイヤル</title>
+      <link>https://barippi.github.io/post/66744298/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/66744298/</guid>
+      <description>&lt;p&gt;1週間ほど「ネットが夜につながらない」という謎現象に遭遇していました。光ケーブルの接続点に不具合があったようでケーブル張り直しでやっと平穏にネットができるようになりました。&lt;br/&gt;　その時にいろいろ調べまして、NTTには電話の故障時に掛ける「113」以外にも受付先があることを知りました。&lt;br/&gt;&lt;br/&gt;・113&lt;br/&gt;　電話の故障時に掛けるところ。「掛けられないよ！」って人は公衆電話から。&lt;br/&gt;&lt;br/&gt;・0120-444-113&lt;br/&gt;　携帯、PHS、NTT以外の固定電話からはこちらを。電話の故障の時に。&lt;br/&gt;&lt;br/&gt;・0120-000-113&lt;br/&gt;　NTTフレッツシリーズの故障時に掛けるところ。&lt;br/&gt;&lt;br/&gt;・0120-270-113&lt;br/&gt;　NTT回線を使った光コラボレーションモデルの故障時に掛けるところ。エキサイト光の私はここから掛かってきました。&lt;br/&gt;&lt;br/&gt;　ナビダイヤルではなくフリーダイヤルなのが好印象ですね！&lt;br/&gt;　あと電話に出た担当の人を怒ったり怒鳴り散らかしたところで直るわけでもないのでいったん深呼吸して平常心でのぞむとお互い幸せになれる気がします。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>[小ネタ]AbemaTVで一つのスマホ、タブレットで2番組同時視聴する方法</title>
+      <link>https://barippi.github.io/post/67213658/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/67213658/</guid>
+      <description>&lt;p&gt;・1番組めをChromecastする&lt;br/&gt;・2番組めをタブレットで選局する&lt;br/&gt;&lt;br/&gt;　これで2番組同時に見ることができます。便利！&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>[小ネタ]DI.fmのプレミアムプランがついに7ドル/月になってしまう</title>
+      <link>https://barippi.github.io/post/68178173/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/68178173/</guid>
+      <description>&lt;p&gt;この時間にDI.fmから「早期からのユーザーとして長い間プレミアムプランで使ってくれてありがとう。サービス維持のために今まで4.99ドル/月だったユーザーも7ドル/月にさせてもらいます」というメールが来た。&lt;br/&gt;　んあああああああ。ついにこの日が来てしまった。&lt;br/&gt;　まあ、ほかのユーザーと同じになるだけなんだけどね。もうちょい続けてみようと思います。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>mstdn.barippi.comを作った時の話とか</title>
+      <link>https://barippi.github.io/post/73622480/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/73622480/</guid>
+      <description>&lt;p&gt;&lt;a target:&#34;_blank&#34; href=&#34;https://adventar.org/calendars/2265&#34;&gt;Mastodon 2 Advent Calendar 2017&lt;/a&gt;の3日目の記事です。2日目はosaponさんの「&lt;a target:&#34;_blank&#34; href=&#34;https://diary.osa-p.net/2017/12/blog-post.html&#34;&gt;マストドンのフォロー状態可視化ツール「フォローリンク」&lt;/a&gt;」です。&lt;br/&gt;&lt;br/&gt;　最初Mastodonを知ったのは多くの人がそうであったように2017年4月12日だったか13日だったかのITMediaの記事からです。友人から記事を教えてもらって「へー、こんなのあるんだな」と思いつつjpに登録したのを思い出します。ぼーっとLTLを眺めているとどんどん新規インスタンスができてきて「俺でもできるんじゃないか？」と無謀にも思いついてしまいました。&lt;br/&gt;　Mastodonのリポジトリにたどり着くと丁寧なインスタンスの建て方がUbuntu向けで書いてあって「ああ、建てろと言っている」と思ってしまったのが運の尽き。真夜中にインスタンスを建て始めました。&lt;br/&gt;　ConoHaのVPSを契約してたのでそれに入れようとして、俺はWebのバーチャルドメインの建て方も知らないのに気づいたのでした。&lt;br/&gt;　当時はApache2でhttpdを建てていて、それでバーチャルドメインの建て方を調べ、とりあえず静的ページが出たところでMastodonに着手しました。&lt;br/&gt;　先のバーチャルドメインを建てるのと合計して5時間くらいで立ち上がりました。2017年4月14日の早朝だったと思います。花の4月14日組です(？)。意気揚々とjpとtwitterで宣伝してみたものの全然ユーザー数は増えず…。2017年11月14日現在で私を含め37人のユーザーさんがいますがほとんどが幽霊ユーザーさんです。&lt;br/&gt;　アイマスPに来てもらえればいいかなーとも思っていたのですが、私が建てた直後にアイマストドンができてしまい「ああ、これは名前で負けてる」と思って私のユーザー登録ページでもアイマストドンに誘導させていただきました。何人誘導されたかはわかりませんが…。&lt;br/&gt;　結果的には過疎インスタンスで良かったかなーと思いました。ConoHaの50GBストレージでは長期運用は難しいのかなーと。メディア系をオブジェクトストレージに逃がせますが、本格的にOpenSwift Stackに対応したのがVer2.0.0ということで(他のリポジトリからCherrypickするという技を私は持ち合わせていなかった)今のアイマストドンのメディア系トゥート数からするととてもじゃないけど50GBでは半年もたなかったんじゃないかと思います。&lt;br/&gt;　Ver1.5だったか1.6でフロントエンドがApache2のリバースプロキシじゃ難しくなったので素直にNginxに入れ替えもしました。&lt;br/&gt;　Mastodonのお陰でほんの少しバックエンドの設定に詳しくなれたのはいい経験でした。コントリビュートもしてみたいのですが、Rubyを勉強するところから始めないといけないのはちょっとツライ…。&lt;br/&gt;　ということでLinux歴が浅く、私みたいなタコでもMastodonインスタンスを建てることができます。ぜひ皆さんも建ててみましょう！&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>インターネットラジオを聴こう！</title>
+      <link>https://barippi.github.io/post/31876219/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/31876219/</guid>
+      <description>&lt;p&gt;インターネットラジオは回線さえつながっていれば世界中のどこからでも聴くことができます(radikoやらじる☆らじるの例外はありますが)。今回はそのご紹介。&lt;br/&gt;
+ &lt;br/&gt;
+&lt;a href=&#34;https://www.di.fm/&#34;&gt;Digitaly Imported&lt;/a&gt;&lt;br/&gt;
+ダンス系、電子音楽系のチャンネルがあります。House系、Trance系だけで数チャンネルあったりとかたよりはありますが、大体の人はなんかのチャンネルに興味をもつのではと思います。もちろん無料で聴けますが、無料聴取には時おりCMが出てきます。4.99$/月、49$/年の課金ができて、そっちだとCMも無くなりますし256kbpsの高音質mp3で聴取することもできます。&lt;br/&gt;
+ &lt;br/&gt;
+&lt;a href=&#34;https://www.sky.fm/&#34;&gt;Sky.fm&lt;/a&gt;&lt;br/&gt;
+見た目はDigitaly Importedとにてますが、こちらは電子音楽からイージー・リスニング、ロック、ジャズ、メタル、オールディーズまで揃えています。こっちのほうがやや一般向けとも言えます。Digtaly Importedとは兄弟関係にあり、どっちで課金しても両方の高音質ストリーミングが聴取できます。&lt;br/&gt;
+ &lt;br/&gt;
+&lt;a href=&#34;https://www.1.fm/&#34;&gt;1.FM&lt;/a&gt;&lt;br/&gt;
+長らくasxでしか流してなかったのであまり利用してなかったんですが、最近pls方式でもストリーミングされるようになり、たまに聴いています。こちらもジャンルは広く、オペラまで流れています。無料で聴けます。&lt;br/&gt;
+ &lt;br/&gt;
+&lt;a href=&#34;https://www.accuradio.com/&#34;&gt;AccuRadio&lt;/a&gt;&lt;br/&gt;
+あんまり聴いたことはありませんが、ジャンルはかなり細分化されています。が、電子音楽系はほぼありません。&lt;br/&gt;
+ &lt;br/&gt;
+という感じで4つのサイトを紹介しました。無料で聴けるからといって音質を犠牲にはしてません。BGMにするにはちょうどいい感じです。インターネットラジオで始める音楽ライフ、どうですか？&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>定期的に書いてる気がするネットラジオ系の話</title>
+      <link>https://barippi.github.io/post/57306927/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/57306927/</guid>
+      <description>&lt;p&gt;黒船中の黒船、Spotifyが上陸する前から群雄割拠のネットラジオ界ですが、有料無料合わせた有名ドコロを簡単に紹介していきたいと思います。またこれらは個人で聴取することを前提にしているため店舗のBGMにするのはNGなところが多いです。&lt;br/&gt;&lt;br/&gt;&lt;a href=&#34;https://smart.usen.com/&#34; target:&#34;_blank&#34;&gt;スマホでUSEN&lt;/a&gt;&lt;br/&gt;　月額529円。3日間のお試し期間あり(キャンペーンでそれより長い場合もあり)。チャンネル数は音楽、トーク番組合わせて1000超。3日間でどれだけお試しできるのよって話でもありますが。スマホでUSENの強みとしてはビルボードチャート、USENチャート、グラミー賞ノミネート作など旬の音楽がすぐ聴ける、長年培ってきた各音楽ジャンルの選曲センスがよいところです。各音楽チャンネルのプレイリストは2時間半～3時間の長さで1周すると一度再生が止まります。トーク系は1エピソードを1週間リピート。USENを語る上で欠かせない「羊の数」「アリバイ」チャンネルもあります。「この曲が聴きたい！」という向きではありませんが、手軽にBGMを流したい、あらゆるジャンルの音楽をかじりたい、といった方向には向きます。対応端末はiOS端末、Android端末、AndroidTVです。AppleTVについては持ってないので調査できませんでした。また、PCには対応してません。&lt;br/&gt;&lt;br/&gt;&lt;a href=&#34;https://awa.fm/&#34; target:&#34;_blank&#34;&gt;AWA&lt;/a&gt;&lt;br/&gt;　月額Standard 960円、Lite 360円、Freeの3プランを用意。無料お試し期間は30日間。エイベックスが噛んでるだけあってダンスミュージック、J-POPが強い。公開されているプレイリスト、ストリーミングラジオを聴くのみならLiteプランで事足りますが、アルバム再生、オフライン再生、プレイリスト作成・公開をしたいならStandardプランをおすすめします。Freeプランは月に60分までしか再生できないので有って無いようなプランです。サイバーエージェントが噛んでるんだから広告を挟んでもっと時間聞けてもいいのではないかと思うのですが。スマホでUSENではUSENのプロがプレイリストを組んでいたのに対し、AWAでは有名人やStandardプランの人がプレイリストを作成します。正直プレイリストは玉石混交なのですが「これは！」というプレイリストに出会えた時は楽しくなります。また一つのプレイリストで公開できるのは8曲なので単純に垂れ流しプレイリストではなく、考えてプレイリストを作成させよう、という意図は見えます。音質は最大Wi-Fi接続時の320kbps。ここまでの高ビットレートになるとAACでもmp3でもほとんど変わりませんね。対応端末はiOS、Android、PC、Mac。PC、Macに関してはβ期間中でStandardプランの人だけが使えます。&lt;br/&gt;&lt;br/&gt;&lt;a href=&#34;https://music.line.me/trend&#34; target:&#34;_blank&#34;&gt;Line Music&lt;/a&gt;&lt;br/&gt;　月額ベーシックプラン500円、プレミアムプラン960円。それぞれに学割もあります。ベーシックプランは30日間で20時間まで聴けます。無料お試し期間は30日間。また初めて利用チケットを購入した際にプラス30日の利用権がついてきます。公称150万曲ですがジャンルに大きな偏りがあるわけではなく、日本人が聴くにはオールジャンルと言ってもいいほど揃っています。対応端末はiOS、Android、PC、Mac。PC、MacはWebブラウザで聴取。&lt;br/&gt;&lt;br/&gt;&lt;a href=&#34;https://play.google.com/store/music?hl:ja&#34; target:&#34;_blank&#34;&gt;Google Play Music&lt;/a&gt;&lt;br/&gt;　月額980円。無料お試し期間は30日間(SBM、Y!mobleの人は90日間)。プレイリスト単位とアルバム単位で聴けるのとラジオと。あとは50000曲のミュージックロッカーサービスも。ミュージックロッカーは自分で所持している楽曲をクラウドにアップロードしてそこからストリーミングで聴く、というもの。説明によるとGoogle Driveの容量は消費しないとのこと。microSDカードで容量を拡張できる一般的なスマホではあまり有り難みがわからないかもしれませんがmicroSDカードが挿せないNexusやiPhoneではうれしいサービス。対応端末はiOS、Android、PC、Mac。PC、Macはブラウザで聴取。聴ける楽曲数は3500万曲と他のサービスとは桁が違います。海外の曲を多く聞く人なら断然これでしょう。&lt;br/&gt;&lt;br/&gt;&lt;a href=&#34;https://www.apple.com/jp/music/&#34; target:&#34;_blank&#34;&gt;Apple Music&lt;/a&gt;&lt;br/&gt;　月額980円。ファミリープラン1480円。今のところこのファミリープランというのがあるところが他とは違うところ。他のサービスはアプリ等は複数の端末に入れられるが同時聴取は1端末のみ。ファミリープランは最大6人までということで6台まで同時聴取ができる、のでしょう。無料お試し期間は90日。iCloudでのミュージックロッカー機能あり。ただ、楽曲にDRMがついたりするので注意が必要です。対応端末はiOS、Android、PC、Mac。PC、MacはiTunesからの利用になります。&lt;br/&gt;&lt;br/&gt;&lt;a href=&#34;https://www.di.fm/&#34; target:&#34;_blank&#34;&gt;Digitally Imported&lt;/a&gt;&lt;br/&gt;　月額7ドル。1年分、または2年分先払いすることで割引もあり。途中で入るコマーシャルを気にしなければ無料でいつまでも聴取できます。また後述のRadiotunesと兄弟サービスであり、どちらかでプレミアムに加入すると両方でコマーシャルフリーでさらに高音質で聴けるようになります。Digitally Importedはハウス、トランス、テクノなどのダンスミュージックに特化したネットラジオサイトです。ジャンルも細分化されており、チャンネル数は90以上。それぞれが最低20時間以上のプレイリストを持っている(新ジャンルのチャンネル創設の必須条件)ことから1日中聴いても同じ曲を1日で2回聴くことは稀。オフライン再生等最近できたサービスのような機能は無いもののBGMとして流しておくには不自由しないサイト。iOS、Android、Blackberry、Windows Phone、PC、MACに対応。PC、MACはブラウザから聴取、または設定からm3uファイルを取得し、ネットワーク再生に対応したアプリ(AIMPなど)で聴取することもできます。&lt;br/&gt;&lt;br/&gt;&lt;a href=&#34;https://www.radiotunes.com/&#34; target:&#34;_blank&#34;&gt;Radiotunes&lt;/a&gt;&lt;br/&gt;　月額7ドル。1年分、2年分先払いすることで割引もあり。Digitally Importedと兄弟サービスのRadiotunes、こちらはオールジャンルのラジオサイト。こちらもチャンネル数は90以上。Digitally Importedと被るものもありますがだいたい違うジャンルなので意識はしているようです。こちらも楽曲数はだいぶ多いのでBGMにするにはなかなかいいです。iOS、Android、Blackberry、Windows Phone、PC、MACに対応。PC、MACはブラウザから聴取、または設定からm3uファイルを取得し、ネットワーク再生に対応したアプリ(AIMPなど)で聴取することもできます。アメリカのネットラジオサイトなのにJ-POPチャンネルがあるのが興味深いです。&lt;br/&gt;&lt;br/&gt;&lt;a href=&#34;https://www.accuradio.com/&#34; target:&#34;_blank&#34;&gt;AccuRadio&lt;/a&gt;&lt;br/&gt;　コマーシャルを入れることで無料で聴けるラジオサイト。メールアドレスを登録してログイン(またはFacebookアカウントでログイン)することでコマーシャルが少なくなります。体としてはRadiotunesのようなオールジャンル。iOS、Android、PC、MACに対応。PC、MACはブラウザから聴取。仕事中のBGMというのを意識してるようで各チャンネルはおとなしめの楽曲のチャンネルが多いです。&lt;br/&gt;&lt;br/&gt;&lt;a href=&#34;https://ottava.jp/&#34; target:&#34;_blank&#34;&gt;OTTAVA&lt;/a&gt;&lt;br/&gt;　ストリーミング型クラシック特化のラジオサイト。ブラウザから聴取します。基本無料ですが、月540円のニコニコチャンネルに加入することにより高音質でオンデマンド再生もできるようになります。&lt;br/&gt;&lt;br/&gt;&lt;a href=&#34;https://www.onsen.ag/&#34; target:&#34;_blank&#34;&gt;音泉&lt;/a&gt;&lt;br/&gt;　オンデマンド再生のラジオサイト。声優系コンテンツに特化。各番組は週1～月1更新。。基本的にブラウザから聴取します。と思ってたらiOSとAndroid対応のアプリが出てました。放送したい側のスポンサードにより無料で聴けます。&lt;br/&gt;&lt;br/&gt;&lt;a href=&#34;https://hibiki-radio.jp/&#34; target:&#34;_blank&#34;&gt;響 Radio Station&lt;/a&gt;&lt;br/&gt;　オンデマンド再生のラジオサイト。こちらも声優系コンテンツに特化。週1～月1更新。基本的にブラウザから聴取します。と思ってたらこちらもiOS、Android対応アプリができてました。こちらも無料で聴けます。&lt;br/&gt;&lt;br/&gt;&lt;a href=&#34;https://www.agqr.jp/&#34; target:&#34;_blank&#34;&gt;超A&amp;amp;G+&lt;/a&gt;&lt;br/&gt;　文化放送が行っているストリーミング型Webラジオサイト。午前中はリピート放送が多く、午後から各番組の新エピソードが放送されます。A&amp;amp;GのAはアニメ、Gはゲームということでパーソナリティは声優が多く、昔からの文化放送の得意分野である声優ラジオを凝縮させたコンテンツ群となっています。&lt;br/&gt;&lt;br/&gt;&lt;a href=&#34;https://anitama.com/index.html&#34; target:&#34;_blank&#34;&gt;アニたまどっとコム&lt;/a&gt;&lt;br/&gt;　ラジオ関西で放送された声優系ラジオのアーカイブが1週間聴けるサイト。&lt;br/&gt;&lt;a href=&#34;https://www3.nhk.or.jp/netradio/&#34; target:&#34;_blank&#34;&gt;&lt;br/&gt;らじる★らじる&lt;/a&gt;&lt;br/&gt;　NHKラジオのサイマル放送サイト。仙台、東京、名古屋、大阪から聴きたい場所を選択することによりニュース等でその地域特化の放送を聴けるようになります。NHKなので基本はどこを聴いても同じなのですが、その辺でちょっとした差異が出てきます。iOS、Android、PC、MAC対応。PC、MACは基本ブラウザから。PC用の専用アプリを開発している人もいます。&lt;br/&gt;&lt;br/&gt;&lt;a href=&#34;https://radiko.jp/&#34; target:&#34;_blank&#34;&gt;Radiko&lt;/a&gt;&lt;br/&gt;　民放各局のサイマル放送サイト。IPジオロケーションを取得し、基本的にはその県で聴ける放送局しか聴けませんが、月378円を払うことにより全国のRadikoに加入している放送局を聴けるようになります。iOS、Android、PC、MAC対応。PC、MACは基本ブラウザから。PC用に専用アプリを開発している人もいます。&lt;br/&gt;&lt;a href=&#34;https://www.simulradio.info/&#34; target:&#34;_blank&#34;&gt;&lt;br/&gt;サイマルラジオ&lt;/a&gt;&lt;br/&gt;　全国のコミュニティFM放送局のサイマル放送が聴けるサイト。PC、MACからネットワーク再生に対応したアプリ(AIMPなど)で聴取します。無料。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>悩ましい「どのストリーミングサービスにするか」問題</title>
+      <link>https://barippi.github.io/post/66529907/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/66529907/</guid>
+      <description>&lt;p&gt;Spotifyがサービスを開始し、出揃った感のある音楽ストリーミングサービスですが、さすがに全部のサービスにお金を払うほどお大尽ではないし、聞ける曲が重複するなどムダも多いです。そこで各サービスの概要をおさらいし、どのサービスと契約するのがベストなのか考えてみたいと思います。&lt;br/&gt;&lt;br/&gt;・Spotify&lt;br/&gt;　約4000万曲、月額980円(税込)という感じですが、まだ日本の楽曲、特にアニソン系は弱いです。始まったばかりなのでそこはしょうがないといったところでしょうか。メジャーレーベルはあるのですが。特筆すべきなのはデバイス間連携。あるPCで聞いていたプレイリストをその続きからスマホで聞いたり、スマホでPCのプレイヤーを操作したりできます。PC→PCもOK。オフライン再生も当然大丈夫なので家でWifiを通じてダウンロードしたプレイリストを電車の中で、というのが可能です。&lt;br/&gt;&lt;br/&gt;・AWA&lt;br/&gt;　Liteプランが360円(税込)、Standardプランが960円(税込)。こちらもオフライン再生に対応しています。PC用アプリもあるところもいいですね。日本のサービスということもあり、日本の楽曲も充実しています。公開プレイリストが1プレイリストにつき8曲までというのを「少ない」と捉えるか「その分厳選されてていいじゃない」と捉えるか。Android TVにも対応してます。&lt;br/&gt;&lt;br/&gt;・Apple Music&lt;br/&gt;　980円(税込)、ファミリープランが1380円(税込)。ファミリープランがあるのがApple Musicと後述のGoogle Play Musicの特色。ファミリープランにすると同時に6箇所から別々の曲を聞くことができます。オフライン再生も対応。AppleTV、Car Playなどにも対応してます。&lt;br/&gt;&lt;br/&gt;・Google Play Music&lt;br/&gt;　980円(税込)、ファミリープラン1480円(税込)。こちらのファミリープランは5人まで。3500万曲。オフライン再生対応。もちろんAndroid TVなどにも対応しています。手持ちの曲をクラウドに保存するクラウドロッカー機能もあります。&lt;br/&gt;&lt;br/&gt;・スマホでUSEN&lt;br/&gt;　490円(税別)。選曲はUSEN次第で自分でプレイリストを作ったりなどはできませんが1000を超えるチャンネルがあります。また1つのチャンネルのプレイリストは約3時間で一回りです。オフライン再生は無し。Android TVにも対応してます。PC対応はなし。&lt;br/&gt;&lt;br/&gt;・LINE Music&lt;br/&gt;　960円(税込)。学割制度あり。PCはブラウザから聞く仕様。オフライン再生対応。&lt;br/&gt;&lt;br/&gt;・Amazon Prime Music&lt;br/&gt;　年3900円(税込)。Amazonプライム会員向けのサービス。コストパフォーマンスならここが一番。学割もあり。オフライン再生もあり。&lt;br/&gt;&lt;br/&gt;　こう見ていくとAmazon Prime Musicが安いが、曲数に難あり。家をApple製品で固めているならApple Musicという選択肢もある。曲数で行けばSpotify。ただこの中では一番高い。毎週CD売上上位を片っ端から聞きたいというのならばUSEN。家族がいるのならファミリープランのあるApple MusicかGoogle Play Music。J-POP中心に幅広く聞きたいというのならばAWAかLINE Music。と、重視するものによってどれが最適かは変わってきます。&lt;br/&gt;　ここからは「私の場合」として書いていきます。&lt;br/&gt;　まず最初に選択肢から消したのがApple Music。Apple製品一つも持ってないんで・・・。次に切ったのがLINE Music。LINEには縁がなくてなー。契約していたスマホでUSENは今月で解約。PCで聞けないと利用頻度が恐ろしく下がる(引きこもりでずっとPCの前にいる)。&lt;br/&gt;　残ったのがSpotify、AWA、Google Play Music、Amazon Prime Music。ここで曲数が少ないAmazon Prime Musicが脱落。Prime Videoとかもあるけど映像あんま見ないし、ということで脱落。Google Play Musicはクラウドロッカー、3500万曲と魅力的なもののなぜか琴線に触れず脱落(ひどい)。&lt;br/&gt;　AWAとSpotifyは本当に迷った。J-POPを取るかワールドワイドな音楽を取るか、20円の差は、プレイリストは、などと。&lt;br/&gt;　最終的にはプレイリストの柔軟さとデバイス間連携の素晴らしさでSpotifyに決めました。でも最後に残った3つは全部契約してしまいそうです。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> EXCITE MEC光に乗り換えてから1ヶ月近く経ちます &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/2019/1122-excitemec/">EXCITE MEC光に乗り換えてから1ヶ月近く経ちます</a></h2>
+          <span class="post-date">Nov 22, 2019 </span>
+          <div class="post-content">
+            <p>どうも、IPv6マン、ばりっぴです。</p>
+
+<p>タイトルにあるとおり、業界最安水準のIPoEでIPv6のサービスであるEXCITE MEC光に1日から乗り換えて3週間経ちました。感想でも述べていこうかと。</p>
+
+<p>まず「IPv6は速い」、これはウソ。PPPoE IPv4より遅いときがあった。まあ、IPoEなのでプロバイダのさじ加減次第ですね。EXCITE光はIIJのホールセールで、どれだけ金をIIJに投げることができるか、で速度が変わります。「速度」というと怒る人がいるので「帯域幅」と言っておきましょうか。EXCITEが「ブロードバンド回線」というものを「どれだけの帯域幅が出ればいいか」という考え方次第ですが、さすがにMbps出なかったときはお気持ち表明しようかと思いました。</p>
+
+<p>これがそのスピードテスト。
+<img src="/images/speedtest.jpg" alt="Google Speed test" />
+びっくりしますよね。そのころEXCITEのv4の友人(同じ県内)は数十Mbpsでていました。</p>
+
+<p>あと家鯖関係は、EXCITE MEC光はtransix(DS-Lite)なのでIPv4でつながる家鯖を作ろうと思うのであれば別にIPv4接続のアカウントが必要になります。transixではv4のIPアドレスを共有して使うためどうにもこうにもできず、そのような形となります。</p>
+
+<p>IPv6で家鯖は普通にできます。ルーターの設定次第。ポート80でも443でも、です。ただ、IPv4の人からはつながらなくなります。これは時機に解消していくのでまあ、いまv4の人は我慢してねって感じです。最近のプロバイダはいつの間にかv6サービスを提供していてv4だと思い込んでいた人がうちの鯖につながったと言う事例もあるので一度任意のサーバーのnslookupしてみると面白いかも知れませんね。</p>
+
+<p>総括としましては「帯域幅はプロバイダのやる気次第」と言ったところでしょうか。IPoEだとNTT関係なくバックボーンを増設できますからね。</p>
+
+<p>今後のEXCITE MEC光に期待しつつエディタを閉じます。アデュー。</p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/2019/1203-2019advent/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/2019/1104-finale500/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>

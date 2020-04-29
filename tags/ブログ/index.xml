@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ブログ on 取るに足らぬ者</title>
+    <link>https://barippi.github.io/tags/%E3%83%96%E3%83%AD%E3%82%B0/index.xml</link>
+    <description>Recent content in ブログ on 取るに足らぬ者</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://barippi.github.io/tags/%E3%83%96%E3%83%AD%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>100ドルのPC? ああ、それは確かに魅力的だ、しかし・・・</title>
+      <link>https://barippi.github.io/post/248474580.html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/248474580.html/</guid>
+      <description>&lt;p&gt;なんか体調が悪い&lt;strong&gt;気がした&lt;/strong&gt;ので仕事休みました。cbxです。&lt;br/&gt;
+&lt;br/&gt;
+&lt;a href=&#34;https://japan.cnet.com/news/ent/story/0,2000047623,20075283,00.htm&#34;&gt;S・バルマー：「100ドルのPCが必要だ」&lt;/a&gt;を読んだ。&lt;br/&gt;
+&lt;br/&gt;
+米マイクロソフトのスティーブ・バルマー氏がガートナーのカンファレンスで講演をしたそうだ。&lt;br/&gt;
+&lt;br/&gt;
+曰く、&lt;br/&gt;
+・マイクロソフトが現在抱えている問題はLinuxの台頭よりも違法コピーである&lt;br/&gt;
+・低所得者向けに100ドルPCを提供することが解決策の一つだ&lt;br/&gt;
+・金持ちが違法コピーをしている割合もなかなかあるのが大きな問題&lt;br/&gt;
+・Linuxがシェアリーダーになっているところはどこにもない&lt;br/&gt;
+・管理コストはLinux &amp;gt; Windowsである&lt;br/&gt;
+だそうだ。&lt;br/&gt;
+&lt;br/&gt;
+まあ、言いたいことはわからないでもない。ソフトウェアを売ってその対価で暮らしている人間にとっては違法コピーは確かに、問題である。&lt;br/&gt;
+&lt;br/&gt;
+その解決策として「安いPC」が効果的な手段になるかもしれないことも分かった。浮いた分でOfficeなりを買ってくれ、ということなのだろう。&lt;br/&gt;
+&lt;br/&gt;
+でもさ、やっぱりマイクロソフトの製品って高いよ。こないだPC組み立てた時もキューブ型筐体で、ある程度高値なのは仕方が無いケース以外のどのパーツよりもOSが一番高かったもの。そのケースも筐体+マザーボード+電源で3万だしね。3で割ったらOSが一番高価になってしまう。&lt;br/&gt;
+&lt;br/&gt;
+100ドルPC買って200ドルのOSなんて買うかい? おれならバカバカしくて買えない。きっと100ドルよりも安いOSを探すことになるだろう。&lt;br/&gt;
+&lt;br/&gt;
+金持ちがソフトウェアに金を払わないというのはそれだけの価値がない、と考えているからじゃないのかね。3万円のMS OfficeとタダのOpenOffice.org、やれることは大体同じ。ならMSももうちょっと安く出せるんじゃないか、と。&lt;br/&gt;
+&lt;br/&gt;
+Linuxは学生の頃にちろっと触ったくらいなんで、詳しくはいえないんだけど、Linuxが来るぞ来るぞと言われて久しいのに未だにくすぶっている状況なのはMSのネガティブキャンペーンがたまたま功を奏しているだけなんじゃないかと。俺が使っていた頃に比べたら確実に環境は良くなっているだろうし。サポートする企業も増えたしね。Linux関連企業での内乱(United Linuxって言ったっけ?)みたいのはあったみたいだけど。&lt;br/&gt;
+&lt;br/&gt;
+管理コストがWindowsの方が安くつくというのは、Linuxの管理できる人の人件費が高いだけでしょ。Windowsの管理なんて下手をすれば「Windows使えます」というだけの人がやってる場合もあると聞くし。そうでなければサーバーOSでもMS.Brastやらが感染しまくってたという理由が見つからない。&lt;br/&gt;
+&lt;br/&gt;
+Windows XP Starter Editionなんてせこい事言わずにOfficeもすべて100ドル以下に設定すればいいんですよ。薄利多売。PCだOSだって言ったって仕事の道具なんだから、安くて使えるものが一番でしょ。&lt;br/&gt;
+&lt;br/&gt;
+コピーをする手間を考えたら買った方が早いし、安いという状況を生み出せればMSのこの先10年は安定すると思う。なにもCDにコピープロテクトをかけろという話ではなくて、例えばOSのコア部分のみが入ったCDがコンビニで3000円くらいで売ってて、そこからメディアプレーヤーを入れるのに500円とか、ね。なんでもかんでも詰め込むから安くならない。&lt;br/&gt;
+&lt;br/&gt;
+競合他社を徹底的につぶした日本マクドナルドのような戦略のマイクロソフトですけど、敵がいなくなったマクドナルドの行き着いた先は赤字でしたからね。そうならないことを祈るばかりです。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2009年</title>
+      <link>https://barippi.github.io/post/248475849.html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/248475849.html/</guid>
+      <description>&lt;p&gt;今年はいろいろ動きがあった一年でした。&lt;br/&gt;&lt;br/&gt;まず、会社を辞めた。今年の7月30日付けで辞めました。まあ、一番の理由は「この会社で仕事をしていると治る病気も治らない」でした。&lt;br/&gt;&lt;br/&gt;私は2005年頃から統合失調症という病気(昔は精神分裂病といった)に罹りまして、その頃に10ヶ月ほど休職して復職したんですが、とにかく仕事のスピードと精度が良くなかった。&lt;br/&gt;&lt;br/&gt;それでもなんとか仕事は貰えてたのですが、リーマンショックを機に余剰人員が増えまして、俺もその中の一人になりました。その頃から仕事のミスに対する叱責が多くなり、精神的に不安定になっていってしまいました。そこからはもうデフレスパイラルです。何をしても上手くいかない・・・。&lt;br/&gt;&lt;br/&gt;普通にうつ病も併発してました。これでは俺は会社に殺されるとも思いました。&lt;br/&gt;&lt;br/&gt;ドクターストップもかかり、この不況のさなか無職にならざるを得なかったのです。&lt;br/&gt;&lt;br/&gt;唯一幸運だったのはドクターストップがかかっているため生活保護を受けることができるようになった事でしょうか。ボロクソ言ってくる上司がいないのは本当に心にゆとりができます。&lt;br/&gt;&lt;br/&gt;早く治して仕事できるようになりたいです。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>25年</title>
+      <link>https://barippi.github.io/post/248475762.html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/248475762.html/</guid>
+      <description>&lt;p&gt;今日で日本海中部地震が起きてから25年になります。&lt;br/&gt;&lt;br/&gt;当時3歳でしたがいまだに鮮明に記憶しています。&lt;br/&gt;&lt;br/&gt;おかげでちょっとやそっとの地震では怖くありません(笑)。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2度寝の惨状</title>
+      <link>https://barippi.github.io/post/248475444.html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/248475444.html/</guid>
+      <description>&lt;p&gt;変な学力テストを受けてその後思い切り体調不良になり半死半生でテストの打ち上げに向かったら長州小力にボディペイントされる夢を見た。&lt;br/&gt;&lt;br/&gt;夢診断お願いします。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>3/29のQMA5と今日のQMA5</title>
+      <link>https://barippi.github.io/post/248475740.html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/248475740.html/</guid>
+      <description>&lt;p&gt;3/29のQMA5&lt;br/&gt;&lt;br/&gt;東京レジャーランド秋葉原店。0-0-0-0#1-1-1(0-1-0)。中級魔術士7級。フェニックス組。&lt;br/&gt;&lt;br/&gt;32台のQMAは壮観です。&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;今日のQMA5&lt;br/&gt;&lt;br/&gt;東京レジャーランド秋葉原店。1-0-1-0#3-0-1(0-0-1)。中級魔術士1級。フェニックス組→ミノタウロス組→フェニックス組。&lt;br/&gt;&lt;br/&gt;ミノタウロス組に落ちたが3プレイでフェニックス組に戻った。組によって難易度が変わりすぎる。まあ、ミノタウロス組だと上位いけるんで面白いっちゃ面白いんですがね・・・・。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>35000ヒット</title>
+      <link>https://barippi.github.io/post/248475847.html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/248475847.html/</guid>
+      <description>&lt;p&gt;自分で踏んでしまうこの寂しさ！！！&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>3年目を超えれば・・・</title>
+      <link>https://barippi.github.io/post/248474750.html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/248474750.html/</guid>
+      <description>&lt;p&gt;俺が所属しているような情報サービス業界隈では(他のところでも言われてるかもしれませんが)、「とりあえず業界で3年持てば大丈夫だ」と言われています。&lt;br/&gt;
+&lt;br/&gt;
+石の上にも三年と言う訳ではないでしょうが、とりあえず3年続けば転職なりなんなりしても続く、と。3年持たなかったら次の仕事もできないとか家にこもっちゃうとかそんな感じの話も聞いた。&lt;br/&gt;
+&lt;br/&gt;
+2002年入社の俺はぶっちゃけ今正念場な訳で。なんとかならんもんですか。&lt;br/&gt;
+&lt;br/&gt;
+そういや、高2の時のこの時期も1ヶ月休んだ。留年ギリギリだった。大3のこの時期も1ヶ月研究室に出れなかった。留年した。次の年のこの時期もやっぱりダメだった。次の年の3月で退学した。&lt;br/&gt;
+&lt;br/&gt;
+どうにも10月から縁が無いみたいなのですよ。誕生月なのに。遅れてくる五月病みたいな感じ。「来そうだ」ってのは分かるんだが逃れる術が無い。&lt;br/&gt;
+&lt;br/&gt;
+気合が足りんという人もいるのでしょうが、気合で世の中渡っていけるならこんなに苦労はしない訳で・・・。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>3時のおやつ</title>
+      <link>https://barippi.github.io/post/248475871.html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/248475871.html/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://barippi.up.seesaa.net/o0799059910627994881.jpg&#34;&gt;&lt;img src=&#34;https://barippi.up.seesaa.net/t02200165_0799059910627994881.jpg&#34; alt:&#34;$読んでも面白くないです-CCD&#34; width:&#34;220&#34; height:&#34;165&#34; border:&#34;0&#34;/&gt;&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;初クリスピークリームドーナツ。シュガーとオリジナル・グレーズド。大変甘いドーナツでした。すげぇ甘いモノが食べたい時に行くのがいいな。それを勘案してかコーヒーのガムシロップは普通のお店のより少なめでした。確かにこのくらいがちょうどいいかも。&lt;br/&gt;&lt;br/&gt;店員が小さい子供にロゴ入りの紙製帽子をかぶせていた。そういう広告もあるんだなぁと感心した。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A&amp;amp;amp;amp&amp;amp;#59;Vフェスタに行ってきた</title>
+      <link>https://barippi.github.io/post/248475819.html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/248475819.html/</guid>
+      <description>&lt;p&gt;日曜日、パシフィコ横浜までA&amp;amp;Vフェスタに行ってきました。&lt;br/&gt;&lt;br/&gt;TAD R1の試聴会に行きましたが、さすが総額1000万超のシステム、恐ろしいほどの音質。タンバリンとかの音の上下の位置とかが分かる！ほんとすごかったです。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>BOSE Companion 3</title>
+      <link>https://barippi.github.io/post/248474372.html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/248474372.html/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://barippi.up.seesaa.net/10000004545.jpg&#34; target:&#34;_blank&#34;&gt;
+&lt;img src=&#34;https://barippi.up.seesaa.net/10000004545_s.jpg&#34; align:&#34;left&#34; border:&#34;0&#34;/&gt;&lt;/a&gt;俺にも手が届く。TAD-M1の約1/100の34650円。実際はもう一個サテライトスピーカがあります。2.1chスピーカ。&lt;br/&gt;&lt;br/&gt;
+右端に移っているのはボリュームコントローラ。黒い部分をグリグリ動かしてボリュームを調節し、上部をポンと押すとミュートになります。&lt;br/&gt;&lt;br/&gt;
+パソコンに接続などのライトユース向けだそうです。いい感じのBOSEサウンドでした。展示ではパソコンにつなげたり、iPodにつなげたり、ポータブルCDプレーヤにつなげてたりしてました。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>BSデジタルが見れた</title>
+      <link>https://barippi.github.io/post/248475896.html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/248475896.html/</guid>
+      <description>&lt;p&gt;俺は横浜市鶴見区の住人で、マンション全体でCATVであるYOUTVから電波を引っ張ってきて地上波デジタルを見てます。&lt;br/&gt;&lt;br/&gt;地上波デジタルはパススルーで普通にTVで見れるんですが、BSデジタルはトランスモジュレーションされて送出されているためSTB(セットトップボックス)をYOUTVから買うか借りるかしないと見れない、と思い込んでいました。&lt;br/&gt;&lt;br/&gt;IRCメンバーで今日地デジTVが届いた人がいて「試しにBSデジタルにケーブル挿してみたけど見れなかったわー」という話をしてたので興味半分で俺もやってみました。&lt;br/&gt;&lt;br/&gt;そしたらバッチリ映るの！そういやパラボラが屋上にあったなぁと。そのパラボラは以前の共聴アンテナみたいに切り離されてると思ってたんです。それが繋がってたんですねぇ。&lt;br/&gt;&lt;br/&gt;さっき分波器を買ってきてBSデジタルの方にもアンテナ線を付けました。地上波はつまんないのでBSデジタルに期待。&lt;br/&gt;&lt;br/&gt;ちなみに110度CSはカクカクのドロドロでした。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bar CLASSIC</title>
+      <link>https://barippi.github.io/post/248475857.html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/248475857.html/</guid>
+      <description>&lt;p&gt;今日はマイミクの人と一緒に &lt;a href=&#34;https://www.gcland.com/classic/&#34; target:&#34;_blank&#34;&gt;Bar CLASSIC&lt;/a&gt;へ行ってきました。&lt;br/&gt;&lt;br/&gt;去年の7月以来着てなかったスーツを着て行ってきました。やっぱ相応なカッコってあると思ったんで。&lt;br/&gt;&lt;br/&gt;1杯目はモスコミュール。このバーのモスコミュールは普通のモスコミュールとはちょっと違う。ジンジャーエールで割るのではなくジンジャービアで割るというもの。ジンジャービアとは炭酸水に生姜を入れてそれを発酵させたもの、との事だった。これ飲んじゃったら他のところでモスコミュール飲めないっすね。&lt;br/&gt;&lt;br/&gt;2杯目はアプリコットのリキュールを使ったショートカクテル。名前忘れちゃった。ほかにジュースとか入ってたかな。これがまた「本当にお酒?」ってほど飲みやすい。おつまみに頼んだスモークチーズやプレーンピザとともにゴクゴク。&lt;br/&gt;&lt;br/&gt;そしてシガータイム突入。初心者向けのをバーテンダーさんに選んでもらい、それをくゆらす。シガーは普通のタバコと違いフカすのが鉄則。タバコみたいにうっかり肺に入れようとするとむせます。というかむせました。口の粘膜から吸収されるニコチンですっかりいい気分。&lt;br/&gt;&lt;br/&gt;紫煙をくゆらせつつ3杯目。たしかピーチのリキュールを使ったロングカクテル。これも名前忘れちゃった。これも飲みやすく、ゴクゴク行けます。&lt;br/&gt;&lt;br/&gt;4杯目はコーヒーエスプレッソのリキュール。それの牛乳割り。これも名前忘れちゃった。カルーアとはまた違う感じ。カルーアみたいな甘さはないけどコーヒーっぽさは残っている。バーテンダーさんに言わせると「大人のコーヒー牛乳」。なるほど確かに大人向けです。&lt;br/&gt;&lt;br/&gt;神奈川県の禁煙条例で100m^2を超える飲み屋は禁煙か分煙にしなきゃいけなく、シガーバーであるはずのとあるホテルのバーも禁煙にしちゃうみたいですねみたいな話も聞けた。これはちょっと残念ですね。&lt;br/&gt;&lt;br/&gt;といつの間にか2時間が過ぎようとしていた。お会計12600円。あれだけ楽しい話、おいしいシガー、おいしいカクテルを頂けてこの値段は良心的。また行きたくなったバーでした。&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CD買ったー</title>
+      <link>https://barippi.github.io/post/248475767.html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/248475767.html/</guid>
+      <description>&lt;p&gt;久しぶりにTM NetworkのCDを買いました。&lt;br/&gt;・NETWORK TM&lt;br/&gt;・CASTLE IN THE CLOUDS&lt;br/&gt;・WELCOME BACK 2&lt;br/&gt;・SPEEDWAY&lt;br/&gt;・キヲクトキロク Major Turn-Round&lt;br/&gt;・Welcome to the FANKS!&lt;br/&gt;・THE SINGLES 1&lt;br/&gt;あと発送されたのが1枚&lt;br/&gt;・NETWORK -Easy Listening-&lt;br/&gt;&lt;br/&gt;やっぱTMいいわぁ・・・癒される。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CLIE PEG-SJ33</title>
+      <link>https://barippi.github.io/post/248474317.html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/248474317.html/</guid>
+      <description>&lt;p&gt;前のエントリの続き。&lt;br/&gt;
+&lt;br/&gt;
+Hyper-Hydeのめんどくささに嫌気が差した俺が次に買ったのがタイトルにあるCLIE PEG-SJ33。半透明のカバーがちょっとかっこよかったヤツだ。&lt;br/&gt;
+&lt;br/&gt;
+こいつのどこがよかったかというと、PDAという事を笠に着てmp3ならば専用の転送ソフトが無くてもバッチリ再生できたという点だ。管理するようなスケジュールも無いので最初からPDAとして使う気は無かった。ついでにゲームもできればいいといった感じだ。&lt;br/&gt;
+&lt;br/&gt;
+128MBのMSを差し込んでそこそこ高音質のmp3データを突っ込んで聞いていた。音質も腐ってもソニーということでPDAにしてはよい出来。&lt;br/&gt;
+&lt;br/&gt;
+でも、それでもCLIEは大きかった。小型モデルというSJでもなんか大きいと思ってしまった。&lt;br/&gt;
+&lt;br/&gt;
+世の中にiPod見せびらかし人間が増えていって「あー、俺もそろそろiPodかなー。でもお金無いよねー」と思っていた矢先に出てきたのがその上げちゃったMuVo^2 4GBなのでした。あと少し出せばiPod 15GBも買えるような値段だったけどその小ささに惚れてしまった。&lt;br/&gt;
+&lt;br/&gt;
+CLIEはずっと部屋の中にいる。電池も切れた。使えるかどうかも分からない。もったいない。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Creative MuVo^2 FM 5GBで通勤</title>
+      <link>https://barippi.github.io/post/248474312.html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://barippi.github.io/post/248474312.html/</guid>
+      <description>&lt;p&gt;買ったら使わないととな。&lt;br/&gt;
+&lt;br/&gt;
+という事で、最低ビットレート160kbps/CBR、最高はLAMEのVBRプリセットの最高音質extremeのmp3ファイルをぶっこんで楽しく通勤っ！&lt;br/&gt;
+&lt;br/&gt;
+9連休決め込んだ人もいるのか車内は若干空いてた。&lt;br/&gt;
+&lt;br/&gt;
+そして肝心な新型MuVo^2の音質なんだけど、4GBの時より少し分解能が上がってる? 電車の中で聞いてて音質もクソもねーだろとか思うんだけど、明らかに上がってる気がするよ? プラシーボ? といってもHDD変えたくらいで何にもしてないだろうと思ってただけにちょっと意外だった。プラシーボなのかなぁ・・・。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

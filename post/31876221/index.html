@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> MUNINをUbuntu 12.04LTSに入れてみた &middot; 取るに足らぬ者 </title>
+
+
+<link rel="stylesheet" href="https://barippi.github.io/css/slim.css">
+<link rel="stylesheet" href="https://barippi.github.io/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="取るに足らぬ者" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="https://barippi.github.io/">取るに足らぬ者</a></h1>
+  <p class="site-tagline"></p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+  
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="https://barippi.github.io/post/31876221/">MUNINをUbuntu 12.04LTSに入れてみた</a></h2>
+          <span class="post-date">Jan 1, 0001 </span>
+          <div class="post-content">
+            <p>ツイッターで「MUNINはよい」的な事を言ってる人がいたのでどのようなものか確かめるために入れてみました。<br/>
+ <br/>
+こちら <a href="https://itfun.jp/2010/06/ubuntu-servermunin.html">https://itfun.jp/2010/06/ubuntu-servermunin.html</a> を参考にインストールしました。インストールはかなり簡単で、<br/>
+<ul><br/>
+<li>$ sudo apt-get install munin munin-node munin-plugins-extra</li><br/>
+</ul><br/>
+で完了。APT最高です。「munin」が情報をまとめてhtmlドキュメントを作るサーバー、「munin-node」が情報を収集するエージェント的なもの、「munin-plugins-extra」がMUNINの情報収集プラグイン集です。<br/>
+ <br/>
+で、インストールしたらconfファイルの編集です。「/etc/munin/munin.conf」を編集します。「htmldir /var/www/munin」のところをコメント(#)を外して適宜htmlドキュメントを入れるディレクトリを指定します。apache2を入れてデフォルトのままだとこのままで良い気がします。もちろんmuninディレクトリを作ることになりますが…。そして、「/etc/munin/apache.conf」も編集します。これもディレクトリ定義等を適宜修正します。デフォルトのままだとhtmlドキュメントをサーバー本体からしか見れないので「Allow from 192.168.0.0/24」等とするのが良いでしょう。そうするとLAN内のマシンから見られるようになります。<br/>
+ <br/>
+ここまできたらapacheとmunin-nodeを再起動します。<br/>
+<ul><br/>
+<li>$ sudo /etc/init.d/munin-node restart</li><br/>
+<li>$ sudo /etc/init.d/apache2 restart</li><br/>
+</ul><br/>
+これで遅くとも10分後には指定したディレクトリにhtmlドキュメントができあがり、グラフが見られるようになります。<br/>
+ <br/>
+まあ、MRTGも入れてるんですが、インストール、設定はMUNINの方がはるかに簡単ですね。サーバー監視にオススメです。<br/></p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="https://barippi.github.io/post/31876215/"> Prev</a>  
+          <a class="btn next " href="https://barippi.github.io/post/31876214/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="https://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="https://barippi.github.io/js/slim.js"></script>
+  <script src="https://barippi.github.io/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+</body>
+
+</html>
