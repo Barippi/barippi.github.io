@@ -1,0 +1,504 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Page 12 | 取るに足らぬ者</title>
+  <meta name="author" content="Barippi">
+  
+  <meta name="description" content="1979年産のアイマスおじさんがなんか書くかも">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="取るに足らぬ者"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="取るに足らぬ者" type="application/atom+xml">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">取るに足らぬ者</a></h1>
+  <h2><a href="/">そろそろ落ち着きたい</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+<<!-- ad start -->
+    <script data-ad-client="ca-pub-7137449134315268" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- ad end -->/header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-39059634" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2015-08-05T02:59:56.000Z"><a href="/2015/08/05/39059634/">2015-08-05</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/05/39059634/">foobar2000でラジオ配信環境を作る話</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　foobar2000のVer 1.3.8で構築します。また、icecast serverまたはShoutcast Serverがすでに構築してある前提で書きます。<br/>　まず&lt;a href=”<a href="https://www.altacast.com/&quot;" target="_blank" rel="noopener">https://www.altacast.com/&quot;</a> target:”_blank”&gt;AltaCast</a>からAltaCast for foobar2000 1.xをダウンロードしてインストールします。そしてfoobar2000の「file」→「preference」を開き、「DSP Manager」でAltaCast 1.0をアクティブにします。<br/><br/>&lt;a href=”/images/c383a000.jpg” title:”WS000008” target:”_blank”&gt;&lt;img src=”/images/c383a000.jpg” alt:”WS000008” class:”pict” border:”0” width:”480” height:”350” hspace:”5”/&gt;</a><br/><br/>　基本的な構築はこれで終わりです。曲を流すとAltaCastの画面が開き、AltaCastの「Add Encoder」からサーバーのアドレス、ポートなどを設定し、「Connect」すれば配信が開始されます。曲順に流すこともシャッフルプレイすることもランダムプレイもできます。<br/>　しかしこれでは「あ、プレイリストにあるこの曲、今聴きたい」といった時に対処ができません。そんな時のために「ソングリクエスタ」を導入しましょう。<br/>　&lt;a href=”<a href="https://wikiwiki.jp/foobar2000/?FrontPage&quot;" target="_blank" rel="noopener">https://wikiwiki.jp/foobar2000/?FrontPage&quot;</a> target:”_blank”&gt;foobar2000 日本語 Wiki</a>の左ペインのメニューから「コンポーネント一覧→General→通信」と進み、「foo_request_http」の「ミラー」からダウンロードします。ダウンロードしたファイルを展開し「readme_jp.txt」を読みながら設定しましょう。一番簡単なのは中のファイルを全部「components」フォルダに置き、そこから設定する方法でしょう。<br/><br/>&lt;a href=”/images/f6078dc9.jpg” title:”WS000009” target:”_blank”&gt;&lt;img src=”/images/f6078dc9.jpg” alt:”WS000009” class:”pict” border:”0” width:”480” height:”350” hspace:”5”/&gt;</a><br/><br/>　こんな感じ。64bit版Windowsでの設定です。32bit版だと「Program Files (x86)」のところが変わります。で、「Start」ボタンを押下し、「<a href="https://localhost:4095/」にアクセスするとページが表示されます。リクエスト環境も整いました。" target="_blank" rel="noopener">https://localhost:4095/」にアクセスするとページが表示されます。リクエスト環境も整いました。</a><br/>　外から聞く場合は配信サーバーのポートもソングリクエスタのポートもルーターでポートマッピングしてください。で、外から聞くとなると気になるのが転送量。多かれ少なかれ最近のプロバイダは転送量制限があります。なるべく少ない転送量でいい音で聞きたい。mp3やoggは128kbps無いと論外だし、AACでも96kbpsは欲しい。でもそれだと転送量が多いのです。<br/>　そんな時のためのAAC Plus。これは48kbpsあれば上記と大体同じ音質が出せますし、24kbpsでもそれなりに聞けます。これだ。でもfoobar2000にはエンコーダーがないのです。どうするかというとWinampにあったものを持ってきます。ファイル名は「enc_aacplus.dll」です。ない場合はインターネットは広いので誰かがアップロードしてます。私が見つけたところは直リンク禁止と書いていたので「Winamp enc_aacplus」とでも検索してみてください。これを「foobar2000.exe」と同じフォルダに置きます。そしてfoobar2000を再起動するとAltaCastのエンコーダーのところに「AAC Plus」が出てきます。やりましたね。<br/>　ということで、foobar2000でのインターネットラジオ配信環境を整えてみました。まあ、ひきこもりなんで使い道は無いんですが…。ではでは。<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-38643646" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2015-08-01T19:21:38.000Z"><a href="/2015/08/02/38643646/">2015-08-02</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/02/38643646/">Windows8.1タブとWindows7デスクトップをWindows10にしたよ！</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>&lt;a href=”/images/0c77a297.png” title:”スクリーンショット (1)” target:”_blank”&gt;&lt;img src=”/images/0c77a297.png” alt:”スクリーンショット (1)” class:”pict” border:”0” width:”480” height:”300” hspace:”5”/&gt;</a><br/><br/><br/>　Windows10、タブレットモードのスクリーンショットです。タブレットはいわゆるドスパラタブレット。ストレージ32GB、メモリ2GBのほうです。ぽちぽち触ってみましたが、格安タブレットの標準構成みたいなものなので特に不具合はなかったです。ただひとつ、TwitterクライアントのNeuroniaが動かないのが痛いですね。デスクトップマシンでは動くのですが…。(追記：動くようになりました)<br/>　メモリは大体6割を使っているみたいですね。多分どのマシンでも6割なんだと思います。Windows7デスクトップ(メモリ16GB)でも大体そんなもんでした。<br/>　デスクトップのアップグレードはちょっと難航しまして0時ころから始めてすべてのデバイスがほぼ問題なく動くようになるまで11時間かかりました。<br/>　結論から言うと「Windows8で動くものは大体動く」です。TVキャプチャボード(アイ・オー・データ GV-MVP/HS3)もWindows8.1から対応しないという宣言がありましたし、ロジテックのBluetoothアダプタ(LBT-UAN04C2)もWindows8.1では保証しませんと書かれていました。<br/>　が、その2つともWindows8のドライバ、ソフトウェアをインストールすることでなんとか動きました。Bluetoothスタックは何故かA2DPでスマホから音楽流しても聞こえませんでしたが…。送る方は大丈夫でapt-Xも大丈夫でした。<br/>　CSR Harmonyのスタックは2012年あたりで更新が止まってるんですよねぇ…。なんでもソフトウェア技術者全部引きぬかれたとか聞きます。apt-XはCSR Harmonyのスタックでしか実装されてないのでこのまま終息してAAC転送とかLDAC転送が流行るんですかねぇ。<br/>　あとはディスプレイ関連。最初nVidiaのWindows10に対応したドライバが入らなくて「ひぃ」となりましたが再起動したら入ってました。多分Windows Update経由で当たったと思います。その後nVidiaにある最新ドライバを当てて普通に使えています。<br/>　Windows10のデスクトップモードはWindows7のそれとほぼ変わりありません。スタートメニューにタイルが増えたくらいですね。Windowsストアアプリもウインドウで開きます。いきなり全画面でバーンと開いたりしません。もちろん全画面にもできます。<br/>　便利だと感じたのはカレンダーがGoogleカレンダーに対応していること。まあGoogleカレンダー入れればいいのですが、あるなら、と使ってみてます。メーラーもGmailに対応してました。アカウント情報を入れれば自動で引っ張ってきてくれます。メールサーバーの設定とか無し。Thunderbirdのアカウント設定みたいな感じになった。あれも確か自動でメールサーバーの設定してくれますよね。使ったこと無いけど。<br/>　噂程度なのでサラリと聞き流して欲しいのですが「今月の上旬から中旬あたりにWindows10のバグフィックスが大量に行われるのでは？」、ということで「新しいのにすぐ触りたい！」という人以外はそれまで待ったほうがいいでしょう。<br/>　よくWindowsの新しいのが出るたびに「バグが大量にある」という話を聞くのですが数GBもあるソフトウェア製品でバグがない方がおかしい、と元ソフトウェア技術者は思うのです。たかが数MBのソフトウェアでもバグが出るのにそれ以上の規模のソフトウェアでバグが出ないはずがない、と。マイクロソフトはそれを認めてWindows Update機能でバグ潰しをしてましたが、やっとここ数年で他のOSでも似たような事をはじめましたよね。バグがあるのは仕方がない。真摯にフィックスして提供すればいいのです。<br/>　最後説教臭い話になりましたが以上です。ではでは。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-37511644" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2015-07-20T20:32:51.000Z"><a href="/2015/07/21/37511644/">2015-07-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/21/37511644/">アイドルマスター10thライブに参加してきました</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>&lt;a href=”/images/20f79978.jpg” title:”38” target:”_blank”&gt;&lt;img src=”/images/20f79978.jpg” alt:”38” class:”pict” border:”0” width:”480” height:”270” hspace:”5”/&gt;</a><br/>　土日に行われたアイマスの10thライブに参加してきました。<br/>　両日とも台風に見舞われるんじゃないかと心配されましたが台風も逸れ、天気もギリギリ持って何よりだったと思います。<br/>　思えばアーケード稼働当初は全然人がついてなくてプレーヤーの中からも「もって半年かなぁ」なんて声もありました。かく言う私もそうで、「半年でネット対戦終わって、3年後くらいに筐体見つけて懐かしさのあまり涙するのかな」なんて思っていました。しかし半年後、私の予想に反してアイマスには行列ができるほど人が並んでいたのです。対戦の面白さに目覚めたプロデューサーが熱心に布教し、対戦の仕方を伝授し、それが波のように伝わっていったのです。<br/>　最初の方は「いかに対人戦を少なくするか」というのが上を目指す上で重要でした。対人戦になると「うっ」と思ったものです。それがいつの間にか「GT祭り」みたいな対人戦をするという流れになっていったのは面白かったと思います。まあ大体の人は本命のユニットでは対人戦を避けて負けても減衰が少ないCランクのユニットを対人戦用ユニットとして持っていたわけですが。アーケード版ではLv13以上のユニットはアピール点数に差は無く、純粋に読みの勝負になります。この辺が対人戦をより面白く、熱くさせていたのだと思います。<br/>　初期プロデューサーの予想を大いに裏切り、オンライン稼働は5年も続くことになりました。最終バージョンのV1.3が配信されてからでも4年で、ひとつのバージョンで4年もオンライン稼働をするタイトルというのは他には例がなかったように思います。それだけ対戦仕様が絶妙にできててかつ多くの人に楽しまれたタイトルでした(オフライン稼働をしているお店はまだ数店舗あります)。<br/>　さて、それでライブの歴史はと言うと、まず稼働半年後の冬に赤羽会館でイベントが行われます。初期プロデューサーの中では「雪の赤羽」として語り継がれているイベントです。まあ稼働前にも中村先生やミンゴスが歌うという機会はあったのですが(YouTubeあたりで見つかるかも)、稼働後のイベントとしてはこの600人収容の赤羽会館が初でした。まだアーケード版の尺の曲10曲しかなく、朗読劇でつないだりしたりしてこのイベントは行われました。そして1stアニバーサリー。これに参加したプロデューサーは「最後を見届ける」覚悟で行った人も多いと聞きます。ゲームは盛り上がり始めていましたが、コンテンツそのものは長くは続かない、と言った見解の人が多かったのです。<br/>　しかし、予想に反してコンテンツは拡大を続けます。動画投稿サイトで知って始めるという人も出始め、その人がまたそれ以上のものを投稿する、という好循環が生まれ動画投稿サイトのトップカテゴリーに登録されるようにまでなりました(今は格下げになりましたが)。<br/>　ライブも2nd、3rd、4thとなっていくに連れやっとプロデューサーの中に「このコンテンツは続く！」という認識が生まれました。<br/>　大きな転機となったのはやはりXENOGLOSSIAではない方のアニメができたことでしょう。これでファン層が一気に拡大し、満を持しての7thが横浜アリーナ。私はここで初めてアイマスのライブに行きました。プロデューサー歴はムダに長いのですがライブ参戦歴としては7th、SSA、そして今回の10thと3回しか現場に行ってません。LVがあるものはLVに行ってましたが。<br/>　そして7thの後もシンデレラガールズ、ミリオンライブ、SideMとファミリーが増え、据え置き機でもOFAが出たりとアイマスワールドはどんどんと拡大を続けていきました。ソーシャルゲームの方は「この声優のファンだから」ということで始めた人も多いでしょう。<br/>　「プロデューサーの生活の一部、いや大部分に食い込んでやる！」というガミP、ディレ1等スタッフや演者のみなさんのたゆまない努力の元今回の10thライブができたんだと思います。もちろん10年支えたプロデューサー、昨日たまたまチケットが余ってる友人からもらって見に来た人も含めて。そんな人達がすべて重なりあってからみあってできあがったのが昨日一昨日のアイマス10thライブだったと思います。<br/>　「765プロしか認めん」「876こそ至高」「シンデレラっしょ」「ミリオンがいい」「全部いいじゃん」いろんな意見があると思います。そして自分の意見と同じ意見以外を排除するのは簡単な事です。ですが「団結」の歌詞にあるように「みんなまとめてアイドルマスター」なのです。全部を好きになれ、全部やれとは言いませんが内ゲバだけは勘弁です。私がいるIRCチャンネルでも中身は似たようなもの(据え置き機しかしない人もいるしシンデレラやってミリオンやってない人もいるし逆もしかり)ですが「アイドルマスターが好き」という感情だけは一致しているので喧嘩はありません。<br/>　新しく始めた人も「自分は新参だから」と卑下することはありません。物事が続いていくには新陳代謝が必要で、新しく始めた人だからこそ気づく事もあるのです。恐らく多方面にコンテンツが展開しているのも新しく人を入れることで新陳代謝を促す、という狙いもあるのでしょう。だから新しく始めた人もどんどん意見を言っていいのです。ライブアンケートなんていうのはまたとない機会ですので忘れずに回答しましょう。<br/>　あれ、ライブの感想を書くはずが老害のひとりごとになってしまった…。ハイライトは「ドームですよ、ドーム！」とかあずみんFirst Stageとかリアル夕暮れトワスカとかmy songからのMCで泣かされたとかかな。あと2日目メドレーの3コンテンツ入り混じっての歌唱がよかったです。控えめに言って全体的に最高なライブでした。無理をして行って良かったです。<br/>　「どうせ入るサイズ無いしー」とスルーしてた衣服関係ですがあみあみのサイクルジャージに4Lがあったのでこんどはそういうの着て参加したいです。<br/>　あと、IRCチャンネルはIRCnetJP「irc.ircnet.jp:6667」チャンネル名は「!IDOLM@STER」です。遊びに来てね！漢字コードはISO-2022-JPです。friendnetみたいにUTF-8じゃないから注意してね！ではでは。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-36707993" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2015-07-11T19:49:49.000Z"><a href="/2015/07/12/36707993/">2015-07-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/12/36707993/">アイマス10thライブ、名刺作るの忘れてた人は</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　アイマスライブで風物詩になった名刺交換。別に名刺はなくてもライブは楽しめますがあれば知らない人とも軽い交流ができてオススメです。<br/>　私は&lt;a href=”<a href="https://mhtdesign.net/&quot;" target="_blank" rel="noopener">https://mhtdesign.net/&quot;</a> target:”_blank”&gt;マヒトデザイン</a>で作りました。クレジットカード決済なら即日印刷、時間によっては即日発送、そしてオフセット印刷では出せないオンデマンド印刷ならではの安さ。<br/>　オンデマンド印刷って何よって話ですが要はプリンタ印刷と同じです。オフセットみたいに版型を作らない。版型作る手間がない分早いし安い、というわけです。<br/>　最近のプリンタの出力を見てもらえばわかりますが、出来は全然遜色ありません。<br/>　私はデザインセンスがないのでテンプレートから作りましたが、イラレ入稿やPDF入稿もできます。テンプレートからでも画像流し込み等もできます。<br/>　ここはオススメです。モノクロ片面100枚なら160円、送料も160円で320円でお手元に届きます。是非。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-36699428" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2015-07-11T17:43:53.000Z"><a href="/2015/07/12/36699428/">2015-07-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/12/36699428/">アイマス10thライブ熱中症対策</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　西武プリンスドームとドームと名前が付いてるものの屋外ライブと変わらないか屋根がある分それよりもつらいアイマス10thライブ。熱中症対策が重要になります。<br/>　なによりも水分と塩分。これが重要です。「岩塩なめろ」とか冗談で言う人もいますがもっと手軽にとれる塩分対策を。<br/>　まずはおなじみ「塩飴」。これならどこでも売ってるんじゃないでしょうか。あとファミリーマートにあるのが「熱中飴」「熱中飴II」。熱中飴が塩レモン味、熱中飴IIが梅塩味。これはお好みで。「飴は溶けるかもなぁ」って人は「塩タブレット」。セブン－イレブンに売ってました。グレープフルーツ味。そしてウイダーから塩入りのゼリーが出ました。これはレモン味。エネルギーも一緒に取れるのでいいかもしれません。<br/><br/>&lt;div class:”amazon Default”&gt;&lt;div class:”pictBox” align:”left”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%82%AB%E3%83%90%E3%83%A4%E9%A3%9F%E5%93%81-%E3%82%AB%E3%83%90%E3%83%A4-%E5%A1%A9%E5%88%86%E3%83%81%E3%83%A3%E3%83%BC%E3%82%B8%E3%82%BF%E3%83%96%E3%83%AC%E3%83%83%E3%83%84-90g%C3%976%E8%A2%8B/dp/B00KGUYXXY%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KGUYXXY&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%82%AB%E3%83%90%E3%83%A4%E9%A3%9F%E5%93%81-%E3%82%AB%E3%83%90%E3%83%A4-%E5%A1%A9%E5%88%86%E3%83%81%E3%83%A3%E3%83%BC%E3%82%B8%E3%82%BF%E3%83%96%E3%83%AC%E3%83%83%E3%83%84-90g%C3%976%E8%A2%8B/dp/B00KGUYXXY%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KGUYXXY&quot;</a> target:”<em>blank”&gt;&lt;img src=”<a href="https://ecx.images-amazon.com//images/I/51SyABHnqmL._SL160" target="_blank" rel="noopener">https://ecx.images-amazon.com//images/I/51SyABHnqmL._SL160</a></em>.jpg” alt:”カバヤ 塩分チャージタブレッツ 90g×6袋” style:”margin-right:10px” class:”pict” align:”left” border:”0” hspace:”5”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%82%AB%E3%83%90%E3%83%A4%E9%A3%9F%E5%93%81-%E3%82%AB%E3%83%90%E3%83%A4-%E5%A1%A9%E5%88%86%E3%83%81%E3%83%A3%E3%83%BC%E3%82%B8%E3%82%BF%E3%83%96%E3%83%AC%E3%83%83%E3%83%84-90g%C3%976%E8%A2%8B/dp/B00KGUYXXY%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KGUYXXY&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%82%AB%E3%83%90%E3%83%A4%E9%A3%9F%E5%93%81-%E3%82%AB%E3%83%90%E3%83%A4-%E5%A1%A9%E5%88%86%E3%83%81%E3%83%A3%E3%83%BC%E3%82%B8%E3%82%BF%E3%83%96%E3%83%AC%E3%83%83%E3%83%84-90g%C3%976%E8%A2%8B/dp/B00KGUYXXY%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KGUYXXY&quot;</a> target:”<em>blank”&gt;カバヤ 塩分チャージタブレッツ 90g×6袋 [食品&amp;飲料]</a></div>&lt;div class:”itemSubTxt”&gt;カバヤ食品</div></div>&lt;br style:”clear:left” clear:”left”/&gt;&lt;div class:”amazon Default”&gt;&lt;div class:”pictBox” align:”left”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E4%BA%95%E9%96%A2%E9%A3%9F%E5%93%81-%E7%86%B1%E4%B8%AD%E9%A3%B4%E3%83%AC%E3%83%A2%E3%83%B3%E5%A1%A9%E5%91%B3-100g%C3%9710%E8%A2%8B/dp/B004XFZA6M%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB004XFZA6M&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E4%BA%95%E9%96%A2%E9%A3%9F%E5%93%81-%E7%86%B1%E4%B8%AD%E9%A3%B4%E3%83%AC%E3%83%A2%E3%83%B3%E5%A1%A9%E5%91%B3-100g%C3%9710%E8%A2%8B/dp/B004XFZA6M%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB004XFZA6M&quot;</a> target:”_blank”&gt;&lt;img src=”<a href="https://ecx.images-amazon.com//images/I/51AM3CpdQmL._SL160" target="_blank" rel="noopener">https://ecx.images-amazon.com//images/I/51AM3CpdQmL._SL160</a></em>.jpg” alt:”井関食品 熱中飴レモン塩味 100g×10袋” style:”margin-right:10px” class:”pict” align:”left” border:”0” hspace:”5”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E4%BA%95%E9%96%A2%E9%A3%9F%E5%93%81-%E7%86%B1%E4%B8%AD%E9%A3%B4%E3%83%AC%E3%83%A2%E3%83%B3%E5%A1%A9%E5%91%B3-100g%C3%9710%E8%A2%8B/dp/B004XFZA6M%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB004XFZA6M&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E4%BA%95%E9%96%A2%E9%A3%9F%E5%93%81-%E7%86%B1%E4%B8%AD%E9%A3%B4%E3%83%AC%E3%83%A2%E3%83%B3%E5%A1%A9%E5%91%B3-100g%C3%9710%E8%A2%8B/dp/B004XFZA6M%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB004XFZA6M&quot;</a> target:”<em>blank”&gt;井関食品 熱中飴レモン塩味 100g×10袋 [食品&amp;飲料]</a></div>&lt;div class:”itemSubTxt”&gt;井関食品</div></div>&lt;br style:”clear:left” clear:”left”/&gt;&lt;div class:”amazon Default”&gt;&lt;div class:”pictBox” align:”left”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E7%86%B1%E4%B8%AD%E9%A3%B4-%E4%BA%95%E9%96%A2%E9%A3%9F%E5%93%81-%E7%86%B1%E4%B8%AD%E9%A3%B4II-%E6%A2%85%E5%A1%A9%E5%91%B3-1kg/dp/B004XFYA2C%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB004XFYA2C&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E7%86%B1%E4%B8%AD%E9%A3%B4-%E4%BA%95%E9%96%A2%E9%A3%9F%E5%93%81-%E7%86%B1%E4%B8%AD%E9%A3%B4II-%E6%A2%85%E5%A1%A9%E5%91%B3-1kg/dp/B004XFYA2C%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB004XFYA2C&quot;</a> target:”_blank”&gt;&lt;img src=”<a href="https://ecx.images-amazon.com//images/I/51ivy6jMVjL._SL160" target="_blank" rel="noopener">https://ecx.images-amazon.com//images/I/51ivy6jMVjL._SL160</a></em>.jpg” alt:”井関食品 熱中飴II 梅塩味 1kg” style:”margin-right:10px” class:”pict” align:”left” border:”0” hspace:”5”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E7%86%B1%E4%B8%AD%E9%A3%B4-%E4%BA%95%E9%96%A2%E9%A3%9F%E5%93%81-%E7%86%B1%E4%B8%AD%E9%A3%B4II-%E6%A2%85%E5%A1%A9%E5%91%B3-1kg/dp/B004XFYA2C%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB004XFYA2C&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E7%86%B1%E4%B8%AD%E9%A3%B4-%E4%BA%95%E9%96%A2%E9%A3%9F%E5%93%81-%E7%86%B1%E4%B8%AD%E9%A3%B4II-%E6%A2%85%E5%A1%A9%E5%91%B3-1kg/dp/B004XFYA2C%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB004XFYA2C&quot;</a> target:”<em>blank”&gt;井関食品 熱中飴II 梅塩味 1kg [食品&amp;飲料]</a></div>&lt;div class:”itemSubTxt”&gt;井関食品</div></div>&lt;br style:”clear:left” clear:”left”/&gt;&lt;div class:”amazon Default”&gt;&lt;div class:”pictBox” align:”left”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E6%A3%AE%E6%B0%B8%E8%A3%BD%E8%8F%93-%E6%A3%AE%E6%B0%B8-%E3%82%A6%E3%82%A4%E3%83%80%E3%83%BC%EF%BD%89%EF%BD%8E%E3%82%BF%E3%83%96%E3%83%AC%E3%83%83%E3%83%88%E5%A1%A9%E5%88%86%E3%83%97%E3%83%A9%E3%82%B9-68%EF%BD%87/dp/B00KX276FW%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KX276FW&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E6%A3%AE%E6%B0%B8%E8%A3%BD%E8%8F%93-%E6%A3%AE%E6%B0%B8-%E3%82%A6%E3%82%A4%E3%83%80%E3%83%BC%EF%BD%89%EF%BD%8E%E3%82%BF%E3%83%96%E3%83%AC%E3%83%83%E3%83%88%E5%A1%A9%E5%88%86%E3%83%97%E3%83%A9%E3%82%B9-68%EF%BD%87/dp/B00KX276FW%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KX276FW&quot;</a> target:”_blank”&gt;&lt;img src=”<a href="https://ecx.images-amazon.com//images/I/51X8K8p9dAL._SL160" target="_blank" rel="noopener">https://ecx.images-amazon.com//images/I/51X8K8p9dAL._SL160</a></em>.jpg” alt:”森永　ウイダーｉｎタブレット塩分プラス　68ｇ” style:”margin-right:10px” class:”pict” align:”left” border:”0” hspace:”5”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E6%A3%AE%E6%B0%B8%E8%A3%BD%E8%8F%93-%E6%A3%AE%E6%B0%B8-%E3%82%A6%E3%82%A4%E3%83%80%E3%83%BC%EF%BD%89%EF%BD%8E%E3%82%BF%E3%83%96%E3%83%AC%E3%83%83%E3%83%88%E5%A1%A9%E5%88%86%E3%83%97%E3%83%A9%E3%82%B9-68%EF%BD%87/dp/B00KX276FW%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KX276FW&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E6%A3%AE%E6%B0%B8%E8%A3%BD%E8%8F%93-%E6%A3%AE%E6%B0%B8-%E3%82%A6%E3%82%A4%E3%83%80%E3%83%BC%EF%BD%89%EF%BD%8E%E3%82%BF%E3%83%96%E3%83%AC%E3%83%83%E3%83%88%E5%A1%A9%E5%88%86%E3%83%97%E3%83%A9%E3%82%B9-68%EF%BD%87/dp/B00KX276FW%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KX276FW&quot;</a> target:”_blank”&gt;森永　ウイダーｉｎタブレット塩分プラス　68ｇ [ヘルスケア&amp;ケア用品]</a></div>&lt;div class:”itemSubTxt”&gt;森永製菓</div></div>&lt;br style:”clear:left” clear:”left”/&gt;</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-36116703" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2015-07-05T15:27:38.000Z"><a href="/2015/07/06/36116703/">2015-07-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/06/36116703/">アイマス10thライブ直前に書く使用可能サイリウムの話</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　アイドルマスターのライブは使用できるサイリウムに制限があります。箇条書きすると、<br/><ul><li>長さは25cm未満</li><li>サインライトは市販のボタン電池駆動のもののみ(単○電池のキンブレなどはダメです)</li><li>ルミカライトなどのケミカルライトは長さ以外の制限はない</li><li>サインライトは改造不可(ボタン電池式であってもダメです)</li></ul>「ボタン電池式は輝度足んねぇんだよ！」って人はルミカ大閃光などのウルトラほにゃららは制限されてないのでそちらをバッキバキ折ってください。以下使えるサインライト、ケミカルライトのリンクを貼っていきます(AA)。<br/>&lt;div class:”amazon Default”&gt;&lt;div class:”pictBox” align:”left”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%EF%BC%B4%EF%BC%B5%EF%BC%AF-LR44-%E3%82%A2%E3%83%AB%E3%82%AB%E3%83%AA%E3%83%9C%E3%82%BF%E3%83%B3%E9%9B%BB%E6%B1%A0-%EF%BC%88A76-AG13%EF%BC%89%C3%97%EF%BC%95%EF%BC%90/dp/B00871OK28%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00871OK28&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%EF%BC%B4%EF%BC%B5%EF%BC%AF-LR44-%E3%82%A2%E3%83%AB%E3%82%AB%E3%83%AA%E3%83%9C%E3%82%BF%E3%83%B3%E9%9B%BB%E6%B1%A0-%EF%BC%88A76-AG13%EF%BC%89%C3%97%EF%BC%95%EF%BC%90/dp/B00871OK28%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00871OK28&quot;</a> target:”<em>blank”&gt;&lt;img src=”<a href="https://ecx.images-amazon.com//images/I/61K3hY%2BCAVL._SL160" target="_blank" rel="noopener">https://ecx.images-amazon.com//images/I/61K3hY%2BCAVL._SL160</a></em>.jpg” alt:”アルカリボタン電池 LR44 （A76-AG13）×５０” style:”margin-right:10px” class:”pict” align:”left” border:”0” hspace:”5”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%EF%BC%B4%EF%BC%B5%EF%BC%AF-LR44-%E3%82%A2%E3%83%AB%E3%82%AB%E3%83%AA%E3%83%9C%E3%82%BF%E3%83%B3%E9%9B%BB%E6%B1%A0-%EF%BC%88A76-AG13%EF%BC%89%C3%97%EF%BC%95%EF%BC%90/dp/B00871OK28%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00871OK28&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%EF%BC%B4%EF%BC%B5%EF%BC%AF-LR44-%E3%82%A2%E3%83%AB%E3%82%AB%E3%83%AA%E3%83%9C%E3%82%BF%E3%83%B3%E9%9B%BB%E6%B1%A0-%EF%BC%88A76-AG13%EF%BC%89%C3%97%EF%BC%95%EF%BC%90/dp/B00871OK28%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00871OK28&quot;</a> target:”<em>blank”&gt;アルカリボタン電池 LR44 （A76-AG13）×５０ [エレクトロニクス]</a></div>&lt;div class:”itemSubTxt”&gt;ASAHI CO.</div></div>&lt;br style:”clear:left” clear:”left”/&gt;<br/>&lt;div class:”amazon Default”&gt;&lt;div class:”pictBox” align:”left”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%82%BF%E3%83%BC%E3%83%B3%E3%82%AA%E3%83%B3-%E3%83%9F%E3%83%83%E3%82%AF%E3%82%B9%E3%83%BB%E3%83%9A%E3%83%B3%E3%83%A9-PRO-M-%E3%82%AD%E3%83%A9%E3%82%AD%E3%83%A9/dp/B00M5V04FI%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00M5V04FI&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%82%BF%E3%83%BC%E3%83%B3%E3%82%AA%E3%83%B3-%E3%83%9F%E3%83%83%E3%82%AF%E3%82%B9%E3%83%BB%E3%83%9A%E3%83%B3%E3%83%A9-PRO-M-%E3%82%AD%E3%83%A9%E3%82%AD%E3%83%A9/dp/B00M5V04FI%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00M5V04FI&quot;</a> target:”_blank”&gt;&lt;img src=”<a href="https://ecx.images-amazon.com//images/I/417X%2BH0OV6L._SL160" target="_blank" rel="noopener">https://ecx.images-amazon.com//images/I/417X%2BH0OV6L._SL160</a></em>.jpg” alt:”ミックス・ペンラ - PRO M キラキラ” style:”margin-right:10px” class:”pict” align:”left” border:”0” hspace:”5”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%82%BF%E3%83%BC%E3%83%B3%E3%82%AA%E3%83%B3-%E3%83%9F%E3%83%83%E3%82%AF%E3%82%B9%E3%83%BB%E3%83%9A%E3%83%B3%E3%83%A9-PRO-M-%E3%82%AD%E3%83%A9%E3%82%AD%E3%83%A9/dp/B00M5V04FI%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00M5V04FI&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%82%BF%E3%83%BC%E3%83%B3%E3%82%AA%E3%83%B3-%E3%83%9F%E3%83%83%E3%82%AF%E3%82%B9%E3%83%BB%E3%83%9A%E3%83%B3%E3%83%A9-PRO-M-%E3%82%AD%E3%83%A9%E3%82%AD%E3%83%A9/dp/B00M5V04FI%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00M5V04FI&quot;</a> target:”<em>blank”&gt;ミックス・ペンラ - PRO M キラキラ [おもちゃ＆ホビー]</a></div>&lt;div class:”itemSubTxt”&gt;ターンオン</div></div>&lt;br style:”clear:left” clear:”left”/&gt;&lt;div class:”amazon Default”&gt;&lt;div class:”pictBox” align:”left”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%82%BF%E3%83%BC%E3%83%B3%E3%82%AA%E3%83%B3-%E3%83%9F%E3%83%83%E3%82%AF%E3%82%B9%E3%83%BB%E3%83%9A%E3%83%B3%E3%83%A9-PRO-M-%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88/dp/B00M5V04H6%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00M5V04H6&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%82%BF%E3%83%BC%E3%83%B3%E3%82%AA%E3%83%B3-%E3%83%9F%E3%83%83%E3%82%AF%E3%82%B9%E3%83%BB%E3%83%9A%E3%83%B3%E3%83%A9-PRO-M-%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88/dp/B00M5V04H6%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00M5V04H6&quot;</a> target:”_blank”&gt;&lt;img src=”<a href="https://ecx.images-amazon.com//images/I/31eQxPfs81L._SL160" target="_blank" rel="noopener">https://ecx.images-amazon.com//images/I/31eQxPfs81L._SL160</a></em>.jpg” alt:”ミックス・ペンラ - PRO M ホワイト” style:”margin-right:10px” class:”pict” align:”left” border:”0” hspace:”5”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%82%BF%E3%83%BC%E3%83%B3%E3%82%AA%E3%83%B3-%E3%83%9F%E3%83%83%E3%82%AF%E3%82%B9%E3%83%BB%E3%83%9A%E3%83%B3%E3%83%A9-PRO-M-%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88/dp/B00M5V04H6%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00M5V04H6&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%82%BF%E3%83%BC%E3%83%B3%E3%82%AA%E3%83%B3-%E3%83%9F%E3%83%83%E3%82%AF%E3%82%B9%E3%83%BB%E3%83%9A%E3%83%B3%E3%83%A9-PRO-M-%E3%83%9B%E3%83%AF%E3%82%A4%E3%83%88/dp/B00M5V04H6%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00M5V04H6&quot;</a> target:”<em>blank”&gt;ミックス・ペンラ - PRO M ホワイト [おもちゃ＆ホビー]</a></div>&lt;div class:”itemSubTxt”&gt;ターンオン</div></div>&lt;br style:”clear:left” clear:”left”/&gt;<br/>&lt;div class:”amazon Default”&gt;&lt;div class:”pictBox” align:”left”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%83%AB%E3%82%A4%E3%83%95%E3%82%A1%E3%83%B3%E3%83%BB%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3-%E3%82%AD%E3%83%B3%E3%82%B0%E3%83%96%E3%83%AC%E3%83%BC%E3%83%89-iLite-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF/dp/B00H3DIHPC%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00H3DIHPC&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%83%AB%E3%82%A4%E3%83%95%E3%82%A1%E3%83%B3%E3%83%BB%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3-%E3%82%AD%E3%83%B3%E3%82%B0%E3%83%96%E3%83%AC%E3%83%BC%E3%83%89-iLite-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF/dp/B00H3DIHPC%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00H3DIHPC&quot;</a> target:”_blank”&gt;&lt;img src=”<a href="https://ecx.images-amazon.com//images/I/31j5vfNIjsL._SL160" target="_blank" rel="noopener">https://ecx.images-amazon.com//images/I/31j5vfNIjsL._SL160</a></em>.jpg” alt:”キングブレード iLite ブラック” style:”margin-right:10px” class:”pict” align:”left” border:”0” hspace:”5”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%83%AB%E3%82%A4%E3%83%95%E3%82%A1%E3%83%B3%E3%83%BB%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3-%E3%82%AD%E3%83%B3%E3%82%B0%E3%83%96%E3%83%AC%E3%83%BC%E3%83%89-iLite-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF/dp/B00H3DIHPC%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00H3DIHPC&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%83%AB%E3%82%A4%E3%83%95%E3%82%A1%E3%83%B3%E3%83%BB%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3-%E3%82%AD%E3%83%B3%E3%82%B0%E3%83%96%E3%83%AC%E3%83%BC%E3%83%89-iLite-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF/dp/B00H3DIHPC%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00H3DIHPC&quot;</a> target:”<em>blank”&gt;キングブレード iLite ブラック [おもちゃ＆ホビー]</a></div>&lt;div class:”itemSubTxt”&gt;ルイファン・ジャパン</div></div>&lt;br style:”clear:left” clear:”left”/&gt;&lt;div class:”amazon Default”&gt;&lt;div class:”pictBox” align:”left”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/BLADE-iLite-%E3%82%AD%E3%83%B3%E3%82%B0%E3%83%96%E3%83%AC%E3%83%BC%E3%83%89-%E3%82%A2%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%88-11%E8%89%B2%E3%82%BB%E3%83%83%E3%83%88/dp/B010SB5JNS%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB010SB5JNS&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/BLADE-iLite-%E3%82%AD%E3%83%B3%E3%82%B0%E3%83%96%E3%83%AC%E3%83%BC%E3%83%89-%E3%82%A2%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%88-11%E8%89%B2%E3%82%BB%E3%83%83%E3%83%88/dp/B010SB5JNS%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB010SB5JNS&quot;</a> target:”_blank”&gt;&lt;img src=”<a href="https://ecx.images-amazon.com//images/I/51t3wO3i%2BTL._SL160" target="_blank" rel="noopener">https://ecx.images-amazon.com//images/I/51t3wO3i%2BTL._SL160</a></em>.jpg” alt:”KING BLADE iLite / キングブレード アイライト 11色セット” style:”margin-right:10px” class:”pict” align:”left” border:”0” hspace:”5”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/BLADE-iLite-%E3%82%AD%E3%83%B3%E3%82%B0%E3%83%96%E3%83%AC%E3%83%BC%E3%83%89-%E3%82%A2%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%88-11%E8%89%B2%E3%82%BB%E3%83%83%E3%83%88/dp/B010SB5JNS%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB010SB5JNS&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/BLADE-iLite-%E3%82%AD%E3%83%B3%E3%82%B0%E3%83%96%E3%83%AC%E3%83%BC%E3%83%89-%E3%82%A2%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%88-11%E8%89%B2%E3%82%BB%E3%83%83%E3%83%88/dp/B010SB5JNS%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB010SB5JNS&quot;</a> target:”<em>blank”&gt;KING BLADE iLite / キングブレード アイライト 11色セット</a></div>&lt;div class:”itemSubTxt”&gt;ルイファン・ジャパン</div></div><br/>&lt;br style:”clear:left” clear:”left”/&gt;&lt;div class:”amazon Default”&gt;&lt;div class:”pictBox” align:”left”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB-%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89arc-%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8-12%E5%85%A5%E3%82%8A-BOX/dp/B00GTFWE22%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00GTFWE22&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB-%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89arc-%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8-12%E5%85%A5%E3%82%8A-BOX/dp/B00GTFWE22%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00GTFWE22&quot;</a> target:”_blank”&gt;&lt;img src=”<a href="https://ecx.images-amazon.com//images/I/5131Km1ZjAL._SL160" target="_blank" rel="noopener">https://ecx.images-amazon.com//images/I/5131Km1ZjAL._SL160</a></em>.jpg” alt:”ルミカライト　大閃光arc　オレンジ　12入り　BOX” style:”margin-right:10px” class:”pict” align:”left” border:”0” hspace:”5”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB-%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89arc-%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8-12%E5%85%A5%E3%82%8A-BOX/dp/B00GTFWE22%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00GTFWE22&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB-%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89arc-%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8-12%E5%85%A5%E3%82%8A-BOX/dp/B00GTFWE22%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00GTFWE22&quot;</a> target:”<em>blank”&gt;ルミカライト　大閃光arc　オレンジ　12入り　BOX [おもちゃ＆ホビー]</a></div>&lt;div class:”itemSubTxt”&gt;ルミカ</div></div>&lt;br style:”clear:left” clear:”left”/&gt;&lt;div class:”amazon Default”&gt;&lt;div class:”pictBox” align:”left”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB-%E6%97%A5%E6%9C%AC%E5%8C%96%E5%AD%A6%E7%99%BA%E5%85%89-%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-25%E6%9C%AC%E5%85%A5%E3%82%8A/dp/B00KIBKR86%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KIBKR86&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB-%E6%97%A5%E6%9C%AC%E5%8C%96%E5%AD%A6%E7%99%BA%E5%85%89-%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-25%E6%9C%AC%E5%85%A5%E3%82%8A/dp/B00KIBKR86%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KIBKR86&quot;</a> target:”_blank”&gt;&lt;img src=”<a href="https://ecx.images-amazon.com//images/I/51TE29QydQL._SL160" target="_blank" rel="noopener">https://ecx.images-amazon.com//images/I/51TE29QydQL._SL160</a></em>.jpg” alt:”ルミカライト 大閃光アーク 25本入り ピンク” style:”margin-right:10px” class:”pict” align:”left” border:”0” hspace:”5”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB-%E6%97%A5%E6%9C%AC%E5%8C%96%E5%AD%A6%E7%99%BA%E5%85%89-%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-25%E6%9C%AC%E5%85%A5%E3%82%8A/dp/B00KIBKR86%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KIBKR86&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB-%E6%97%A5%E6%9C%AC%E5%8C%96%E5%AD%A6%E7%99%BA%E5%85%89-%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-25%E6%9C%AC%E5%85%A5%E3%82%8A/dp/B00KIBKR86%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KIBKR86&quot;</a> target:”<em>blank”&gt;ルミカライト 大閃光アーク 25本入り ピンク [おもちゃ＆ホビー]</a></div>&lt;div class:”itemSubTxt”&gt;ルミカ(日本化学発光)</div>&lt;div class:”itemSubTxt”&gt;2014-06-14</div></div>&lt;br style:”clear:left” clear:”left”/&gt;&lt;div class:”amazon Default”&gt;&lt;div class:”pictBox” align:”left”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-25%E6%9C%AC%E5%85%A5%E3%82%8A-%E3%83%91%E3%82%B9%E3%83%86%E3%83%AB%E3%83%96%E3%83%AB%E3%83%BC-%E6%B5%85%E8%91%B1/dp/B00KIBKZX8%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KIBKZX8&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-25%E6%9C%AC%E5%85%A5%E3%82%8A-%E3%83%91%E3%82%B9%E3%83%86%E3%83%AB%E3%83%96%E3%83%AB%E3%83%BC-%E6%B5%85%E8%91%B1/dp/B00KIBKZX8%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KIBKZX8&quot;</a> target:”_blank”&gt;&lt;img src=”<a href="https://ecx.images-amazon.com//images/I/41HQ%2B2XEe%2BL._SL160" target="_blank" rel="noopener">https://ecx.images-amazon.com//images/I/41HQ%2B2XEe%2BL._SL160</a></em>.jpg” alt:”ルミカライト 大閃光アーク 25本入り パステルブルー (浅葱)” style:”margin-right:10px” class:”pict” align:”left” border:”0” hspace:”5”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-25%E6%9C%AC%E5%85%A5%E3%82%8A-%E3%83%91%E3%82%B9%E3%83%86%E3%83%AB%E3%83%96%E3%83%AB%E3%83%BC-%E6%B5%85%E8%91%B1/dp/B00KIBKZX8%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KIBKZX8&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-25%E6%9C%AC%E5%85%A5%E3%82%8A-%E3%83%91%E3%82%B9%E3%83%86%E3%83%AB%E3%83%96%E3%83%AB%E3%83%BC-%E6%B5%85%E8%91%B1/dp/B00KIBKZX8%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KIBKZX8&quot;</a> target:”<em>blank”&gt;ルミカライト 大閃光アーク 25本入り パステルブルー (浅葱) [おもちゃ＆ホビー]</a></div>&lt;div class:”itemSubTxt”&gt;ルミカ(日本化学発光)</div>&lt;div class:”itemSubTxt”&gt;2014-06-14</div></div>&lt;br style:”clear:left” clear:”left”/&gt;&lt;div class:”amazon Default”&gt;&lt;div class:”pictBox” align:”left”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB-%E6%97%A5%E6%9C%AC%E5%8C%96%E5%AD%A6%E7%99%BA%E5%85%89-%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-25%E6%9C%AC%E5%85%A5%E3%82%8A/dp/B00KIBKVLO%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KIBKVLO&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB-%E6%97%A5%E6%9C%AC%E5%8C%96%E5%AD%A6%E7%99%BA%E5%85%89-%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-25%E6%9C%AC%E5%85%A5%E3%82%8A/dp/B00KIBKVLO%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KIBKVLO&quot;</a> target:”_blank”&gt;&lt;img src=”<a href="https://ecx.images-amazon.com//images/I/41LItxaU9QL._SL160" target="_blank" rel="noopener">https://ecx.images-amazon.com//images/I/41LItxaU9QL._SL160</a></em>.jpg” alt:”ルミカライト 大閃光アーク 25本入り オレンジ” style:”margin-right:10px” class:”pict” align:”left” border:”0” hspace:”5”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB-%E6%97%A5%E6%9C%AC%E5%8C%96%E5%AD%A6%E7%99%BA%E5%85%89-%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-25%E6%9C%AC%E5%85%A5%E3%82%8A/dp/B00KIBKVLO%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KIBKVLO&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB-%E6%97%A5%E6%9C%AC%E5%8C%96%E5%AD%A6%E7%99%BA%E5%85%89-%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-25%E6%9C%AC%E5%85%A5%E3%82%8A/dp/B00KIBKVLO%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KIBKVLO&quot;</a> target:”<em>blank”&gt;ルミカライト 大閃光アーク 25本入り オレンジ [おもちゃ＆ホビー]</a></div>&lt;div class:”itemSubTxt”&gt;ルミカ(日本化学発光)</div>&lt;div class:”itemSubTxt”&gt;2014-06-14</div></div>&lt;br style:”clear:left” clear:”left”/&gt;&lt;div class:”amazon Default”&gt;&lt;div class:”pictBox” align:”left”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-25%E6%9C%AC%E5%85%A5%E3%82%8A-%E3%83%9A%E3%83%91%E3%83%BC%E3%83%9F%E3%83%B3%E3%83%88%E3%82%B0%E3%83%AA%E3%83%BC%E3%83%B3-%E7%BF%A1%E7%BF%A0/dp/B00KIBKZVU%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KIBKZVU&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-25%E6%9C%AC%E5%85%A5%E3%82%8A-%E3%83%9A%E3%83%91%E3%83%BC%E3%83%9F%E3%83%B3%E3%83%88%E3%82%B0%E3%83%AA%E3%83%BC%E3%83%B3-%E7%BF%A1%E7%BF%A0/dp/B00KIBKZVU%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KIBKZVU&quot;</a> target:”_blank”&gt;&lt;img src=”<a href="https://ecx.images-amazon.com//images/I/41cAfrGV8fL._SL160" target="_blank" rel="noopener">https://ecx.images-amazon.com//images/I/41cAfrGV8fL._SL160</a></em>.jpg” alt:”ルミカライト 大閃光アーク 25本入り ペパーミントグリーン (翡翠)” style:”margin-right:10px” class:”pict” align:”left” border:”0” hspace:”5”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-25%E6%9C%AC%E5%85%A5%E3%82%8A-%E3%83%9A%E3%83%91%E3%83%BC%E3%83%9F%E3%83%B3%E3%83%88%E3%82%B0%E3%83%AA%E3%83%BC%E3%83%B3-%E7%BF%A1%E7%BF%A0/dp/B00KIBKZVU%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KIBKZVU&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-25%E6%9C%AC%E5%85%A5%E3%82%8A-%E3%83%9A%E3%83%91%E3%83%BC%E3%83%9F%E3%83%B3%E3%83%88%E3%82%B0%E3%83%AA%E3%83%BC%E3%83%B3-%E7%BF%A1%E7%BF%A0/dp/B00KIBKZVU%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00KIBKZVU&quot;</a> target:”<em>blank”&gt;ルミカライト 大閃光アーク 25本入り ペパーミントグリーン (翡翠) [おもちゃ＆ホビー]</a></div>&lt;div class:”itemSubTxt”&gt;ルミカ(日本化学発光)</div>&lt;div class:”itemSubTxt”&gt;2014-06-14</div></div>&lt;br style:”clear:left” clear:”left”/&gt;&lt;div class:”amazon Default”&gt;&lt;div class:”pictBox” align:”left”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E6%A5%AD%E7%95%8C%E6%9C%80%E5%BC%B7%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%AE%E6%98%8E%E3%82%8B%E3%81%95-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-%E6%A5%B5-%E3%81%8D%E3%82%8F%E3%81%BF-%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8-12%E5%85%A5%E3%82%8A/dp/B00VJ67KZC%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00VJ67KZC&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E6%A5%AD%E7%95%8C%E6%9C%80%E5%BC%B7%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%AE%E6%98%8E%E3%82%8B%E3%81%95-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-%E6%A5%B5-%E3%81%8D%E3%82%8F%E3%81%BF-%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8-12%E5%85%A5%E3%82%8A/dp/B00VJ67KZC%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00VJ67KZC&quot;</a> target:”_blank”&gt;&lt;img src=”<a href="https://ecx.images-amazon.com//images/I/61sNPqM28PL._SL160" target="_blank" rel="noopener">https://ecx.images-amazon.com//images/I/61sNPqM28PL._SL160</a></em>.jpg” alt:”業界最強クラスの明るさ! 大閃光アーク　極(きわみ)オレンジ　12入り” style:”margin-right:10px” class:”pict” align:”left” border:”0” hspace:”5”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E6%A5%AD%E7%95%8C%E6%9C%80%E5%BC%B7%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%AE%E6%98%8E%E3%82%8B%E3%81%95-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-%E6%A5%B5-%E3%81%8D%E3%82%8F%E3%81%BF-%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8-12%E5%85%A5%E3%82%8A/dp/B00VJ67KZC%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00VJ67KZC&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%83%AB%E3%83%9F%E3%82%AB%E3%83%A9%E3%82%A4%E3%83%88-%E6%A5%AD%E7%95%8C%E6%9C%80%E5%BC%B7%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%AE%E6%98%8E%E3%82%8B%E3%81%95-%E5%A4%A7%E9%96%83%E5%85%89%E3%82%A2%E3%83%BC%E3%82%AF-%E6%A5%B5-%E3%81%8D%E3%82%8F%E3%81%BF-%E3%82%AA%E3%83%AC%E3%83%B3%E3%82%B8-12%E5%85%A5%E3%82%8A/dp/B00VJ67KZC%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00VJ67KZC&quot;</a> target:”_blank”&gt;業界最強クラスの明るさ! 大閃光アーク　極(きわみ)オレンジ　12入り [おもちゃ＆ホビー]</a></div>&lt;div class:”itemSubTxt”&gt;ルミカライト</div></div>&lt;br style:”clear:left” clear:”left”/&gt;<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-35877402" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2015-07-02T22:48:49.000Z"><a href="/2015/07/03/35877402/">2015-07-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/03/35877402/">プログラミング、Terminalに最適なフォント「Ricty」をWindows7で生成する話</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　Rictyは2009年の外国におけるアンケートで「プログラミングに最適なフォント」1位に輝いた「Inconsolata」と視認性の高い日本語等幅フォント「Migu 1M」の合成フォントです。ラテン文字(ASCII文字？)はInconsolataが使われて、それ以外はMigu 1Mが使われる、という寸法です。例えばこんな感じになります。<br/>&lt;a href=”/images/0815ee96.jpg” title:”WS000007” target:”_blank”&gt;&lt;img src=”/images/0815ee96.jpg” alt:”WS000007” class:”pict” border:”0” width:”480” height:”293” hspace:”5”/&gt;</a><br/>　minttyでncmpcppを動かしているところです。アイマス10thライブの予習中です。ドラマパートとかM@STER BOX系を抜かしても再生時間2日以上になりました。これは再生したファイルをプレイリストから削除していくモードで再生しているので残りが1日と18時間になっていますが。まあ、らびゅらびゅなんて歌うはずがないのですが…。<br/>　閑話休題。どうでしょう？綺麗でしょ？「なぜこんなに良さげなフォントが出回ってないの？」と思われるかもしれませんが、Rictyの批准しているライセンスにより生成したフォントの再配布が禁止されているのです。「フォントが配布されていない」ってどうすんだ？ってことですが、Rictyは生成スクリプトを配布しているのです。Rictyを使っている人はみんな自分でスクリプトを走らせて自分のために生成しているのです。<br/>　このスクリプトは「Fontforge」というアプリケーションを使用しますが、このFontforgeが基本<em>NIXにしか対応していない、WindowsでFontforgeを使うにはCygwinでビルドする必要がある、ということであんまり存在を知られていなかった(知らなかったの私だけかもしれないけど)ということです。<br/>　しかしいろいろブログやらホームページを読んでいると公式にCygwinを使わないビルド済みのバイナリファイルがあるということで試してみました。<br/>　今回は「&lt;a href=”<a href="https://blog.nanoway.net/pc/ricty-win7&quot;" target="_blank" rel="noopener">https://blog.nanoway.net/pc/ricty-win7&quot;</a> target:”_blank”&gt;Rictyフォントのインストール(windows7)</a>」を参考に進めてみたいと思います。<br/>　まずはFontforgeのダウンロードをします。「&lt;a href=”<a href="https://sourceforge.net/projects/fontforge/files/fontforge-executables/&quot;" target="_blank" rel="noopener">https://sourceforge.net/projects/fontforge/files/fontforge-executables/&quot;</a> target:”_blank”&gt;<a href="https://sourceforge.net/projects/fontforge/files/fontforge-executables/" target="_blank" rel="noopener">https://sourceforge.net/projects/fontforge/files/fontforge-executables/</a></a>」からポータブル版と書いてあるファイルをダウンロードします。7z拡張子のファイルは7Zipと呼ばれる形式で圧縮されたファイルです。Lhaplusなんかで展開できます。展開したフォルダの中にある「run_fontforge.exe」をダブルクリックして起動することを確認して下さい。<br/>　そしてRicty生成スクリプトをダウンロードします。「&lt;a href=”<a href="https://github.com/yascentur/Ricty&quot;" target="_blank" rel="noopener">https://github.com/yascentur/Ricty&quot;</a> target:”_blank”&gt;<a href="https://github.com/yascentur/Ricty" target="_blank" rel="noopener">https://github.com/yascentur/Ricty</a></a>」に行って、画面の右側にある「Download ZIP」ボタンをクリックして一括ダウンロードします。gitが使える人は普通にcloneしてもいいです。展開したファイルをすべて咲ほどのFontforgeのフォルダにコピー(または移動)します。フォルダをコピーではなくて中のファイルをコピーです。<br/>　次にInconsolataフォントをダウンロードします。「&lt;a href=”<a href="https://levien.com/type/myfonts/inconsolata.html&quot;" target="_blank" rel="noopener">https://levien.com/type/myfonts/inconsolata.html&quot;</a> target:”_blank”&gt;<a href="https://levien.com/type/myfonts/inconsolata.html" target="_blank" rel="noopener">https://levien.com/type/myfonts/inconsolata.html</a></a>」から「OpenType file」をダウンロードします。圧縮などはされていないOpenType Fontファイルがそのままダウンロードされます。これもFontforgeフォルダにコピーします。<br/>　Migu 1Mをダウンロードします。ダウンロードするファイルはこれで最後です。「&lt;a href=”<a href="https://mix-mplus-ipa.osdn.jp/migu/&quot;" target="_blank" rel="noopener">https://mix-mplus-ipa.osdn.jp/migu/&quot;</a> target:”_blank”&gt;<a href="https://mix-mplus-ipa.osdn.jp/migu/" target="_blank" rel="noopener">https://mix-mplus-ipa.osdn.jp/migu/</a></a>」からMigu 1Mをダウンロードして展開して出てきた拡張子「ttf」のファイルをFontforgeフォルダにコピーします。<br/>　そしてFontforgeフォルダに入っている「fontforge.bat」ファイルを編集します。このためにしか使わないと言っても過言ではないので直接編集してもいいですし(どうせ圧縮ファイルの中にオリジナルはある)、コピーして別の名前にして編集してもいいです。コピーする場合は拡張子を「bat」から変えないでください。具体的な編集は以下のとおりです。<br/><br/>“%FF%\bin\Xming_close.exe” -wait<br/><br/>“%FF%\bin\fontforge.exe” -nosplash %</em><br/><br/>“%FF%\bin\Xming_close.exe” -close<br/><br/>と書いてある行が下3行ですが、これの真ん中の行を消して(fontforgeを起動させるという命令です)、その行に<br/><br/>sh ricty_generator.sh Inconsolata.otf migu-1m-regular.ttf migu-1m-bold.ttf<br/><br/>sh misc/os2version_reviser.sh Ricty-<em>.ttf RictyDiscord-</em>.ttf<br/><br/>と2行書き込みます。そして保存します。最後に1行足して「pause」と書き込むと終わったあとすぐウインドウが消えずに実行結果を確認することができるのでオススメです。<br/>　あとは編集したバッチファイルをダブルクリックするだけです、が、私の環境ではtmpファイルができないエラーが出て止まってしまいました。その場合は「&lt;a href=”<a href="https://www.geocities.jp/meir000/fontforge/&quot;" target="_blank" rel="noopener">https://www.geocities.jp/meir000/fontforge/&quot;</a> target:”_blank”&gt;<a href="https://www.geocities.jp/meir000/fontforge/" target="_blank" rel="noopener">https://www.geocities.jp/meir000/fontforge/</a></a>」からCygwin版をダウンロードしてそちらで試してみてください。こちらもfontforge.batのなかに似たような3行がありますので同様に編集してください。私はこちらでうまくいきました。ですがカスペルスキーでウイルス認定されてしまうので保護を切ってやりました。実行したあと全ファイルスキャンしましたがウイルスに感染した様子はありませんでした。でもその辺は自己責任でお願いします。<br/>　5分から10分くらい待つと<br/><ul><li>Ricty-Regular.ttf</li><li>Ricty-Bold.ttf</li><li>RictyDiscord-Bold.ttf</li><li>RictyDiscord-Regular.ttf</li></ul>の4ファイルができあがります。おめでとうございます！Discordとついてるのは7とかZにひげがついてるバージョンです。おこのみでどうぞ。　「こんなことすんのめんどくせぇ！」という人は「&lt;a href=”<a href="https://github.com/yascentur/RictyDiminished&quot;" target="_blank" rel="noopener">https://github.com/yascentur/RictyDiminished&quot;</a> target:”_blank”&gt;Ricty Diminished</a>」からttfファイルをダウンロードして使ってください。ではでは。<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-35546711" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2015-06-29T13:12:29.000Z"><a href="/2015/06/29/35546711/">2015-06-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/06/29/35546711/">MPD 0.19.10をCygwinでビルドし、Windowsサービスで動かす話</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　なんとなくMPD(Music Player Daemon)に興味が湧いてUbuntuに入れて動かしてみたらいいねってことでこれをWindowsサービスで動かすところまでやってみました。<br/>　MPD 0.17.04なら&lt;a href=”<a href="https://www.musicpd.org/download.html&quot;" target="_blank" rel="noopener">https://www.musicpd.org/download.html&quot;</a> target:”_blank”&gt;公式サイト</a>でダウンロードできて、&lt;a href=”<a href="https://www.nanshiki.co.jp/software/index.html?sexe&quot;" target="_blank" rel="noopener">https://www.nanshiki.co.jp/software/index.html?sexe&quot;</a> target:”_blank”&gt;sexe</a>を使って簡単にWindowsサービス化させることができるのですが、このバージョンはあまりに古い。そして日本語解釈に難があるのです。3時間くらい格闘して「こりゃ駄目だ」ってことで最新版をCygwinを使ってビルドしてそのバイナリをWindowsサービスにしました。<br/>　Cygwinを使ってビルドするのは「&lt;a href=”<a href="https://qiita.com/fabiiw05/items/7687348a410897eca2bc&quot;" target="_blank" rel="noopener">https://qiita.com/fabiiw05/items/7687348a410897eca2bc&quot;</a> target:”_blank”&gt;Windows(Cygwin)でも mpd + ncmpcppを使いたい</a>」で詳しく書いてくれた人がいたのでそれを参考にしながらやってみました。cyg-fastでパッケージ入れようとしたけどMD5値が違うとか言って延々とダウンロードしてたので諦めてsetup-x86_64.exeから入れました。選ぶのが面倒臭かったのでフルインストールしました。フルインストールすると10GBくらいダウンロードしてインストールフォルダが40GBくらい必要になります。ディスク容量に余裕のない場合は上記ページの通りやりましょう。<br/>　上記ページでのMPDは0.19.09ですがwgetで0.19.10のソースコード「<a href="https://www.musicpd.org/download/mpd/0.19/mpd-0.19.10.tar.xz」にして解凍、ディレクトリ移動は落としたファイルに準じて行えば大丈夫です。makeでエラーが出るソースファイルも同じで、直すところも同じです。vimエディタの使い方がわからないのであればnanoというエディタもあるのでそれを使ってみてください。" target="_blank" rel="noopener">https://www.musicpd.org/download/mpd/0.19/mpd-0.19.10.tar.xz」にして解凍、ディレクトリ移動は落としたファイルに準じて行えば大丈夫です。makeでエラーが出るソースファイルも同じで、直すところも同じです。vimエディタの使い方がわからないのであればnanoというエディタもあるのでそれを使ってみてください。</a><br/>　mpd.confも上記ページの通りで動きます。楽曲フォルダを移動するなら、ですが。もともと別フォルダ、または別ドライブにある場合はその旨を書かなければなりません。例えば「Z:\music」フォルダに楽曲が入っているならばCygwinでの書き方は「/cygdrive/Z/music」になります。頭に「/cygdrive」がついてフォルダ区切り文字が「/」になります。サウンドデバイスはOSSを使うことになるかと思いますが、そこに「dsd_usb “yes”」と入れるとDSDネイティブ再生に対応したUSBサウンドデバイスにDSDのまま垂れ流します。確かDoP形式での対応だったと思います。<br/>　上記のビルド解説ページを下まで行えばNcmppもできあがって、とりあえず曲が聞けるようになったと思います。MPDクライアントはこれだけではなくてぐぐればいろいろ出てきます。日本語が文字化けしない優秀Windowsアプリとしては「&lt;a href=”<a href="https://www.soramimi.jp/skympc/&quot;" target="_blank" rel="noopener">https://www.soramimi.jp/skympc/&quot;</a> target:”_blank”&gt;SkyMPC</a>」などがあります。iOS、Androidのアプリもたくさんあります。<br/>　が、なぜかlocalhostからしかつなげられない…。セキュリティソフトの保護を切ってみてもダメ。まあ、今のところはこれでもいいんだけど、原因がわかった方、または「他端末から全然つながるし」って人は詳細な環境を是非教えてください。よろしくお願いします。bind_ip_addressも”any”なんだけどなぁ。telnetでつなげてみると一瞬つながってコネクションを切られます。Ubuntuのは普通につながるのになぁ。変なの。Cygwin版の制限なのかしら。<br/>　気を取り直してMPDのWindowsサービス化を行うことにします。まずは「cygserver」をサービス化しましょう。詳細なやり方は「&lt;a href=”<a href="https://www.saitoh.inzai.chiba.jp/report/r20120103-0.html&quot;" target="_blank" rel="noopener">https://www.saitoh.inzai.chiba.jp/report/r20120103-0.html&quot;</a> target:”_blank”&gt;Cygwinを使い倒そう 【3】 cygserver編</a>」で分かります。そしてWindowsのシステム環境変数の「Path」に「d:\cygwin64\bin;d:\cygwin64\usr\sbin」を追加。これはCygwinを「D:\cygwin64」にインストールした場合です。私の場合なので各々のインストールパスに対応した値を追加してください。<br/>　そしてWindowsサービス用のmpd.confを「/etc/mpd.conf」として作成してください。ビルドした際のmpd.confだとホームディレクトリ以下にプレイリストやデータベースを作成する形となりましたが、Windowsサービスを起動するユーザーである「SYSTEM」はそこを見ることもファイルを作ることもできませんので適当に「/var/mpd」とかディレクトリを作ったり、もしくは音楽ファイルの入っているディレクトリに「mpd」ディレクトリを作りそこに入れるという手もあります。SYSTEMユーザーは「/var」も見れないので「$ chown -R SYSTEM /var」とし「/var」ディレクトリの所有者をSYSTEMに変えてください。同様に「/etc」ディレクトリも変えておきましょう。いや「/etc」は変える必要はないかもしれないです。でも保険として。<br/>　次にinitをWindowsサービス化します。これも「&lt;a href=”<a href="https://www.saitoh.inzai.chiba.jp/report/r20150526-0.html&quot;" target="_blank" rel="noopener">https://www.saitoh.inzai.chiba.jp/report/r20150526-0.html&quot;</a> target:”_blank”&gt;Cygwinを使い倒そう 【4】 init編</a>」を読んでください。<br/>　そして「/etc/inittab」 のどこかに「md:3:wait:/usr/local/bin/mpd.exe /etc/mpd.conf」と記入します。rc.dの後ろあたりがいいかもしれません。最初の「md」はIDなので他と被らないようにしてください。<br/>　そうしてCygwin上で「cygrunsrv –start init」とすればWindowsサービスの「CYGWIN init」が起動し、同時にMPDが動き始めるはずです。HDDがガリガリ言い出して音楽ファイルを読み込んでいるようであれば成功です(データベースファイルをコピーしたらしないかも)。<br/>　おめでとうございます。これで作業は全て終了です。楽しいミュージックライフをお楽しみください。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-35288466" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2015-06-27T01:41:51.000Z"><a href="/2015/06/27/35288466/">2015-06-27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/06/27/35288466/">Ubuntu15.04のproftpdでFTP over TLSを設定する話</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　ぶっちゃけた話、「&lt;a href=”<a href="https://www.server-world.info/query?os:Ubuntu_15.04&amp;p:ftp&amp;f:7&quot;" target="_blank" rel="noopener">https://www.server-world.info/query?os:Ubuntu_15.04&amp;p:ftp&amp;f:7&quot;</a> target:”_blank”&gt;<a href="https://www.server-world.info/query?os:Ubuntu_15.04&amp;p:ftp&amp;f:7" target="_blank" rel="noopener">https://www.server-world.info/query?os:Ubuntu_15.04&amp;p:ftp&amp;f:7</a></a>」を参照して行いました。<br/>　これ以外にすることはパッシブモードで応答するグローバルIPアドレス(またはfqdn名)を「MasqueradeAddress」で指定し、パッシブモードで使用するポートを「PassivePorts」で指定する、だけです。私の場合はDDNSを使っているのでfqdn名を記入し、使用するポートを60000～65534にしました(こんなにいらない)。ただ、DDNSで使用する場合はサーバーモードはstandaloneではなくinetdにする必要があり、また「DynMasqRefresh」を適切な秒数を指定します(私は300秒にしました)。あとルーターでパッシブポートを開ける必要があります。<br/>　そしてこれをやると通信が暗号化できますが、LAN内からFTPサーバーにつなぐとファイル一覧が見れなくなります。ヘアピンNATを実装しているルーターならばおそらくできると思いますが、それを実装しているのは一部のルーターだけなのでだいたい見れなくなります。<br/>　それを解決するにはどうするかというとFTPクライアントの設定でパッシブモードを使わないようにするだけです。FFFTPならば「PASVモードを使う」のチェックを外すだけです。これで見れるようになります。<br/>　また、一部クライアントではファイル一覧表示までの時間がかかるようになるようです。もしかしたらサーバーが遅いだけかもしれませんが…。ネットワーク経路の問題？遅いと言われてスマホの4G回線からつないでみましたが普通の早さでファイル一覧が表示されたので…。この辺はよくわかりません。もしかしたらサーバーにキャッシュがあるのかな…。<br/>　煮え切らない終わり方でごめんなさい。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-34600648" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2015-06-21T09:20:11.000Z"><a href="/2015/06/21/34600648/">2015-06-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/06/21/34600648/">ULTRASONE HFI-780を買いました</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>&lt;img src=”/images/df504c33.jpg” alt:”<em>SY355</em>“ class:”pict” border:”0” width:”334” height:”355” hspace:”5”/&gt;<br/>　こんなヘッドホン。ピカピカしてますが、プラスチックです。まあ、そのおかげで見た目よりは軽いと感じるかも…。<br/>　あえて悪いところから書きますが、側圧が強く、パッドも耳から少し小さいため、2時間もつけてると耳が痛くなってきます。まだ買って3日程度なので使い込むうちに側圧はなんとかなると思いますが…。パッドもヘッドホンの掛ける位置を調節すればいいのかもしれません。耳がパッドに収まるように気持ち後ろ目に掛けてみました。この記事を書き終わる頃に耳はどうなっているかお楽しみに。他のレビューにあるような頭頂部の痛みは私はありません。頭頂部のパッドが押し付けられない程度にゆるく掛けているからかもしれません。あと頭内定位を解消すると言われているS-Logic技術は効果がそれほどわからない…。確かに頭の外に定位する音もあるのですが「スピーカーで聴いてるようだ！」というところまではきません。変に誇張されても逆に不自然なのでこのくらいがいいのかもしれません。<br/>　さて、このヘッドホン、ゲームのBGM等を中心に楽曲を作成されている音楽のプロの友人にオススメされて買ってみました。「この人の言うことなら間違いないだろう」ということで視聴せず購入しました。<br/>　そして聴いてみるとこれがまあ楽しい音で。ソリッドな音なのですが、ドンシャリ。「ソリッドでドンシャリってなんだよ」って感じですが、一般的なドンシャリはブーミーなぼわんぼわんとした低音が鳴るのに対しHFI-780は音像がかっちりしている低音が鳴ります。「低音」と言われてわかりやすいのは200Hzあたりの音ですが、逆にその辺はちょっと抑えられてて、それ以下の周波数の音が多いですね。4つ打ちクラブ系なんか聴くと超絶に楽しいです。ズンズンきます。でハイハット等の高音も聞こえるのでリズムにノリたい向きにはこの価格帯では随一だと思います。<br/>　ボーカルものは最初のうちは「ボーカルが遠いかな」と思うかもしれませんが、エージングで改善します。といってももともと中音が引っ込んでいるので物足りなさは残るかもしれません。エージングは&lt;a href=”<a href="https://efu.jp.net/soft/wg/wg.html&quot;" target="_blank" rel="noopener">https://efu.jp.net/soft/wg/wg.html&quot;</a> target:”<em>blank”&gt;WaveGene</a>あたりを使ってホワイトノイズを1日くらい普通の音量で流せば十分です。<br/>　「じゃあダンス系しか合わないの？」と思われる人もいると思いますがそんなことはなくて、対極にあるようなクラシックもそつなくこなします。オーケストラなんかはS-Logic技術でかなり壮大になります。「ホールにいる！」とまではなりませんが、広がった感じで聞こえます。バラードもいいと思います。というか2万円も出して「このジャンルはダメです」とか言われても困りますよね。強調されるのが超低域なのでそういうのをあまり使わないPOP系なんかはフラットめからハイあがりの間くらいに聞こえます。<br/>　流し聞きをするならもっとまったり聞ける私の持ってる中だとゼンハイザーのHD650なんかが向いてるのですが、これは気合を入れて聞きたい時にいいなと思いました。<br/>　さて、私の耳はどうなったでしょうか。もう2時間半くらいつけてますが若干痛いです。でも位置調整すると痛くなくなります。耳が入るように若干後ろ目に掛けるとS-Logicもかなり分かるようになりました。あとそのせいか酔いました(笑。これは慣れるしかないんだろうなぁ。それでは。<br/><br/>&lt;div class:”amazon Default”&gt;&lt;div class:”pictBox” align:”left”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/ULTRASONE-%E3%83%98%E3%83%83%E3%83%89%E3%83%95%E3%82%A9%E3%83%B3-HFI-780-%E5%AF%86%E9%96%89-%E3%83%80%E3%82%A4%E3%83%8A%E3%83%9F%E3%83%83%E3%82%AF%E5%9E%8B/dp/B00101XVH2%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00101XVH2&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/ULTRASONE-%E3%83%98%E3%83%83%E3%83%89%E3%83%95%E3%82%A9%E3%83%B3-HFI-780-%E5%AF%86%E9%96%89-%E3%83%80%E3%82%A4%E3%83%8A%E3%83%9F%E3%83%83%E3%82%AF%E5%9E%8B/dp/B00101XVH2%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00101XVH2&quot;</a> target:”_blank”&gt;&lt;img src=”<a href="https://ecx.images-amazon.com//images/I/41Ala6imDqL._SL160" target="_blank" rel="noopener">https://ecx.images-amazon.com//images/I/41Ala6imDqL._SL160</a></em>.jpg” alt:”ULTRASONE ヘッドフォン HFI-780 密閉 ダイナミック型” style:”margin-right:10px” class:”pict” align:”left” border:”0” hspace:”5”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a href=”<a href="https://www.amazon.co.jp/ULTRASONE-%E3%83%98%E3%83%83%E3%83%89%E3%83%95%E3%82%A9%E3%83%B3-HFI-780-%E5%AF%86%E9%96%89-%E3%83%80%E3%82%A4%E3%83%8A%E3%83%9F%E3%83%83%E3%82%AF%E5%9E%8B/dp/B00101XVH2%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00101XVH2&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/ULTRASONE-%E3%83%98%E3%83%83%E3%83%89%E3%83%95%E3%82%A9%E3%83%B3-HFI-780-%E5%AF%86%E9%96%89-%E3%83%80%E3%82%A4%E3%83%8A%E3%83%9F%E3%83%83%E3%82%AF%E5%9E%8B/dp/B00101XVH2%3FSubscriptionId%3DAKIAIM37F4M6SCT5W23Q%26tag%3Danmarikousins-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00101XVH2&quot;</a> target:”_blank”&gt;ULTRASONE ヘッドフォン HFI-780 密閉 ダイナミック型 [エレクトロニクス]</a></div>&lt;div class:”itemSubTxt”&gt;ULTRASONE</div>&lt;div class:”itemSubTxt”&gt;2007-12-01</div></div>&lt;br style:”clear:left” clear:”left”/&gt;<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+<nav id="pagination">
+  
+    <a href="/page/11/" class="alignleft prev">前の投稿</a>
+  
+  
+    <a href="/page/13/" class="alignright next">次の投稿</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="検索">
+    <input type="hidden" name="as_sitesearch" value="barippi.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">カテゴリー</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/イベント/">イベント</a><small>1</small></li>
+  
+    <li><a href="/categories/インターネットサービス/">インターネットサービス</a><small>2</small></li>
+  
+    <li><a href="/categories/ソフトウェア/">ソフトウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/ハードウェア/">ハードウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/雑貨/">雑貨</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">タグ</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/OneCalender-ジョルテ-カレンダーアプリ/">OneCalender ジョルテ カレンダーアプリ</a><small>1</small></li>
+  
+    <li><a href="/tags/お勧めしていきたい/">お勧めしていきたい</a><small>19</small></li>
+  
+    <li><a href="/tags/アイマス/">アイマス</a><small>26</small></li>
+  
+    <li><a href="/tags/アメブロ/">アメブロ</a><small>67</small></li>
+  
+    <li><a href="/tags/イベント/">イベント</a><small>19</small></li>
+  
+    <li><a href="/tags/インターネットサービス/">インターネットサービス</a><small>13</small></li>
+  
+    <li><a href="/tags/ゲーム/">ゲーム</a><small>403</small></li>
+  
+    <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>73</small></li>
+  
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>41</small></li>
+  
+    <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
+  
+    <li><a href="/tags/マンガ/">マンガ</a><small>1</small></li>
+  
+    <li><a href="/tags/企画物/">企画物</a><small>12</small></li>
+  
+    <li><a href="/tags/占い/">占い</a><small>376</small></li>
+  
+    <li><a href="/tags/雑貨/">雑貨</a><small>26</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2020 Barippi
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+<script type="text/javascript">
+var disqus_shortname = 'barippi';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

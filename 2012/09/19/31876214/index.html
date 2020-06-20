@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  
+  <title>MUNIN＋SNMPでパソコンを監視する | 取るに足らぬ者</title>
+  <meta name="author" content="Barippi">
+  
+  <meta name="description" content="1979年産のアイマスおじさんがなんか書くかも">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="MUNIN＋SNMPでパソコンを監視する"/>
+  <meta property="og:site_name" content="取るに足らぬ者"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="取るに足らぬ者" type="application/atom+xml">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">取るに足らぬ者</a></h1>
+  <h2><a href="/">そろそろ落ち着きたい</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+<<!-- ad start -->
+    <script data-ad-client="ca-pub-7137449134315268" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- ad end -->/header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-31876214" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2012-09-19T14:10:38.000Z"><a href="/2012/09/19/31876214/">2012-09-19</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">MUNIN＋SNMPでパソコンを監視する</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>ねぇMUNIN こっちむ～いて～♪(お約束)<br/><br> <br/><br>「MUNIN SNMP」で検索したらいろいろ出てきたのでSNMPを使用してステータスを表示してみました。環境はノードのWindowsXP、Windows7、そしてノード＋サーバーのUbuntu 12.04です。<br/><br> <br/><br>まずサーバーであるUbuntuにPerlを入れます。多分入ってると思いますが…。そしてCPANからNet::SNMPをインストールします。多分入ってると思いますが…。<br/><br> <br/><br>WindwosXPとWindwos7にSNMPモジュールをインストールします。例としてWindows7ではコントロールパネルの「プログラムと機能」から左上の「Windowsの機能の有効化または無効化」を選び「簡易ネットワーク管理プロトコル(SNMP)」にチェックを入れて「OK」ボタンを押下します。これでSNMPサービスがインストールされます。<br/><br> <br/><br>そしてサービスの設定を行います。コントロールパネルの「管理ツール」から「サービス」を立ち上げ、サービスの「SNMP Service」をダブルクリックしてプロパティを出します。そしてプロパティの「トラップ」タブに移行し、コミュニティ名を設定しますコミュニティ名は自分が分かるならなんでも構いません。ただ「public」という名前はやめておいた方が無難です。「一覧に追加」ボタンを押下したら今度は「トラップ送信先」の「追加」ボタンを押下し、MUNINサーバーのIPアドレスを追加します。設定を終えたら次は「セキュリティ」タブに移行します。そうすると先程追加したコミュニティ名があるのでコミュニティを選び「編集」ボタンを押下します。権利は「読み取りのみ」にしてください。そして「これらのホストからSNMPパケットを受け付けるを押下し、ホストを追加します。これはMUNINサーバーのIPアドレスを指定してください。これでWindows側の設定は終わりです。SNMP Serviceを再起動してください。<br/><br> <br/><br>サーバー機もSNMP経由で見たい場合は、サーバーにもsnmpdを入れます。Ubuntuサーバーとか他はどうだか知りませんがUbuntuデスクトップはsnmpdが入ってないので(GUIが無いとダメなヘタレっ子なのでUbuntuデスクトップをサーバーにしています)<br/></p>
+<ul><br/>
+<li>$ sudo apt-get install snmpd</li><br/>
+</ul><br/>
+としてインストールを行なってください。<br/>
+「/etc/snmp/snmpd.conf」の編集は例を見ながらということで。そんなに難しくないです。<a href="https://netlog.jpn.org/r271-635/2007/07/ubuntusnmp.html" target="_blank" rel="noopener">https://netlog.jpn.org/r271-635/2007/07/ubuntusnmp.html</a> そっけない書き方ですがわかりやすい。<br/>
+ <br/>
+ MUNINページにIPアドレスが出るのが嫌なので「/etc/hosts」にホストを追加します。localhostの書き方を参考にして「192.168.0.10 hogehoge」等と入れてください。<br/>
+ <br/>
+次は「/etc/munin/munin.conf」の編集。追加するマシン名が「hogehoge」の場合。<br/>
+<pre>[hogehoge]<br/>
+    address localhost<br/>
+    use_node_name no</pre><br/>
+のようにします。アドレスがlocalhostなのがミソです。自ノードのmunin-nodeから対象マシンにアクセスしてるみたいなんですね。だからSNMP経由で見たいマシンの場合、アドレスはすべてlocalhostになります。<br/>
+<ul><br/>
+<li>$ sudo munin-node-configure --snmpversion 1 --snmp hogehoge</li><br/>
+</ul><br/>
+としてSNMPを話しているか確認ができます。話しているとわかったら、<br/>
+<ul><br/>
+<li>$ sudo munin-node-configure --snmpversion 1 --snmp hogehoge --shell >munin.sh</li><br/>
+</ul><br/>
+と「--shell」オプションを付けるとプラグイン設定のためのシェルスクリプトを自動で書いてくれます。マシンによってはプラグインが多すぎる事があるのでテキストエディタを使って各々欲しい機能以外を削除するといいでしょう。<br/>
+<ul><br/>
+<li>$ sudo sh munin.sh</li><br/>
+</ul><br/>
+としてシェルを実行します。<br/>
+「/etc/munin/plugin-conf.d/munin-node」の編集をします。<br/>
+<pre>[snmp_*]<br/>
+env.version 1<br/>
+env.community public</pre><br/>
+とします。コミュニティ名は最初のほうで指定したコミュニティ名にします。そして最後に<br/>
+<ul><br/>
+<li>$ sudo service munin-node restart</li><br/>
+</ul><br/>
+を実行するとあとは勝手に各マシンにSNMP経由で値を取りに行きます。<br/>
+ <br/>
+お疲れ様でした。<br/>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/ソフトウェア/">ソフトウェア</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">コメント</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="https://barippi.github.io/2012/09/19/31876214/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="検索">
+    <input type="hidden" name="as_sitesearch" value="barippi.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">カテゴリー</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/イベント/">イベント</a><small>1</small></li>
+  
+    <li><a href="/categories/インターネットサービス/">インターネットサービス</a><small>2</small></li>
+  
+    <li><a href="/categories/ソフトウェア/">ソフトウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/ハードウェア/">ハードウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/雑貨/">雑貨</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">タグ</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/OneCalender-ジョルテ-カレンダーアプリ/">OneCalender ジョルテ カレンダーアプリ</a><small>1</small></li>
+  
+    <li><a href="/tags/お勧めしていきたい/">お勧めしていきたい</a><small>19</small></li>
+  
+    <li><a href="/tags/アイマス/">アイマス</a><small>26</small></li>
+  
+    <li><a href="/tags/アメブロ/">アメブロ</a><small>67</small></li>
+  
+    <li><a href="/tags/イベント/">イベント</a><small>19</small></li>
+  
+    <li><a href="/tags/インターネットサービス/">インターネットサービス</a><small>13</small></li>
+  
+    <li><a href="/tags/ゲーム/">ゲーム</a><small>403</small></li>
+  
+    <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>73</small></li>
+  
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>41</small></li>
+  
+    <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
+  
+    <li><a href="/tags/マンガ/">マンガ</a><small>1</small></li>
+  
+    <li><a href="/tags/企画物/">企画物</a><small>12</small></li>
+  
+    <li><a href="/tags/占い/">占い</a><small>376</small></li>
+  
+    <li><a href="/tags/雑貨/">雑貨</a><small>26</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2020 Barippi
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+<script type="text/javascript">
+var disqus_shortname = 'barippi';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

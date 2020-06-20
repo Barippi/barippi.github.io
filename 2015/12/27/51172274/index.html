@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ubuntu Server15.10でHubot＋IRCを試す話 | 取るに足らぬ者</title>
+  <meta name="author" content="Barippi">
+  
+  <meta name="description" content="1979年産のアイマスおじさんがなんか書くかも">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Ubuntu Server15.10でHubot＋IRCを試す話"/>
+  <meta property="og:site_name" content="取るに足らぬ者"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="取るに足らぬ者" type="application/atom+xml">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">取るに足らぬ者</a></h1>
+  <h2><a href="/">そろそろ落ち着きたい</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+<<!-- ad start -->
+    <script data-ad-client="ca-pub-7137449134315268" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- ad end -->/header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-51172274" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2015-12-26T18:33:56.000Z"><a href="/2015/12/27/51172274/">2015-12-27</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">Ubuntu Server15.10でHubot＋IRCを試す話</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　アイドルマスターつながりの友人たちとお話してるIRCのチャンネルにbotがいなくなりはや数年。Software DesignでHubotというものがあることを知り早速ためしてみることに。<br/>　ただ、Software DesignではSlackやHip Chat、はたまた自家製のチャットツールとの連携でIRCはもう時代遅れな感じで書かれてました。でもWebを見渡せばやってる人はいるもので、それを参考にしながら(古い情報もありましたが)「Hubot＋IRC」環境を構築してみました。<br/><br/>・# apt-get install nodejs npm<br/><br/>　これでNode.jsとnpmをインストールします。まあNode.jsを入れる時点でnpmも入ると思いますが。IRCnetJP(ISO-2022-JPを使うIRCサーバー)の場合はここでZNCも入れておいてください。freenodeとかのUTF-8を使うサーバーの場合はZNCは基本的に必要ありません。<br/><br/>・# ln -s /usr/bin/nodejs /usr/bin/node<br/><br/>　とシンボリックリンクを張ります。Ubuntuはなぜかnodeじゃなくてnodejsで、そのまま進めるとあとあとめんどいのでここで解決しておきます(もしかしたらいらないかも)。<br/><br/>・# npm install -g yo generator-hubot<br/><br/>　でYeomenとHubotのインストーラーをインストールします。ここまで終えたら一般ユーザーに戻ります。<br/><br/>・$ mkdir -p /your/botname<br/><br/>　として適当な場所(いい加減な場所という意味ではなく)にディレクトリを掘り、そこに移動します。ディレクトリ名はあくまで例です。<br/><br/>・$ yo hubot<br/><br/>　でHubotのインストールが始まります。アダプターは「irc」を入力し、それ以外は自分の環境にあった文字列を入れていけばいいと思います。<br/><br/>・$ ./bin/hubot -n botname<br/><br/>　でまずは動くか試してみてください(最初の「.」を忘れずに)。もりっと文字が出たあとに「botname＞」と書かれたプロンプトが現れるはずです。<br/><br/>・botname＞ botname ping<br/><br/>　でHubotがPONGを返してきます。ピンポンですね。疎通完！これからIRCに接続するための設定をします。IRCに接続するためのもろもろの設定は環境変数として設定していきます。のちのち面倒がないようにシェルスクリプトにするのが手っ取り早いでしょう。例えば「runbot.sh」として、<br/><br/>–runbot.shここから–<br/>#!/bin/bash<br/><br/>export HUBOT_IRC_NICK:”botname”<br/>export HUBOT_IRC_SERVER:”irc.example.com”<br/>export HUBOT_IRC_ROOMS:”#hogehoge”<br/>export HUBOT_IRC_REALNAME:”Bot&#39;s Real Name” #optional<br/>export HUBOT_IRC_PASSWORD:”serverpass” #optional<br/>export HUBOT_IRC_USERNAME:”serverusername”  #optional<br/><br/>bin/hubot -a irc<br/>–runbot.shここまで–<br/><br/>　こんな感じでいいでしょう。UTF-8を使うfreenodeなどのサーバーにつなぐならここまででOKです。runbot.shを立ち上げてHubotがチャンネルに入るかどうか試してみましょう。<br/>　IRCnetJPなどのISO-2022-JPを使うサーバーはZNCを介してメッセージを相互に文字コード変換しながら通信することになります。ZNCの設定やらは「&lt;a href=”<a href="https://blog.livedoor.jp/barippi/archives/31876131.html&quot;" target="_blank" rel="noopener">https://blog.livedoor.jp/barippi/archives/31876131.html&quot;</a> target:”_blank”&gt;Ubuntu Server 14.10でIRC Bouncer 「ZNC」をデーモン化して使う</a>」あたりを見ていただくとよいです。で、繋がるようになったら「/var/lib/znc/configs/znc.conf」を編集します。Hubotが使う「Userセクション」に「LoadModule : charset -force UTF-8 ISO-2022-JP」を追加します。「クライアント側→サーバー側」の順に書けば例えばサーバーの文字コードがEUC-jpを使っていればISO-2022-JPをEUC-jpに書き換えればそのようになります。あとはrunbot.shをZNC経由でつなぐように編集するだけです。これで文字コードの問題をあまり気にすること無く使えるようになります。<br/><br/>　Botと言えば最近は多機能なのが売りなものが多いですが、Hubotは多機能さでは群を抜いています。Coffee-ScriptやJavaScriptでプラグインを書ける手軽さや、もともとアプリ開発者向けだったBotなだけにGitHubにPushしたりPullしたりTravis-CIでBuildしたりデプロイしたりと開発関係はなんでもあります。運用系でもZabbix等の監視ソフトからアラートが出たらそれをチャットに流したりなどやはりいろいろあります。<br/>　しかし、私は今は一般人なのでそういうのはとりあえず置いておいて、IRC Botの機能の花形であるOP権限配布のプラグインを探しました。「&lt;a href=”<a href="https://gist.github.com/ConnorWGarvey/6089889&quot;" target="_blank" rel="noopener">https://gist.github.com/ConnorWGarvey/6089889&quot;</a> target:”_blank”&gt;<a href="https://gist.github.com/ConnorWGarvey/6089889" target="_blank" rel="noopener">https://gist.github.com/ConnorWGarvey/6089889</a></a>」にひな形とも呼べるものがあったのでこれをちょっといじってみました。元のプラグインでは「botname make me an op」と書かなければOP権限がもらえなかったものを「なるとちょうだい」で配るようにしました。またHubotインストール時ですでにそれなりのプラグインが入っていて「botname help」で使い方が出てきます。中にはGoogleのAPIコードが必要だったりするものもありますが&lt;a href=”<a href="https://github.com/hubot-scripts/hubot-google-images#cse-setup-details&quot;" target="_blank" rel="noopener">https://github.com/hubot-scripts/hubot-google-images#cse-setup-details&quot;</a> target:”_blank”&gt;導入のヘルプ</a>もあるのでGmailアカウントがある方は挑戦してみてはいかがでしょうか。また、Software Designの2016/01号のChatOpsの特集の中でもIRCであっても使えるプラグインが紹介されています。合わせて挑戦してみるのも面白いでしょう。<br/><br/>※IRC接続時に「node-icu-charset-detector」のBuildでエラーが出ますが接続はできます。ソースファイルが無くてBuildに失敗しているようでしたら「# apt-get install libicu-dev」で解決するはずです。以上。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/ソフトウェア/">ソフトウェア</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">コメント</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="https://barippi.github.io/2015/12/27/51172274/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="検索">
+    <input type="hidden" name="as_sitesearch" value="barippi.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">カテゴリー</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/イベント/">イベント</a><small>1</small></li>
+  
+    <li><a href="/categories/インターネットサービス/">インターネットサービス</a><small>2</small></li>
+  
+    <li><a href="/categories/ソフトウェア/">ソフトウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/ハードウェア/">ハードウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/雑貨/">雑貨</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">タグ</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/OneCalender-ジョルテ-カレンダーアプリ/">OneCalender ジョルテ カレンダーアプリ</a><small>1</small></li>
+  
+    <li><a href="/tags/お勧めしていきたい/">お勧めしていきたい</a><small>19</small></li>
+  
+    <li><a href="/tags/アイマス/">アイマス</a><small>26</small></li>
+  
+    <li><a href="/tags/アメブロ/">アメブロ</a><small>67</small></li>
+  
+    <li><a href="/tags/イベント/">イベント</a><small>19</small></li>
+  
+    <li><a href="/tags/インターネットサービス/">インターネットサービス</a><small>13</small></li>
+  
+    <li><a href="/tags/ゲーム/">ゲーム</a><small>403</small></li>
+  
+    <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>73</small></li>
+  
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>41</small></li>
+  
+    <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
+  
+    <li><a href="/tags/マンガ/">マンガ</a><small>1</small></li>
+  
+    <li><a href="/tags/企画物/">企画物</a><small>12</small></li>
+  
+    <li><a href="/tags/占い/">占い</a><small>376</small></li>
+  
+    <li><a href="/tags/雑貨/">雑貨</a><small>26</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2020 Barippi
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+<script type="text/javascript">
+var disqus_shortname = 'barippi';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

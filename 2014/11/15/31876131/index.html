@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ubuntu Server 14.10でIRC Bouncer 「ZNC」をデーモン化して使う | 取るに足らぬ者</title>
+  <meta name="author" content="Barippi">
+  
+  <meta name="description" content="1979年産のアイマスおじさんがなんか書くかも">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Ubuntu Server 14.10でIRC Bouncer 「ZNC」をデーモン化して使う"/>
+  <meta property="og:site_name" content="取るに足らぬ者"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="取るに足らぬ者" type="application/atom+xml">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">取るに足らぬ者</a></h1>
+  <h2><a href="/">そろそろ落ち着きたい</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+<<!-- ad start -->
+    <script data-ad-client="ca-pub-7137449134315268" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- ad end -->/header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-31876131" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2014-11-15T03:03:07.000Z"><a href="/2014/11/15/31876131/">2014-11-15</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">Ubuntu Server 14.10でIRC Bouncer 「ZNC」をデーモン化して使う</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　IRC(うちのアイマスコミュニティはLINEやカカオトークなどを入れてる人がほとんどいないのとキーボードの方が打つのが早いのでIRCでチャットしている)で話してると「VPSでIRCプロキシ建てるか」ととある男。tiarraでやってました。<br/><br>　なんか面白そうだったので俺もやってみた。<br/><br>　情報を集めていると「<a href="https://wiki.znc.in/ZNC" target="_blank" rel="noopener">ZNC</a>」というのがUbuntuのリポジトリに入っているらしい。日本語のドキュメントもそこそこあったのでこれに決めた。<br/><br>　インストールは<br/><br>$ sudo apt-get install znc<br/><br>　でおしまい。Daemonで動かさないなら<br/><br>$ znc –makeconf<br/><br>　でいろいろ設定をして(プラグインはwebadminくらいしかyesにしなかった)「~/.znc」以下に設定が保存されて自動的にバックグラウンドでの動作になる。再起動するたびにZNCを自分で起動しないといけない($ znc   で起動)けどこれがお気軽。<br/><br>　しかし、やっぱり不測のVPSメンテナンスに備えDaemon化はしたい。ログが取れないとか常駐ができないダメなIRC Bouncerにはしたくない。ということで以下はDaemon化させるための手順。基本的に<a href="https://wiki.znc.in/Running_ZNC_as_a_system_daemon" target="_blank" rel="noopener">Running ZNC as a system daemon</a>を見ればいいけど英語やだと言う人のために。<br/><br>$ sudo useradd –system –shell /sbin/nologin –comment “Account to run ZNC daemon” –user-group znc<br/><br>　としてDaemonを動作させるユーザーを作成する。そして「/var/lib/znc」ディレクトリを作りパーミッションを666あたりにして<br/><br>$ sudo -u znc /usr/bin/znc –datadir:/var/lib/znc –makeconf<br/><br>　を起動し、ユーザーzncでコンフィグを作成する。そのまま実行され常駐するがここでいったんZNCを止める。init.dスクリプトは「/etc/init.d/znc」とし、内容は<br/></p>
+<blockquote>
+</blockquote>
+<p>#! /bin/sh### BEGIN INIT INFO# Provides:          znc# Required-Start:    $remote_fs $syslog# Required-Stop:     $remote_fs $syslog# Default-Start:     2 3 4 5# Default-Stop:      0 1 6# Short-Description: ZNC IRC bouncer# Description:       ZNC is an IRC bouncer### END INIT INFO PATH:/sbin:/usr/sbin:/bin:/usr/binDESC:”ZNC daemon”NAME:zncDAEMON:/usr/bin/$NAMEDATADIR:/var/lib/zncDAEMON_ARGS:”–datadir:$DATADIR”PIDDIR:/var/run/zncPIDFILE:$PIDDIR/$NAME.pidSCRIPTNAME:/etc/init.d/$NAMEUSER:zncGROUP:znc# Exit if the package is not installed[ -x “$DAEMON” ] || exit 0# Read configuration variable file if it is present[ -r /etc/default/$NAME ] &amp;&amp; . /etc/default/$NAME# Load the VERBOSE setting and other rcS variables. /lib/init/vars.sh# Define LSB log_* functions.# Depend on lsb-base (&gt;: 3.2-14) to ensure that this file is present# and status_of_proc is working.. /lib/lsb/init-functions## Function that starts the daemon/service#do_start(){    # Return    #   0 if daemon has been started    #   1 if daemon was already running    #   2 if daemon could not be started    if [ ! -d $PIDDIR ]    then        mkdir $PIDDIR    fi    chown $USER:$GROUP $PIDDIR    start-stop-daemon –start –quiet –pidfile $PIDFILE –exec $DAEMON –test –chuid $USER &gt; /dev/null || return 1    start-stop-daemon –start –quiet –pidfile $PIDFILE –exec $DAEMON –chuid $USER – $DAEMON_ARGS &gt; /dev/null || return 2}## Function that stops the daemon/service#do_stop(){    # Return    #   0 if daemon has been stopped    #   1 if daemon was already stopped    #   2 if daemon could not be stopped    #   other if a failure occurred    start-stop-daemon –stop –quiet –retry:TERM/30/KILL/5 –pidfile $PIDFILE –name $NAME –chuid $USER    RETVAL:”$?”    [ “$RETVAL” : 2 ] &amp;&amp; return 2    # Wait for children to finish too if this is a daemon that forks    # and if the daemon is only ever run from this initscript.    # If the above conditions are not satisfied then add some other code    # that waits for the process to drop all resources that could be    # needed by services started subsequently.  A last resort is to    # sleep for some time.    start-stop-daemon –stop –quiet –oknodo –retry:0/30/KILL/5 –exec $DAEMON –chuid $USER    [ “$?” : 2 ] &amp;&amp; return 2    # Many daemons don&#39;t delete their pidfiles when they exit.    rm -f $PIDFILE    return “$RETVAL”}## Function that sends a SIGHUP to the daemon/service#do_reload() {    start-stop-daemon –stop –signal 1 –quiet –pidfile $PIDFILE –name $NAME –chuid $USER    return 0}case “$1” in  start)    [ “$VERBOSE” !: no ] &amp;&amp; log_daemon_msg “Starting $DESC” “$NAME”    do_start    case “$?” in        0|1) [ “$VERBOSE” !: no ] &amp;&amp; log_end_msg 0 ;;        2) [ “$VERBOSE” !: no ] &amp;&amp; log_end_msg 1 ;;    esac    ;;  stop)    [ “$VERBOSE” !: no ] &amp;&amp; log_daemon_msg “Stopping $DESC” “$NAME”    do_stop    case “$?” in        0|1) [ “$VERBOSE” !: no ] &amp;&amp; log_end_msg 0 ;;        2) [ “$VERBOSE” !: no ] &amp;&amp; log_end_msg 1 ;;    esac    ;;  status)    status_of_proc -p $PIDFILE “$DAEMON” “$NAME” &amp;&amp; exit 0 || exit $?    ;;  reload)    log_daemon_msg “Reloading $DESC” “$NAME”    do_reload    log_end_msg $?    ;;  restart)    log_daemon_msg “Restarting $DESC” “$NAME”    do_stop    case “$?” in      0|1)        do_start        case “$?” in            0) log_end_msg 0 ;;            1) log_end_msg 1 ;; # Old process is still running            *) log_end_msg 1 ;; # Failed to start        esac        ;;      *)        # Failed to stop        log_end_msg 1        ;;    esac    ;;  *)    echo “Usage: $SCRIPTNAME {status|start|stop|reload|restart}” &gt;&amp;2    exit 3    ;;esac<br><br/><br>　とし、 保存(これは元サイトからコピペしたほうがいいかも)。そして<br/><br>$ sudo chmod 755 /etc/init.d/znc<br/><br>　で、スクリプトに実行権限を与える。最後に<br/><br>$ sudo update-rc.d znc defaults<br/><br>　でinit.dで動くように登録する。これでシステム起動時に自動でZNCが起動され、チャンネルに常駐するように設定していれば常駐するようになる。<br/><br>$ sudo service znc start<br/><br>　でDaemonとして起動するし、stopで止まるしreloadでコンフィグ読み直すしrestartで再起動する。あとはstatusで状態を見ることができる。<br/><br>　スクリプトが長いだけでやることは少ないです。IRC、スマホからもできるしiTunesカード買ってくれって言われることもないし、便利ですよ。<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/ソフトウェア/">ソフトウェア</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">コメント</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="https://barippi.github.io/2014/11/15/31876131/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="検索">
+    <input type="hidden" name="as_sitesearch" value="barippi.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">カテゴリー</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/イベント/">イベント</a><small>1</small></li>
+  
+    <li><a href="/categories/インターネットサービス/">インターネットサービス</a><small>2</small></li>
+  
+    <li><a href="/categories/ソフトウェア/">ソフトウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/ハードウェア/">ハードウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/雑貨/">雑貨</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">タグ</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/OneCalender-ジョルテ-カレンダーアプリ/">OneCalender ジョルテ カレンダーアプリ</a><small>1</small></li>
+  
+    <li><a href="/tags/お勧めしていきたい/">お勧めしていきたい</a><small>19</small></li>
+  
+    <li><a href="/tags/アイマス/">アイマス</a><small>26</small></li>
+  
+    <li><a href="/tags/アメブロ/">アメブロ</a><small>67</small></li>
+  
+    <li><a href="/tags/イベント/">イベント</a><small>19</small></li>
+  
+    <li><a href="/tags/インターネットサービス/">インターネットサービス</a><small>13</small></li>
+  
+    <li><a href="/tags/ゲーム/">ゲーム</a><small>403</small></li>
+  
+    <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>73</small></li>
+  
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>41</small></li>
+  
+    <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
+  
+    <li><a href="/tags/マンガ/">マンガ</a><small>1</small></li>
+  
+    <li><a href="/tags/企画物/">企画物</a><small>12</small></li>
+  
+    <li><a href="/tags/占い/">占い</a><small>376</small></li>
+  
+    <li><a href="/tags/雑貨/">雑貨</a><small>26</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2020 Barippi
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+<script type="text/javascript">
+var disqus_shortname = 'barippi';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

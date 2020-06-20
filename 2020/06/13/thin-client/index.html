@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  
+  <title>シンクライアントを買いましたのでその話 | 取るに足らぬ者</title>
+  <meta name="author" content="Barippi">
+  
+  <meta name="description" content="1979年産のアイマスおじさんがなんか書くかも">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="シンクライアントを買いましたのでその話"/>
+  <meta property="og:site_name" content="取るに足らぬ者"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="取るに足らぬ者" type="application/atom+xml">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">取るに足らぬ者</a></h1>
+  <h2><a href="/">そろそろ落ち着きたい</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+<<!-- ad start -->
+    <script data-ad-client="ca-pub-7137449134315268" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- ad end -->/header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-thin-client" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2020-06-13T02:57:24.000Z"><a href="/2020/06/13/thin-client/">2020-06-13</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">シンクライアントを買いましたのでその話</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>どうも、ご無沙汰しております、ばりっぴです。メインマシンが壊れいろいろ難儀しておりました。</p>
+<p>定額給付金が振り込まれたのでニューマシンを！と思ったのですが、その前によりみちして<a href="http://www.fmworld.net/biz/thinclient/1704/s720n/spec.html" target="_blank" rel="noopener">http://www.fmworld.net/biz/thinclient/1704/s720n/spec.html</a>このような物をヤフオクで買ってみました。</p>
+<p>富士通が出していたシンクライアントです。シンクライアントのくせに希望小売価格が6万もする。それが3年経ってヤフオクに流れてくると送料込み3150円に。やってみて「あかんな」となったのでしょう。</p>
+<p>昔、LTSP(Linux Terminal Server Project)でノートパソコンをシンクライアントにできないかと思っていろいろやってみたのですがその時は上手く行かず…。ということがありました。</p>
+<p>今回は微妙ながらも上手く行ったので記録として残しておこうと思います。</p>
+<p>サーバー環境としてはUbuntu20.04です。</p>
+<p>まずppaを登録。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># add-apt-repository ppa:ltsp</span><br><span class="line"># apt update</span><br></pre></td></tr></table></figure>
+
+<p>必要なソフトウェアを入れていきます。gpasswdはadministratorを管理者にしたいユーザ名を入れてください。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># </span><br><span class="line">apt install --install-recommends ltsp ltsp-binaries dnsmasq nfs-kernel-server openssh-server squashfs-tools ethtool net-tools epoptes</span><br><span class="line"># gpasswd -a administrator epoptes</span><br></pre></td></tr></table></figure>
+
+<p>私の環境ではisc-dhcp-serverが動いているので</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># ltsp dnsmasq --proxy-dhcp&#x3D;0 --real-dhcp&#x3D;0</span><br><span class="line"># vim &#x2F;etc&#x2F;dhcp&#x2F;dhcpd.conf</span><br></pre></td></tr></table></figure>
+
+<p>として、設定内容としましては、適宜そちらのネットワーク事情に合わせていただければ、と思いますが、</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">option domain-name-servers 192.168.1.1;</span><br><span class="line">default-lease-time 600;</span><br><span class="line">max-lease-time 7200;</span><br><span class="line">ddns-update-style none;</span><br><span class="line">authoritative;</span><br><span class="line">log-facility local7;</span><br><span class="line">option space ipxe;</span><br><span class="line">option ipxe-encap-opts code 175 &#x3D; encapsulate ipxe;</span><br><span class="line">option ipxe.menu code 39 &#x3D; unsigned integer 8;</span><br><span class="line">option ipxe.no-pxedhcp code 176 &#x3D; unsigned integer 8;</span><br><span class="line">option arch code 93 &#x3D; unsigned integer 16;</span><br><span class="line"># This is the LTSP subnet declaration</span><br><span class="line">subnet 192.168.1.0 netmask 255.255.255.0 &#123;</span><br><span class="line">  range 192.168.1.20 192.168.1.200;</span><br><span class="line">  option subnet-mask 255.255.255.0;</span><br><span class="line">  option ipxe.no-pxedhcp 1;</span><br><span class="line">  option routers 192.168.1.1;</span><br><span class="line">  option domain-name-servers 192.168.1.1;</span><br><span class="line">  # On single-NIC setups, usually routers !&#x3D; next-server (&#x3D;TFTP server)</span><br><span class="line">  next-server 192.168.1.250;</span><br><span class="line">  if exists ipxe.menu &#123;</span><br><span class="line">    filename &quot;ltsp&#x2F;ltsp.ipxe&quot;;</span><br><span class="line">  &#125; elsif option arch &#x3D; 00:00 &#123;</span><br><span class="line">    filename &quot;ltsp&#x2F;undionly.kpxe&quot;;</span><br><span class="line">  &#125; elsif option arch &#x3D; 00:07 &#123;</span><br><span class="line">    filename &quot;ltsp&#x2F;snponly.efi&quot;;</span><br><span class="line">  &#125; elsif option arch &#x3D; 00:09 &#123;</span><br><span class="line">    filename &quot;ltsp&#x2F;snponly.efi&quot;;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    filename &quot;ltsp&#x2F;unmatched-client&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>としました。そして本来であれば</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ltsp image &#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>として、シンクライアント用のイメージを作るのですが、このイメージだとうまく起動しませんでした。ので、</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># cd &#x2F;srv&#x2F;ltsp&#x2F;images</span><br><span class="line"># wget </span><br><span class="line">http:&#x2F;&#x2F;cdimage.ubuntulinux.jp&#x2F;releases&#x2F;20.04&#x2F;ubuntu-ja-20.04-desktop-amd64.iso</span><br><span class="line"># mv ubuntu-ja-20.04-desktop-amd64.iso ubuntu2004.img</span><br><span class="line"># ltsp kernel ubuntu2004</span><br></pre></td></tr></table></figure>
+<p>とし、imageファイルから起動に必要なファイルを取り出します。そして</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># ltsp ipxe</span><br><span class="line"># ltsp nfs</span><br><span class="line"># ltsp initrd</span><br><span class="line"># ufw disable</span><br></pre></td></tr></table></figure>
+<p>とします。ufwをdisableにしたのはnfsのポートとtftpのポートを開けただけではうまくいかなかったのでいっそのこと！ということで。</p>
+<p>クライアント側はiPXE側の問題もあり、うまく立ち上がらなかったのでその辺に転がっているUSBメモリに最新の<a href="http://ipxe.org/" target="_blank" rel="noopener">iPXEローダー</a>をインストールします。BIOS設定もUSBブートを有効にします。</p>
+<p>これで一通り準備は完了で、あとはシンクライアントにUSBスティックをさし、起動するだけです。</p>
+<p>が、起動しても英語版のままだったり、時間がUTCで表示されたりします。設定すればいいのですが、再起動すると元に戻ります。シンクライアントならではですね。というかシンクライアントの正常な動作と言えるでしょう。</p>
+<p>ちなみにこのシンクライアントには16GBのmSATAの記録装置がささっていて、Ubuntuくらいなら入るし、遅いながらもつかえたりはします。</p>
+<p>このシンクライアントに入っているイメージをなんとかすればいいのかな…。</p>
+<p>と書いたのでやってみました。シンクライアント上で、</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ddrescue &#x2F;dev&#x2F;sda &#x2F;path&#x2F;to&#x2F;usbmemory&#x2F;thin.img</span><br></pre></td></tr></table></figure>
+
+<p>とし、サーバー側で</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># sudo cp &#x2F;path&#x2F;to&#x2F;usbmemory&#x2F;thin.img &#x2F;srv&#x2F;ltsp&#x2F;images&#x2F;.</span><br><span class="line"># ltsp kernel thin</span><br><span class="line"># ltsp ipxe</span><br><span class="line"># ltsp nfs</span><br><span class="line"># ltsp initrd</span><br></pre></td></tr></table></figure>
+
+<p>で、シンクラ起動。メニューでthinを選べば起動します。</p>
+<p>といったところで現場からは以上です。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/ハードウェア/">ハードウェア</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">コメント</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="https://barippi.github.io/2020/06/13/thin-client/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="検索">
+    <input type="hidden" name="as_sitesearch" value="barippi.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">カテゴリー</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/イベント/">イベント</a><small>1</small></li>
+  
+    <li><a href="/categories/インターネットサービス/">インターネットサービス</a><small>2</small></li>
+  
+    <li><a href="/categories/ソフトウェア/">ソフトウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/ハードウェア/">ハードウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/雑貨/">雑貨</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">タグ</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/OneCalender-ジョルテ-カレンダーアプリ/">OneCalender ジョルテ カレンダーアプリ</a><small>1</small></li>
+  
+    <li><a href="/tags/お勧めしていきたい/">お勧めしていきたい</a><small>19</small></li>
+  
+    <li><a href="/tags/アイマス/">アイマス</a><small>26</small></li>
+  
+    <li><a href="/tags/アメブロ/">アメブロ</a><small>67</small></li>
+  
+    <li><a href="/tags/イベント/">イベント</a><small>19</small></li>
+  
+    <li><a href="/tags/インターネットサービス/">インターネットサービス</a><small>13</small></li>
+  
+    <li><a href="/tags/ゲーム/">ゲーム</a><small>403</small></li>
+  
+    <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>73</small></li>
+  
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>41</small></li>
+  
+    <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
+  
+    <li><a href="/tags/マンガ/">マンガ</a><small>1</small></li>
+  
+    <li><a href="/tags/企画物/">企画物</a><small>12</small></li>
+  
+    <li><a href="/tags/占い/">占い</a><small>376</small></li>
+  
+    <li><a href="/tags/雑貨/">雑貨</a><small>26</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2020 Barippi
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+<script type="text/javascript">
+var disqus_shortname = 'barippi';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

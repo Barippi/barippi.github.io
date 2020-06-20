@@ -1,0 +1,525 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Page 7 | 取るに足らぬ者</title>
+  <meta name="author" content="Barippi">
+  
+  <meta name="description" content="1979年産のアイマスおじさんがなんか書くかも">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="取るに足らぬ者"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="取るに足らぬ者" type="application/atom+xml">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">取るに足らぬ者</a></h1>
+  <h2><a href="/">そろそろ落ち着きたい</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+<<!-- ad start -->
+    <script data-ad-client="ca-pub-7137449134315268" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- ad end -->/header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-73592737" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2017-11-12T19:51:35.000Z"><a href="/2017/11/13/73592737/">2017-11-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/11/13/73592737/">WSLからXmingを使ってデスクトップ環境(Xfce)を動かす話</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　WSLからデスクトップ環境動かせんるんですねー。思わず作っちゃいました。<br/>　まずはXmingを入れます。10ポンド寄付すると最新版が手に入れられます。積極的に寄付していきましょう。日本からだと弾かれるのでメールで連絡して代替手段を送ってもらいましょう。そしてWSL(Ubuntu)を入れます。そしてbash上から<br/>&gt;$ sudo apt install xfce4-sesson xfce4-goodies gnome-keyring fonts-vlgothic fcitx-mozc　をいれます。そしてどこでもいいのでXmingのショートカットを作りましょう。ショートカットの内容は<br/>&gt;”C:\Program Files\Xming\Xming.exe” :1 -clipboard -xkbmodel jp106 -xkblayout jp -dpi 100 -nodecorationとします。x64版でなければXmingのパスが変わります。次に起動バッチを作りましょう。内容は<br/>&gt;@echo offstart /min “” “Xming.lnk””C:\Windows\System32\bash.exe” -c &#39;export DISPLAY:localhost:1.0;export XMODIFIERS:”@im:fcitx”;export GTK_IM_MODULE:fcitx;export QT_IM_MODULE:fcitx; xfce4-session&#39;taskkill /f /im Xming.exe<div>です。start /min “” “Xming.lnk”は各々の環境によって異なってくるでしょう。<br/>　だいぶはしょりましたが、これで、バッチファイルをダブルクリックするとXmingが立ち上がり次いでデスクトップ環境が見えるようになります。<br/>　なんというか意味があるのかと言われると無いとしかいえませんが割と軽く動くのでデスクトップ環境が欲しいがために仮想マシン作るよりは楽かなーという感じです。<br/>　みなさんもWindowsでUbuntuライフを送ってみましょう、では！</div></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-73504958" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2017-11-06T22:19:06.000Z"><a href="/2017/11/07/73504958/">2017-11-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/11/07/73504958/">WSLでNode.jsを入れてGithub PagesにHexoで静的ページblogを作るお話</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　Hexoってなんて読むんでしょうね。という話は置いといて、静的サイトジェネレーター、Hexoを使ってgithub.ioにブログを作るお話です。<br/><br>　HexoはNode.jsで動くのでNode.jsが何はなくとも必要です。しかし、Node.jsはバージョンがたくさんある上、バージョンに寄ってその上で動くアプリケーションが動いたり動かなかったりするので、ひとまずNode.jsのバージョン管理ソフトを入れます。nvmと呼ばれるものを今回は入れます。<br/></p>
+<blockquote>
+<blockquote>
+<p>$ git clone <a href="https://github.com/creationix/nvm.git" target="_blank" rel="noopener">https://github.com/creationix/nvm.git</a> ~/.nvm$ source ~/.nvm/nvm.shとすればnvmが入ります。かんたんですね。gitはWSLのUbuntuでは標準で入ってました。<br/><br>　次はNode.jsを入れます。<br/><br>$ nvm ls-remoteとすることで、今インストール可能なバージョン一覧がずらーっと現れます。本番環境で使うにはLTS版の方が安心なので偶数バージョンを入れます(奇数バージョンは開発版らしいです)。私は当時最新LTSのv6.11.4を入れました。今はv6.11.5らしいです。それを入れましょう。<br/><br>$ nvm install 6.11.5で入ります。かんたんですね。そしてデフォルトで使うNode.jsのバージョンを指定します。<br/><br>$ nvm alias default v6.11.5<br/>このコマンドを実行して「default -&gt; v6.11.5」と出てくればOKです。<br/><br>　次はWSLを起動した時にnvmが使えるように設定します。具体的に言うと「.bashrc」というファイルをいじります。<br/><br>$ nano .bashrcとして<br/>&lt;img class:”pict” hspace:”5” alt:”2017-11-06” border:”0” height:”338” width:”480” src=”/images/e47fb3f3.png”/&gt;<br/><br/><br>　上の画像のように(上の画像は.bash_profileを開いてますが)<br/><br>if [[ -s ~/.nvm/nvm.sh ]]; then source ~/.nvm/nvm.shfi<div>を書き込みます。書いたらCtrl+Oを押下して保存してCtrl+Xを押下して終了させます。これでwslttyを起動した時にnvmが使えて、Node.jsも使えるようになりました。<br/><br>　githubにアカウントがない方は作ってください。非公開のプライベートリポジトリを作らないならばタダでアカウントを作れます。作れたら<br/><br/><br>&lt;img class:”pict” hspace:”5” alt:”86f7788f-ea83-4877-84ac-b9838d01c9f4” border:”0” height:”26” width:”480” src=”/images/57ce8775.png”/&gt;<br/><br>の右の「＋」を押下し、「New Repository」を押下します。現れたページで「ユーザ名.github.io」という名前のリポジトリを作ります。私なら「barippi.github.io」ですね。「Initialize this repository with a README」はチェックを外しておきましょう。<br/><br>&lt;img class:”pict” hspace:”5” alt:”6855711e-967d-414c-825a-37dd7fcbb876” border:”0” height:”333” width:”480” src=”/images/3ed785c2.png”/&gt;</p>
+</blockquote>
+</blockquote>
+<p>のように(私はもうページを作ってるのでこうなってますが)リポジトリができたよというページが表示されればOKです。<br/><br>　次に、githubにPushできるように鍵を作ります。<br/></p>
+</div>>$ mkdir ./.ssh$ cd .ssh$ ssh-keygen<div>として現れた質問(パスフレーズを設定してねと英語で出る)に答えれば秘密鍵と公開鍵が作成されます。<br/></div>
+>$ cat id_rsa.pub<div>として出てきた内容をgithubに登録します。ページの右上の自分のアイコンを押下し、Settingを選び、出てきたページの左ペインからSSH and GPG keysを選びます。出てきたページにおいてAdd SSH keyボタンを押下し、先程catした内容をコピーアンドペーストします。成功するとその旨ページに現れて、これでHexoから直にPushできるようになります。ちょっとむずかしくなってきましたね。<br/>
+　さて、ここまでで「Hexoの話は？」となった方もいるかもしれませんが、やっとです、やっとHexoを入れます！インストールします！<br/></div>
+>$ npm install -g hexo<div>これでOKです！かんたんになりましたね。次はBlogの雛形を作ります。<br/></div>
+>$ hexo init ○○(myblogとかでOK)<div>これでmyblogとした方ならmyblogというディレクトリができています。<br/></div>
+>$ cd myblog$ npm install<div>で必要なモジュールがインストールされます。お手本としてHello Worldの記事があるのでこれをgithub上にPushしてみます。_config.ymlを編集します。<br/>
+$ nano _config.yml<br/><br/><img class:"pict" hspace:"5" alt:"2017-11-06 (1)" border:"0" height:"338" width:"480" src="/images/9e13c0b0.png"/><br/>
+こんな感じでタイトルとか付けて<br/><br/><img class:"pict" hspace:"5" alt:"2017-11-06 (3)" border:"0" height:"338" width:"480" src="/images/e4c08657.png"/><br/>
+>こんな感じにデプロイ先を書きます。下のfeedはRSSをatom形式で配信する設定です(要後述プラグイン)。deployのrepoは個人個人で異なります。上の方のthemeは上画像ではlightになってますが、今のところはいじらないでください。ではデプロイしてみましょう。<br/></div>>$ hexo deploy -g<div>これでサイトを生成してデプロイまでやってくれます。成功したでしょうか。成功して数分経つと<a target:"_blank" href="https://barippi.github.io">https://barippi.github.io</a>のようにサイトができあがります。いやー、かんたんかんたん。<br/>
+　「新しい記事を書きたい」。そうですよねー。新しい記事を書くときは<br/></div>
+>$ hexo new "書きたい記事タイトル”<div>です。「~/myblog/source/_posts」にMarkdown形式で保存されています。Markdown形式で書き書きしてデプロイさせると新しい記事が追加されます。<br/>
+　「テーマを変えたい」。そうですよねー。これも簡単です。<br/></div>
+>$ git clone 適用させたいテーマのgitリポジトリ theme/テーマ名<div>です。そして上スクリーンショットのようにテーマ名を変えればいいです。<br/>
+　atomを配信するにはnpmでhexo-generator-feedというパッケージをインストールしてください<br/></div>
+>$ npm search hexo<div>とすればhexoで使用できるプラグインが多数見つかります。簡単な説明もついてるので参考にしつつインストールしたりしなかったりしてみてください。</div>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-73330177" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2017-10-28T23:02:18.000Z"><a href="/2017/10/29/73330177/">2017-10-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/10/29/73330177/">[小ネタ]東京モーターショー2017に行ってきました</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>&lt;a target:”_blank” href=”<a href="https://www.flickr.com/photos/barippi/albums/72157665526491079&quot;&gt;https://www.flickr.com/photos/barippi/albums/72157665526491079" target="_blank" rel="noopener">https://www.flickr.com/photos/barippi/albums/72157665526491079&quot;&gt;https://www.flickr.com/photos/barippi/albums/72157665526491079</a></a><br/>撮った写真を上げたので、どうぞ。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-73283532" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2017-10-25T22:25:16.000Z"><a href="/2017/10/26/73283532/">2017-10-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/10/26/73283532/">[小ネタ]Windows Subsystem for Linuxを使う時にはwslttyを入れて快適なターミナル環境に</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　PowershellからWSL動かすのなんかいまいちっぽくないですか？私はいまいちっぽく感じていいのがないかと思っていた所、アイマストドンでwslttyというminttyからforkされたターミナル環境がある、とのことで。早速入れてみました。<br/>　ダウンロードは&lt;a target:”_blank” href=”<a href="https://github.com/mintty/wsltty/releases&quot;&gt;https://github.com/mintty/wsltty/releases" target="_blank" rel="noopener">https://github.com/mintty/wsltty/releases&quot;&gt;https://github.com/mintty/wsltty/releases</a></a>から。モリッとインストールされてピコッとショートカットファイルがデスクトップ上に生成されます。<br/><br/>&lt;a target:”_blank” href=”/images/1b42105e.png”&gt;&lt;img class:”pict” hspace:”5” alt:”2017-10-25” border:”0” height:”338” width:”480” src=”/images/1b42105e.png”/&gt;</a><br/>　こんなかんじで動きます。いまちょっとXfce動かそうとしてモリモリインストールしてました。フォントはRictyを使って、透明度をHighにしてあります。Glass効果はできませんでした。Powershellを使うよりはいいんではないかと個人的に思います。ぜひ。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-72909611" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2017-10-02T22:38:02.000Z"><a href="/2017/10/03/72909611/">2017-10-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/10/03/72909611/">[小ネタ]Android Payにポイントカードを集約しよう</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　Android Payのアプリを立ち上げて、「＋」ボタンを押下し、「ポイントプログラムを追加」を押下。<br/>　バーコード読み込み型ポイントカードなら結構検索すると出てきます。<br/>　&lt;a target:”_blank” title:”Screenshot_20171002-223303” href=”/images/f8567a9d.png”&gt;&lt;img class:”pict” hspace:”5” alt:”Screenshot_20171002-223303” border:”0” height:”853” width:”480” src=”/images/f8567a9d.png”/&gt;</a><br/>　実際店舗で試したわけではありませんが私の手持ちのポイントカードではこのくらい対応してました。店舗名をタップするとバーコードが出てきます。実際店舗で使えるかわからないのでやってみた方は是非コメントに残していただければと思います。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-72791543" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2017-09-25T21:41:14.000Z"><a href="/2017/09/26/72791543/">2017-09-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/09/26/72791543/">RadioDJでIcecast2に配信しよう</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　インターネットラジオ好きが高じていろいろソフトを試しています。<br/>　今回はロシア製のRadioDJというソフトを紹介します。<br/>　&lt;a target:”_blank” href=”<a href="https://www.radiodj.ro&quot;&gt;https://www.radiodj.ro/" target="_blank" rel="noopener">https://www.radiodj.ro&quot;&gt;https://www.radiodj.ro/</a></a>が公式サイトになります。<br/>　本来はサウンドカードを通して放送波に乗せるようなソフトなんですが、Altacastの作成者がIcecastやShoutcastに配信させるプラグインを書いていて、それが標準装備されています。今回はこれを使ってIcecastで配信するというお話。動作画面は以下になります。<br/>&lt;a target:”_blank” title:”14” href=”/images/79189d2a.png”&gt;&lt;img class:”pict” hspace:”5” alt:”14” border:”0” height:”287” width:”480” src=”/images/79189d2a.png”/&gt;</a><br/><br/>　まずは公式サイトから最新版をダウンロードします。Zipファイルを展開します。それを「C:\RadioDJ」など適当な所に保存します。これでRadioDJの方は終わり。<br/>　次にMySQLをインストールします。これも最新版をインストール。MySQL Community EditionをダウンロードしServerのみをインストールします。あとはデフォルトで構いません。rootのパスワードは一応他人がわかりづらく自分がわかりやすいパスワードを入力してください。これでMySQLのインストールも完了です。<br/>　その次にRadioDJの入っているフォルダーの中に「Setup」というフォルダーがあります。これを開いて、「Database Setup.exe」を開いてください。先程MySQLをインストールする時に設定したパスワードを入力し、画面右のVALIDATEボタンを押下してください。そうするとデータベースのセットアップは完了です。右下のOKボタンを押下して終了してください。<br/>　やっとRadioDJを立ち上げます。「RadioDJ.exe」を起動してください。でかい画面が出てきます。まずは画面左下のTRACKS MANAGERボタンを押下し、メニューの「Import」→「Folder」を選択して、楽曲が入っているフォルダを指定し、楽曲をデータベースにインポートしてください。楽曲数によりますがだいぶ時間がかかります。<br/>　楽曲のインポートが終わったら画面右下のCloseボタンを押下し、終了させてください。次にPLAYLIST BUILDERボタンを押下し、流す楽曲を選びます。m3uファイルがあるならそれを放送時に使うこともできますのでm3uファイルがいっぱいあるよーという人はPLAYLISTを作る必要はありません。ない人はここでPLAYLISTを作ってください。100曲ごとにページが分かれているのでその辺を注意して行ってください。データベースに格納しているのでもちろん検索もモリモリできます。PLAYLISTはデータベースに格納することもできますし、m3u形式で保存することもできます。<br/>　ここまできたらRadioDJの画面に戻り、画面右より上の「ALTACAST」タブを選びます。下の方に「＋」と書かれたボタンがあるのでそれを押下するとAltacastの設定画面になります。Icecastの場合、ユーザー名はsourceになります。そして必要事項を設定して画面を閉じるとリスト画面にサーバー名が出てきます。画面右側のConnectedとEnabledが緑色になっていれば配信準備は完了しています。<br/>　そして画面左の真ん中あたりにあるフォルダーのボタンを押下するとPLAYLISTを選ぶ画面が出てきます。先程作ったPLAYLISTや既存のm3uファイルを読み込ませると画面左に楽曲群がズラーッと並びます。そのまま流すも良し、シャッフルして流すも良し、です。<br/>　最後に配信開始ですが画面左上の再生ボタンを押下することで開始されます。もちろんマイクからの入力もできます。画面下のOPTIONSボタンを押下し、出てきたダイアログからOPTIONSを選び、Sound CardsからInputでマイクを繋いでいるサウンドカードを選んでください。またはWebカメラについているマイクでも大丈夫です。声を入れる時はPLAYLIST右のボタン群からINPUTボタンを押下すると入力されるので思う存分話してください。<br/>　セットアップが割りとめんどいですが、一度セットアップしてしまえばプレイリスト作るのもかんたんなので使ってて楽しいと思います。<br/>　長めになりましたがこれで終わります。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-72606355" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2017-09-14T21:24:46.000Z"><a href="/2017/09/15/72606355/">2017-09-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/09/15/72606355/">djay2でSpotifyをdigれ！</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　ということで、オススメされたのでAndroid版djay2を衝動買いしました(299円)。動作してる様子↓<br/>&lt;a target:”_blank” title:”Screenshot_20170910-213551” href=”/images/bc3413d7.jpg”&gt;&lt;img class:”pict” hspace:”5” alt:”Screenshot_20170910-213551” border:”0” height:”360” width:”480” src=”/images/bc3413d7.jpg”/&gt;</a><br/><br/>　このdjay2、djay ProはSpotifyからネットを通じて楽曲をストリーミングしつつDJプレイができる、そんなソフトウェアです。もちろんPC、タブレット内にある楽曲もプレイできます。SpotifyはおそらくUSページにつながってます。<br/>　ネットさえ繋がっていれば、タブレット、スマホ、もしくはPCを持っていくだけでSpotifyの膨大な楽曲をストレスフリーでDJプレイができるところが素晴らしいですね。プレイリストをフォローするとプレイリストも出てきて、そこからも楽曲を引っ張ってこれます。<br/>　Android版は299円で買えますが、その他にもFREE版もあります。お試しでFREE版を触ってみて、感触が良ければポンと買ってもいいと思います。<br/>　Windows10版もあって、これはdjay Proでストアで5850円で売ってます。もちろん体験版もありますし、DJコントローラーにも対応です。Surface Dial対応なのも新しいですね。<br/>　自分の持ってるライブラリからプレイするのもいいですが、djayシリーズを買うならぜひともSpotifyから曲を引っ張ってきてプレイしたいですね。<br/>　iOSならカメラアダプタ（って言うの？）を付けてDJコントローラーを繋げてもいいでしょうね。<br/>&lt;a target:”_blank” href=”<a href="https://www.algoriddim.com&quot;&gt;" target="_blank" rel="noopener">https://www.algoriddim.com&quot;&gt;</a><br/><a href="https://www.algoriddim.com" target="_blank" rel="noopener">https://www.algoriddim.com</a></a><br/>こちらが公式ページになります。英語のサイトですがそんなに難しい単語とか使ってないので見てみてください。<br/><br/>　JPにつながればJ-POPとかアニソンとか回せるのになーとか思ってますが対応はするのかなー？ぜひとも対応していただきたいですね。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-72331404" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2017-08-26T22:21:29.000Z"><a href="/2017/08/27/72331404/">2017-08-27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/08/27/72331404/">ソフトバンクセレクション SE-5000HRを買いました</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　最近色んな方面でアンテナが低いので一昨日までSE-5000HRを知りませんでした。各所で絶賛の嵐。<br/>　そんなに良いなら買ってみようと横浜ヨドバシへ。<br/>　地下1階の各キャリアとか入ってるところには置いてなかった。兄弟機はありましたが。SE-5000HRは4階のスマホイヤホンのところにありました。4140円。Amazonとかだともっと安いらしいですが。<br/>　ワクワクしながら帰宅後に開けたら4140円とは思えない包装、収納の仕方でした。まあ定価9000円くらいだからですが。それでも高級感あるのはいいですね。<br/>　肝心の音をAQUOS Rで試聴。これは・・・！4000円の音ではない！割とモニターライクですね。高音は伸びる。低音はタイト。SHANLING M1でも聴いてみる。割と素直な音だなぁ。音の広がりはそんなにないですね。なんというか、再生機器の特徴をそのまま出す感じ。AQUOS CRYSTAL Xでも。ほほー。いいねいいね。こういう感じの音好き。M1に戻してハイレゾ音源を聴く。なかなか解像度も良い。これオーディオメーカーが出したら15000円は行きそう。<br/>　インタビューなどを読む限りでは価格に関しては結構血の滲む努力をした模様です。で、作りすぎて半値以下に。いいのかそれで。<br/>　話を戻すと、音の作りや再生環境にも割と素直なので変な録音のは変に聞こえる。SKY-HIの逆転ファンファーレなんかは低音割れるギリギリまで入れてるのでそんな危うい感じがそのまま聞こえる。AI-301DAにつなげてXLOのリファレンスレコーディングと銘打って収録されてる曲なんて聴いてると、やはりよく聴こえる。解像度が高いのがわかります。ほんと3万以上するような高級機種みたいな上流からの影響の受けっぷり。<br/>　巷ではポップスやロックが苦手とかかれてますが私はそう感じませんね。まあ、そういうのは低音ズンドコしてる方が聴いてて楽しいのでしょうけど。私はこのタイトな低音好きですけどね。<br/>　総じては買ってよかったなと思います。リモコンも便利。AQUOS R＋Powerampだとスキップ、バックスキップ、再生、停止どれもできました。<br/>　モニターライクなのが物足りなく感じる人もいるかもしれません。しかしハイレゾイヤホン入門にはなかなか良い機種ですね。博打で中華ハイレゾイヤホン買うよりはよっぽど建設的。このような中庸な物を持っていると他のイヤホンの物差しにも使えるので一本持っておくのもいいと思います。<br/>　ソフトバンクセレクションということでリモコン・マイク部にSoftbankと書いてあるのがマイナスポイントかなぁ。まあこれは致し方ないところではありますが。それが我慢できればかなりオススメのイヤホンです。なにかで削ってしまうのもいいかもしれませんね。<br/>　ということで以下のリンクから是非。<br/><br/>&lt;div class:”amazon Default”&gt;&lt;div align:”left” class:”pictBox”&gt;&lt;a target:”<em>blank” href=”<a href="https://www.amazon.co.jp/%E3%80%90%E6%AD%A3%E8%A6%8F%E4%BB%A3%E7%90%86%E5%BA%97%E5%93%81%E3%80%91SoftBank-SELECTION-%E3%83%80%E3%82%A4%E3%83%8A%E3%83%9F%E3%83%83%E3%82%AF%E5%9E%8B8-0mm%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88-SB-EM03-ISSP-CO/dp/B016W1SERG?psc:1&amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;tag:anmarikousins-22&amp;linkCode:xm2&amp;camp:2025&amp;creative:165953&amp;creativeASIN:B016W1SERG&quot;&gt;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%80%90%E6%AD%A3%E8%A6%8F%E4%BB%A3%E7%90%86%E5%BA%97%E5%93%81%E3%80%91SoftBank-SELECTION-%E3%83%80%E3%82%A4%E3%83%8A%E3%83%9F%E3%83%83%E3%82%AF%E5%9E%8B8-0mm%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88-SB-EM03-ISSP-CO/dp/B016W1SERG?psc:1&amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;tag:anmarikousins-22&amp;linkCode:xm2&amp;camp:2025&amp;creative:165953&amp;creativeASIN:B016W1SERG&quot;&gt;</a>&lt;img class:”pict” style:”margin-right:10px” align:”left” hspace:”5” border:”0” alt:”【正規代理店品】SoftBank SELECTION ハイレゾ対応 ステレオヘッドホン カナルタイプ ダイナミック型8.0mmドライバーユニット SE-5000HR カッパー SB-EM03-ISSP/CO” src=”<a href="https://images-fe.ssl-images-amazon.com//images/I/31dCNmrgnyL._SL160" target="_blank" rel="noopener">https://images-fe.ssl-images-amazon.com//images/I/31dCNmrgnyL._SL160</a></em>.jpg”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a target:”_blank” href=”<a href="https://www.amazon.co.jp/%E3%80%90%E6%AD%A3%E8%A6%8F%E4%BB%A3%E7%90%86%E5%BA%97%E5%93%81%E3%80%91SoftBank-SELECTION-%E3%83%80%E3%82%A4%E3%83%8A%E3%83%9F%E3%83%83%E3%82%AF%E5%9E%8B8-0mm%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88-SB-EM03-ISSP-CO/dp/B016W1SERG?psc:1&amp;amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;amp;tag:anmarikousins-22&amp;amp;linkCode:xm2&amp;amp;camp:2025&amp;amp;creative:165953&amp;amp;creativeASIN:B016W1SERG&quot;&gt;【正規代理店品】SoftBank" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%80%90%E6%AD%A3%E8%A6%8F%E4%BB%A3%E7%90%86%E5%BA%97%E5%93%81%E3%80%91SoftBank-SELECTION-%E3%83%80%E3%82%A4%E3%83%8A%E3%83%9F%E3%83%83%E3%82%AF%E5%9E%8B8-0mm%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88-SB-EM03-ISSP-CO/dp/B016W1SERG?psc:1&amp;amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;amp;tag:anmarikousins-22&amp;amp;linkCode:xm2&amp;amp;camp:2025&amp;amp;creative:165953&amp;amp;creativeASIN:B016W1SERG&quot;&gt;【正規代理店品】SoftBank</a> SELECTION ハイレゾ対応 ステレオヘッドホン カナルタイプ ダイナミック型8.0mmドライバーユニット SE-5000HR カッパー SB-EM03-ISSP/CO [エレクトロニクス]</a></div>&lt;div class:”itemSubTxt”&gt;SoftBank SELECTION</div>&lt;div class:”itemSubTxt”&gt;2015-11-20</div></div>&lt;br style:”clear:left” clear:”left”/&gt;</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-72242210" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2017-08-19T22:20:01.000Z"><a href="/2017/08/20/72242210/">2017-08-20</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/08/20/72242210/">MicroSDカードが届いたのでM1の話をもう少し</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>&lt;a target:”<em>blank” title:”Screenshot_20170819-163359” href=”/images/fe0c0a97.png”&gt;&lt;img class:”pict” hspace:”5” alt:”Screenshot_20170819-163359” border:”0” height:”853” width:”480” src=”/images/fe0c0a97.png”/&gt;</a><br/>&lt;a target:”_blank” title:”1503127987567” href=”/images/f14ac426.jpg”&gt;&lt;img class:”pict” hspace:”5” alt:”1503127987567” border:”0” height:”853” width:”480” src=”/images/f14ac426.jpg”/&gt;</a><br/>　Hiby Linkの様子。再生中の楽曲がスマホにも表示されている。<br/><br/>　MicroSDカードが届いたのでファームウェアを3.0にアップした。ハイゲインに設定し、HD650で普通に聞けた。この小さい筐体のどこにこのドライブぢからが！<br/><br/>　MicroSDカードは128GBのを買いまして、ほぼフルに楽曲詰め込んでスキャンさせたが15000曲を約9分でスキャン完了。すごく早いのではと思いました。つか楽曲登録上限が15000曲なんですかね。適当に詰め込んできっかり15000曲ということはないと思うのですが・・・。ファイル17000以上あるなぁ。やっぱり上限なのかも。<br/><br/>　mp3も普通にいい音で聞こえる。ハイレゾFLAC、DSDは言わずもがな。15k円の低価格帯DAPでDSDが普通に聞ける時代が来るとは思いませんでした。いい時代になったのものです。<br/><br/>　Hiby Linkも試してみました。まずはM1のほうでHiby LinkをONにしてスマホにファームウェアが入っていたzipファイルからHiby Musicのapkファイルを転送し、インストールします。私が入れた時には更新が入りました。で、Hiby MusicからM1に接続する形になります。Bluetoothで接続されます。接続されると楽曲一覧等がスマホに転送され、スマホからM1を操作できるようになります。<br/><br/>　これがすごく便利。M1の小ささが災いして楽曲、フォルダ一覧が少々見づらいんですけど、Hiby Linkだと一度スマホに転送されるとスワイプでビャーっと見られるのでいいですね。フォルダ長押しでその下のファイル全部プレイになるといいんですがスマホでもフォルダを削除するになっててそこは残念。<br/><br/>　あとはスマホの方で再生中の楽曲が確認できたり、ですね。スキップとかもできる。<br/><br/>　Hiby Link搭載ですごく便利になったM1、いかがですか！？<br/><br/><br/>&lt;div class:”amazon Default”&gt;&lt;div align:”left” class:”pictBox”&gt;&lt;a target:”_blank” href=”<a href="https://www.amazon.co.jp/%E3%80%90%E5%9B%BD%E5%86%85%E6%AD%A3%E8%A6%8F%E5%93%81%E3%80%91SHANLING-%E3%83%8F%E3%82%A4%E3%83%AC%E3%82%BE%E5%AF%BE%E5%BF%9C%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%83%E3%82%AF%E3%83%97%E3%83%AC%E3%83%BC%E3%83%A4%E3%83%BC-M1-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF-M1-BK/dp/B01N433WIM?psc:1&amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;tag:anmarikousins-22&amp;linkCode:xm2&amp;camp:2025&amp;creative:165953&amp;creativeASIN:B01N433WIM&quot;&gt;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%80%90%E5%9B%BD%E5%86%85%E6%AD%A3%E8%A6%8F%E5%93%81%E3%80%91SHANLING-%E3%83%8F%E3%82%A4%E3%83%AC%E3%82%BE%E5%AF%BE%E5%BF%9C%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%83%E3%82%AF%E3%83%97%E3%83%AC%E3%83%BC%E3%83%A4%E3%83%BC-M1-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF-M1-BK/dp/B01N433WIM?psc:1&amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;tag:anmarikousins-22&amp;linkCode:xm2&amp;camp:2025&amp;creative:165953&amp;creativeASIN:B01N433WIM&quot;&gt;</a>&lt;img class:”pict” style:”margin-right:10px” align:”left” hspace:”5” border:”0” alt:”【国内正規品】SHANLING ハイレゾ対応ミュージックプレーヤー M1 ブラック M1-BK” src=”<a href="https://images-fe.ssl-images-amazon.com//images/I/41lHsQOls8L._SL160" target="_blank" rel="noopener">https://images-fe.ssl-images-amazon.com//images/I/41lHsQOls8L._SL160</a></em>.jpg”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a target:”_blank” href=”<a href="https://www.amazon.co.jp/%E3%80%90%E5%9B%BD%E5%86%85%E6%AD%A3%E8%A6%8F%E5%93%81%E3%80%91SHANLING-%E3%83%8F%E3%82%A4%E3%83%AC%E3%82%BE%E5%AF%BE%E5%BF%9C%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%83%E3%82%AF%E3%83%97%E3%83%AC%E3%83%BC%E3%83%A4%E3%83%BC-M1-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF-M1-BK/dp/B01N433WIM?psc:1&amp;amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;amp;tag:anmarikousins-22&amp;amp;linkCode:xm2&amp;amp;camp:2025&amp;amp;creative:165953&amp;amp;creativeASIN:B01N433WIM&quot;&gt;【国内正規品】SHANLING" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%80%90%E5%9B%BD%E5%86%85%E6%AD%A3%E8%A6%8F%E5%93%81%E3%80%91SHANLING-%E3%83%8F%E3%82%A4%E3%83%AC%E3%82%BE%E5%AF%BE%E5%BF%9C%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%83%E3%82%AF%E3%83%97%E3%83%AC%E3%83%BC%E3%83%A4%E3%83%BC-M1-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF-M1-BK/dp/B01N433WIM?psc:1&amp;amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;amp;tag:anmarikousins-22&amp;amp;linkCode:xm2&amp;amp;camp:2025&amp;amp;creative:165953&amp;amp;creativeASIN:B01N433WIM&quot;&gt;【国内正規品】SHANLING</a> ハイレゾ対応ミュージックプレーヤー M1 ブラック M1-BK [エレクトロニクス]</a></div>&lt;div class:”itemSubTxt”&gt;SHANLING(シャンリン)</div></div>&lt;br style:”clear:left” clear:”left”/&gt;</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-72234405" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2017-08-19T08:39:22.000Z"><a href="/2017/08/19/72234405/">2017-08-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/08/19/72234405/">SHANLING M1を買いました</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>&lt;a target:”<em>blank” title:”storageemulated0SilentCameraSoft1503063667637” href=”/images/7541f9be.jpg”&gt;&lt;img class:”pict” hspace:”5” alt:”storageemulated0SilentCameraSoft1503063667637” border:”0” height:”270” width:”480” src=”/images/7541f9be.jpg”/&gt;</a><br/>　左がオーパーツ(言い過ぎ)alneo XA-V80。右がUSB接続中のM1。<br/><br/>　昨日軽率にSHANLING M1を買ってしまいました。<br/><br/>　理由「小さくて、音がいい(らしい)から！」<br/><br/>　MicroSDカードが届いてないのでUSB DACとしての評価になります。<br/><br/>　alneoが容量以外が良すぎて最近のDAP知らなかったんですけど、このM1が非常に多機能で音質も値段の割には良いというレビューをそれなりに見て「ならば！」ということで。MicroSD 256GBまで使えるのもいいですね。<br/><br/>　HA-FX850、HFI-780で聞いてみましたがローゲインで音量30あたりでちょうどいい音量になります。買うまで知らなかったんですけどヘッドホン出力でローゲイン、ハイゲインが選べてΩ値が高いお値段のお高いヘッドホンも駆動できるらしい。あとでHD650を繋げてみよう。<br/><br/>　で、USB DACとして使うにはSHANLINGのサイトからドライバーをダウンロードしてインストールします。1MBくらいの小さいファイルです。速度が遅いけど1MBならすぐにダウンロードできます。ASIOドライバーもあるのがいいですね。<br/><br/>　肝心の音質ですがフラット目です。変に音を作ったりしてないのは良かったなぁと。解像度はそんなに高くない。はっきりくっきりというところより若干まろやか。alneoがそんな音だったので、好きな音ですね。<br/><br/>　女性ボーカルが得意じゃないというレビューも見られますがこれは多分耳が良すぎる人たちの意見という感じかなぁ。普通の人が聞く分には得意とか不得意とかわからないと思います。それだけ完成度は高いです。<br/><br/>　alneoから移ってくるにはちょうどいいのかなぁと思います。値段的にも音質的にも。<br/><br/>　操作感は悪くないです。ジョグダイヤルいいね！かっちりしたダイヤルで好きです。ジョグダイヤルがあるおかげで側面のボタンも探しやすいと思います。<br/><br/>　総合的に見ると「買ってよかった」ですね。15k円でこれ以上望むのは酷というものです。大きさ大満足、音質満足、機能大満足です。<br/><br/>&lt;div class:”amazon Default”&gt;&lt;div align:”left” class:”pictBox”&gt;&lt;a target:”_blank” href=”<a href="https://www.amazon.co.jp/%E3%80%90%E5%9B%BD%E5%86%85%E6%AD%A3%E8%A6%8F%E5%93%81%E3%80%91SHANLING-%E3%83%8F%E3%82%A4%E3%83%AC%E3%82%BE%E5%AF%BE%E5%BF%9C%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%83%E3%82%AF%E3%83%97%E3%83%AC%E3%83%BC%E3%83%A4%E3%83%BC-M1-%E3%83%96%E3%83%AB%E3%83%BC-M1-BL/dp/B01N77GXZ0?psc:1&amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;tag:anmarikousins-22&amp;linkCode:xm2&amp;camp:2025&amp;creative:165953&amp;creativeASIN:B01N77GXZ0&quot;&gt;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%80%90%E5%9B%BD%E5%86%85%E6%AD%A3%E8%A6%8F%E5%93%81%E3%80%91SHANLING-%E3%83%8F%E3%82%A4%E3%83%AC%E3%82%BE%E5%AF%BE%E5%BF%9C%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%83%E3%82%AF%E3%83%97%E3%83%AC%E3%83%BC%E3%83%A4%E3%83%BC-M1-%E3%83%96%E3%83%AB%E3%83%BC-M1-BL/dp/B01N77GXZ0?psc:1&amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;tag:anmarikousins-22&amp;linkCode:xm2&amp;camp:2025&amp;creative:165953&amp;creativeASIN:B01N77GXZ0&quot;&gt;</a>&lt;img class:”pict” style:”margin-right:10px” align:”left” hspace:”5” border:”0” alt:”【国内正規品】SHANLING ハイレゾ対応ミュージックプレーヤー M1 ブルー M1-BL” src=”<a href="https://images-fe.ssl-images-amazon.com//images/I/41wJQBQJxmL._SL160" target="_blank" rel="noopener">https://images-fe.ssl-images-amazon.com//images/I/41wJQBQJxmL._SL160</a></em>.jpg”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a target:”_blank” href=”<a href="https://www.amazon.co.jp/%E3%80%90%E5%9B%BD%E5%86%85%E6%AD%A3%E8%A6%8F%E5%93%81%E3%80%91SHANLING-%E3%83%8F%E3%82%A4%E3%83%AC%E3%82%BE%E5%AF%BE%E5%BF%9C%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%83%E3%82%AF%E3%83%97%E3%83%AC%E3%83%BC%E3%83%A4%E3%83%BC-M1-%E3%83%96%E3%83%AB%E3%83%BC-M1-BL/dp/B01N77GXZ0?psc:1&amp;amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;amp;tag:anmarikousins-22&amp;amp;linkCode:xm2&amp;amp;camp:2025&amp;amp;creative:165953&amp;amp;creativeASIN:B01N77GXZ0&quot;&gt;【国内正規品】SHANLING" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%80%90%E5%9B%BD%E5%86%85%E6%AD%A3%E8%A6%8F%E5%93%81%E3%80%91SHANLING-%E3%83%8F%E3%82%A4%E3%83%AC%E3%82%BE%E5%AF%BE%E5%BF%9C%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%83%E3%82%AF%E3%83%97%E3%83%AC%E3%83%BC%E3%83%A4%E3%83%BC-M1-%E3%83%96%E3%83%AB%E3%83%BC-M1-BL/dp/B01N77GXZ0?psc:1&amp;amp;SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;amp;tag:anmarikousins-22&amp;amp;linkCode:xm2&amp;amp;camp:2025&amp;amp;creative:165953&amp;amp;creativeASIN:B01N77GXZ0&quot;&gt;【国内正規品】SHANLING</a> ハイレゾ対応ミュージックプレーヤー M1 ブルー M1-BL [エレクトロニクス]</a></div>&lt;div class:”itemSubTxt”&gt;SHANLING(シャンリン)</div></div>&lt;br style:”clear:left” clear:”left”/&gt;<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+<nav id="pagination">
+  
+    <a href="/page/6/" class="alignleft prev">前の投稿</a>
+  
+  
+    <a href="/page/8/" class="alignright next">次の投稿</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="検索">
+    <input type="hidden" name="as_sitesearch" value="barippi.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">カテゴリー</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/イベント/">イベント</a><small>1</small></li>
+  
+    <li><a href="/categories/インターネットサービス/">インターネットサービス</a><small>2</small></li>
+  
+    <li><a href="/categories/ソフトウェア/">ソフトウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/ハードウェア/">ハードウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/雑貨/">雑貨</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">タグ</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/OneCalender-ジョルテ-カレンダーアプリ/">OneCalender ジョルテ カレンダーアプリ</a><small>1</small></li>
+  
+    <li><a href="/tags/お勧めしていきたい/">お勧めしていきたい</a><small>19</small></li>
+  
+    <li><a href="/tags/アイマス/">アイマス</a><small>26</small></li>
+  
+    <li><a href="/tags/アメブロ/">アメブロ</a><small>67</small></li>
+  
+    <li><a href="/tags/イベント/">イベント</a><small>19</small></li>
+  
+    <li><a href="/tags/インターネットサービス/">インターネットサービス</a><small>13</small></li>
+  
+    <li><a href="/tags/ゲーム/">ゲーム</a><small>403</small></li>
+  
+    <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>73</small></li>
+  
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>41</small></li>
+  
+    <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
+  
+    <li><a href="/tags/マンガ/">マンガ</a><small>1</small></li>
+  
+    <li><a href="/tags/企画物/">企画物</a><small>12</small></li>
+  
+    <li><a href="/tags/占い/">占い</a><small>376</small></li>
+  
+    <li><a href="/tags/雑貨/">雑貨</a><small>26</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2020 Barippi
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+<script type="text/javascript">
+var disqus_shortname = 'barippi';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

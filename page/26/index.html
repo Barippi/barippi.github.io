@@ -1,0 +1,507 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Page 26 | 取るに足らぬ者</title>
+  <meta name="author" content="Barippi">
+  
+  <meta name="description" content="1979年産のアイマスおじさんがなんか書くかも">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="取るに足らぬ者"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="取るに足らぬ者" type="application/atom+xml">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">取るに足らぬ者</a></h1>
+  <h2><a href="/">そろそろ落ち着きたい</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+<<!-- ad start -->
+    <script data-ad-client="ca-pub-7137449134315268" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- ad end -->/header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-249754128-html" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2012-02-01T22:25:37.000Z"><a href="/2012/02/02/249754128-html/">2012-02-02</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/02/02/249754128-html/">L245WPとGeForceの相性</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>※ <a href="https://d.hatena.ne.jp/CBX/20080817/p1" target="_blank" rel="noopener">https://d.hatena.ne.jp/CBX/20080817/p1</a> の再掲です。<br>新しいPCを買ってDVIで繋げてみたら画像がずれて表示されて、すっげぇ困った。スタートボタンが隠れてて押せないの！<br>困ってるだけじゃなんなので調べてみたらGeForc8系とGeForce9系でL245WPとの相性で起こるということがわかった。AMDのグラフィックチップの一部でもなるみたい。<br>解決法としては<br>    LGにモニタを送ってファームアップしてもらう<br>    ForceWare(ドライバ)を入れるときに細工する<br>というのがあって、俺はサブモニタがないということで後者を選んだ。<br>具体的には”C:\NVIDIA\Win2KXP\177.79\nv4_disp.inf”の[nv_SoftwareDeviceSettings]ってところに「HKR,, OverrideEdidFlags0, %REG_BINARY%, 1E,6D,24,56,00,00,FF,FF,04,00,00,00,7E,01,00」という一行を追加して、それでドライバインストール。<br>これで普通に表示されるようになった。スタートボタン押せるよ！うれしい！<br>    追記(2010/01/19)<br>nVidiaが現在配布しているドライバに含まれている「nv4_disp.inf」には「[nv_SoftwareDeviceSettings]」というセクションが無いようです。で、入れてみたらまた左ズレしたので「[nv_timingRestrictions_addreg]」というセクションに上に書いた1行「HKR,, OverrideEdidFlags0, %REG_BINARY%, 1E,6D,24,56,00,00,FF,FF,04,00,00,00,7E,01,00」を追加したところ左ズレが解消されました。ご参考までに。<br>    追記(2010/10/27)<br>パソコンを買い換えてGeforce GTX460になりました。「C:\NVIDIA\DisplayDriver\260.89\Vista\International\Display.Driver\NV_DISP.INF」の「[nv_timingRestrictions_addreg]」にまた上に書いた「HKR,, OverrideEdidFlags0, %REG_BINARY%, 1E,6D,24,56,00,00,FF,FF,04,00,00,00,7E,01,00」を入れたところ左ズレが解消しました。ご参考までに。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-248594788-html" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2012-01-26T13:45:10.000Z"><a href="/2012/01/26/248594788-html/">2012-01-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/01/26/248594788-html/">インタフェースにお金を掛ける</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>こんにちは。PCを買うときは「3年間使える」をモットーに機種を選別するばりっぴです。<br>今回はPCのインタフェースのお話。キーボード、マウス、ディスプレイ、音です。<br>私はメインマシンのキーボードは&lt;a href=”<a href="https://www.amazon.co.jp/mn/search/?_encoding:UTF8&amp;tag:anmarikousins-22&amp;linkCode:shr&amp;camp:1207&amp;creative:8415&amp;x:0&amp;y:0&amp;field-keywords:%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC%E3%82%B9&amp;url:search-alias%3Dcomputers&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/mn/search/?_encoding:UTF8&amp;tag:anmarikousins-22&amp;linkCode:shr&amp;camp:1207&amp;creative:8415&amp;x:0&amp;y:0&amp;field-keywords:%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC%E3%82%B9&amp;url:search-alias%3Dcomputers&quot;</a> target:”<em>blank”&gt;リアルフォース</a>を使っています。リンク先を見れば分かるように、キーボードとしては高額な部類となっています。しかし、そのお金を払ってでも使いたいと思わせる魅力がこのキーボードにはあります。打った時の感触がいいのです。私はブログ、ツイッター、チャットとキーボードをよく使いますが打っててもあまり疲れない。メンブレンともメカニカルとも違う「静電容量無接点方式」のなせる賜物です。最近はヨドバシカメラなんかにも置いています。試してみるのも良いと思います。<br>マウス。コンシューマー向けマウスは&lt;a href=”<a href="https://www.amazon.co.jp/mn/search/?_encoding:UTF8&amp;tag:anmarikousins-22&amp;linkCode:shr&amp;camp:1207&amp;creative:8415&amp;x:0&amp;y:0&amp;field-keywords:%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC%E3%82%B9&amp;url:search-alias%3Dcomputers&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/mn/search/?_encoding:UTF8&amp;tag:anmarikousins-22&amp;linkCode:shr&amp;camp:1207&amp;creative:8415&amp;x:0&amp;y:0&amp;field-keywords:%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC%E3%82%B9&amp;url:search-alias%3Dcomputers&quot;</a> target:”_blank”&gt;マイクロソフト</a>か&lt;a href=”<a href="https://www.amazon.co.jp/mn/search/?_encoding:UTF8&amp;tag:anmarikousins-22&amp;linkCode:shr&amp;camp:1207&amp;creative:8415&amp;x:0&amp;y:0&amp;field-keywords:%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC%E3%82%B9&amp;url:search-alias%3Dcomputers&quot;" target="_blank" rel="noopener">https://www.amazon.co.jp/mn/search/?_encoding:UTF8&amp;tag:anmarikousins-22&amp;linkCode:shr&amp;camp:1207&amp;creative:8415&amp;x:0&amp;y:0&amp;field-keywords:%E3%83%AA%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC%E3%82%B9&amp;url:search-alias%3Dcomputers&quot;</a> target:”_blank”&gt;ロジクール</a>しか信用しません。ほかのコンシューマー向けマウスはカーソルが飛んだり反応が鈍かったりで安かろう悪かろうというのが私の持論です。この2社なら値段の安いマウスでも最低限の仕事はしてくれます。まさに今ロジクールの3000円くらいのマウスを使ってますが、大変安定して使えています。<br>ディスプレイ。数年前に1920x1200のディスプレイに変えてからはもうほかの解像度には戻れません。今は1920x1080のフルHDのディスプレイが大変安く買うことができますが、縦1200に慣れてしまうと1080あっても足りないと思ってしまいます。16:10、これは欠かせません。<br>音。今はProdigy192を挿して、同軸デジタルで&lt;a href=”<a href="https://www.amazon.co.jp/gp/product/B004ZII8N4?ie:UTF8&amp;tag:anmarikousins-22&amp;linkCode:shr&amp;camp:1207&amp;creative:8411&amp;creativeASIN:B004ZII8N4&amp;ref" target="_blank" rel="noopener">https://www.amazon.co.jp/gp/product/B004ZII8N4?ie:UTF8&amp;tag:anmarikousins-22&amp;linkCode:shr&amp;camp:1207&amp;creative:8411&amp;creativeASIN:B004ZII8N4&amp;ref</a></em>:sr_1_1&amp;qid:1327552630&amp;sr:8-1” target:”<em>blank”&gt;TOPPING D2</a>に入れて、パワーアンプを&lt;a href=”<a href="https://www.amazon.co.jp/gp/product/B0055J4ZBG?ie:UTF8&amp;tag:anmarikousins-22&amp;linkCode:shr&amp;camp:1207&amp;creative:8411&amp;creativeASIN:B0055J4ZBG&amp;ref" target="_blank" rel="noopener">https://www.amazon.co.jp/gp/product/B0055J4ZBG?ie:UTF8&amp;tag:anmarikousins-22&amp;linkCode:shr&amp;camp:1207&amp;creative:8411&amp;creativeASIN:B0055J4ZBG&amp;ref</a></em>:sr_1_1&amp;qid:1327552690&amp;sr:8-1” target:”<em>blank”&gt;TOPPING TP22</a>にしています。スピーカーはVH7PCのスピーカーでヘッドホンはゼンハイザーの&lt;a href=”<a href="https://www.amazon.co.jp/gp/product/B00018MSNI?ie:UTF8&amp;tag:anmarikousins-22&amp;linkCode:shr&amp;camp:1207&amp;creative:8411&amp;creativeASIN:B00018MSNI&amp;ref" target="_blank" rel="noopener">https://www.amazon.co.jp/gp/product/B00018MSNI?ie:UTF8&amp;tag:anmarikousins-22&amp;linkCode:shr&amp;camp:1207&amp;creative:8411&amp;creativeASIN:B00018MSNI&amp;ref</a></em>:sr_1_1&amp;qid:1327552747&amp;sr:8-1” target:”_blank”&gt;HD650</a>です。D2とTP22は中国のメーカーですが、安価なデジタルアンプを使うことにより安さと音質をそれなりに兼ね備えた佳作です。<br>なにも「これがゼッタイ」という訳ではなく、全部自分で打ったり動かしたり見たり聞いたりしながら自分に合った物を見つけるというのも楽しいです。今週末、家電量販店に行ってみるのもどうでしょうか。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-248491994-html" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2012-01-25T22:36:41.000Z"><a href="/2012/01/26/248491994-html/">2012-01-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/01/26/248491994-html/">Seesaaブログにお引越し</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>こんにちは、アメーバブログからSeesaaブログに引っ越してきたばりっぴです。アケマスで「バリバリ夕張P」という名前でプレイしていて、アイマスのIRCチャンネルの人から略してばりっぴと呼ばれるようになったため自分でもばりっぴと言うようになりました。<br>さて、お引越ししたのはいいのですが、アメブロからSeesaaブログは一筋縄ではいかないのです。なぜならアメブロは記事のエクスポート機能が無いのです。ですがSeesaaブログではどのようにやってるのか分からないのですがお引越し機能がある、と。それならおまかせよ！ということで放置してたらツイッターに荒らしのように俺のツイートが…。ブログの設定で「新着記事をツイートする」という機能にチェックを付けていたのですがそれが暴走。数時間弾かれました。<br>多分、引越し元がアメブロだったからだと思います。他のMovable Type形式とかでエクスポートできるブログからの引越しだと大丈夫だったんじゃないかなぁ。アメブロは早急にエクスポート機能をリリースしてください。俺のような人を何人も出さないためにも。<br>TLの皆様には本当にご迷惑をおかけしました。お詫び申し上げます。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-31876238" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2012-01-23T21:35:55.000Z"><a href="/2012/01/24/31876238/">2012-01-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/01/24/31876238/">ハードディスクの回転数と音質の関係</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>前のエントリを書いてからまだお店に行ってない私です。こんばんは。<br/><br> <br/><br>PCオーディオfan Vol5を読んでたら面白い事が書いてあったので引用します。<br/></p>
+<blockquote>
+<p>フラッシュメモリー系のデバイスは非常に広い範囲に性能が分布しております。容量の大きさ確保を主目的に作られたMLC(マルチレベルセル)のメモリーはあまり速度は出ませんので、このあたりの音質はデータの入出力を扱うコントローラーハード・ソフト面にも依存するようですが、音質的にはゆったり目の傾向になると思います。速度面ではHDDの方が一般的に早いと申せましょう。<br/><br>お分かりいただけただろうか。とりあえず「速度は出ませんので(中略)音質的にはゆったり目の傾向になると思います」に突っ込んでみましょう。<br/><br>この人はデジタルデータが何であるかが分かってない。USBメモリーでもSSDでもHDDでもそこに入れたオーディオのファイルが転送に追いつかなかったときは音が止まると思うんです。アナログレコードみたいにちょっと遅い回り方だから音がもたつくとかそういうのは勝手な思い込みであると思うのです。<br/><br>それに昨今のデバイスはDSDの無圧縮でも実用的になるように作られているはずです。SACDプレーヤーで普通に聴ける程度の早さですよ。その程度の早さがあればいいのですよ。今のPCに重荷になるようには思えません。何度も言いますが、USBメモリーやHDDの早さの違いで音が変わるということはありません。ジッターもCDを直にかけるのとは比べものにならないほどに少なくなっています。<br/><br>Web上で「HDDの音質聴き比べ」のスキャン画像が出回っていた時期がありましたがあれの書いていた事も全くのナンセンスでしょうね。HDDに金を掛けるよりリッピングという重要な仕事をするCD-ROMドライブ(最近はDVDスーパーマルチとかBDスーパーマルチドライブになってます)にお金を掛けるべきでしょう。<br/><br>HDDはとりあえず容量がでかいのを買っておけばいいのです。OS用にSSDを使い、オーディオデータにはHDDを使うという2ドライブ構成が最近の流行です。ファイルタンクとしてSSDを使うのはまだ値段的に厳しい所があります。まあお金が余ってる人ならSSDでいいのでしょうが…。<br/><br>それにHDDの方が早いのかなぁって思います。今のUSBメモリーってMLCでもそこそこ速度が出るように思うのですが…。ほげー。<br/></p>
+</blockquote>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-31876239" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2012-01-14T22:39:36.000Z"><a href="/2012/01/15/31876239/">2012-01-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/01/15/31876239/">Aterm WR8700NとSBM 945SHの関係</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>どうにも調子が悪いのですよ。<br/><br> <br/><br>2段階パケット定額でもWifiを使えるのを知ったので加入して、自室にあるNECアクセステクニカのルーターWR8700N経由でWebページ見たりしてるんですけど、数分に1回の頻度でルーターが再起動してしまうんですよね。<br/><br> <br/><br>他の無線LAN機器では起こらなくて、このWifiケータイであるところの945SHをつなげた時だけルーターが再起動します。明日ショップに相談しに行ってみよう。<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-248475916-html" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2012-01-11T21:40:43.000Z"><a href="/2012/01/12/248475916-html/">2012-01-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/01/12/248475916-html/">野郎ラーメンで「豚野郎ですねッ」って言われてきた</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p><a href="https://barippi.up.seesaa.net/o0800060011729652773.jpg" target="_blank" rel="noopener">&lt;img src=”https://barippi.up.seesaa.net/t02200165_0800060011729652773.jpg” alt:”$読んでも面白くないです-豚野郎ラーメン” border:”0”/&gt;</a><br/><br/>川崎のアゼリアに店ができてたのをこないだ見てようやく行ってきました。いわゆる二郎インスパイアですけど量は普通のラーメン屋と同じ。ガッツリいきたい人は大盛り推奨です。<br/><br/>つか、せたが屋グループなのね、野郎ラーメン。鶴見にも来て欲しいなぁ。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-31876240" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2012-01-11T17:00:30.000Z"><a href="/2012/01/12/31876240/">2012-01-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/01/12/31876240/">野郎ラーメンで豚野郎と言われてきたよ</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>&lt;img class:”hatena-fotolife” title:”f:id:CBX:20120111144535j:plain” src=”/images/c563dea4.jpg” alt:”f:id:CBX:20120111144535j:plain”/&gt;<br/><br>今日は川崎の地下街アゼリアにある野郎ラーメンに行ってきました。<br/><br> <br/><br>食券を買うタイプなのですが、そこで「豚野郎ラーメン」をチョイス(普通の店のチャーシュー麺)。食券を渡すと「豚野郎ですねッ！」とM心をくすぐるナイスなセリフが。男に言われると萎えますけど女性店員だったんで…。<br/><br> <br/><br>ラーメンはよくある二郎インスパイアなのかな。本物の二郎食ったこと無いんでどんくらい近いとか似てるとか分かりませんが普通に美味しかったです。トッピングの野菜は炒める方が好きかも。<br/><br> <br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-31876241" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2012-01-10T22:34:42.000Z"><a href="/2012/01/11/31876241/">2012-01-11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/01/11/31876241/">着る毛布、ヌックミィ</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>日本では去年の3月から「節電」が大きなテーマでした。しかし夏場、暑いのは苦手なので冷房をかけてました。ほんとにダメなんですよ。暑いのだけは。<br/><br> <br/><br>逆に暖房費はケチりたい。寒いのは着ればなんとかなる、ということで<a href="https://www.amazon.co.jp/gp/product/B005TOUXI6?ie:UTF8&amp;tag:anmarikousins-22&amp;linkCode:shr&amp;camp:1207&amp;creative:8411&amp;creativeASIN:B005TOUXI6&amp;ref_:sr_1_10_m&amp;qid:1326202038&amp;sr:8-10" target="_blank" rel="noopener">ヌックミィ</a>を11月頃に買いました。着る毛布もいろいろありますがヌックミィが先鞭なのかしら。いろんな色があります。お好みで選べます。灰色系を選びました。<br/><br> <br/><br>そして今、冬真っ盛りではありますが、エアコンの電源を入れたのが5日間のみ。気密性の高いマンションでPCが2台動いてる環境だからかもしれませんが12月の電気代が去年より11%少なくなってました。ひと月でヌックミィの値段以上の電気代の節約ができました。ヌックミィ、マジオススメです。<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-31876242" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2012-01-08T19:29:19.000Z"><a href="/2012/01/09/31876242/">2012-01-09</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/01/09/31876242/">卒煙したんです</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>もう何回目か分かんないけど卒煙したんです。タバコからの卒業。<br/><br> <br/><br>今までだと3ヶ月が一番続いたのかな。再入学を繰り返し。<br/><br> <br/><br>毎回、「今回こそは」って思うんだけど上手くいかないのよねぇ。まあ今回こそはっ(笑。<br/><br> <br/><br>1日目はやっぱつらくてシケモク吸ってたりしたんだけど、やっぱ朝の寝起きに吸わないと結構我慢できる。今日で3日目だけどなんとかなってるわ。吸いたいけど、ないから吸わなくていいやって感じ。<br/><br> <br/><br>こんな感じで続くといいなぁ。<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-31876243" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2012-01-02T23:35:56.000Z"><a href="/2012/01/03/31876243/">2012-01-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/01/03/31876243/">神田明神にお参りしてきた</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>今日は箱根駅伝を見てから神田明神まで初詣に行ってきました。<br/><br> <br/><br>ここ数年は2日にアキバというのが定石になってます。元日だと人がいすぎそうでアレなんですよね。2日でもそこそこの人がいるのですが多分元日の比じゃないほど人がいません。20分くらい並ぶけど。公私ともにハッピーに、とお願いしました。<br/><br> <br/><br>お参りして今年も「勝守」のお守りを購入。今年も勝っていきたいです。何に勝つかはよくわかりませんが…。腹が減ってたので大阪焼きと焼きそばをもぐもぐ。あわせて700円。屋台の強気な値段設定にちょっと躊躇しましたが食欲に勝てず…。勝守買ったのにさっそく負けるとかどういうこと!?<br/><br> <br/><br>その後はアキバをぶらりと。銀ブラならぬアキブラ。中央通りのエクセルシオールでコーヒー飲んで、プラプラ歩いてたら、中央通りの喫煙者の憩いの場「コロボックル」が移転してました。かなりカッコイイ感じに。喫煙所が2階にも新設。コロボックルには頑張って欲しいです。旧ザコンのAKIBAカルチャーズZONEも初潜入。トイレ行きたいだけだったので3階までしか行きませんでしたが人がいっぱいでした。あとはメッセサンオーのカオス館でマウスをいじいじ。ゲーミングマウスは普段使いでも威力を発揮します。コンシューマーマウスはロジクールとマイクロソフトしか信用しない私ですが、ゲーミングマウス買ってみようかなぁという気になりました。あとすべすべ感が今使ってるエアーパッドプロ並なマウスパッドを見つけたのであれも買ってみようと思いました。スチールシリーズって書いてあったかな。<br/><br> <br/><br>消費者のマインドに敏感なコンシューマージェネレーションシティ(俺が勝手に言ってる)アキバはこれからも発展していくことでしょう。神田明神が守ってるからな！<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+<nav id="pagination">
+  
+    <a href="/page/25/" class="alignleft prev">前の投稿</a>
+  
+  
+    <a href="/page/27/" class="alignright next">次の投稿</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="検索">
+    <input type="hidden" name="as_sitesearch" value="barippi.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">カテゴリー</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/イベント/">イベント</a><small>1</small></li>
+  
+    <li><a href="/categories/インターネットサービス/">インターネットサービス</a><small>2</small></li>
+  
+    <li><a href="/categories/ソフトウェア/">ソフトウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/ハードウェア/">ハードウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/雑貨/">雑貨</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">タグ</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/OneCalender-ジョルテ-カレンダーアプリ/">OneCalender ジョルテ カレンダーアプリ</a><small>1</small></li>
+  
+    <li><a href="/tags/お勧めしていきたい/">お勧めしていきたい</a><small>19</small></li>
+  
+    <li><a href="/tags/アイマス/">アイマス</a><small>26</small></li>
+  
+    <li><a href="/tags/アメブロ/">アメブロ</a><small>67</small></li>
+  
+    <li><a href="/tags/イベント/">イベント</a><small>19</small></li>
+  
+    <li><a href="/tags/インターネットサービス/">インターネットサービス</a><small>13</small></li>
+  
+    <li><a href="/tags/ゲーム/">ゲーム</a><small>403</small></li>
+  
+    <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>73</small></li>
+  
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>41</small></li>
+  
+    <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
+  
+    <li><a href="/tags/マンガ/">マンガ</a><small>1</small></li>
+  
+    <li><a href="/tags/企画物/">企画物</a><small>12</small></li>
+  
+    <li><a href="/tags/占い/">占い</a><small>376</small></li>
+  
+    <li><a href="/tags/雑貨/">雑貨</a><small>26</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2020 Barippi
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+<script type="text/javascript">
+var disqus_shortname = 'barippi';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

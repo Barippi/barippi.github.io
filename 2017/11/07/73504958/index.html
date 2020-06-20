@@ -1,0 +1,259 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  
+  <title>WSLでNode.jsを入れてGithub PagesにHexoで静的ページblogを作るお話 | 取るに足らぬ者</title>
+  <meta name="author" content="Barippi">
+  
+  <meta name="description" content="1979年産のアイマスおじさんがなんか書くかも">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="WSLでNode.jsを入れてGithub PagesにHexoで静的ページblogを作るお話"/>
+  <meta property="og:site_name" content="取るに足らぬ者"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="取るに足らぬ者" type="application/atom+xml">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">取るに足らぬ者</a></h1>
+  <h2><a href="/">そろそろ落ち着きたい</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+<<!-- ad start -->
+    <script data-ad-client="ca-pub-7137449134315268" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- ad end -->/header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-73504958" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2017-11-06T22:19:06.000Z"><a href="/2017/11/07/73504958/">2017-11-07</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">WSLでNode.jsを入れてGithub PagesにHexoで静的ページblogを作るお話</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　Hexoってなんて読むんでしょうね。という話は置いといて、静的サイトジェネレーター、Hexoを使ってgithub.ioにブログを作るお話です。<br/><br>　HexoはNode.jsで動くのでNode.jsが何はなくとも必要です。しかし、Node.jsはバージョンがたくさんある上、バージョンに寄ってその上で動くアプリケーションが動いたり動かなかったりするので、ひとまずNode.jsのバージョン管理ソフトを入れます。nvmと呼ばれるものを今回は入れます。<br/></p>
+<blockquote>
+<blockquote>
+<p>$ git clone <a href="https://github.com/creationix/nvm.git" target="_blank" rel="noopener">https://github.com/creationix/nvm.git</a> ~/.nvm$ source ~/.nvm/nvm.shとすればnvmが入ります。かんたんですね。gitはWSLのUbuntuでは標準で入ってました。<br/><br>　次はNode.jsを入れます。<br/><br>$ nvm ls-remoteとすることで、今インストール可能なバージョン一覧がずらーっと現れます。本番環境で使うにはLTS版の方が安心なので偶数バージョンを入れます(奇数バージョンは開発版らしいです)。私は当時最新LTSのv6.11.4を入れました。今はv6.11.5らしいです。それを入れましょう。<br/><br>$ nvm install 6.11.5で入ります。かんたんですね。そしてデフォルトで使うNode.jsのバージョンを指定します。<br/><br>$ nvm alias default v6.11.5<br/>このコマンドを実行して「default -&gt; v6.11.5」と出てくればOKです。<br/><br>　次はWSLを起動した時にnvmが使えるように設定します。具体的に言うと「.bashrc」というファイルをいじります。<br/><br>$ nano .bashrcとして<br/>&lt;img class:”pict” hspace:”5” alt:”2017-11-06” border:”0” height:”338” width:”480” src=”/images/e47fb3f3.png”/&gt;<br/><br/><br>　上の画像のように(上の画像は.bash_profileを開いてますが)<br/><br>if [[ -s ~/.nvm/nvm.sh ]]; then source ~/.nvm/nvm.shfi<div>を書き込みます。書いたらCtrl+Oを押下して保存してCtrl+Xを押下して終了させます。これでwslttyを起動した時にnvmが使えて、Node.jsも使えるようになりました。<br/><br>　githubにアカウントがない方は作ってください。非公開のプライベートリポジトリを作らないならばタダでアカウントを作れます。作れたら<br/><br/><br>&lt;img class:”pict” hspace:”5” alt:”86f7788f-ea83-4877-84ac-b9838d01c9f4” border:”0” height:”26” width:”480” src=”/images/57ce8775.png”/&gt;<br/><br>の右の「＋」を押下し、「New Repository」を押下します。現れたページで「ユーザ名.github.io」という名前のリポジトリを作ります。私なら「barippi.github.io」ですね。「Initialize this repository with a README」はチェックを外しておきましょう。<br/><br>&lt;img class:”pict” hspace:”5” alt:”6855711e-967d-414c-825a-37dd7fcbb876” border:”0” height:”333” width:”480” src=”/images/3ed785c2.png”/&gt;</p>
+</blockquote>
+</blockquote>
+<p>のように(私はもうページを作ってるのでこうなってますが)リポジトリができたよというページが表示されればOKです。<br/><br>　次に、githubにPushできるように鍵を作ります。<br/></p>
+</div>>$ mkdir ./.ssh$ cd .ssh$ ssh-keygen<div>として現れた質問(パスフレーズを設定してねと英語で出る)に答えれば秘密鍵と公開鍵が作成されます。<br/></div>
+>$ cat id_rsa.pub<div>として出てきた内容をgithubに登録します。ページの右上の自分のアイコンを押下し、Settingを選び、出てきたページの左ペインからSSH and GPG keysを選びます。出てきたページにおいてAdd SSH keyボタンを押下し、先程catした内容をコピーアンドペーストします。成功するとその旨ページに現れて、これでHexoから直にPushできるようになります。ちょっとむずかしくなってきましたね。<br/>
+　さて、ここまでで「Hexoの話は？」となった方もいるかもしれませんが、やっとです、やっとHexoを入れます！インストールします！<br/></div>
+>$ npm install -g hexo<div>これでOKです！かんたんになりましたね。次はBlogの雛形を作ります。<br/></div>
+>$ hexo init ○○(myblogとかでOK)<div>これでmyblogとした方ならmyblogというディレクトリができています。<br/></div>
+>$ cd myblog$ npm install<div>で必要なモジュールがインストールされます。お手本としてHello Worldの記事があるのでこれをgithub上にPushしてみます。_config.ymlを編集します。<br/>
+$ nano _config.yml<br/><br/><img class:"pict" hspace:"5" alt:"2017-11-06 (1)" border:"0" height:"338" width:"480" src="/images/9e13c0b0.png"/><br/>
+こんな感じでタイトルとか付けて<br/><br/><img class:"pict" hspace:"5" alt:"2017-11-06 (3)" border:"0" height:"338" width:"480" src="/images/e4c08657.png"/><br/>
+>こんな感じにデプロイ先を書きます。下のfeedはRSSをatom形式で配信する設定です(要後述プラグイン)。deployのrepoは個人個人で異なります。上の方のthemeは上画像ではlightになってますが、今のところはいじらないでください。ではデプロイしてみましょう。<br/></div>>$ hexo deploy -g<div>これでサイトを生成してデプロイまでやってくれます。成功したでしょうか。成功して数分経つと<a target:"_blank" href="https://barippi.github.io">https://barippi.github.io</a>のようにサイトができあがります。いやー、かんたんかんたん。<br/>
+　「新しい記事を書きたい」。そうですよねー。新しい記事を書くときは<br/></div>
+>$ hexo new "書きたい記事タイトル”<div>です。「~/myblog/source/_posts」にMarkdown形式で保存されています。Markdown形式で書き書きしてデプロイさせると新しい記事が追加されます。<br/>
+　「テーマを変えたい」。そうですよねー。これも簡単です。<br/></div>
+>$ git clone 適用させたいテーマのgitリポジトリ theme/テーマ名<div>です。そして上スクリーンショットのようにテーマ名を変えればいいです。<br/>
+　atomを配信するにはnpmでhexo-generator-feedというパッケージをインストールしてください<br/></div>
+>$ npm search hexo<div>とすればhexoで使用できるプラグインが多数見つかります。簡単な説明もついてるので参考にしつつインストールしたりしなかったりしてみてください。</div>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/ソフトウェア/">ソフトウェア</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">コメント</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="https://barippi.github.io/2017/11/07/73504958/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="検索">
+    <input type="hidden" name="as_sitesearch" value="barippi.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">カテゴリー</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/イベント/">イベント</a><small>1</small></li>
+  
+    <li><a href="/categories/インターネットサービス/">インターネットサービス</a><small>2</small></li>
+  
+    <li><a href="/categories/ソフトウェア/">ソフトウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/ハードウェア/">ハードウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/雑貨/">雑貨</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">タグ</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/OneCalender-ジョルテ-カレンダーアプリ/">OneCalender ジョルテ カレンダーアプリ</a><small>1</small></li>
+  
+    <li><a href="/tags/お勧めしていきたい/">お勧めしていきたい</a><small>19</small></li>
+  
+    <li><a href="/tags/アイマス/">アイマス</a><small>26</small></li>
+  
+    <li><a href="/tags/アメブロ/">アメブロ</a><small>67</small></li>
+  
+    <li><a href="/tags/イベント/">イベント</a><small>19</small></li>
+  
+    <li><a href="/tags/インターネットサービス/">インターネットサービス</a><small>13</small></li>
+  
+    <li><a href="/tags/ゲーム/">ゲーム</a><small>403</small></li>
+  
+    <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>73</small></li>
+  
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>41</small></li>
+  
+    <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
+  
+    <li><a href="/tags/マンガ/">マンガ</a><small>1</small></li>
+  
+    <li><a href="/tags/企画物/">企画物</a><small>12</small></li>
+  
+    <li><a href="/tags/占い/">占い</a><small>376</small></li>
+  
+    <li><a href="/tags/雑貨/">雑貨</a><small>26</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2020 Barippi
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+<script type="text/javascript">
+var disqus_shortname = 'barippi';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

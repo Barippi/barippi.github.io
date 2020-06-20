@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  
+  <title>プログラミング、Terminalに最適なフォント「Ricty」をWindows7で生成する話 | 取るに足らぬ者</title>
+  <meta name="author" content="Barippi">
+  
+  <meta name="description" content="1979年産のアイマスおじさんがなんか書くかも">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="プログラミング、Terminalに最適なフォント「Ricty」をWindows7で生成する話"/>
+  <meta property="og:site_name" content="取るに足らぬ者"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="取るに足らぬ者" type="application/atom+xml">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">取るに足らぬ者</a></h1>
+  <h2><a href="/">そろそろ落ち着きたい</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+<<!-- ad start -->
+    <script data-ad-client="ca-pub-7137449134315268" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- ad end -->/header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-35877402" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2015-07-02T22:48:49.000Z"><a href="/2015/07/03/35877402/">2015-07-03</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">プログラミング、Terminalに最適なフォント「Ricty」をWindows7で生成する話</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　Rictyは2009年の外国におけるアンケートで「プログラミングに最適なフォント」1位に輝いた「Inconsolata」と視認性の高い日本語等幅フォント「Migu 1M」の合成フォントです。ラテン文字(ASCII文字？)はInconsolataが使われて、それ以外はMigu 1Mが使われる、という寸法です。例えばこんな感じになります。<br/>&lt;a href=”/images/0815ee96.jpg” title:”WS000007” target:”_blank”&gt;&lt;img src=”/images/0815ee96.jpg” alt:”WS000007” class:”pict” border:”0” width:”480” height:”293” hspace:”5”/&gt;</a><br/>　minttyでncmpcppを動かしているところです。アイマス10thライブの予習中です。ドラマパートとかM@STER BOX系を抜かしても再生時間2日以上になりました。これは再生したファイルをプレイリストから削除していくモードで再生しているので残りが1日と18時間になっていますが。まあ、らびゅらびゅなんて歌うはずがないのですが…。<br/>　閑話休題。どうでしょう？綺麗でしょ？「なぜこんなに良さげなフォントが出回ってないの？」と思われるかもしれませんが、Rictyの批准しているライセンスにより生成したフォントの再配布が禁止されているのです。「フォントが配布されていない」ってどうすんだ？ってことですが、Rictyは生成スクリプトを配布しているのです。Rictyを使っている人はみんな自分でスクリプトを走らせて自分のために生成しているのです。<br/>　このスクリプトは「Fontforge」というアプリケーションを使用しますが、このFontforgeが基本<em>NIXにしか対応していない、WindowsでFontforgeを使うにはCygwinでビルドする必要がある、ということであんまり存在を知られていなかった(知らなかったの私だけかもしれないけど)ということです。<br/>　しかしいろいろブログやらホームページを読んでいると公式にCygwinを使わないビルド済みのバイナリファイルがあるということで試してみました。<br/>　今回は「&lt;a href=”<a href="https://blog.nanoway.net/pc/ricty-win7&quot;" target="_blank" rel="noopener">https://blog.nanoway.net/pc/ricty-win7&quot;</a> target:”_blank”&gt;Rictyフォントのインストール(windows7)</a>」を参考に進めてみたいと思います。<br/>　まずはFontforgeのダウンロードをします。「&lt;a href=”<a href="https://sourceforge.net/projects/fontforge/files/fontforge-executables/&quot;" target="_blank" rel="noopener">https://sourceforge.net/projects/fontforge/files/fontforge-executables/&quot;</a> target:”_blank”&gt;<a href="https://sourceforge.net/projects/fontforge/files/fontforge-executables/" target="_blank" rel="noopener">https://sourceforge.net/projects/fontforge/files/fontforge-executables/</a></a>」からポータブル版と書いてあるファイルをダウンロードします。7z拡張子のファイルは7Zipと呼ばれる形式で圧縮されたファイルです。Lhaplusなんかで展開できます。展開したフォルダの中にある「run_fontforge.exe」をダブルクリックして起動することを確認して下さい。<br/>　そしてRicty生成スクリプトをダウンロードします。「&lt;a href=”<a href="https://github.com/yascentur/Ricty&quot;" target="_blank" rel="noopener">https://github.com/yascentur/Ricty&quot;</a> target:”_blank”&gt;<a href="https://github.com/yascentur/Ricty" target="_blank" rel="noopener">https://github.com/yascentur/Ricty</a></a>」に行って、画面の右側にある「Download ZIP」ボタンをクリックして一括ダウンロードします。gitが使える人は普通にcloneしてもいいです。展開したファイルをすべて咲ほどのFontforgeのフォルダにコピー(または移動)します。フォルダをコピーではなくて中のファイルをコピーです。<br/>　次にInconsolataフォントをダウンロードします。「&lt;a href=”<a href="https://levien.com/type/myfonts/inconsolata.html&quot;" target="_blank" rel="noopener">https://levien.com/type/myfonts/inconsolata.html&quot;</a> target:”_blank”&gt;<a href="https://levien.com/type/myfonts/inconsolata.html" target="_blank" rel="noopener">https://levien.com/type/myfonts/inconsolata.html</a></a>」から「OpenType file」をダウンロードします。圧縮などはされていないOpenType Fontファイルがそのままダウンロードされます。これもFontforgeフォルダにコピーします。<br/>　Migu 1Mをダウンロードします。ダウンロードするファイルはこれで最後です。「&lt;a href=”<a href="https://mix-mplus-ipa.osdn.jp/migu/&quot;" target="_blank" rel="noopener">https://mix-mplus-ipa.osdn.jp/migu/&quot;</a> target:”_blank”&gt;<a href="https://mix-mplus-ipa.osdn.jp/migu/" target="_blank" rel="noopener">https://mix-mplus-ipa.osdn.jp/migu/</a></a>」からMigu 1Mをダウンロードして展開して出てきた拡張子「ttf」のファイルをFontforgeフォルダにコピーします。<br/>　そしてFontforgeフォルダに入っている「fontforge.bat」ファイルを編集します。このためにしか使わないと言っても過言ではないので直接編集してもいいですし(どうせ圧縮ファイルの中にオリジナルはある)、コピーして別の名前にして編集してもいいです。コピーする場合は拡張子を「bat」から変えないでください。具体的な編集は以下のとおりです。<br/><br/>“%FF%\bin\Xming_close.exe” -wait<br/><br/>“%FF%\bin\fontforge.exe” -nosplash %</em><br/><br/>“%FF%\bin\Xming_close.exe” -close<br/><br/>と書いてある行が下3行ですが、これの真ん中の行を消して(fontforgeを起動させるという命令です)、その行に<br/><br/>sh ricty_generator.sh Inconsolata.otf migu-1m-regular.ttf migu-1m-bold.ttf<br/><br/>sh misc/os2version_reviser.sh Ricty-<em>.ttf RictyDiscord-</em>.ttf<br/><br/>と2行書き込みます。そして保存します。最後に1行足して「pause」と書き込むと終わったあとすぐウインドウが消えずに実行結果を確認することができるのでオススメです。<br/>　あとは編集したバッチファイルをダブルクリックするだけです、が、私の環境ではtmpファイルができないエラーが出て止まってしまいました。その場合は「&lt;a href=”<a href="https://www.geocities.jp/meir000/fontforge/&quot;" target="_blank" rel="noopener">https://www.geocities.jp/meir000/fontforge/&quot;</a> target:”_blank”&gt;<a href="https://www.geocities.jp/meir000/fontforge/" target="_blank" rel="noopener">https://www.geocities.jp/meir000/fontforge/</a></a>」からCygwin版をダウンロードしてそちらで試してみてください。こちらもfontforge.batのなかに似たような3行がありますので同様に編集してください。私はこちらでうまくいきました。ですがカスペルスキーでウイルス認定されてしまうので保護を切ってやりました。実行したあと全ファイルスキャンしましたがウイルスに感染した様子はありませんでした。でもその辺は自己責任でお願いします。<br/>　5分から10分くらい待つと<br/><ul><li>Ricty-Regular.ttf</li><li>Ricty-Bold.ttf</li><li>RictyDiscord-Bold.ttf</li><li>RictyDiscord-Regular.ttf</li></ul>の4ファイルができあがります。おめでとうございます！Discordとついてるのは7とかZにひげがついてるバージョンです。おこのみでどうぞ。　「こんなことすんのめんどくせぇ！」という人は「&lt;a href=”<a href="https://github.com/yascentur/RictyDiminished&quot;" target="_blank" rel="noopener">https://github.com/yascentur/RictyDiminished&quot;</a> target:”_blank”&gt;Ricty Diminished</a>」からttfファイルをダウンロードして使ってください。ではでは。<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/ソフトウェア/">ソフトウェア</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">コメント</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="https://barippi.github.io/2015/07/03/35877402/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="検索">
+    <input type="hidden" name="as_sitesearch" value="barippi.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">カテゴリー</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/イベント/">イベント</a><small>1</small></li>
+  
+    <li><a href="/categories/インターネットサービス/">インターネットサービス</a><small>2</small></li>
+  
+    <li><a href="/categories/ソフトウェア/">ソフトウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/ハードウェア/">ハードウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/雑貨/">雑貨</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">タグ</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/OneCalender-ジョルテ-カレンダーアプリ/">OneCalender ジョルテ カレンダーアプリ</a><small>1</small></li>
+  
+    <li><a href="/tags/お勧めしていきたい/">お勧めしていきたい</a><small>19</small></li>
+  
+    <li><a href="/tags/アイマス/">アイマス</a><small>26</small></li>
+  
+    <li><a href="/tags/アメブロ/">アメブロ</a><small>67</small></li>
+  
+    <li><a href="/tags/イベント/">イベント</a><small>19</small></li>
+  
+    <li><a href="/tags/インターネットサービス/">インターネットサービス</a><small>13</small></li>
+  
+    <li><a href="/tags/ゲーム/">ゲーム</a><small>403</small></li>
+  
+    <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>73</small></li>
+  
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>41</small></li>
+  
+    <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
+  
+    <li><a href="/tags/マンガ/">マンガ</a><small>1</small></li>
+  
+    <li><a href="/tags/企画物/">企画物</a><small>12</small></li>
+  
+    <li><a href="/tags/占い/">占い</a><small>376</small></li>
+  
+    <li><a href="/tags/雑貨/">雑貨</a><small>26</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2020 Barippi
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+<script type="text/javascript">
+var disqus_shortname = 'barippi';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

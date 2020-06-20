@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  
+  <title>foobar2000でラジオ配信環境を作る話 | 取るに足らぬ者</title>
+  <meta name="author" content="Barippi">
+  
+  <meta name="description" content="1979年産のアイマスおじさんがなんか書くかも">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="foobar2000でラジオ配信環境を作る話"/>
+  <meta property="og:site_name" content="取るに足らぬ者"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="取るに足らぬ者" type="application/atom+xml">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">取るに足らぬ者</a></h1>
+  <h2><a href="/">そろそろ落ち着きたい</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+<<!-- ad start -->
+    <script data-ad-client="ca-pub-7137449134315268" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- ad end -->/header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-39059634" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2015-08-05T02:59:56.000Z"><a href="/2015/08/05/39059634/">2015-08-05</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">foobar2000でラジオ配信環境を作る話</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　foobar2000のVer 1.3.8で構築します。また、icecast serverまたはShoutcast Serverがすでに構築してある前提で書きます。<br/>　まず&lt;a href=”<a href="https://www.altacast.com/&quot;" target="_blank" rel="noopener">https://www.altacast.com/&quot;</a> target:”_blank”&gt;AltaCast</a>からAltaCast for foobar2000 1.xをダウンロードしてインストールします。そしてfoobar2000の「file」→「preference」を開き、「DSP Manager」でAltaCast 1.0をアクティブにします。<br/><br/>&lt;a href=”/images/c383a000.jpg” title:”WS000008” target:”_blank”&gt;&lt;img src=”/images/c383a000.jpg” alt:”WS000008” class:”pict” border:”0” width:”480” height:”350” hspace:”5”/&gt;</a><br/><br/>　基本的な構築はこれで終わりです。曲を流すとAltaCastの画面が開き、AltaCastの「Add Encoder」からサーバーのアドレス、ポートなどを設定し、「Connect」すれば配信が開始されます。曲順に流すこともシャッフルプレイすることもランダムプレイもできます。<br/>　しかしこれでは「あ、プレイリストにあるこの曲、今聴きたい」といった時に対処ができません。そんな時のために「ソングリクエスタ」を導入しましょう。<br/>　&lt;a href=”<a href="https://wikiwiki.jp/foobar2000/?FrontPage&quot;" target="_blank" rel="noopener">https://wikiwiki.jp/foobar2000/?FrontPage&quot;</a> target:”_blank”&gt;foobar2000 日本語 Wiki</a>の左ペインのメニューから「コンポーネント一覧→General→通信」と進み、「foo_request_http」の「ミラー」からダウンロードします。ダウンロードしたファイルを展開し「readme_jp.txt」を読みながら設定しましょう。一番簡単なのは中のファイルを全部「components」フォルダに置き、そこから設定する方法でしょう。<br/><br/>&lt;a href=”/images/f6078dc9.jpg” title:”WS000009” target:”_blank”&gt;&lt;img src=”/images/f6078dc9.jpg” alt:”WS000009” class:”pict” border:”0” width:”480” height:”350” hspace:”5”/&gt;</a><br/><br/>　こんな感じ。64bit版Windowsでの設定です。32bit版だと「Program Files (x86)」のところが変わります。で、「Start」ボタンを押下し、「<a href="https://localhost:4095/」にアクセスするとページが表示されます。リクエスト環境も整いました。" target="_blank" rel="noopener">https://localhost:4095/」にアクセスするとページが表示されます。リクエスト環境も整いました。</a><br/>　外から聞く場合は配信サーバーのポートもソングリクエスタのポートもルーターでポートマッピングしてください。で、外から聞くとなると気になるのが転送量。多かれ少なかれ最近のプロバイダは転送量制限があります。なるべく少ない転送量でいい音で聞きたい。mp3やoggは128kbps無いと論外だし、AACでも96kbpsは欲しい。でもそれだと転送量が多いのです。<br/>　そんな時のためのAAC Plus。これは48kbpsあれば上記と大体同じ音質が出せますし、24kbpsでもそれなりに聞けます。これだ。でもfoobar2000にはエンコーダーがないのです。どうするかというとWinampにあったものを持ってきます。ファイル名は「enc_aacplus.dll」です。ない場合はインターネットは広いので誰かがアップロードしてます。私が見つけたところは直リンク禁止と書いていたので「Winamp enc_aacplus」とでも検索してみてください。これを「foobar2000.exe」と同じフォルダに置きます。そしてfoobar2000を再起動するとAltaCastのエンコーダーのところに「AAC Plus」が出てきます。やりましたね。<br/>　ということで、foobar2000でのインターネットラジオ配信環境を整えてみました。まあ、ひきこもりなんで使い道は無いんですが…。ではでは。<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/ソフトウェア/">ソフトウェア</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">コメント</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="https://barippi.github.io/2015/08/05/39059634/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="検索">
+    <input type="hidden" name="as_sitesearch" value="barippi.github.io">
+  </form>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">カテゴリー</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/イベント/">イベント</a><small>1</small></li>
+  
+    <li><a href="/categories/インターネットサービス/">インターネットサービス</a><small>2</small></li>
+  
+    <li><a href="/categories/ソフトウェア/">ソフトウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/ハードウェア/">ハードウェア</a><small>5</small></li>
+  
+    <li><a href="/categories/雑貨/">雑貨</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">タグ</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/OneCalender-ジョルテ-カレンダーアプリ/">OneCalender ジョルテ カレンダーアプリ</a><small>1</small></li>
+  
+    <li><a href="/tags/お勧めしていきたい/">お勧めしていきたい</a><small>19</small></li>
+  
+    <li><a href="/tags/アイマス/">アイマス</a><small>26</small></li>
+  
+    <li><a href="/tags/アメブロ/">アメブロ</a><small>67</small></li>
+  
+    <li><a href="/tags/イベント/">イベント</a><small>19</small></li>
+  
+    <li><a href="/tags/インターネットサービス/">インターネットサービス</a><small>13</small></li>
+  
+    <li><a href="/tags/ゲーム/">ゲーム</a><small>403</small></li>
+  
+    <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>73</small></li>
+  
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>41</small></li>
+  
+    <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
+  
+    <li><a href="/tags/マンガ/">マンガ</a><small>1</small></li>
+  
+    <li><a href="/tags/企画物/">企画物</a><small>12</small></li>
+  
+    <li><a href="/tags/占い/">占い</a><small>376</small></li>
+  
+    <li><a href="/tags/雑貨/">雑貨</a><small>26</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2020 Barippi
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+<script type="text/javascript">
+var disqus_shortname = 'barippi';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
