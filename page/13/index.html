@@ -51,6 +51,39 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-35546711" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2015-06-29T13:12:29.000Z"><a href="/2015/06/29/35546711/">2015-06-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/06/29/35546711/">MPD 0.19.10をCygwinでビルドし、Windowsサービスで動かす話</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　なんとなくMPD(Music Player Daemon)に興味が湧いてUbuntuに入れて動かしてみたらいいねってことでこれをWindowsサービスで動かすところまでやってみました。<br/>　MPD 0.17.04なら&lt;a href=”<a href="https://www.musicpd.org/download.html&quot;" target="_blank" rel="noopener">https://www.musicpd.org/download.html&quot;</a> target:”_blank”&gt;公式サイト</a>でダウンロードできて、&lt;a href=”<a href="https://www.nanshiki.co.jp/software/index.html?sexe&quot;" target="_blank" rel="noopener">https://www.nanshiki.co.jp/software/index.html?sexe&quot;</a> target:”_blank”&gt;sexe</a>を使って簡単にWindowsサービス化させることができるのですが、このバージョンはあまりに古い。そして日本語解釈に難があるのです。3時間くらい格闘して「こりゃ駄目だ」ってことで最新版をCygwinを使ってビルドしてそのバイナリをWindowsサービスにしました。<br/>　Cygwinを使ってビルドするのは「&lt;a href=”<a href="https://qiita.com/fabiiw05/items/7687348a410897eca2bc&quot;" target="_blank" rel="noopener">https://qiita.com/fabiiw05/items/7687348a410897eca2bc&quot;</a> target:”_blank”&gt;Windows(Cygwin)でも mpd + ncmpcppを使いたい</a>」で詳しく書いてくれた人がいたのでそれを参考にしながらやってみました。cyg-fastでパッケージ入れようとしたけどMD5値が違うとか言って延々とダウンロードしてたので諦めてsetup-x86_64.exeから入れました。選ぶのが面倒臭かったのでフルインストールしました。フルインストールすると10GBくらいダウンロードしてインストールフォルダが40GBくらい必要になります。ディスク容量に余裕のない場合は上記ページの通りやりましょう。<br/>　上記ページでのMPDは0.19.09ですがwgetで0.19.10のソースコード「<a href="https://www.musicpd.org/download/mpd/0.19/mpd-0.19.10.tar.xz」にして解凍、ディレクトリ移動は落としたファイルに準じて行えば大丈夫です。makeでエラーが出るソースファイルも同じで、直すところも同じです。vimエディタの使い方がわからないのであればnanoというエディタもあるのでそれを使ってみてください。" target="_blank" rel="noopener">https://www.musicpd.org/download/mpd/0.19/mpd-0.19.10.tar.xz」にして解凍、ディレクトリ移動は落としたファイルに準じて行えば大丈夫です。makeでエラーが出るソースファイルも同じで、直すところも同じです。vimエディタの使い方がわからないのであればnanoというエディタもあるのでそれを使ってみてください。</a><br/>　mpd.confも上記ページの通りで動きます。楽曲フォルダを移動するなら、ですが。もともと別フォルダ、または別ドライブにある場合はその旨を書かなければなりません。例えば「Z:\music」フォルダに楽曲が入っているならばCygwinでの書き方は「/cygdrive/Z/music」になります。頭に「/cygdrive」がついてフォルダ区切り文字が「/」になります。サウンドデバイスはOSSを使うことになるかと思いますが、そこに「dsd_usb “yes”」と入れるとDSDネイティブ再生に対応したUSBサウンドデバイスにDSDのまま垂れ流します。確かDoP形式での対応だったと思います。<br/>　上記のビルド解説ページを下まで行えばNcmppもできあがって、とりあえず曲が聞けるようになったと思います。MPDクライアントはこれだけではなくてぐぐればいろいろ出てきます。日本語が文字化けしない優秀Windowsアプリとしては「&lt;a href=”<a href="https://www.soramimi.jp/skympc/&quot;" target="_blank" rel="noopener">https://www.soramimi.jp/skympc/&quot;</a> target:”_blank”&gt;SkyMPC</a>」などがあります。iOS、Androidのアプリもたくさんあります。<br/>　が、なぜかlocalhostからしかつなげられない…。セキュリティソフトの保護を切ってみてもダメ。まあ、今のところはこれでもいいんだけど、原因がわかった方、または「他端末から全然つながるし」って人は詳細な環境を是非教えてください。よろしくお願いします。bind_ip_addressも”any”なんだけどなぁ。telnetでつなげてみると一瞬つながってコネクションを切られます。Ubuntuのは普通につながるのになぁ。変なの。Cygwin版の制限なのかしら。<br/>　気を取り直してMPDのWindowsサービス化を行うことにします。まずは「cygserver」をサービス化しましょう。詳細なやり方は「&lt;a href=”<a href="https://www.saitoh.inzai.chiba.jp/report/r20120103-0.html&quot;" target="_blank" rel="noopener">https://www.saitoh.inzai.chiba.jp/report/r20120103-0.html&quot;</a> target:”_blank”&gt;Cygwinを使い倒そう 【3】 cygserver編</a>」で分かります。そしてWindowsのシステム環境変数の「Path」に「d:\cygwin64\bin;d:\cygwin64\usr\sbin」を追加。これはCygwinを「D:\cygwin64」にインストールした場合です。私の場合なので各々のインストールパスに対応した値を追加してください。<br/>　そしてWindowsサービス用のmpd.confを「/etc/mpd.conf」として作成してください。ビルドした際のmpd.confだとホームディレクトリ以下にプレイリストやデータベースを作成する形となりましたが、Windowsサービスを起動するユーザーである「SYSTEM」はそこを見ることもファイルを作ることもできませんので適当に「/var/mpd」とかディレクトリを作ったり、もしくは音楽ファイルの入っているディレクトリに「mpd」ディレクトリを作りそこに入れるという手もあります。SYSTEMユーザーは「/var」も見れないので「$ chown -R SYSTEM /var」とし「/var」ディレクトリの所有者をSYSTEMに変えてください。同様に「/etc」ディレクトリも変えておきましょう。いや「/etc」は変える必要はないかもしれないです。でも保険として。<br/>　次にinitをWindowsサービス化します。これも「&lt;a href=”<a href="https://www.saitoh.inzai.chiba.jp/report/r20150526-0.html&quot;" target="_blank" rel="noopener">https://www.saitoh.inzai.chiba.jp/report/r20150526-0.html&quot;</a> target:”_blank”&gt;Cygwinを使い倒そう 【4】 init編</a>」を読んでください。<br/>　そして「/etc/inittab」 のどこかに「md:3:wait:/usr/local/bin/mpd.exe /etc/mpd.conf」と記入します。rc.dの後ろあたりがいいかもしれません。最初の「md」はIDなので他と被らないようにしてください。<br/>　そうしてCygwin上で「cygrunsrv –start init」とすればWindowsサービスの「CYGWIN init」が起動し、同時にMPDが動き始めるはずです。HDDがガリガリ言い出して音楽ファイルを読み込んでいるようであれば成功です(データベースファイルをコピーしたらしないかも)。<br/>　おめでとうございます。これで作業は全て終了です。楽しいミュージックライフをお楽しみください。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-35288466" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -430,39 +463,6 @@
 
 
 
-  <article id="post-31876124" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2015-04-09T23:32:57.000Z"><a href="/2015/04/10/31876124/">2015-04-10</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/04/10/31876124/">AQUOS CRYSTAL Xに機種変した</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <p>　J-SH04sからずっとシャープ一筋です。J-SH04s→J-SH53→V604SH→945SH→203SHと使ってきました。どもども。<br/><br>　先々週SBショップへ行ってSHARP AQUOS CRYSTAL X(402SH)に機種変してきました。<br/><br>　シャープでもまだXxとかあったりする中、何が機種変の決め手だったかというと、やはりフォルムです。えせエッジレスだとしてもこのかっこよさは捨てがたい。AQUOS CRYSTAL(無印)はおサイフケータイがなかったりCPUの動作周波数が203SHよりも遅いということで見送りました。<br/><br>　ただ、日本向け仕様とは言え捨てざるを得なかった物もあります。赤外線通信とストラップホールが大きな物でしょうか。いわゆるガラケーとの連絡先交換ではまだ赤外線通信は使われています。スマホ同士ならNFCでやればいいのですが。まあ、NFCでできると言っても実際にしてるのは見たこと無くて、やっぱり紙に書いて交換というのがほとんどだったりします。<br/><br>　ストラップホールはアイマスのストラップ壊れちゃったし、元々ストラップ頼みの持ち方はしてなかったのでいいかな、と。どうしてもつけたくなったらストラップホール付きのハードケースでも買えばいいことですし。<br/><br>　ベンチマークスコア<br/><br>・3D Mark Ice Stome Extreme 10285<br/><br>・AnTuTu Benchmark HTML5 6905<br/><br>・GPUbench 23229<br/><br>　こんなものですかね。だいぶよさげ。やる気が出てきたらアイクロも再開してみます。スクストはぬるぬる。本当はこんなんだったんですね。<br/><br>　ニッチな製品ですが、刺さる人にはとことん刺さると思います。是非実機を見てみてください。では。<br/></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -522,7 +522,7 @@
   
     <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>73</small></li>
   
-    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>42</small></li>
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>43</small></li>
   
     <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
   

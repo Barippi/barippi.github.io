@@ -51,6 +51,42 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-31876131" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2014-11-15T03:03:07.000Z"><a href="/2014/11/15/31876131/">2014-11-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/11/15/31876131/">Ubuntu Server 14.10でIRC Bouncer 「ZNC」をデーモン化して使う</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　IRC(うちのアイマスコミュニティはLINEやカカオトークなどを入れてる人がほとんどいないのとキーボードの方が打つのが早いのでIRCでチャットしている)で話してると「VPSでIRCプロキシ建てるか」ととある男。tiarraでやってました。<br/><br>　なんか面白そうだったので俺もやってみた。<br/><br>　情報を集めていると「<a href="https://wiki.znc.in/ZNC" target="_blank" rel="noopener">ZNC</a>」というのがUbuntuのリポジトリに入っているらしい。日本語のドキュメントもそこそこあったのでこれに決めた。<br/><br>　インストールは<br/><br>$ sudo apt-get install znc<br/><br>　でおしまい。Daemonで動かさないなら<br/><br>$ znc –makeconf<br/><br>　でいろいろ設定をして(プラグインはwebadminくらいしかyesにしなかった)「~/.znc」以下に設定が保存されて自動的にバックグラウンドでの動作になる。再起動するたびにZNCを自分で起動しないといけない($ znc   で起動)けどこれがお気軽。<br/><br>　しかし、やっぱり不測のVPSメンテナンスに備えDaemon化はしたい。ログが取れないとか常駐ができないダメなIRC Bouncerにはしたくない。ということで以下はDaemon化させるための手順。基本的に<a href="https://wiki.znc.in/Running_ZNC_as_a_system_daemon" target="_blank" rel="noopener">Running ZNC as a system daemon</a>を見ればいいけど英語やだと言う人のために。<br/><br>$ sudo useradd –system –shell /sbin/nologin –comment “Account to run ZNC daemon” –user-group znc<br/><br>　としてDaemonを動作させるユーザーを作成する。そして「/var/lib/znc」ディレクトリを作りパーミッションを666あたりにして<br/><br>$ sudo -u znc /usr/bin/znc –datadir:/var/lib/znc –makeconf<br/><br>　を起動し、ユーザーzncでコンフィグを作成する。そのまま実行され常駐するがここでいったんZNCを止める。init.dスクリプトは「/etc/init.d/znc」とし、内容は<br/></p>
+<blockquote>
+</blockquote>
+<p>#! /bin/sh### BEGIN INIT INFO# Provides:          znc# Required-Start:    $remote_fs $syslog# Required-Stop:     $remote_fs $syslog# Default-Start:     2 3 4 5# Default-Stop:      0 1 6# Short-Description: ZNC IRC bouncer# Description:       ZNC is an IRC bouncer### END INIT INFO PATH:/sbin:/usr/sbin:/bin:/usr/binDESC:”ZNC daemon”NAME:zncDAEMON:/usr/bin/$NAMEDATADIR:/var/lib/zncDAEMON_ARGS:”–datadir:$DATADIR”PIDDIR:/var/run/zncPIDFILE:$PIDDIR/$NAME.pidSCRIPTNAME:/etc/init.d/$NAMEUSER:zncGROUP:znc# Exit if the package is not installed[ -x “$DAEMON” ] || exit 0# Read configuration variable file if it is present[ -r /etc/default/$NAME ] &amp;&amp; . /etc/default/$NAME# Load the VERBOSE setting and other rcS variables. /lib/init/vars.sh# Define LSB log_* functions.# Depend on lsb-base (&gt;: 3.2-14) to ensure that this file is present# and status_of_proc is working.. /lib/lsb/init-functions## Function that starts the daemon/service#do_start(){    # Return    #   0 if daemon has been started    #   1 if daemon was already running    #   2 if daemon could not be started    if [ ! -d $PIDDIR ]    then        mkdir $PIDDIR    fi    chown $USER:$GROUP $PIDDIR    start-stop-daemon –start –quiet –pidfile $PIDFILE –exec $DAEMON –test –chuid $USER &gt; /dev/null || return 1    start-stop-daemon –start –quiet –pidfile $PIDFILE –exec $DAEMON –chuid $USER – $DAEMON_ARGS &gt; /dev/null || return 2}## Function that stops the daemon/service#do_stop(){    # Return    #   0 if daemon has been stopped    #   1 if daemon was already stopped    #   2 if daemon could not be stopped    #   other if a failure occurred    start-stop-daemon –stop –quiet –retry:TERM/30/KILL/5 –pidfile $PIDFILE –name $NAME –chuid $USER    RETVAL:”$?”    [ “$RETVAL” : 2 ] &amp;&amp; return 2    # Wait for children to finish too if this is a daemon that forks    # and if the daemon is only ever run from this initscript.    # If the above conditions are not satisfied then add some other code    # that waits for the process to drop all resources that could be    # needed by services started subsequently.  A last resort is to    # sleep for some time.    start-stop-daemon –stop –quiet –oknodo –retry:0/30/KILL/5 –exec $DAEMON –chuid $USER    [ “$?” : 2 ] &amp;&amp; return 2    # Many daemons don&#39;t delete their pidfiles when they exit.    rm -f $PIDFILE    return “$RETVAL”}## Function that sends a SIGHUP to the daemon/service#do_reload() {    start-stop-daemon –stop –signal 1 –quiet –pidfile $PIDFILE –name $NAME –chuid $USER    return 0}case “$1” in  start)    [ “$VERBOSE” !: no ] &amp;&amp; log_daemon_msg “Starting $DESC” “$NAME”    do_start    case “$?” in        0|1) [ “$VERBOSE” !: no ] &amp;&amp; log_end_msg 0 ;;        2) [ “$VERBOSE” !: no ] &amp;&amp; log_end_msg 1 ;;    esac    ;;  stop)    [ “$VERBOSE” !: no ] &amp;&amp; log_daemon_msg “Stopping $DESC” “$NAME”    do_stop    case “$?” in        0|1) [ “$VERBOSE” !: no ] &amp;&amp; log_end_msg 0 ;;        2) [ “$VERBOSE” !: no ] &amp;&amp; log_end_msg 1 ;;    esac    ;;  status)    status_of_proc -p $PIDFILE “$DAEMON” “$NAME” &amp;&amp; exit 0 || exit $?    ;;  reload)    log_daemon_msg “Reloading $DESC” “$NAME”    do_reload    log_end_msg $?    ;;  restart)    log_daemon_msg “Restarting $DESC” “$NAME”    do_stop    case “$?” in      0|1)        do_start        case “$?” in            0) log_end_msg 0 ;;            1) log_end_msg 1 ;; # Old process is still running            *) log_end_msg 1 ;; # Failed to start        esac        ;;      *)        # Failed to stop        log_end_msg 1        ;;    esac    ;;  *)    echo “Usage: $SCRIPTNAME {status|start|stop|reload|restart}” &gt;&amp;2    exit 3    ;;esac<br><br/><br>　とし、 保存(これは元サイトからコピペしたほうがいいかも)。そして<br/><br>$ sudo chmod 755 /etc/init.d/znc<br/><br>　で、スクリプトに実行権限を与える。最後に<br/><br>$ sudo update-rc.d znc defaults<br/><br>　でinit.dで動くように登録する。これでシステム起動時に自動でZNCが起動され、チャンネルに常駐するように設定していれば常駐するようになる。<br/><br>$ sudo service znc start<br/><br>　でDaemonとして起動するし、stopで止まるしreloadでコンフィグ読み直すしrestartで再起動する。あとはstatusで状態を見ることができる。<br/><br>　スクリプトが長いだけでやることは少ないです。IRC、スマホからもできるしiTunesカード買ってくれって言われることもないし、便利ですよ。<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-31795626" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -365,54 +401,6 @@
 
 
 
-  <article id="post-31876135" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2014-08-25T04:11:05.000Z"><a href="/2014/08/25/31876135/">2014-08-25</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/08/25/31876135/">玄人志向のHDD外付けケースを買った</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <p>　玄人志向の<a href="https://goo.gl/3T7iee" target="_blank" rel="noopener">GW3.5AX2-SU3/REV2.0</a>を買って昨日届いたので早速利用開始してみました。<br/><br>　HDDは使い古しの1TBx2本。取り付けはなかなか簡単でした。ネジ4本外してケースを外す→HDDをざくっと挿す→HDDをネジ4本ずつで固定→動作モードスイッチを設定する→ケースかぶせてネジ止め→電源とUSBケーブルを挿してPCにつなげる。これだけでした。最近はHDD固定がスクリューレスだったりする製品もありますがネジ止めはそんなに手間ではありませんでした。<br/><br>　最初はHDDの中身取り出すのにシングルモードにしてつなぎましたがドライブがベーシックモードじゃないと認識しないようです。うーむ。むしろ欲しいデータは認識しない方にあったんだけど・・・。データサルベージをできるだけしてRAID 0モードに。<br/><br>　USB3.0なので帯域が広くHDD2本のRAID 0くらいではびくともしません。転送速度測ってみたらシーケンシャルリードで160MB/s出ました。主な用途はNASのデータのバックアップなので(バックアップでRAID 0ってどうよと思うのだが)HDDがボトルネックになることは無さそうです。実際バックアップもネットワーク帯域のほぼ上限まで使いきりました。<br/><br>　HDDは4TBまで使えると書いていました。と言う事はRAID 0とかJBODで8TBストレージができるということですね。なかなか魅力的。<br/><br>　私個人の考えとしては「RAID 1でもデータ消える時は消える」なのでそれなら容量取ろうということです。RAID 1とか5で一箇所に置いておくよりはRAID 0で複数箇所に置いておく。こっちのほうがいいんじゃないかなと。<br/><br>　値段もお手軽で余ってるSATAのHDDがあるならお試しにいかがでしょうか。玄人志向なのでメーカーサポートはありませんが…。<br/><br> <br/></p>
-<div class:"freezed"><br/>
-<div class:"hatena-asin-detail"><a href="https://www.amazon.co.jp/exec/obidos/ASIN/B00FR86SGK/anmarikousins-22/" target="_blank" rel="noopener"><img class:"hatena-asin-detail-image" title:"玄人志向 HDDケース3.5インチHDD2台搭載可能 USB3.0/2.0 GW3.5AX2-SU3/REV2.0" src="https://ecx.images-amazon.com//images/I/41WjZR4lD8L._SL160_.jpg" alt:"玄人志向 HDDケース3.5インチHDD2台搭載可能 USB3.0/2.0 GW3.5AX2-SU3/REV2.0"/></a><br/>
-<div class:"hatena-asin-detail-info"><br/>
-<a href="https://www.amazon.co.jp/exec/obidos/ASIN/B00FR86SGK/anmarikousins-22/" target="_blank" rel="noopener">玄人志向 HDDケース3.5インチHDD2台搭載可能 USB3.0/2.0 GW3.5AX2-SU3/REV2.0</a><br/>
-<ul><br/>
-<li><span class:"hatena-asin-detail-label">出版社/メーカー:</span> 玄人志向</li><br/>
-<li><span class:"hatena-asin-detail-label">発売日:</span> 2013/10/11</li><br/>
-<li><span class:"hatena-asin-detail-label">メディア:</span> Personal Computers</li><br/>
-<li><a href="https://d.hatena.ne.jp/asin/B00FR86SGK/anmarikousins-22" target="_blank" rel="noopener" target:"_blank">この商品を含むブログ (1件) を見る</a></li><br/>
-</ul><br/>
-</div><br/>
-<div class:"hatena-asin-detail-foot"> </div><br/>
-</div><br/>
-</div><br/>
- <br/>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -472,7 +460,7 @@
   
     <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>73</small></li>
   
-    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>42</small></li>
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>43</small></li>
   
     <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
   
