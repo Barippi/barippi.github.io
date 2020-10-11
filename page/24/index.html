@@ -51,6 +51,71 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-31876225" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2012-06-11T22:34:49.000Z"><a href="/2012/06/12/31876225/">2012-06-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/06/12/31876225/">Ubuntu 12.04LTSにPS3 Media Serverをインストールする</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>せっかくUbuntuのNASマシンにファイルがたくさんあるのでWindowsでやってたDLNAサーバをUbuntu上で動かしたくなったので最初はMedia Tombを入れました。ところがなにが悪かったのかルートパーティーションがDISC FULL状態に。Purgeしてディスク容量は通常に戻ったもののさてどうしたものかと。<br/><br> <br/><br>WindowsではPS3 Media Serverを使っていて、たしかあれJavaだったなということで情報を探し回した。昔のUbuntuで入れてる人は多かった。最新のUbuntuでどうだろうと探したところ <a href="https://www.ps3mediaserver.org/forum/viewtopic.php?f:3&amp;t:13046" target="_blank" rel="noopener">https://www.ps3mediaserver.org/forum/viewtopic.php?f:3&amp;t:13046</a> の記事が。リポジトリ公開したよんとのことでこれ幸いとインストール。<br/></p>
+<ol><br/>
+<li><code>sudo add-apt-repository ppa:happy-neko/ps3mediaserver</code></li><br/>
+<li><code>sudo apt-get update</code></li><br/>
+<li><code>sudo apt-get install ps3mediaserver</code></li><br/>
+</ol><br/>
+でインストール完了。「ps3mediaserver」コマンドで立ち上がります。設定等は割愛します。<br/>
+ <br/>
+Known Bugとして「Unity desktop hides system tray icons for some applications.」つまりUnityのシステムトレイ上にPS3 Media Serverのアイコンが現れない、ということで、これを解消するのが以下のコマンド、<br/>
+<ol><br/>
+<li><code>gsettings set com.canonical.Unity.Panel systray-whitelist "[&#39;all&#39;]"</code></li><br/>
+</ol><br/>
+を実行します。そしてログインをし直します。そうすればシステムトレイにアイコンが現れるとのことです。私の環境ではこれでも出てきませんでしたが。(追記：出ました)<br/>
+ <br/>
+ひと通り設定し終わると今度はGUIレスで起動したくなるのですが、こちらは<br/>
+<ol><br/>
+<li><code>sudo gedit /etc/default/ps3mediaserver</code></li><br/>
+</ol><br/>
+とし、ファイルを以下のように編集します。<br/>
+<ul><br/>
+<li>Change PMS_START to "yes"</li><br/>
+<li>Change PMS_USER to your login name</li><br/>
+<li>Change PMS_PROFILE to "/home/YOUR_LOGIN/.config/ps3mediaserver"</li><br/>
+</ul><br/>
+そして、<br/>
+<ol><br/>
+<li><code>sudo /etc/init.d/ps3mediaserver start</code></li><br/>
+</ol><br/>
+とし、起動します。止める時は「stop」です。「restart」はありません。<br/>
+ <br/>
+あと、ディレクトリ構成としては<br/>
+>FILES and DIRECTORIESExecutable/usr/bin/ps3mediaserverUser configuration$HOME/.config/ps3mediaserver/PMS.conf$HOME/.config/ps3mediaserver/WEB.confSystem-wide configuration/etc/ps3mediaserver/Renderers&#39; profiles/etc/ps3mediaserver/renderers/Log directory/var/log/ps3mediaserver/Media database directory/var/lib/ps3mediaserver/Plugins directory/usr/lib/ps3mediaserver/plugins/Init.d script/etc/init.d/ps3mediaserver /etc/default/ps3mediaserver (daemon startup options)<br/>
+ということです。このhappy-nekoさんは日本人なのかな。便利に使わせていただきます。ありがとうございます。<br/>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-31876226" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -351,39 +416,6 @@
 
 
 
-  <article id="post-31876231" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2012-03-04T14:23:07.000Z"><a href="/2012/03/04/31876231/">2012-03-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2012/03/04/31876231/">Aterm WR8700NとSBM 945SHの関係4</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <p>いつの間にかルーターのファームウェアがバージョンアップしていた。1.0.14。早速入れてみたけどまたダメ。ケータイをつなぐだけでルーターが再起動を繰り返す。<br/><br>何が悪いんだろうなぁ。俺には皆目見当もつかない。貸出機でもなったけど同じモデルだからどっちが悪いとは言えないんだけど。あと7ヶ月使わないといけないのでファームウェアを不具合のでない1.0.4に戻した。ぐぅ…。<br/></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -443,7 +475,7 @@
   
     <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>73</small></li>
   
-    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>43</small></li>
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>44</small></li>
   
     <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
   
