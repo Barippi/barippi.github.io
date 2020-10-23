@@ -62,6 +62,39 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-31876168" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2013-10-20T17:53:31.000Z"><a href="/2013/10/21/31876168/">2013-10-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/10/21/31876168/">Ubuntu 13.10に入ってるApacheで苦戦した話</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>何に難儀したかってCGI関連。デフォルトで動かない設定になっている。<br/><br>mime.confのCGIハンドラーのところのコメントを外し、「sudo a2enmod cgid.load」しないと動かない。まあ危険なCGI動かされるより最初から動かない方が安全って事なのかしら。これを解決するスキルが無いと動かしません！みたいな。<br/><br>あとCGIディレクトリの設定も一個設定すれば下のディレクトリが有効になってたのが無効になっている。下にディレクトリを切っている場合はそこまで書いてあげないと動かないようになっている。めんどくさい。<br/><br>詳しい話は誰か書いてくれると思うのでこの辺で。<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-31876170" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -360,39 +393,6 @@
 
 
 
-  <article id="post-31876185" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2013-05-05T03:54:31.000Z"><a href="/2013/05/05/31876185/">2013-05-05</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/05/05/31876185/">ID3タグのUTF-8化にあのソフトが対応していた</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <p>　昔の記事で「ID3Uni」が良いと書きましたが、かつて常用していたあのソフトがID3タグのUTF-8化できるのを教えてもらった。<br/><br>　それは「<a href="https://hp.vector.co.jp/authors/VA012911/STEP/step.html" target="_blank" rel="noopener">STEP</a>」です。チェックボックスが付いているファイルの列をドラッグでダーっと選択してメニューの「変換」→「ID3 2のバージョン/文字コードの変換」→出てきたダイアログで「バージョン」を「v2.4」、「文字エンコード」を「UTF-8」にして「はい」ボタンを押下、順次変換され、終わったら「タグ情報の更新」をします。これでおしまい。<br/><br>　Windows7なのにメモリが3GBと貧弱なせいもあるのか大量のファイルをドロップすると落ちますけど一気に変換できるのは良い。みなさんも是非お試しを。<br/></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -452,7 +452,7 @@
   
     <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>73</small></li>
   
-    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>44</small></li>
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>45</small></li>
   
     <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
   
