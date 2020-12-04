@@ -62,6 +62,39 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-293238931-html" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2013-02-09T17:35:37.000Z"><a href="/2013/02/10/293238931-html/">2013-02-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/02/10/293238931-html/">Ubuntu12.04でLyXを入れるときに一緒に入ろうとするTeXパッケージと格闘する</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>前サーバーマシンが壊れ、HP ProLiant ML110 G7にサーバーマシンが変わったのでこれにもTeX環境構築しようと思ってまずTeX Live 2012を入れました。これは全然問題なく終わって、さてLyXでも入れようかねと「sudo apt-get install lyx」したらなんかTeX関連のパッケージを一緒に入れようとしてコケる。LyXはちゃんと入るけれども。前もこうだったっけ？<br>で、LyXが入ったならいいやーと思って放置してたけどセキュリティアップデート等を入れる時にその入らなかったTeXパッケージが「こんにゃろー入ってやる！」と言わんばかりの攻勢。そして毎回失敗して終わる。これが毎回あってうざったいので何とかしようと試みた。<br>まずはTeX Live 2012のアンインストール。「sudo tlmgr uninstall」でさっぱり消えてくれる。そして「sudo apt-get install lyx」で強情なTeXパッケージをインストール。TeX Live 2011相当なのかね。そしてTeX Live 2012のインストール。リポジトリをJAISTやらNAISTにしてインストールしてるエントリが多くあるがSINET経由で遅いのでRingプロジェクトとかKDDI Labのリポジトリがオススメ。半分くらいの時間で入る。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-31876205" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -362,52 +395,6 @@
 
 
 
-  <article id="post-31876212" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2012-10-01T23:36:41.000Z"><a href="/2012/10/02/31876212/">2012-10-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2012/10/02/31876212/">液晶が割れたまま放置してたネットブックにLubuntuを入れた(追記アリ)</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <p>うちにはネットブックが3台あります。最初に買って寝てる間に液晶を割った1号と簡易サーバーにしている2号と現在Lubuntuを入れて布団サイドPCとして使っている3号です。どれも世代は最古の部類に入るネットブックです。<br/><br> <br/><br>今回は1号のお話。ネットブックには幸いにしてD-SUB15ピン出力があるのでそれにディスプレイをつないで作業しました。<br/><br> <br/><br>インストールそのものはUSBメモリから立ち上げてインストールのいつものやり方。もう何回もやってるので迷うこと無く無事インストール完了。有線LANから無線LANへの切り替えも行った。<br/><br> <br/><br>次にリモートデスクトップ環境を構築します。これはapt-get一発です。<br/></p>
-<ul><br/>
-<li>$ sudo apt-get install xrdp xvfb vnc4server lxde-common</li><br/>
-</ul><br/>
-これでxrdpを起動し直す(sudo service xrdp restart)するだけでつながるようになります。Windows7ならスタートボタン→アクセサリ→リモートデスクトップ接続でrdpクライアントを立ちあげて、マシン名入力を行い接続ボタンをクリックしてID、PASSを入れると画面がバーンと出てきます。テーマ等はLubuntuオリジナルのではなくLXDE標準のものになります。<br/>
- <br/>
-ですが、そんなにうまく事が進まないのは世の常で、今の状態だとキーボードが英語配列になってしまうのです。まあもともとUS配列の人はそれでいいんでしょうけど、日本語キーボード使いには困った問題。 <a href="https://www.eonet.ne.jp/~smallbear/X/xrdp-jpkeymap.html" target="_blank" rel="noopener">https://www.eonet.ne.jp/~smallbear/X/xrdp-jpkeymap.html</a> で解決方法を書いているが、これでも直らない。Lubuntu側のキーマップを変更するアプレットも立ち上がらない。まあ自力でKeymap作ってもいいのでしょうがそこまでやるような事でも無いと思いそのまま使ってます。(追記あり)<br/>
- <br/>
-ここまできたらディスプレイケーブルを外し、熱のこもらないところに放置。<br/>
- <br/>
-というか、このマシン、何に使おう……。<br/>
- <br/>
-追記--<br/>
-<a href="https://gihyo.jp/admin/serial/01/ubuntu-recipe/0208" target="_blank" rel="noopener">https://gihyo.jp/admin/serial/01/ubuntu-recipe/0208</a> このページで公開されているリポジトリのxrdpを入れたら日本語キーボードが認識されました。大変ありがたいことです。<br/>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -465,7 +452,7 @@
   
     <li><a href="/tags/ゲーム/">ゲーム</a><small>403</small></li>
   
-    <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>73</small></li>
+    <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>74</small></li>
   
     <li><a href="/tags/ハードウェア/">ハードウェア</a><small>46</small></li>
   
