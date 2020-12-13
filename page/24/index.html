@@ -62,6 +62,54 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-31876221" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2012-07-22T19:27:55.000Z"><a href="/2012/07/23/31876221/">2012-07-23</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/07/23/31876221/">MUNINをUbuntu 12.04LTSに入れてみた</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>ツイッターで「MUNINはよい」的な事を言ってる人がいたのでどのようなものか確かめるために入れてみました。<br/><br> <br/><br>こちら <a href="https://itfun.jp/2010/06/ubuntu-servermunin.html" target="_blank" rel="noopener">https://itfun.jp/2010/06/ubuntu-servermunin.html</a> を参考にインストールしました。インストールはかなり簡単で、<br/></p>
+<ul><br/>
+<li>$ sudo apt-get install munin munin-node munin-plugins-extra</li><br/>
+</ul><br/>
+で完了。APT最高です。「munin」が情報をまとめてhtmlドキュメントを作るサーバー、「munin-node」が情報を収集するエージェント的なもの、「munin-plugins-extra」がMUNINの情報収集プラグイン集です。<br/>
+ <br/>
+で、インストールしたらconfファイルの編集です。「/etc/munin/munin.conf」を編集します。「htmldir /var/www/munin」のところをコメント(#)を外して適宜htmlドキュメントを入れるディレクトリを指定します。apache2を入れてデフォルトのままだとこのままで良い気がします。もちろんmuninディレクトリを作ることになりますが…。そして、「/etc/munin/apache.conf」も編集します。これもディレクトリ定義等を適宜修正します。デフォルトのままだとhtmlドキュメントをサーバー本体からしか見れないので「Allow from 192.168.0.0/24」等とするのが良いでしょう。そうするとLAN内のマシンから見られるようになります。<br/>
+ <br/>
+ここまできたらapacheとmunin-nodeを再起動します。<br/>
+<ul><br/>
+<li>$ sudo /etc/init.d/munin-node restart</li><br/>
+<li>$ sudo /etc/init.d/apache2 restart</li><br/>
+</ul><br/>
+これで遅くとも10分後には指定したディレクトリにhtmlドキュメントができあがり、グラフが見られるようになります。<br/>
+ <br/>
+まあ、MRTGも入れてるんですが、インストール、設定はMUNINの方がはるかに簡単ですね。サーバー監視にオススメです。<br/>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-31876223" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -394,39 +442,6 @@ Known Bugとして「Unity desktop hides system tray icons for some applications
 
 
 
-  <article id="post-31876229" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2012-04-05T15:03:51.000Z"><a href="/2012/04/06/31876229/">2012-04-06</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2012/04/06/31876229/">ToDo管理に思うこと</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <p>ToDo管理によくある数字による重み付け、あれって意味あるんですかね？<br/><br>100だろうが1だろうがやらなきゃいけないことは変わらないのであって。下手に軽く重み付けすると後に延ばし延ばしになって気がついたら火が付いてたみたいなことにならないんですかね？<br/><br>ToDo管理に必要なのは重み付けじゃなくてタイムリミットではないでしょうか。<br/><br>そう思ってるんで、俺は重み付けをしないでToDoリストを管理してます。タイムリミットをつければ動的に重みも変わります。<br/><br>こんな感じでいいんじゃないのかなぁ。特にオチはありませんが…。<br/></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -486,7 +501,7 @@ Known Bugとして「Unity desktop hides system tray icons for some applications
   
     <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>74</small></li>
   
-    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>46</small></li>
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>47</small></li>
   
     <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
   

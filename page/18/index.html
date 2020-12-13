@@ -62,6 +62,39 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-31876146" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2014-03-26T09:53:18.000Z"><a href="/2014/03/26/31876146/">2014-03-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/03/26/31876146/">WMP12をデジタルメディアレンダラーとして使おうとして挫折したお話</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　オーディオファイルがDLNAで操作できるようになったらムービーファイルもDLNA操作で見てみたいという欲求に駆られました。最初はPS3をレンダラーとして使えないかと検索してみたのですが「実装してません」とのこと。がっかりしながらgoogleの検索結果を見ているとWindows Media Player 12がDLNAデジタルメディアレンダラーに対応しているとの記事。ただ、設定をしないとそうならないということだそうです。<br/><br>　WMP12を立ち上げて、左上の「ストリーム」って所に設定があります。「プレーヤーのリモート制御を許可」と「デバイスでのメディア再生を自動的に許可」にチェックが入るようにします。そして「その他のストリーミングオプション」で許可するコントローラーを決めます。で、WMPを再起動します。これでレンダラーとして使えるようになります。<br/><br>　まずオーディオファイルを再生してみましたがなんかトロい。FLACも対応してない。寂しい。<br/><br>　次にムービーファイルを再生してみましたがDVD解像度のファイルの再生開始に1分くらいかかる。フルHDだともっとかかって「無かったことにしよう」という気になり断念。スマホのWifiの帯域が狭いのが原因かも。11gだしなぁ。残念。<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-31876147" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -359,39 +392,6 @@
 
 
 
-  <article id="post-31876161" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2013-11-10T21:11:30.000Z"><a href="/2013/11/11/31876161/">2013-11-11</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/11/11/31876161/">Chromium OSを触ってみた</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <p>　<a href="https://goo.gl/EX9dz6" target="_blank" rel="noopener">日経Linux 2013年12月号</a>で「最新Chrome OSで軽量マシン」という特集があったのでついついビルド環境作って触ってみました。まあオープンソース版なので正確にはChromium OSですが。<br/><br>　「Chrome OS」とはなんぞやということですが、GoogleがUbuntuを元にして作ったGoogle Chromeブラウザ内ですべてが完結するOSです。日本国外ではエイサー、サムスン、ヒューレット・パッカード、レノボ、グーグルがChromebook、Chromebox(デスクトップマシン)として製品を出しています。輸入もできるんじゃないかな。<br/><br>　うちにはもうすぐサポートが終わってしまうWindows XPのネットブック(最初のAspire One)があったのでそれに入れてみよう、と。思い立ってしまったわけです。<br/><br>　ちょっと前までデイリーでビルドしてライブイメージを提供してた人がいたのですが、やめてしまったみたいで、最新のを使おうとすると自分でソースコードからビルドするしかありません。ビルドします。はい。<br/><br>　公式のビルド環境はUbuntu 12.04 LTSの64bit版。提供されている開発環境が64bit版しかないからみたいです。でも初期ネットブックに対応する32bit版もここからビルドすることができます。<br/><br>　私はビルド環境がなかったので仮想マシンを作り、そこにUbuntu 64bit版を入れました。メモリは4GB、HDDが100GB(実はこんなにいらない)、CPUコアは2つにしました。もしSSDを50GBくらい使えるならそうした方がいいです。ビルド速度とかライブイメージ作成速度がさらに早くなります。<br/><br>　ソースコードのダウンロード、ビルド環境のダウンロード、ビルド、ライブイメージ作成、USBメモリにダンプで大体2～3時間といったところでしょうか。できあがりです。<br/><br>　USBメモリをネットブックに挿してブート。USB2.0でも1分くらいで立ち上がります。最初に言語とキーボードとネットワークの設定。Chromium OSはネットワークがないと何もできないのでネットワーク重要です。無線LANも変なのを使って無ければ最初から使えます。Gmailのアカウントを入れてログイン。最初のログインには2段階認証がかかります。一度2段階認証をすれば次からはパスワードだけで入れるようになります。<br/><br>　この特集ではUSBブートだけではなく実際のマシンにインストールができるように仕掛けがしてあります。ほいほいと入れてリブートしてみると30～40秒くらいでログイン画面が立ち上がりました。ちょっとUSBよりも早い。というか長いことサーバー機として使ってたものだからHDDが壊れかけててこんなにかかるのかもしれません。実際はもうちょっと早いかも。<br/><br>　感想としては「よく出来てるけどローカルの記憶領域がどうなってるのかよくわからん」といったものでした。ネットラジオとかYouTubeとかあるからいらないかもしれませんが自分のCDからリッピングしたmp3とかは聴きたい。でもどうやって？どこに保存してそしてブラウザで聴けるの？見れるの？と。Chromiumブラウザからできるんですかね。今日はChromeアプリを掘ったりとかはできなかったんで調査不足かもしれません。今後の課題とします。え、言い出しっぺの法則？…聞かなかったことにします。<br/><br>　自分でソース書いたわけじゃありませんがビルドって楽しいですね！(ぇ そう思うのは一部かもしれませんが……。ただ、自分で使ってるOSがもともとどういうものでどのような過程を経てDVDやらになってるのかの一部を見れるのはいいかもしれません。来週の週末あたりどうでしょう、やってみませんか？<br/><br><a href="https://goo.gl/EX9dz6" target="_blank" rel="noopener">Amazon.co.jp： 日経 Linux (リナックス) 2013年 12月号: 日経Linux: 本</a><br/><br> <br/><br>追記：<br/><br>　Chromium OSは売ってるChrome OSと違いFLASHやらmp3とかmp4とかh.264のコーデックは入っていないようです。これではネットラジオも聞けないしYouTubeも見れない。雑誌のほうにもインストールの仕方は書いてあるんですが、これが上手くいかない。で、探してみたところ<br/><br><a href="https://gist.github.com/rikels/4031126/" target="_blank" rel="noopener">https://gist.github.com/rikels/4031126/</a><br/><br>を読んで、書いてある通りにするとFLASHとかもろもろ入ります。FLASHのプレーヤーを使うネットラジオで音が聞けることを確認しました。<br/></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -451,7 +451,7 @@
   
     <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>74</small></li>
   
-    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>46</small></li>
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>47</small></li>
   
     <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
   
