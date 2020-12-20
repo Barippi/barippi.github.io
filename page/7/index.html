@@ -62,6 +62,39 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-75290654" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2018-03-11T18:42:22.000Z"><a href="/2018/03/12/75290654/">2018-03-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/03/12/75290654/">[小ネタ] ささ農園さんの青島ネクターを飲みました</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>&lt;a target:”_blank” title:”DSC_0243” href=”/images/08923a24.jpg”&gt;&lt;img class:”pict” hspace:”5” alt:”DSC_0243” border:”0” height:”853” width:”480” src=”/images/08923a24.jpg”/&gt;</a><br/><br/>　はい。ポンジュースの3倍はおいしかったです。というかここまで美味いジュースは飲んだことないです。<br/>　今日、ちゃばらで売るという話を聞いたのでこれは是も非もないということで買ってきました。すごく気合い入れて500本入れたみたいで、売り切れるといいなーと思います。<br/>　アイドルマスター シンデレラガールズのライブツアー、セレンディピティパレードで紹介されて即Pの餌食になって長らく通販では品切れ状態でした。ちゃばらは20時までやっているようなので残っているようでしたら是非お買い上げください。よろしくお願いいたします。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-75160314" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -359,60 +392,6 @@
 
 
 
-  <article id="post-73504958" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2017-11-06T22:19:06.000Z"><a href="/2017/11/07/73504958/">2017-11-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/11/07/73504958/">WSLでNode.jsを入れてGithub PagesにHexoで静的ページblogを作るお話</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <p>　Hexoってなんて読むんでしょうね。という話は置いといて、静的サイトジェネレーター、Hexoを使ってgithub.ioにブログを作るお話です。<br/><br>　HexoはNode.jsで動くのでNode.jsが何はなくとも必要です。しかし、Node.jsはバージョンがたくさんある上、バージョンに寄ってその上で動くアプリケーションが動いたり動かなかったりするので、ひとまずNode.jsのバージョン管理ソフトを入れます。nvmと呼ばれるものを今回は入れます。<br/></p>
-<blockquote>
-<blockquote>
-<p>$ git clone <a href="https://github.com/creationix/nvm.git" target="_blank" rel="noopener">https://github.com/creationix/nvm.git</a> ~/.nvm$ source ~/.nvm/nvm.shとすればnvmが入ります。かんたんですね。gitはWSLのUbuntuでは標準で入ってました。<br/><br>　次はNode.jsを入れます。<br/><br>$ nvm ls-remoteとすることで、今インストール可能なバージョン一覧がずらーっと現れます。本番環境で使うにはLTS版の方が安心なので偶数バージョンを入れます(奇数バージョンは開発版らしいです)。私は当時最新LTSのv6.11.4を入れました。今はv6.11.5らしいです。それを入れましょう。<br/><br>$ nvm install 6.11.5で入ります。かんたんですね。そしてデフォルトで使うNode.jsのバージョンを指定します。<br/><br>$ nvm alias default v6.11.5<br/>このコマンドを実行して「default -&gt; v6.11.5」と出てくればOKです。<br/><br>　次はWSLを起動した時にnvmが使えるように設定します。具体的に言うと「.bashrc」というファイルをいじります。<br/><br>$ nano .bashrcとして<br/>&lt;img class:”pict” hspace:”5” alt:”2017-11-06” border:”0” height:”338” width:”480” src=”/images/e47fb3f3.png”/&gt;<br/><br/><br>　上の画像のように(上の画像は.bash_profileを開いてますが)<br/><br>if [[ -s ~/.nvm/nvm.sh ]]; then source ~/.nvm/nvm.shfi<div>を書き込みます。書いたらCtrl+Oを押下して保存してCtrl+Xを押下して終了させます。これでwslttyを起動した時にnvmが使えて、Node.jsも使えるようになりました。<br/><br>　githubにアカウントがない方は作ってください。非公開のプライベートリポジトリを作らないならばタダでアカウントを作れます。作れたら<br/><br/><br>&lt;img class:”pict” hspace:”5” alt:”86f7788f-ea83-4877-84ac-b9838d01c9f4” border:”0” height:”26” width:”480” src=”/images/57ce8775.png”/&gt;<br/><br>の右の「＋」を押下し、「New Repository」を押下します。現れたページで「ユーザ名.github.io」という名前のリポジトリを作ります。私なら「barippi.github.io」ですね。「Initialize this repository with a README」はチェックを外しておきましょう。<br/><br>&lt;img class:”pict” hspace:”5” alt:”6855711e-967d-414c-825a-37dd7fcbb876” border:”0” height:”333” width:”480” src=”/images/3ed785c2.png”/&gt;</p>
-</blockquote>
-</blockquote>
-<p>のように(私はもうページを作ってるのでこうなってますが)リポジトリができたよというページが表示されればOKです。<br/><br>　次に、githubにPushできるように鍵を作ります。<br/></p>
-</div>>$ mkdir ./.ssh$ cd .ssh$ ssh-keygen<div>として現れた質問(パスフレーズを設定してねと英語で出る)に答えれば秘密鍵と公開鍵が作成されます。<br/></div>
->$ cat id_rsa.pub<div>として出てきた内容をgithubに登録します。ページの右上の自分のアイコンを押下し、Settingを選び、出てきたページの左ペインからSSH and GPG keysを選びます。出てきたページにおいてAdd SSH keyボタンを押下し、先程catした内容をコピーアンドペーストします。成功するとその旨ページに現れて、これでHexoから直にPushできるようになります。ちょっとむずかしくなってきましたね。<br/>
-　さて、ここまでで「Hexoの話は？」となった方もいるかもしれませんが、やっとです、やっとHexoを入れます！インストールします！<br/></div>
->$ npm install -g hexo<div>これでOKです！かんたんになりましたね。次はBlogの雛形を作ります。<br/></div>
->$ hexo init ○○(myblogとかでOK)<div>これでmyblogとした方ならmyblogというディレクトリができています。<br/></div>
->$ cd myblog$ npm install<div>で必要なモジュールがインストールされます。お手本としてHello Worldの記事があるのでこれをgithub上にPushしてみます。_config.ymlを編集します。<br/>
-$ nano _config.yml<br/><br/><img class:"pict" hspace:"5" alt:"2017-11-06 (1)" border:"0" height:"338" width:"480" src="/images/9e13c0b0.png"/><br/>
-こんな感じでタイトルとか付けて<br/><br/><img class:"pict" hspace:"5" alt:"2017-11-06 (3)" border:"0" height:"338" width:"480" src="/images/e4c08657.png"/><br/>
->こんな感じにデプロイ先を書きます。下のfeedはRSSをatom形式で配信する設定です(要後述プラグイン)。deployのrepoは個人個人で異なります。上の方のthemeは上画像ではlightになってますが、今のところはいじらないでください。ではデプロイしてみましょう。<br/></div>>$ hexo deploy -g<div>これでサイトを生成してデプロイまでやってくれます。成功したでしょうか。成功して数分経つと<a target:"_blank" href="https://barippi.github.io">https://barippi.github.io</a>のようにサイトができあがります。いやー、かんたんかんたん。<br/>
-　「新しい記事を書きたい」。そうですよねー。新しい記事を書くときは<br/></div>
->$ hexo new "書きたい記事タイトル”<div>です。「~/myblog/source/_posts」にMarkdown形式で保存されています。Markdown形式で書き書きしてデプロイさせると新しい記事が追加されます。<br/>
-　「テーマを変えたい」。そうですよねー。これも簡単です。<br/></div>
->$ git clone 適用させたいテーマのgitリポジトリ theme/テーマ名<div>です。そして上スクリーンショットのようにテーマ名を変えればいいです。<br/>
-　atomを配信するにはnpmでhexo-generator-feedというパッケージをインストールしてください<br/></div>
->$ npm search hexo<div>とすればhexoで使用できるプラグインが多数見つかります。簡単な説明もついてるので参考にしつつインストールしたりしなかったりしてみてください。</div>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -472,7 +451,7 @@ $ nano _config.yml<br/><br/><img class:"pict" hspace:"5" alt:"2017-11-06 (1)" bo
   
     <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>74</small></li>
   
-    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>47</small></li>
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>48</small></li>
   
     <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
   

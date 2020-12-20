@@ -62,6 +62,60 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-73504958" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2017-11-06T22:19:06.000Z"><a href="/2017/11/07/73504958/">2017-11-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/11/07/73504958/">WSLでNode.jsを入れてGithub PagesにHexoで静的ページblogを作るお話</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　Hexoってなんて読むんでしょうね。という話は置いといて、静的サイトジェネレーター、Hexoを使ってgithub.ioにブログを作るお話です。<br/><br>　HexoはNode.jsで動くのでNode.jsが何はなくとも必要です。しかし、Node.jsはバージョンがたくさんある上、バージョンに寄ってその上で動くアプリケーションが動いたり動かなかったりするので、ひとまずNode.jsのバージョン管理ソフトを入れます。nvmと呼ばれるものを今回は入れます。<br/></p>
+<blockquote>
+<blockquote>
+<p>$ git clone <a href="https://github.com/creationix/nvm.git" target="_blank" rel="noopener">https://github.com/creationix/nvm.git</a> ~/.nvm$ source ~/.nvm/nvm.shとすればnvmが入ります。かんたんですね。gitはWSLのUbuntuでは標準で入ってました。<br/><br>　次はNode.jsを入れます。<br/><br>$ nvm ls-remoteとすることで、今インストール可能なバージョン一覧がずらーっと現れます。本番環境で使うにはLTS版の方が安心なので偶数バージョンを入れます(奇数バージョンは開発版らしいです)。私は当時最新LTSのv6.11.4を入れました。今はv6.11.5らしいです。それを入れましょう。<br/><br>$ nvm install 6.11.5で入ります。かんたんですね。そしてデフォルトで使うNode.jsのバージョンを指定します。<br/><br>$ nvm alias default v6.11.5<br/>このコマンドを実行して「default -&gt; v6.11.5」と出てくればOKです。<br/><br>　次はWSLを起動した時にnvmが使えるように設定します。具体的に言うと「.bashrc」というファイルをいじります。<br/><br>$ nano .bashrcとして<br/>&lt;img class:”pict” hspace:”5” alt:”2017-11-06” border:”0” height:”338” width:”480” src=”/images/e47fb3f3.png”/&gt;<br/><br/><br>　上の画像のように(上の画像は.bash_profileを開いてますが)<br/><br>if [[ -s ~/.nvm/nvm.sh ]]; then source ~/.nvm/nvm.shfi<div>を書き込みます。書いたらCtrl+Oを押下して保存してCtrl+Xを押下して終了させます。これでwslttyを起動した時にnvmが使えて、Node.jsも使えるようになりました。<br/><br>　githubにアカウントがない方は作ってください。非公開のプライベートリポジトリを作らないならばタダでアカウントを作れます。作れたら<br/><br/><br>&lt;img class:”pict” hspace:”5” alt:”86f7788f-ea83-4877-84ac-b9838d01c9f4” border:”0” height:”26” width:”480” src=”/images/57ce8775.png”/&gt;<br/><br>の右の「＋」を押下し、「New Repository」を押下します。現れたページで「ユーザ名.github.io」という名前のリポジトリを作ります。私なら「barippi.github.io」ですね。「Initialize this repository with a README」はチェックを外しておきましょう。<br/><br>&lt;img class:”pict” hspace:”5” alt:”6855711e-967d-414c-825a-37dd7fcbb876” border:”0” height:”333” width:”480” src=”/images/3ed785c2.png”/&gt;</p>
+</blockquote>
+</blockquote>
+<p>のように(私はもうページを作ってるのでこうなってますが)リポジトリができたよというページが表示されればOKです。<br/><br>　次に、githubにPushできるように鍵を作ります。<br/></p>
+</div>>$ mkdir ./.ssh$ cd .ssh$ ssh-keygen<div>として現れた質問(パスフレーズを設定してねと英語で出る)に答えれば秘密鍵と公開鍵が作成されます。<br/></div>
+>$ cat id_rsa.pub<div>として出てきた内容をgithubに登録します。ページの右上の自分のアイコンを押下し、Settingを選び、出てきたページの左ペインからSSH and GPG keysを選びます。出てきたページにおいてAdd SSH keyボタンを押下し、先程catした内容をコピーアンドペーストします。成功するとその旨ページに現れて、これでHexoから直にPushできるようになります。ちょっとむずかしくなってきましたね。<br/>
+　さて、ここまでで「Hexoの話は？」となった方もいるかもしれませんが、やっとです、やっとHexoを入れます！インストールします！<br/></div>
+>$ npm install -g hexo<div>これでOKです！かんたんになりましたね。次はBlogの雛形を作ります。<br/></div>
+>$ hexo init ○○(myblogとかでOK)<div>これでmyblogとした方ならmyblogというディレクトリができています。<br/></div>
+>$ cd myblog$ npm install<div>で必要なモジュールがインストールされます。お手本としてHello Worldの記事があるのでこれをgithub上にPushしてみます。_config.ymlを編集します。<br/>
+$ nano _config.yml<br/><br/><img class:"pict" hspace:"5" alt:"2017-11-06 (1)" border:"0" height:"338" width:"480" src="/images/9e13c0b0.png"/><br/>
+こんな感じでタイトルとか付けて<br/><br/><img class:"pict" hspace:"5" alt:"2017-11-06 (3)" border:"0" height:"338" width:"480" src="/images/e4c08657.png"/><br/>
+>こんな感じにデプロイ先を書きます。下のfeedはRSSをatom形式で配信する設定です(要後述プラグイン)。deployのrepoは個人個人で異なります。上の方のthemeは上画像ではlightになってますが、今のところはいじらないでください。ではデプロイしてみましょう。<br/></div>>$ hexo deploy -g<div>これでサイトを生成してデプロイまでやってくれます。成功したでしょうか。成功して数分経つと<a target:"_blank" href="https://barippi.github.io">https://barippi.github.io</a>のようにサイトができあがります。いやー、かんたんかんたん。<br/>
+　「新しい記事を書きたい」。そうですよねー。新しい記事を書くときは<br/></div>
+>$ hexo new "書きたい記事タイトル”<div>です。「~/myblog/source/_posts」にMarkdown形式で保存されています。Markdown形式で書き書きしてデプロイさせると新しい記事が追加されます。<br/>
+　「テーマを変えたい」。そうですよねー。これも簡単です。<br/></div>
+>$ git clone 適用させたいテーマのgitリポジトリ theme/テーマ名<div>です。そして上スクリーンショットのようにテーマ名を変えればいいです。<br/>
+　atomを配信するにはnpmでhexo-generator-feedというパッケージをインストールしてください<br/></div>
+>$ npm search hexo<div>とすればhexoで使用できるプラグインが多数見つかります。簡単な説明もついてるので参考にしつつインストールしたりしなかったりしてみてください。</div>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-73330177" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -359,39 +413,6 @@
 
 
 
-  <article id="post-71909885" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2017-07-24T21:28:05.000Z"><a href="/2017/07/25/71909885/">2017-07-25</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/07/25/71909885/">ラッセル・ワトソンのthe voiceを買いました</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <p>　2001年のCDをなぜ今頃なのか。<br/>　というのも、J SPORTSのサイクルロードレース中継のフィラーで流れるスウィング・ローがこのCDに入ってると聞いたからです。<br/>　それ以外は特にと思いつつ今聞いてるのですが、いいvoice。スウィング・ローは広義のテクノミックスになってるのですがアマゾンのレビューが賛否両論で面白い。<br/>　安い中古だと送料込み351円で買えるのでサイクルロードレース中継で聞いて「これは欲しい」と思ったら買いです。ぜひ。<br/><br/><br/>&lt;div class:”amazon Default”&gt;&lt;div align:”left” class:”pictBox”&gt;&lt;a target:”<em>blank” href=”<a href="https://www.amazon.co.jp/%E3%82%B6%E3%83%BB%E3%83%B4%E3%82%A9%E3%82%A4%E3%82%B9-%E3%83%AF%E3%83%88%E3%82%BD%E3%83%B3-%E3%83%A9%E3%83%83%E3%82%BB%E3%83%AB/dp/B00005AGD1?SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;tag:anmarikousins-22&amp;linkCode:xm2&amp;camp:2025&amp;creative:165953&amp;creativeASIN:B00005AGD1&quot;&gt;" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%82%B6%E3%83%BB%E3%83%B4%E3%82%A9%E3%82%A4%E3%82%B9-%E3%83%AF%E3%83%88%E3%82%BD%E3%83%B3-%E3%83%A9%E3%83%83%E3%82%BB%E3%83%AB/dp/B00005AGD1?SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;tag:anmarikousins-22&amp;linkCode:xm2&amp;camp:2025&amp;creative:165953&amp;creativeASIN:B00005AGD1&quot;&gt;</a>&lt;img class:”pict” style:”margin-right:10px” align:”left” hspace:”5” border:”0” alt:”ザ・ヴォイス” src=”<a href="https://images-fe.ssl-images-amazon.com//images/I/31D09V8479L._SL160" target="_blank" rel="noopener">https://images-fe.ssl-images-amazon.com//images/I/31D09V8479L._SL160</a></em>.jpg”/&gt;</a></div>&lt;div class:”itemTitle”&gt;&lt;a target:”_blank” href=”<a href="https://www.amazon.co.jp/%E3%82%B6%E3%83%BB%E3%83%B4%E3%82%A9%E3%82%A4%E3%82%B9-%E3%83%AF%E3%83%88%E3%82%BD%E3%83%B3-%E3%83%A9%E3%83%83%E3%82%BB%E3%83%AB/dp/B00005AGD1?SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;amp;tag:anmarikousins-22&amp;amp;linkCode:xm2&amp;amp;camp:2025&amp;amp;creative:165953&amp;amp;creativeASIN:B00005AGD1&quot;&gt;ザ・ヴォイス" target="_blank" rel="noopener">https://www.amazon.co.jp/%E3%82%B6%E3%83%BB%E3%83%B4%E3%82%A9%E3%82%A4%E3%82%B9-%E3%83%AF%E3%83%88%E3%82%BD%E3%83%B3-%E3%83%A9%E3%83%83%E3%82%BB%E3%83%AB/dp/B00005AGD1?SubscriptionId:AKIAIM37F4M6SCT5W23Q&amp;amp;tag:anmarikousins-22&amp;amp;linkCode:xm2&amp;amp;camp:2025&amp;amp;creative:165953&amp;amp;creativeASIN:B00005AGD1&quot;&gt;ザ・ヴォイス</a> [CD]</a></div>&lt;div class:”itemSubTxt”&gt;ワトソン(ラッセル)</div>&lt;div class:”itemSubTxt”&gt;ユニバーサル インターナショナル</div>&lt;div class:”itemSubTxt”&gt;2001-03-23</div></div>&lt;br style:”clear:left” clear:”left”/&gt;<br/>　iTunes StoreとかAmazon Mp3 Storeとかでは買えないっぽいです。お買上げのさいはぜひこちらから。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -451,7 +472,7 @@
   
     <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>74</small></li>
   
-    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>47</small></li>
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>48</small></li>
   
     <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
   

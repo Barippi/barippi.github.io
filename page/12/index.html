@@ -62,6 +62,39 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-55802425" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2016-03-02T02:22:13.000Z"><a href="/2016/03/02/55802425/">2016-03-02</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/02/55802425/">パブリックβになったLet&#39;s Encryptでドメイン証明書を無料で取得する話</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　みなさんHTTPSしてますか？最近はSNSでもHTTPSが普通になってきましたが、VPS等を使った個人サイトでまともなCAの証明書を取得するにはちょっと敷居が高い。日本の代理店を通すにしても英語が必要になったりします。日本語のみで証明書を取得しようとすると今度はお値段が高いのです。<br/>　大した情報は私のドメインには置いてないのですが、それでも気になるわけです。Free Wifiが普及した今日、悪意のあるスニッファーがいないとも限りませんし、ワイヤード接続であっても経路上でなにがされているかは分かりません。<br/>　そんなセキュリティは気になる、でも英語ほとんどできない、お金もないという私のような人のために無料で、しかもほぼ自動でドメイン証明書を発行してくれる団体が現れました。それが「&lt;a href=”<a href="https://letsencrypt.org/&quot;" target="_blank" rel="noopener">https://letsencrypt.org/&quot;</a> target:”_blank”&gt;Let&#39;s Encryptプロジェクト</a>」です(&lt;a href=”<a href="https://letsencrypt.jp/&quot;" target="_blank" rel="noopener">https://letsencrypt.jp/&quot;</a> target:”_blank”&gt;日本語訳サイト</a>)。<br/>　このLet&#39;s Encryptで発行された証明書はアメリカの大手認証局「&lt;a href=”<a href="https://www.identrust.com/&quot;" target="_blank" rel="noopener">https://www.identrust.com/&quot;</a> target:”_blank”&gt;IdenTrust</a>」とのクロス署名によっていわゆる「オレオレ証明書」ではなく現在主流のブラウザでなんの手続きもなくブラウザのアドレスバーに鍵マークが付きます。また、メールサーバーやftpサーバーにもこの証明書は使えるので、オレオレ証明書を使用するよりもとりわけ安全にデータをやり取りすることができます。<br/>　能書きが長くなりましたが、今回はUbuntu15.10、apache 2.4.11での証明書の取得から設定を書いていこうと思います。<br/><br/>　証明書作成ツールのダウンロードは適切なディレクトリを作り<br/>$ git clone <a href="https://github.com/letsencrypt/letsencrypt" target="_blank" rel="noopener">https://github.com/letsencrypt/letsencrypt</a><br/>　とし、スクリプトファイルを取得します。そしてletsencryptディレクトリに移動し<br/>$ ./letsencrypt-auto –help<br/>　とします。これで証明書に必要なツール類をインストールし、それが終わるとヘルプを表示します。パラパラと読んでおいてください。<br/>　今回使用するOS、UbuntuはDebian系のOSであり、またバージョンも15.10ということで入っているapacheのバージョン等も新しいため、apacheプラグインが使用できます。なので<br/>$ ./letsencrypt-auto –apache<br/>　でほぼ自動的に証明書がインストールされます。聞かれるのはドメイン名と緊急連絡時のメールアドレス、HTTPでアクセスした時にHTTPSにリダイレクトするかくらいで、あとは利用規約への同意が必要です。<br/>　スクリプトが終了したらすでにapacheではSSLを使ったHTTPS通信が可能になっています。<br/><br/>　さて、この作成された証明書の有効期限は90日間です。「短い！」と思われた方がほとんどでしょうけど、短いのには理由があって「1年とかだと更新するの忘れちゃったりする。短い期間だと自動で更新する手段を使うようになる」みたいな感じのことを書いてました。ということで更新の自動化です。<br/>　あなたが考えたようにcronを使います。<br/>&gt;#!/bin/shif ! /path/to/letsencrypt-auto renew &gt; /var/log/letsencrypt/renew.log 2&gt;&amp;1 ; then    echo Automated renewal failed:    cat /var/log/letsencrypt/renew.log    exit 1fiapachectl graceful　のようなシェルスクリプト(上記は公式サイトにあったシェルスクリプトの丸パクリ)を作って「/etc/cron.monthry」あたりに+xして置いておけば自動でそのうち更新してくれます。してくれるはずです。<br/><br/>　証明書は「/etc/letsencrypt/live/(ドメイン名)/」の配下にシンボリックリンクされてます。「サーバー証明書→cert.pem、秘密鍵→privkey.pem、中間証明書→chain.pem、サーバー証明書と中間証明書が一緒になったの→fullchain.pem」です。renewするごとに本体のファイル名は末尾の数字がインクリメントされていきますがシンボリックし直されているので、メールサーバーやftpサーバーに適用するときもこのシンボリックリンクされているものを使うのが簡単です。<br/><br/>　以上簡単に説明してきましたが、詳しいことは公式サイトの英語を読むなり「読むのも苦手」という人は日本語訳サイトを読んでください。<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-55474801" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -359,39 +392,6 @@
 
 
 
-  <article id="post-38643646" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2015-08-01T19:21:38.000Z"><a href="/2015/08/02/38643646/">2015-08-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/08/02/38643646/">Windows8.1タブとWindows7デスクトップをWindows10にしたよ！</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <p>&lt;a href=”/images/0c77a297.png” title:”スクリーンショット (1)” target:”_blank”&gt;&lt;img src=”/images/0c77a297.png” alt:”スクリーンショット (1)” class:”pict” border:”0” width:”480” height:”300” hspace:”5”/&gt;</a><br/><br/><br/>　Windows10、タブレットモードのスクリーンショットです。タブレットはいわゆるドスパラタブレット。ストレージ32GB、メモリ2GBのほうです。ぽちぽち触ってみましたが、格安タブレットの標準構成みたいなものなので特に不具合はなかったです。ただひとつ、TwitterクライアントのNeuroniaが動かないのが痛いですね。デスクトップマシンでは動くのですが…。(追記：動くようになりました)<br/>　メモリは大体6割を使っているみたいですね。多分どのマシンでも6割なんだと思います。Windows7デスクトップ(メモリ16GB)でも大体そんなもんでした。<br/>　デスクトップのアップグレードはちょっと難航しまして0時ころから始めてすべてのデバイスがほぼ問題なく動くようになるまで11時間かかりました。<br/>　結論から言うと「Windows8で動くものは大体動く」です。TVキャプチャボード(アイ・オー・データ GV-MVP/HS3)もWindows8.1から対応しないという宣言がありましたし、ロジテックのBluetoothアダプタ(LBT-UAN04C2)もWindows8.1では保証しませんと書かれていました。<br/>　が、その2つともWindows8のドライバ、ソフトウェアをインストールすることでなんとか動きました。Bluetoothスタックは何故かA2DPでスマホから音楽流しても聞こえませんでしたが…。送る方は大丈夫でapt-Xも大丈夫でした。<br/>　CSR Harmonyのスタックは2012年あたりで更新が止まってるんですよねぇ…。なんでもソフトウェア技術者全部引きぬかれたとか聞きます。apt-XはCSR Harmonyのスタックでしか実装されてないのでこのまま終息してAAC転送とかLDAC転送が流行るんですかねぇ。<br/>　あとはディスプレイ関連。最初nVidiaのWindows10に対応したドライバが入らなくて「ひぃ」となりましたが再起動したら入ってました。多分Windows Update経由で当たったと思います。その後nVidiaにある最新ドライバを当てて普通に使えています。<br/>　Windows10のデスクトップモードはWindows7のそれとほぼ変わりありません。スタートメニューにタイルが増えたくらいですね。Windowsストアアプリもウインドウで開きます。いきなり全画面でバーンと開いたりしません。もちろん全画面にもできます。<br/>　便利だと感じたのはカレンダーがGoogleカレンダーに対応していること。まあGoogleカレンダー入れればいいのですが、あるなら、と使ってみてます。メーラーもGmailに対応してました。アカウント情報を入れれば自動で引っ張ってきてくれます。メールサーバーの設定とか無し。Thunderbirdのアカウント設定みたいな感じになった。あれも確か自動でメールサーバーの設定してくれますよね。使ったこと無いけど。<br/>　噂程度なのでサラリと聞き流して欲しいのですが「今月の上旬から中旬あたりにWindows10のバグフィックスが大量に行われるのでは？」、ということで「新しいのにすぐ触りたい！」という人以外はそれまで待ったほうがいいでしょう。<br/>　よくWindowsの新しいのが出るたびに「バグが大量にある」という話を聞くのですが数GBもあるソフトウェア製品でバグがない方がおかしい、と元ソフトウェア技術者は思うのです。たかが数MBのソフトウェアでもバグが出るのにそれ以上の規模のソフトウェアでバグが出ないはずがない、と。マイクロソフトはそれを認めてWindows Update機能でバグ潰しをしてましたが、やっとここ数年で他のOSでも似たような事をはじめましたよね。バグがあるのは仕方がない。真摯にフィックスして提供すればいいのです。<br/>　最後説教臭い話になりましたが以上です。ではでは。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -451,7 +451,7 @@
   
     <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>74</small></li>
   
-    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>47</small></li>
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>48</small></li>
   
     <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
   
