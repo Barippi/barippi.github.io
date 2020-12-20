@@ -62,6 +62,39 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-73592737" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2017-11-12T19:51:35.000Z"><a href="/2017/11/13/73592737/">2017-11-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/11/13/73592737/">WSLからXmingを使ってデスクトップ環境(Xfce)を動かす話</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　WSLからデスクトップ環境動かせんるんですねー。思わず作っちゃいました。<br/>　まずはXmingを入れます。10ポンド寄付すると最新版が手に入れられます。積極的に寄付していきましょう。日本からだと弾かれるのでメールで連絡して代替手段を送ってもらいましょう。そしてWSL(Ubuntu)を入れます。そしてbash上から<br/>&gt;$ sudo apt install xfce4-sesson xfce4-goodies gnome-keyring fonts-vlgothic fcitx-mozc　をいれます。そしてどこでもいいのでXmingのショートカットを作りましょう。ショートカットの内容は<br/>&gt;”C:\Program Files\Xming\Xming.exe” :1 -clipboard -xkbmodel jp106 -xkblayout jp -dpi 100 -nodecorationとします。x64版でなければXmingのパスが変わります。次に起動バッチを作りましょう。内容は<br/>&gt;@echo offstart /min “” “Xming.lnk””C:\Windows\System32\bash.exe” -c &#39;export DISPLAY:localhost:1.0;export XMODIFIERS:”@im:fcitx”;export GTK_IM_MODULE:fcitx;export QT_IM_MODULE:fcitx; xfce4-session&#39;taskkill /f /im Xming.exe<div>です。start /min “” “Xming.lnk”は各々の環境によって異なってくるでしょう。<br/>　だいぶはしょりましたが、これで、バッチファイルをダブルクリックするとXmingが立ち上がり次いでデスクトップ環境が見えるようになります。<br/>　なんというか意味があるのかと言われると無いとしかいえませんが割と軽く動くのでデスクトップ環境が欲しいがために仮想マシン作るよりは楽かなーという感じです。<br/>　みなさんもWindowsでUbuntuライフを送ってみましょう、では！</div></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-73504958" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -380,39 +413,6 @@ $ nano _config.yml<br/><br/><img class:"pict" hspace:"5" alt:"2017-11-06 (1)" bo
 
 
 
-  <article id="post-72091922" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2017-08-07T21:47:33.000Z"><a href="/2017/08/08/72091922/">2017-08-08</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/08/08/72091922/">[小ネタ]ハンドスピナーを買いました</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <p>　流行に乗っておこうと思ってつい横浜ヨドバシでハンドスピナーを買いました。<br/>　めっちゃ種類あったけど950円のを買ってみました。<br/>　中国製。回る。それだけ。でもなんか落ち着く。<br/>　WikipediaによるとADHDのカウンセリングに効果があるとか。<br/>　トリックとかはしなくていいかなー。<br/>　500円で買えるのもあるらしいのでみなさんもぜひ。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -472,7 +472,7 @@ $ nano _config.yml<br/><br/><img class:"pict" hspace:"5" alt:"2017-11-06 (1)" bo
   
     <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>74</small></li>
   
-    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>48</small></li>
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>49</small></li>
   
     <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
   

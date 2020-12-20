@@ -62,6 +62,39 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-249754128-html" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2012-02-01T22:25:37.000Z"><a href="/2012/02/02/249754128-html/">2012-02-02</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/02/02/249754128-html/">L245WPとGeForceの相性</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>※ <a href="https://d.hatena.ne.jp/CBX/20080817/p1" target="_blank" rel="noopener">https://d.hatena.ne.jp/CBX/20080817/p1</a> の再掲です。<br>新しいPCを買ってDVIで繋げてみたら画像がずれて表示されて、すっげぇ困った。スタートボタンが隠れてて押せないの！<br>困ってるだけじゃなんなので調べてみたらGeForc8系とGeForce9系でL245WPとの相性で起こるということがわかった。AMDのグラフィックチップの一部でもなるみたい。<br>解決法としては<br>    LGにモニタを送ってファームアップしてもらう<br>    ForceWare(ドライバ)を入れるときに細工する<br>というのがあって、俺はサブモニタがないということで後者を選んだ。<br>具体的には”C:\NVIDIA\Win2KXP\177.79\nv4_disp.inf”の[nv_SoftwareDeviceSettings]ってところに「HKR,, OverrideEdidFlags0, %REG_BINARY%, 1E,6D,24,56,00,00,FF,FF,04,00,00,00,7E,01,00」という一行を追加して、それでドライバインストール。<br>これで普通に表示されるようになった。スタートボタン押せるよ！うれしい！<br>    追記(2010/01/19)<br>nVidiaが現在配布しているドライバに含まれている「nv4_disp.inf」には「[nv_SoftwareDeviceSettings]」というセクションが無いようです。で、入れてみたらまた左ズレしたので「[nv_timingRestrictions_addreg]」というセクションに上に書いた1行「HKR,, OverrideEdidFlags0, %REG_BINARY%, 1E,6D,24,56,00,00,FF,FF,04,00,00,00,7E,01,00」を追加したところ左ズレが解消されました。ご参考までに。<br>    追記(2010/10/27)<br>パソコンを買い換えてGeforce GTX460になりました。「C:\NVIDIA\DisplayDriver\260.89\Vista\International\Display.Driver\NV_DISP.INF」の「[nv_timingRestrictions_addreg]」にまた上に書いた「HKR,, OverrideEdidFlags0, %REG_BINARY%, 1E,6D,24,56,00,00,FF,FF,04,00,00,00,7E,01,00」を入れたところ左ズレが解消しました。ご参考までに。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-248594788-html" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -362,39 +395,6 @@
 
 
 
-  <article id="post-31876245" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2012-01-01T11:42:25.000Z"><a href="/2012/01/01/31876245/">2012-01-01</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2012/01/01/31876245/">ヨドバシカメラの初売りに並んできた</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <p>明けましておめでとうございます。<br/><br> <br/><br>昨日からヨドバシカメラ川崎ルフロン店に初売りのPCを買おうと並んできました。<br/><br> <br/><br>結論から言うと俺の欲しかった商品は買うことはできませんでした。寒い中並んだのに中国人グループが全部持って行ってしまいました。なんとかならないんですかねぇ。敷いたダンボール片付けないし。<br/><br> <br/><br>と恨みつらみを書くのはやめにしてそこで起こった出来事でも書いてみようかと。<br/><br> <br/><br>私の後ろに並んだ人は寝袋装備でした。見るからに並び慣れてる感じ。気さくに話しかけられたためいろいろお話ししました。中国人グループは転売じゃなくて他のパソコンショップに持って行ってそこで現在の相場で売って利ざやを出しているとかどんなパソコンが入っているのかという予想(当たっているかどうかは分かりませんが…)も話しました。AMDのE-350載ってるレノボじゃないかなぁ、なんて。<br/><br> <br/><br>広い銀マットも装備してて、私もそのおこぼれにあずかりました。これ有ると無いのとでは全然違いますね。ただそれでもノーマル装備の私は寒くて。寝袋の人が寝てる間に吉野家で飯食ったりミニストップでレッドブルチャージしたり。食べ物チャージは正解でした。発熱しましたよ。<br/><br> <br/><br>朝起きた後はNECのPC98の話題で盛り上がりました。楽しかった。PC買えたらもっと楽しかったのですが…(笑。<br/><br> <br/><br>さすがに明日の上大岡に並ぶ気力はありません。川崎より供給量少ないだろうしやっぱり中国人グループが早くから並ぶんだろうし…。<br/><br> <br/><br>帰りがけに総持寺と鶴見神社へ初もうでも済ませました。神社で買ったおみくじは数年ぶりの「大吉」。買わなくて正解だったって事?(笑。<br/></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -454,7 +454,7 @@
   
     <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>74</small></li>
   
-    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>48</small></li>
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>49</small></li>
   
     <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
   

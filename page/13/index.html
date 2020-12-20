@@ -62,6 +62,39 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-39059634" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2015-08-05T02:59:56.000Z"><a href="/2015/08/05/39059634/">2015-08-05</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/05/39059634/">foobar2000でラジオ配信環境を作る話</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　foobar2000のVer 1.3.8で構築します。また、icecast serverまたはShoutcast Serverがすでに構築してある前提で書きます。<br/>　まず&lt;a href=”<a href="https://www.altacast.com/&quot;" target="_blank" rel="noopener">https://www.altacast.com/&quot;</a> target:”_blank”&gt;AltaCast</a>からAltaCast for foobar2000 1.xをダウンロードしてインストールします。そしてfoobar2000の「file」→「preference」を開き、「DSP Manager」でAltaCast 1.0をアクティブにします。<br/><br/>&lt;a href=”/images/c383a000.jpg” title:”WS000008” target:”_blank”&gt;&lt;img src=”/images/c383a000.jpg” alt:”WS000008” class:”pict” border:”0” width:”480” height:”350” hspace:”5”/&gt;</a><br/><br/>　基本的な構築はこれで終わりです。曲を流すとAltaCastの画面が開き、AltaCastの「Add Encoder」からサーバーのアドレス、ポートなどを設定し、「Connect」すれば配信が開始されます。曲順に流すこともシャッフルプレイすることもランダムプレイもできます。<br/>　しかしこれでは「あ、プレイリストにあるこの曲、今聴きたい」といった時に対処ができません。そんな時のために「ソングリクエスタ」を導入しましょう。<br/>　&lt;a href=”<a href="https://wikiwiki.jp/foobar2000/?FrontPage&quot;" target="_blank" rel="noopener">https://wikiwiki.jp/foobar2000/?FrontPage&quot;</a> target:”_blank”&gt;foobar2000 日本語 Wiki</a>の左ペインのメニューから「コンポーネント一覧→General→通信」と進み、「foo_request_http」の「ミラー」からダウンロードします。ダウンロードしたファイルを展開し「readme_jp.txt」を読みながら設定しましょう。一番簡単なのは中のファイルを全部「components」フォルダに置き、そこから設定する方法でしょう。<br/><br/>&lt;a href=”/images/f6078dc9.jpg” title:”WS000009” target:”_blank”&gt;&lt;img src=”/images/f6078dc9.jpg” alt:”WS000009” class:”pict” border:”0” width:”480” height:”350” hspace:”5”/&gt;</a><br/><br/>　こんな感じ。64bit版Windowsでの設定です。32bit版だと「Program Files (x86)」のところが変わります。で、「Start」ボタンを押下し、「<a href="https://localhost:4095/」にアクセスするとページが表示されます。リクエスト環境も整いました。" target="_blank" rel="noopener">https://localhost:4095/」にアクセスするとページが表示されます。リクエスト環境も整いました。</a><br/>　外から聞く場合は配信サーバーのポートもソングリクエスタのポートもルーターでポートマッピングしてください。で、外から聞くとなると気になるのが転送量。多かれ少なかれ最近のプロバイダは転送量制限があります。なるべく少ない転送量でいい音で聞きたい。mp3やoggは128kbps無いと論外だし、AACでも96kbpsは欲しい。でもそれだと転送量が多いのです。<br/>　そんな時のためのAAC Plus。これは48kbpsあれば上記と大体同じ音質が出せますし、24kbpsでもそれなりに聞けます。これだ。でもfoobar2000にはエンコーダーがないのです。どうするかというとWinampにあったものを持ってきます。ファイル名は「enc_aacplus.dll」です。ない場合はインターネットは広いので誰かがアップロードしてます。私が見つけたところは直リンク禁止と書いていたので「Winamp enc_aacplus」とでも検索してみてください。これを「foobar2000.exe」と同じフォルダに置きます。そしてfoobar2000を再起動するとAltaCastのエンコーダーのところに「AAC Plus」が出てきます。やりましたね。<br/>　ということで、foobar2000でのインターネットラジオ配信環境を整えてみました。まあ、ひきこもりなんで使い道は無いんですが…。ではでは。<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-38643646" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -359,39 +392,6 @@
 
 
 
-  <article id="post-32767848" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2015-06-05T22:39:42.000Z"><a href="/2015/06/06/32767848/">2015-06-06</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/06/06/32767848/">ONKYO HF Playerの実力がすごかった</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <p>　&lt;a href=”<a href="https://play.google.com/store/apps/details?id:com.onkyo.jp.musicplayer&amp;hl:ja&quot;" target="_blank" rel="noopener">https://play.google.com/store/apps/details?id:com.onkyo.jp.musicplayer&amp;hl:ja&quot;</a> target:”_blank”&gt;ONKYO HF Player</a>のプレイ画面はこんな感じです。<br/><br/>&lt;a href=”/images/d355150c.jpg” title:”clip_now_20150605_221304” target:”_blank”&gt;&lt;img src=”/images/d355150c-s.jpg” alt:”clip_now_20150605_221304” class:”pict” border:”0” width:”480” height:”755” hspace:”5”/&gt;</a><br/><br/>　と見た目は普通なのですが、中身がすごい。Androidで評判の高いプレーヤーといえばPowerampなどで(Powerampは俺も買った)、音質もいいのですが、このONKYO HF Playerはそれ以上の音質です。「自分のスマホの音質はこんなに良かったのか！」と思うことうけあいです。<br/>　イコライザーもかなりのバンド数(5桁！)があって、有名ミュージシャンが作成したプリセットも付属しています。バンド数が多いこともあり、かなり自然にイコライジングがかかります。スマホでここまでこだわったプレーヤーアプリは無いと思います。寡聞ですが。<br/>　ただ、フォルダ再生ができない、アプリを立ち上げるとまず曲を選ばないといけない、CPUをたくさん使うので電池の減りが早い、といった弱点もあります。バッテリ以外はこれからのアップデートでいろいろ実装されるといいのですが、どうでしょうか。<br/>　基本無料のアプリで、1000円を払ってアンロックするとUSB DACにハイレゾで送れるようになります。無料でもFLACやMP3、AAC、OggVorbis、DSD(PCM変換)が再生できるのでかなりすごいアプリです。WAV、AIFFも大丈夫です。ただ、Androidの仕様でハイレゾ音源は44.1kHzまたは48kHzにダウンサンプリングされます。これはアンロックしても同じです。モバイルUSB DACを持っていなければ無料版のままでいいということですね。<br/>　とりあえずダウンロードしてその音質を確かめてみてください。びっくりしますよ…。<br/></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -451,7 +451,7 @@
   
     <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>74</small></li>
   
-    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>48</small></li>
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>49</small></li>
   
     <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
   

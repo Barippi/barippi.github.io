@@ -62,6 +62,39 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-75460658" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2018-03-23T20:06:49.000Z"><a href="/2018/03/24/75460658/">2018-03-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/03/24/75460658/">[小ネタ] メガネが壊れたので直してもらいました</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>　アンダーリムのないメガネを使用しているばりっぴです。こんばんは。<br/>　今日昼間外出中にメガネを拭こうとしたらレンズを支えているワイヤがぶちっと切れてしまい、夕方まで裸眼で過ごしました。<br/>　帰りに「&lt;a target:”_blank” href=”<a href="https://www.iwakioptic.co.jp&quot;&gt;イワキメガネ" target="_blank" rel="noopener">https://www.iwakioptic.co.jp&quot;&gt;イワキメガネ</a></a>」さんに寄って直してもらいました。昔ながらの高級感あふれるメガネ店でいくら取られるかビクビクしてましたが値段を聞いたところ「無料です、サービスです」とのお言葉！！2、3千円はかかると思ってたので、貧乏人には超ありがたかった。嬉しかった。再就職して次メガネを買う時はここにしよう。見た感じではフレームが1万円台からあって、レンズと併せて3万円くらいからならまあ、ありかなーと。<br/>　皆さんもたまには普通のメガネ屋さんに寄ってみてはいかがでしょうか。割と安価でよいフレームが見つかると思います。激安メガネ店では、まず無い、メガネの聖地鯖江産のフレームも扱ってますし。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-75290654" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -359,39 +392,6 @@
 
 
 
-  <article id="post-73592737" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2017-11-12T19:51:35.000Z"><a href="/2017/11/13/73592737/">2017-11-13</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/11/13/73592737/">WSLからXmingを使ってデスクトップ環境(Xfce)を動かす話</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <p>　WSLからデスクトップ環境動かせんるんですねー。思わず作っちゃいました。<br/>　まずはXmingを入れます。10ポンド寄付すると最新版が手に入れられます。積極的に寄付していきましょう。日本からだと弾かれるのでメールで連絡して代替手段を送ってもらいましょう。そしてWSL(Ubuntu)を入れます。そしてbash上から<br/>&gt;$ sudo apt install xfce4-sesson xfce4-goodies gnome-keyring fonts-vlgothic fcitx-mozc　をいれます。そしてどこでもいいのでXmingのショートカットを作りましょう。ショートカットの内容は<br/>&gt;”C:\Program Files\Xming\Xming.exe” :1 -clipboard -xkbmodel jp106 -xkblayout jp -dpi 100 -nodecorationとします。x64版でなければXmingのパスが変わります。次に起動バッチを作りましょう。内容は<br/>&gt;@echo offstart /min “” “Xming.lnk””C:\Windows\System32\bash.exe” -c &#39;export DISPLAY:localhost:1.0;export XMODIFIERS:”@im:fcitx”;export GTK_IM_MODULE:fcitx;export QT_IM_MODULE:fcitx; xfce4-session&#39;taskkill /f /im Xming.exe<div>です。start /min “” “Xming.lnk”は各々の環境によって異なってくるでしょう。<br/>　だいぶはしょりましたが、これで、バッチファイルをダブルクリックするとXmingが立ち上がり次いでデスクトップ環境が見えるようになります。<br/>　なんというか意味があるのかと言われると無いとしかいえませんが割と軽く動くのでデスクトップ環境が欲しいがために仮想マシン作るよりは楽かなーという感じです。<br/>　みなさんもWindowsでUbuntuライフを送ってみましょう、では！</div></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -451,7 +451,7 @@
   
     <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>74</small></li>
   
-    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>48</small></li>
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>49</small></li>
   
     <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
   
