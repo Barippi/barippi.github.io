@@ -62,6 +62,72 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-271650587-html" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2012-05-25T22:27:20.000Z"><a href="/2012/05/26/271650587-html/">2012-05-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/05/26/271650587-html/">OSはおもちゃ</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>昔、Windows2000に変えた頃はOSをいじるのが面白かった。無駄にセキュリティポリシーなんか設定してみたり。<br>今はUbuntuをいじるのが楽しい。インストール、設定変更の方法も10年前よりはるかにやりやすくなっている。俺みたいなタコにはとても嬉しい。昔はほんとインストールしたあとどうするかできなかったから。隔世の感がありますなぁ。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-31876227" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2012-05-25T21:45:10.000Z"><a href="/2012/05/26/31876227/">2012-05-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2012/05/26/31876227/">Rhythmboxの曲名とか文字化けする話のまとめ</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>NASとして作ったUbuntuマシンですが、デスクトップアプリも入ってるということでプリインストールされているRhythmboxのライブラリにmp3突っ込んでmp3聴いてみようとしたら案の定文字化け。<br/><br> <br/><br>これはWindowsで作成したmp3ファイルのID3タグの文字コードにShift-JISが使用されているからで、デフォルトでUTF-8を使うUbuntuでは表示できないというもの。最近の日本語CDDBではユニコードを返すことが多くなり、CDリッパーの設定でユニコードを使用することもできるので最近のmp3ファイルは文字化けしなかったりします。<br/><br> <br/><br>これを直すべく検索してみて、まず <a href="https://ubuntumusichour.blog69.fc2.com/blog-entry-7.html" target="_blank" rel="noopener">https://ubuntumusichour.blog69.fc2.com/blog-entry-7.html</a> を参考にEasy TAGにてタグ変換を行いましたがあまり上手くいかず。変換しなくていいファイルまでしちゃった感じ。あとID3タグVer1しかないファイルがあったのがまずかったのかもしれない。Ver1では確か多言語対応してなかった(というか決まりがなかった)から。<br/><br> <br/><br>次。「iTunesで簡単に変換できますよ」と <a href="https://forums.ubuntulinux.jp/viewtopic.php?id:1811" target="_blank" rel="noopener">https://forums.ubuntulinux.jp/viewtopic.php?id:1811</a> にあったので試してみた。宗教上の理由でiTunesは入れてなかったのですが、このためだけにインストール。全曲をライブラリに突っ込み、曲をすべて選択して右クリックから「ID3タグを変換」を選び、出てきたダイアログでID3タグバージョンを「Ver 2.4」を選び、OKボタンを押す。UTF-8がタグに使えるのはVer 2.4だけです。これでもあまり上手くいかず。アルバム名がどこの文字なんだかよくわからないものになったりした。<br/><br> <br/><br>最後に試したのが <a href="https://d.hatena.ne.jp/over80/20100224/1267021620" target="_blank" rel="noopener">https://d.hatena.ne.jp/over80/20100224/1267021620</a> の環境変数を設定する方法。端末を立ち上げ、「export GST_TAG_ENCODING:CP932」を打ち込み、設定をし、その端末からRhythmboxを立ち上げる。ライブラリをすべて選び、メニューの「編集」から「削除」を選びファイルをライブラリに登録し直す。これで上手くいきました。この方法のいいところはUTF-8で書かれているタグもちゃんと読み込めるところ。エントリにある通り、「~/.xprofile」に登録しておけば今後再起動しても設定が有効になります。<br/><br> <br/><br>これでようやく安心して音楽が聴けます。やれやれ。<br/></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-31876228" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -326,72 +392,6 @@
 
 
 
-  <article id="post-254370699-html" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2012-02-27T15:48:45.000Z"><a href="/2012/02/28/254370699-html/">2012-02-28</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2012/02/28/254370699-html/">メディアプレーヤー2</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <p>VLCいいじゃん。GOMアンインストールした。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article id="post-253407595-html" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2012-02-21T15:38:33.000Z"><a href="/2012/02/22/253407595-html/">2012-02-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2012/02/22/253407595-html/">メディアプレーヤー</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <p>普段はGOM Player使ってるんだけど、VLCのVer2が出たということで今ダウンロードしてるんだけどスループットが10KB/sとかそんな感じ。「誰もが待ち望んでいた！」ということなのだろうか。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -451,7 +451,7 @@
   
     <li><a href="/tags/ソフトウェア/">ソフトウェア</a><small>74</small></li>
   
-    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>49</small></li>
+    <li><a href="/tags/ハードウェア/">ハードウェア</a><small>51</small></li>
   
     <li><a href="/tags/ブログ/">ブログ</a><small>444</small></li>
   
