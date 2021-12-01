@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>取るに足らぬ者</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1979年産のアイマスおじさんがなんか書くよ">
+<meta property="og:type" content="website">
+<meta property="og:title" content="取るに足らぬ者">
+<meta property="og:url" content="http://barippi.github.io/page/23/index.html">
+<meta property="og:site_name" content="取るに足らぬ者">
+<meta property="og:description" content="1979年産のアイマスおじさんがなんか書くよ">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:author" content="Barippi">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="取るに足らぬ者" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">取るに足らぬ者</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">そろそろ落ち着きたい</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://barippi.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-31876218" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2012/08/13/31876218/" class="article-date">
+  <time class="dt-published" datetime="2012-08-12T16:42:28.000Z" itemprop="datePublished">2012-08-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2012/08/13/31876218/">古いネットブックにLubuntu12.04をインストールした</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>ネットブックにインストールされているWindowsXPが2014年にサポート期間が終了してしまう(参照 <a target="_blank" rel="noopener" href="https://128bit.blog41.fc2.com/blog-entry-241.html">https://128bit.blog41.fc2.com/blog-entry-241.html</a>)ので、よっしゃ先手必勝やと思い立ちLubuntuをインストールした次第でございます。<br/><br> <br/><br>ネットブックはAspire One KAV60(裏に「KAV60」としか書いてなかった)。日本の型番だといくつだったか忘れました。まあ相当古いネットブックです。うちでは寝床PC、帰省時PCとして活躍しております。<br/><br> <br/><br>さて、私のうちではNAS、Web、FTPサーバーとしてUbuntuを使っておりますが、ネットブックのような非力なマシンではUbuntu(特にUnity)はかなり荷が重いのです。Atomだしメモリ1GBだし。ということで今回は軽量版Ubuntuの<a target="_blank" rel="noopener" href="https://lubuntu.net/">Lubuntu</a>を採用しました。LubuntuはLXDE(Lightweight X11 Desktop Environment)を使用することでCPUがPentium 4あたりでもそこそこ軽快に動作します。UIもWindowsXPに似ていてスタートボタンっぽいのからアプリケーションを起動させます。この様にLubuntuはWindowsXPから乗り換えるのには非常に相性がいいディストリビューションと言えます。お試しでちょっとだけという人はインストール前にHDDのイメージをバックアップしておくといいでしょう。基本的にUbuntu系はHDDをWindowsXPのリカバリ領域までまっさらにしてからインストールしますので。まあLiveで使ってみてもいいのですが。<br/><br> <br/><br>さてインストール。今回はUSBメモリブートでHDDにインストールしました。USBメモリは1GBのがあれば十分です。まずは<a target="_blank" rel="noopener" href="https://lubuntu.net/">Lubuntuサイト</a>からブータブルCDイメージをダウンロードします。トレントで落とすと若干早いようです。そして <a target="_blank" rel="noopener" href="https://linux-kotohajime.blogspot.jp/2010/10/lubuntu.html">https://linux-kotohajime.blogspot.jp/2010/10/lubuntu.html</a> を参照しながらブータブルUSBメモリを作成します。<br/><br> <br/><br>作成したらネットブックにUSBメモリを挿しブート。BIOSでUSBメモリからブートするようにします。無線LANのドライバは基本的にダウンロードしなければいけないのでひとまず有線LANでインストールに臨みます。メニューが出てきたら「インストール」をクリック。ロケール、ユーザー等を設定しつつインストールが進みます。つつがなく進むと最後に「再起動をしてください」とダイアログが出るので再起動ボタンを押下しUSBメモリを抜いてください。<br/><br> <br/><br>再起動したらUbuntu Japan Teamのリポジトリを追加します。<a target="_blank" rel="noopener" href="https://www.ubuntulinux.jp/japanese">https://www.ubuntulinux.jp/japanese</a> を参照して追加してください。追加したらとりあえず何も考えずに<br/></p>
+<ul><br/>
+<li>$ sudo apt-get update</li><br/>
+<li>$ sudo apt-get upgrade</li><br/>
+</ul><br/>
+をしてください。まあ何もなければ幸い、何かあってもこれでOK。<br/>
+ <br/>
+IMEがanthyなのは心もとないのでmozcを入れます。<br/>
+<ul><br/>
+<li>$ sudo apt-get install ibus-mozc</li><br/>
+</ul><br/>
+これで周辺パッケージも入れてくれます。入ったら「設定」→「キーボード・インプットメソッド」でmozcを上にします。<br/>
+ <br/>
+そしてNASにつなぐためにはsambaが必要です。クライアントで使うだけなので基本的に設定は不要です(ワークグループを合わせるぐらいはしてもいいけどしなくてもつながる)。<br/>
+<ul><br/>
+<li>$ sudo apt-get install samba</li><br/>
+</ul><br/>
+これでつながります。ファイルマネージャーの「移動」→「ネットワーク・ドライブ」から見れるようになります。<br/>
+ <br/>
+あと必要なのはIPAフォントくらいかな。デフォルトのままだとWebブラウズがしにくいので。これは「システムツール」→「Synapticパッケージマネージャー」から「IPA」とかで検索してみてください。入れたらChromiumの設定でフォントを変えてください。<br/>
+ <br/>
+あとはお好みでアプリを入れてください。私の場合はVLCメディアプレーヤーやxchatくらいでした。あとは無線LANの設定か。設定ツールがWPSに対応してればものの1分で終わるんですが。まあ普通に設定しても5分ですね。<br/>
+ <br/>
+おそらくここまでで3時間経ってないはずです。Linux便利になりましたねぇ。ただで使えることを感謝しつつ終えたいと思います。<br/>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://barippi.github.io/2012/08/13/31876218/" data-id="ckwnjshd2027ee5sw9djyd104" data-title="古いネットブックにLubuntu12.04をインストールした" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ソフトウェア</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-31876219" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2012/08/10/31876219/" class="article-date">
+  <time class="dt-published" datetime="2012-08-09T17:01:24.000Z" itemprop="datePublished">2012-08-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2012/08/10/31876219/">インターネットラジオを聴こう！</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>インターネットラジオは回線さえつながっていれば世界中のどこからでも聴くことができます(radikoやらじる☆らじるの例外はありますが)。今回はそのご紹介。<br/><br> <br/><br><a target="_blank" rel="noopener" href="https://www.di.fm/">Digitaly Imported</a><br/><br>ダンス系、電子音楽系のチャンネルがあります。House系、Trance系だけで数チャンネルあったりとかたよりはありますが、大体の人はなんかのチャンネルに興味をもつのではと思います。もちろん無料で聴けますが、無料聴取には時おりCMが出てきます。4.99$/月、49$/年の課金ができて、そっちだとCMも無くなりますし256kbpsの高音質mp3で聴取することもできます。<br/><br> <br/><br><a target="_blank" rel="noopener" href="https://www.sky.fm/">Sky.fm</a><br/><br>見た目はDigitaly Importedとにてますが、こちらは電子音楽からイージー・リスニング、ロック、ジャズ、メタル、オールディーズまで揃えています。こっちのほうがやや一般向けとも言えます。Digtaly Importedとは兄弟関係にあり、どっちで課金しても両方の高音質ストリーミングが聴取できます。<br/><br> <br/><br><a target="_blank" rel="noopener" href="https://www.1.fm/">1.FM</a><br/><br>長らくasxでしか流してなかったのであまり利用してなかったんですが、最近pls方式でもストリーミングされるようになり、たまに聴いています。こちらもジャンルは広く、オペラまで流れています。無料で聴けます。<br/><br> <br/><br><a target="_blank" rel="noopener" href="https://www.accuradio.com/">AccuRadio</a><br/><br>あんまり聴いたことはありませんが、ジャンルはかなり細分化されています。が、電子音楽系はほぼありません。<br/><br> <br/><br>という感じで4つのサイトを紹介しました。無料で聴けるからといって音質を犠牲にはしてません。BGMにするにはちょうどいい感じです。インターネットラジオで始める音楽ライフ、どうですか？<br/></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://barippi.github.io/2012/08/10/31876219/" data-id="ckwnjshd3027ge5sw3ryobj6z" data-title="インターネットラジオを聴こう！" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/" rel="tag">インターネットサービス</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-283065507.html" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2012/07/26/283065507.html/" class="article-date">
+  <time class="dt-published" datetime="2012-07-25T19:53:49.000Z" itemprop="datePublished">2012-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2012/07/26/283065507.html/">ゲーセンでよく遊んだゲームたち</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>・Rave Racer<br>　俺がゲーセン行くようになったゲームがこれ。裏ワザ(360km/hになるアレ)使わずに中級50秒台まで追い込みました。超上級クリアしたあとのスタッフロールで流れるコマンドは最後まで分からずじまいでした。<br>・STRIKERS 1945 II<br>　フライングパンケーキを主に使っておりました。2、3回5面に行けたような感じがします。STGは今後のどれをとっても下手の横好きで終わってしまいました。<br>・エスプレイド<br>　「ほなぁ、いきますぅ」。4面までしか行けなかったような。一般的な認識では「難易度低い」ですが、なかなか4面に行くのもハードでした。<br>・怒首領蜂 大往生<br>　1面番長でした。俺がPS2を買うに至ったキラーソフトです。DVD見たかったというのもあるけど…。<br>・エスプガルーダ<br>　これもまた1面番長。一応ラスボスまでは行けました。倒すには至りませんでしたが。<br>・カウンターストライク：ネオ<br>　FPSのカウンターストライクを業務用に改良し、初心者も遊びやすくしたゲーム。LED ZONEにもよく行きました。でも下手の横好きでレートは1300前後だったと思います。LED ZONEが閉店してからはほとんどやりませんでした。<br>・クイズマジックアカデミー<br>　一応初代からやってます。一番やったのは2で、金剛賢者、白銀賢者、大賢者とか5枚ほどサブカ持ってた気がします。燃え尽きたので3からはほどほどのプレイになってます。<br>・アイドルマスター<br>　500円玉を100玉のようにチャリンチャリンとコインシューターに入れていたゲーム。オーディションで全部1位を取るプレイは簡単だけど、全部3位を取るのはかなりの読みが必要でこの辺に面白さを見出しました(☆がもらえるのは3位以内なのでいかに省力で☆を取るかが熱い。副次的作用として思い出ボムを節約できる)。Ver1.3になったところでほとんど引退状態でしたが…。一番うまく行ったユニットはVer1.2で護衛艦隊で出した167万人でした。ヘボですね(笑。<br>こんなもんですかねー。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://barippi.github.io/2012/07/26/283065507.html/" data-id="ckwnjshat0227e5swg7x272qr" data-title="ゲーセンでよく遊んだゲームたち" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%82%B2%E3%83%BC%E3%83%A0/" rel="tag">ゲーム</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-31876221" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2012/07/23/31876221/" class="article-date">
+  <time class="dt-published" datetime="2012-07-22T19:27:55.000Z" itemprop="datePublished">2012-07-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2012/07/23/31876221/">MUNINをUbuntu 12.04LTSに入れてみた</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>ツイッターで「MUNINはよい」的な事を言ってる人がいたのでどのようなものか確かめるために入れてみました。<br/><br> <br/><br>こちら <a target="_blank" rel="noopener" href="https://itfun.jp/2010/06/ubuntu-servermunin.html">https://itfun.jp/2010/06/ubuntu-servermunin.html</a> を参考にインストールしました。インストールはかなり簡単で、<br/></p>
+<ul><br/>
+<li>$ sudo apt-get install munin munin-node munin-plugins-extra</li><br/>
+</ul><br/>
+で完了。APT最高です。「munin」が情報をまとめてhtmlドキュメントを作るサーバー、「munin-node」が情報を収集するエージェント的なもの、「munin-plugins-extra」がMUNINの情報収集プラグイン集です。<br/>
+ <br/>
+で、インストールしたらconfファイルの編集です。「/etc/munin/munin.conf」を編集します。「htmldir /var/www/munin」のところをコメント(#)を外して適宜htmlドキュメントを入れるディレクトリを指定します。apache2を入れてデフォルトのままだとこのままで良い気がします。もちろんmuninディレクトリを作ることになりますが…。そして、「/etc/munin/apache.conf」も編集します。これもディレクトリ定義等を適宜修正します。デフォルトのままだとhtmlドキュメントをサーバー本体からしか見れないので「Allow from 192.168.0.0/24」等とするのが良いでしょう。そうするとLAN内のマシンから見られるようになります。<br/>
+ <br/>
+ここまできたらapacheとmunin-nodeを再起動します。<br/>
+<ul><br/>
+<li>$ sudo /etc/init.d/munin-node restart</li><br/>
+<li>$ sudo /etc/init.d/apache2 restart</li><br/>
+</ul><br/>
+これで遅くとも10分後には指定したディレクトリにhtmlドキュメントができあがり、グラフが見られるようになります。<br/>
+ <br/>
+まあ、MRTGも入れてるんですが、インストール、設定はMUNINの方がはるかに簡単ですね。サーバー監視にオススメです。<br/>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://barippi.github.io/2012/07/23/31876221/" data-id="ckwnjshd4027ie5sw4b8ah8ug" data-title="MUNINをUbuntu 12.04LTSに入れてみた" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ソフトウェア</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-31876223" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2012/07/11/31876223/" class="article-date">
+  <time class="dt-published" datetime="2012-07-11T00:12:18.000Z" itemprop="datePublished">2012-07-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2012/07/11/31876223/">2ヶ月Ubuntuデスクトップをサーバーとして使ってみて</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>早いもので余ったマシンにUbuntuデスクトップを入れて2ヶ月弱になります。使ってみての雑感を。お断りですが、私のマシンが以下の症状の原因である事も考えられますので、一般的にそうという事ではありません。<br/><br> <br/><br>Sambaがよく止まる。ファイルコピーやらでSambaのお世話になる機会が多いんですが、システムまで巻き込んで止まるのはどうなのかなーと。Sambaが悪いのではないのですかね。OOMキラーが働いているとか？ギガビットイーサなのでファイルコピーに100MB/s出たりするのは良い。でも音楽聴く時のチョロチョロファイル受け渡すのでもたまに止まる。何が悪いのか良く分からない。システム巻き込むってことはカーネルが弱い？あー、メモリかな？まあ古いマシンなのでありえますね。<br/><br> <br/><br>PS3 MediaServerもたまに止まる。これも原因が分からない。Sambaが落ちるのと原因は一緒な気がするが…。ファイルシステムが悪い？調子こいてRaid 0で運用してるからかなぁ。<br/><br> <br/><br>そして復帰に時間が掛かる。リセットボタン押して20分たっても画面に何も出てこない、そしてブートドライブを読んでないとかよくあります。これも原因がわからない。2回目のリセットでリカバリモード選択するとうまくいく感じ。ブートドライブがUSBメモリというのは悪くないと思うんだけど…。<br/><br> <br/><br>aptシステムはいいですね。GUIでもCUIでも思い立った時にセキュリティアップデートができる。しかもMicrosoft Updateよりも速い。カーネルとかX Window System以外のアップデートなら再起動しなくてもよい。これは本当に素晴らしい。Microsoft Updateはたいてい再起動要求されますからね…。<br/><br> <br/><br>あと速い。元のサーバーがAtomだったせいもあるけどね。Core2Duoになって激速。cgiでそう感じる。<br/><br> <br/><br>そんな感じです。<br/></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://barippi.github.io/2012/07/11/31876223/" data-id="ckwnjshd4027ke5swh4um4e3v" data-title="2ヶ月Ubuntuデスクトップをサーバーとして使ってみて" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ソフトウェア</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-31876224" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2012/06/29/31876224/" class="article-date">
+  <time class="dt-published" datetime="2012-06-29T06:02:04.000Z" itemprop="datePublished">2012-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2012/06/29/31876224/">今までにお金を払ったシェアウェア・パッケージウェアたち</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>写真のレタッチソフトやら音楽作成ソフト、オフィススイートとフリーソフトが大量にある現在、シェアウェア・パッケージウェアと言うだけで異端に見られたりもするのですが、それでも良い物にはお金を払いたい、という人情があったりします。<br/><br>このエントリでは17年PCを使い続けてきた私が「これは良い」とお金を払ったシェアウェア・パッケージウェアを紹介していきます。<br/><br> <br/><br>・<a target="_blank" rel="noopener" href="https://hide.maruo.co.jp/software/hidemaru.html">秀丸</a><br/><br>説明が要らない程の知名度をもつこのエディタですが、最初に触ったのは高校生の頃でした。WindowsもまだVer3.1の頃です。bitbltという技術を用い、当時では描画が最速クラスでした。とりあえずアカデミックフリーで無料でパスワードをもらい、使ってきました。一昨年に「出世払いでね」というのを思い出し課金した次第です。最新バージョンのVer8.10ではDirect Writeに対応し、文字にアンチエリアシングを施し文字の視認性を上げています。結構自然に見えます。まあ好みが出るでしょうけど。もちろんマクロは使えますし、正規表現にも対応しています。税込4200円です。消費税が上がるとその分だけ値段が上がります。<br/><br> <br/><br>・<a target="_blank" rel="noopener" href="https://www.anchorsystems.jp/anchor/ashp/peggy/pegindex.html">Peggy Pro</a><br/><br>これもエディタです。Pro<em>Cという言語で開発をする仕事の時に買いました。Pro</em>CというのはC言語の中にSQL言語の命令文を直接書き込む言語なのですが、Pro*Cに対応しているのは(2005年に私が調べた中では)Windowsアプリケーションはほとんど無く、これが唯一と言っていい状態でした。その仕事ではかなり便利に使わせていただきました。税抜4500円です。今ではシリアルキーを無くしてしまったためPeggy PadをHDDの中に仕込んでいます(フリーウェア)。最初からPeggy Padで良かったんじゃないかとも思うのですが……。Peggy Pad以外はMOCA SCRIPT(マクロ)が使え、すべてのディビジョンで正規表現もできます。<br/><br> <br/><br>・<a target="_blank" rel="noopener" href="https://www.vector.co.jp/soft/win95/amuse/se076988.html">くるっくりんTHEうさうさ &amp; うさうさマウス</a><br/><br>マウスポインタマスコット＋マウスポインタユーティリティー。今のWindowsでは「OK」「キャンセル」ボタンなどがあるダイアログが出るとマウスポインタがボタン上に移動する機能がありますが、Windows Ver3.1時代にその機能を開発したのがチューチューマウスでありくるっくりんTHEうさうさなのであります。マウスポインタがうさぎに変わり「シャキーン」と言いながらダイアログにマウスポインタを移動させるのがなかなかおもしろかったです。税込735円。Windows7では上手く動かないらしいです。残念。<br/><br> <br/><br>・<a target="_blank" rel="noopener" href="https://ja.wikipedia.org/wiki/WinGroove">WinGroove</a><br/><br>当時使ってたマシンのMIDIは2OPのFMシンセサイザーでかなりしょぼかったのでカッとなって購入したのがこれ。ソフトウェアシンセサイザーの先駆け。「間違えてファイル全削除コードを入れてしまった」という事件で一気に有名になりましたが、私は正規ライセンスなので問題なかった。シリアルコードを無くしたりハードウェアMIDI音源(MU-10)を買ったりYMF744が載ったサウンドカードを買ったり、Windowsにソフトウェア・シンセサイザーが載っかったりフリーのTmidity+を使い始めたりで今では使ってません。税込2000円くらいでした。<br/><br> <br/><br>・<a target="_blank" rel="noopener" href="https://www.ssw.co.jp/products/ssw/">Singer Song Writer Lite 2.0</a><br/><br>MIDIシーケンサ。パッケージウェア。自動アレンジ機能が秀逸でした。コード判別も自動でしてくれます。スコア入力が楽。アレンジ機能だけで1日遊べました。<br/><br> <br/><br>・<a target="_blank" rel="noopener" href="https://jp.yamaha.com/product_archive/music-production/ma-63w/?mode:model">XG Works</a><br/><br>これもMIDIシーケンサでパッケージウェア。名が表す通り、XG音源に特化したアプリケーション。自動アレンジ機能もありました。これもスコア入力機能があり、またドラムパターンを楽に入力できる機能がありました。<br/><br> <br/><br>・<a target="_blank" rel="noopener" href="https://ja.wikipedia.org/wiki/Microsoft_Works">MS Works</a><br/><br>Windows95にOSをバージョンアップして買ったやつだから4.0かな。多分使うだろうと思って買いましたがほとんど使わないままでした。もったいない。<br/><br> <br/><br>・<a target="_blank" rel="noopener" href="https://www.dynasys.co.jp/FreeSoft/Srt/">ソング頼太</a><br/><br>MIDIシーケンサ。現在はフリーウェアとなってますが、Windows95の時代はシェアウェア(5000円)でした。鼻歌入力機能などが有名です。ふんふんふ～ん♪ 音痴なので結局あとでピッチ補正とかしなきゃいけなかった。<br/><br> <br/><br>・<a target="_blank" rel="noopener" href="https://www.image-line.com/documents/flstudio.html">FL Studio</a><br/><br>これはDAW(Digital Audio Workstation)。6.0の頃にフックアップ版を買いました。その後情報をあさってImage Lineで登録してLifetime Update権を購入。これから買う人はImage Line本拠地で買ってレジストが賢い。是非最上位版をお買い求めください。ほかは機能制限があったりVSTインストゥルメントが足りないとかでイマイチ。元はリズムシーケンサだったのでほかのDAWとはインターフェースの感じが違いますがとりあえず音を出せるようになるのは最速クラスだと思います。フックアップ版買ってもいいけどペラい日本語マニュアルが付いてきて円高の恩恵を受けられないのであまりいい事はありません。<br/><br> <br/><br>・<a target="_blank" rel="noopener" href="https://www.rimarts.co.jp/becky-j.htm">Becky! Internet Mail</a><br/><br>標準的な3ペインのメーラー。元はOutlook Expressを使ってたんですがその頃はまだスパム対策も十分ではなく利用者本人が何とかする問題でした。そこにBecky!のスパム対策プラグインである<a target="_blank" rel="noopener" href="https://b2antispam.s33.xrea.com/">BkAspil</a>の情報を見つけ、乗り換えました。まあ標準的なメーラーなのでスパム対策がメールサーバーで行われる今ではフリーソフトの<a target="_blank" rel="noopener" href="https://mozilla.jp/thunderbird/">Thunderbird</a>があったり<a target="_blank" rel="noopener" href="https://sylpheed.sraoss.jp/ja/">Sylpheed</a>があったりでイマイチ需要喚起しないのですが乗り換えるのもめんどいのでBecky!のままにしてます。お値段は税込4200円。<br/><br> <br/><br>とまあ、こんな所でしょうか。俺音楽関係にお金落としすぎ……。<br/></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://barippi.github.io/2012/06/29/31876224/" data-id="ckwnjshd5027me5sw9iq68e6l" data-title="今までにお金を払ったシェアウェア・パッケージウェアたち" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ソフトウェア</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-277107005.html" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2012/06/25/277107005.html/" class="article-date">
+  <time class="dt-published" datetime="2012-06-25T01:07:42.000Z" itemprop="datePublished">2012-06-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2012/06/25/277107005.html/">みんなといっしょに！</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>23日にしか参加してませんがアイドルマスターの7thアニバーサリーライブに行ってきました。セットリストは&lt;a href=”<a target="_blank" rel="noopener" href="https://www.famitsu.com/news/201206/23016878.html&quot;">https://www.famitsu.com/news/201206/23016878.html&quot;</a> target:”_blank”&gt;ファミ通の記事</a>などを参照してください。<br>人生初ライブということでかなりドキドキ。早めに会場入りしたら広いこと広いこと。1万人入れる建物なんで当然と言えば当然なんですが。そして開演に近づくほどに席はどんどん埋まり満員御礼状態！ 7年かかってやっとここまできたという感慨深さ。アーケード初期からやってる人ほどそう思うのではないでしょうか。600人限定の雪の赤羽会館がスタートですよ？それが横浜アリーナという大舞台に。ここまで大きくなったコンテンツに関われてよかった。そう思います。<br>ライブはほんとリウムがきれいだったなー。ウェーブは特に感動的でしたリウムウェーブ。爆音で流れるアイマスガールズの歌に負けないくらいのコール。ライブというのはこんなに一体感強いのかと。みんなが毎回ライブに行く意味がわかりました。<br>今まで毛嫌いしてたけど(オールスタンディングでキツそうだったというのもあった)、8thライブが今から楽しみです。またアリーナならいいなぁ。<br>アイマス最高！(だだっだっだだっ)<br>余談。やっぱアニメ化は効くね、一気に裾野が広がった気がする。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://barippi.github.io/2012/06/25/277107005.html/" data-id="ckwnjshas0225e5sw70lk4okz" data-title="みんなといっしょに！" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/" rel="tag">ブログ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-31876225" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2012/06/12/31876225/" class="article-date">
+  <time class="dt-published" datetime="2012-06-11T22:34:49.000Z" itemprop="datePublished">2012-06-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2012/06/12/31876225/">Ubuntu 12.04LTSにPS3 Media Serverをインストールする</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>せっかくUbuntuのNASマシンにファイルがたくさんあるのでWindowsでやってたDLNAサーバをUbuntu上で動かしたくなったので最初はMedia Tombを入れました。ところがなにが悪かったのかルートパーティーションがDISC FULL状態に。Purgeしてディスク容量は通常に戻ったもののさてどうしたものかと。<br/><br> <br/><br>WindowsではPS3 Media Serverを使っていて、たしかあれJavaだったなということで情報を探し回した。昔のUbuntuで入れてる人は多かった。最新のUbuntuでどうだろうと探したところ <a target="_blank" rel="noopener" href="https://www.ps3mediaserver.org/forum/viewtopic.php?f:3&amp;t:13046">https://www.ps3mediaserver.org/forum/viewtopic.php?f:3&amp;t:13046</a> の記事が。リポジトリ公開したよんとのことでこれ幸いとインストール。<br/></p>
+<ol><br/>
+<li><code>sudo add-apt-repository ppa:happy-neko/ps3mediaserver</code></li><br/>
+<li><code>sudo apt-get update</code></li><br/>
+<li><code>sudo apt-get install ps3mediaserver</code></li><br/>
+</ol><br/>
+でインストール完了。「ps3mediaserver」コマンドで立ち上がります。設定等は割愛します。<br/>
+ <br/>
+Known Bugとして「Unity desktop hides system tray icons for some applications.」つまりUnityのシステムトレイ上にPS3 Media Serverのアイコンが現れない、ということで、これを解消するのが以下のコマンド、<br/>
+<ol><br/>
+<li><code>gsettings set com.canonical.Unity.Panel systray-whitelist "[&#39;all&#39;]"</code></li><br/>
+</ol><br/>
+を実行します。そしてログインをし直します。そうすればシステムトレイにアイコンが現れるとのことです。私の環境ではこれでも出てきませんでしたが。(追記：出ました)<br/>
+ <br/>
+ひと通り設定し終わると今度はGUIレスで起動したくなるのですが、こちらは<br/>
+<ol><br/>
+<li><code>sudo gedit /etc/default/ps3mediaserver</code></li><br/>
+</ol><br/>
+とし、ファイルを以下のように編集します。<br/>
+<ul><br/>
+<li>Change PMS_START to "yes"</li><br/>
+<li>Change PMS_USER to your login name</li><br/>
+<li>Change PMS_PROFILE to "/home/YOUR_LOGIN/.config/ps3mediaserver"</li><br/>
+</ul><br/>
+そして、<br/>
+<ol><br/>
+<li><code>sudo /etc/init.d/ps3mediaserver start</code></li><br/>
+</ol><br/>
+とし、起動します。止める時は「stop」です。「restart」はありません。<br/>
+ <br/>
+あと、ディレクトリ構成としては<br/>
+>FILES and DIRECTORIESExecutable/usr/bin/ps3mediaserverUser configuration$HOME/.config/ps3mediaserver/PMS.conf$HOME/.config/ps3mediaserver/WEB.confSystem-wide configuration/etc/ps3mediaserver/Renderers&#39; profiles/etc/ps3mediaserver/renderers/Log directory/var/log/ps3mediaserver/Media database directory/var/lib/ps3mediaserver/Plugins directory/usr/lib/ps3mediaserver/plugins/Init.d script/etc/init.d/ps3mediaserver /etc/default/ps3mediaserver (daemon startup options)<br/>
+ということです。このhappy-nekoさんは日本人なのかな。便利に使わせていただきます。ありがとうございます。<br/>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://barippi.github.io/2012/06/12/31876225/" data-id="ckwnjshd6027oe5sw3abqfs75" data-title="Ubuntu 12.04LTSにPS3 Media Serverをインストールする" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ソフトウェア</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-31876226" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2012/06/08/31876226/" class="article-date">
+  <time class="dt-published" datetime="2012-06-07T20:43:07.000Z" itemprop="datePublished">2012-06-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2012/06/08/31876226/">Ubuntu 12.04LTSで作ったNASの起動USBメモリを入れ替えた</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>私のNASマシンはUSBメモリにUbuntu 12.04LTSを入れて使ってます。USBメモリは16GBのを使ってました。やりたい事が増えるたびアプリケーションを入れてたのでUSBメモリの残りが50%に。いやまあ全然余裕なんですが、今後LOGなどが増えてくるときついかなぁと思って32GBのUSBメモリを買ってきて入れ替えました。ここではその作業ログを書いていきます。HDDを移行する場合でも要領は同じはずです。<br/><br> <br/><br>まず、参考にしたのは <a target="_blank" rel="noopener" href="https://nblog.jp/078">https://nblog.jp/078 </a>こちらと、その元になった記事の <a target="_blank" rel="noopener" href="https://www.itmedia.co.jp/enterprise/articles/0811/20/news019.html">https://www.itmedia.co.jp/enterprise/articles/0811/20/news019.html</a> こちら。主に前者を読み進めて作業しました。<br/><br> <br/><br>まず始めに。Ubuntu 12.04LTSのLiveCDを用意します。私はインストール時に作ったものを使用しました。容量が1GBあればいいので使い古しのUSBメモリでもいいですがそうするとどれがどのUSBメモリなのかがわかりづらくなるのでCD(DVD)で用意した方がいいと思います。今はコンビニでもCD-R、DVD-Rを売ってるので真夜中にやろうと思い立っても大丈夫です。あとは雑誌の付録で付いてたりしますね。<br/><br> <br/><br>なぜLiveCDを用意するか。それは稼働中のOSだとコピー中にコピー元の内容が変わる場合があるからです。結果整合性が取れなくなり、最悪の場合起動できなくなります。そういうのを防ぐため、第三のメディアからのブートが必要となります。<br/><br> <br/><br>コピー元のUSBメモリ、コピー先のUSBメモリを挿してCDから起動します。お試しで使うかメディアにインストールするか聞かれるのでお試しの方を選びましょう。余談ですが、私のマシンでは一発目にネットワークに繋がらず焦りました。DHCPも働いてなかったのです。再起動して事なきを得ましたが。ネットワークに繋がらないと次の作業ができないのでもしそうなった場合は焦らず再起動しましょう。<br/><br> <br/><br>起動しました。今回はGpartedとddrescueとfdiskを使います。Gparted、fdiskはLiveCDに入ってますがddrescueは入っていません。ということなのでインストールしましょう。端末に「sudo apt-get install ddrescue」としてインストール。ネットワークにさえつながっていればすぐ終わります。<br/><br> <br/><br>次は「sudo fdisk -l(エル)」コマンドを打ち、USBメモリがどこにマウントされているかを確認します。コピー元はパーティション詳細が出て「ブート」のところにしるしがついてて、コピー先にはパーティション詳細が出ないのでそれで判断します。重要なのでメモを取るほうがいいでしょう。私の場合はコピー元が「/dev/sde」、コピー先が「/dev/sdd」となったので必ずしも元からある方が若い順番とは限りません。<br/><br> <br/><br>やっとコピーの段階に来ました。先程インストールしたddrescueを使います。端末に「sudo dd_rescue -v /dev/sde /dev/sdd(デバイス名はそれぞれ各々の環境に即したデバイス名を)」としてディスクコピーを開始します。ここで例えばデバイスを逆にしてしまうと空っぽのUSBメモリが2個できます。十分注意してください。ディスクそのもののダンプのコピーなので16GBのUSBメモリなら16GBに達するまでコピーが続きます。だいたい20～30分くらいかかります。最近の大きなHDDだとどれくらいかかるんでしょうね……。<br/><br> <br/><br>ddrescueが終わったら一度旧USBメモリを外して新USBメモリから立ち上げてみてください。不審なところがなければシャットダウンし、再びLiveCDから立ち上げて、端末に「sudo fsck.ext3 -f /dev/sda1(新USBメモリのLinuxパーティション)」とし、ディスクチェックを行なってください。私の場合はいくつかエラーが出ましたが全てyesで問題なかったです。チェックが終わったら、ダッシュボードからGpartedを立ち上げます。新USBメモリを選び、以下の要領でパーティションを拡張します(USBメモリが/dev/sdaの場合。各々の環境に合わせて読み替えてください)。<br/></p>
+<blockquote>
+</blockquote>
+<p>sda5がswapなので後ろに動かしたいところだがsda2の中にあるので、sda2を最大<br>sda5を後ろに移動する<br>sda2を最小にする<br>sda1を最大にする<br><br/><br> グラフィカルにクリック＆ドラッグでぐにょーんとできるわけではなさそうです。パーティションを右クリックしてダイアログを出して設定してください。詳しくは <a target="_blank" rel="noopener" href="https://www.itmedia.co.jp/enterprise/articles/0811/20/news019_2.html">https://www.itmedia.co.jp/enterprise/articles/0811/20/news019_2.html</a> こちらを参照してください。<br/><br> <br/><br>最後にUUIDの確認を行いましょう。/etc/fstabと「sudo blkid /dev/sda1」で出てきたUUIDが一緒ならば大丈夫です。swapの方も「sudo blkid /dev/sda5」で確認。私の環境ではこちらも一緒でした。もしかしたらfsckの時に修正されたのかも。また参考にしたページには「/boot/grub/menu.lst」なるファイルがあるとのことでしたが私の環境ではそのファイルはありませんでした。という事で新しいUSBメモリに移し替える事ができました。情報を公開しているみなさんありがとうございました。<br/><br> <br/><br>しかし、買ってきたバッファローのUSBメモリ、公称Read 70MB/sなんだけどCrystal Disc Markでシーケンシャルリード32MB/sだった。バッファローさんちょっと盛りすぎじゃね？<br/><br> <br/><br>あと、学生時代に同じ事をWindowsNT4 Serverでやってた。xcopy使って。<br/></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://barippi.github.io/2012/06/08/31876226/" data-id="ckwnjshd7027qe5swd2788bp8" data-title="Ubuntu 12.04LTSで作ったNASの起動USBメモリを入れ替えた" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ソフトウェア</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-271650587.html" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2012/05/26/271650587.html/" class="article-date">
+  <time class="dt-published" datetime="2012-05-25T22:27:20.000Z" itemprop="datePublished">2012-05-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2012/05/26/271650587.html/">OSはおもちゃ</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>昔、Windows2000に変えた頃はOSをいじるのが面白かった。無駄にセキュリティポリシーなんか設定してみたり。<br>今はUbuntuをいじるのが楽しい。インストール、設定変更の方法も10年前よりはるかにやりやすくなっている。俺みたいなタコにはとても嬉しい。昔はほんとインストールしたあとどうするかできなかったから。隔世の感がありますなぁ。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://barippi.github.io/2012/05/26/271650587.html/" data-id="ckwnjshar0223e5swa8byde7q" data-title="OSはおもちゃ" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/" rel="tag">ブログ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/22/">&laquo; 戻る</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/156/">156</a><a class="extend next" rel="next" href="/page/24/">次へ &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88/">イベント</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/">インターネットサービス</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/">ソフトウェア</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/">ハードウェア</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9B%91%E8%B2%A8/">雑貨</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OneCalender-%E3%82%B8%E3%83%A7%E3%83%AB%E3%83%86-%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E3%82%A2%E3%83%97%E3%83%AA/" rel="tag">OneCalender ジョルテ カレンダーアプリ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%81%8A%E5%8B%A7%E3%82%81%E3%81%97%E3%81%A6%E3%81%84%E3%81%8D%E3%81%9F%E3%81%84/" rel="tag">お勧めしていきたい</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%A2%E3%82%A4%E3%83%9E%E3%82%B9/" rel="tag">アイマス</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%A2%E3%83%A1%E3%83%96%E3%83%AD/" rel="tag">アメブロ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88/" rel="tag">イベント</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/" rel="tag">インターネットサービス</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%B2%E3%83%BC%E3%83%A0/" rel="tag">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ソフトウェア</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ハードウェア</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/" rel="tag">ブログ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%9E%E3%83%B3%E3%82%AC/" rel="tag">マンガ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%81%E7%94%BB%E7%89%A9/" rel="tag">企画物</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%A0%E3%81%84/" rel="tag">占い</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%91%E8%B2%A8/" rel="tag">雑貨</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/OneCalender-%E3%82%B8%E3%83%A7%E3%83%AB%E3%83%86-%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E3%82%A2%E3%83%97%E3%83%AA/" style="font-size: 10px;">OneCalender ジョルテ カレンダーアプリ</a> <a href="/tags/%E3%81%8A%E5%8B%A7%E3%82%81%E3%81%97%E3%81%A6%E3%81%84%E3%81%8D%E3%81%9F%E3%81%84/" style="font-size: 13px;">お勧めしていきたい</a> <a href="/tags/%E3%82%A2%E3%82%A4%E3%83%9E%E3%82%B9/" style="font-size: 14px;">アイマス</a> <a href="/tags/%E3%82%A2%E3%83%A1%E3%83%96%E3%83%AD/" style="font-size: 16px;">アメブロ</a> <a href="/tags/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88/" style="font-size: 13px;">イベント</a> <a href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/" style="font-size: 12px;">インターネットサービス</a> <a href="/tags/%E3%82%B2%E3%83%BC%E3%83%A0/" style="font-size: 19px;">ゲーム</a> <a href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" style="font-size: 17px;">ソフトウェア</a> <a href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" style="font-size: 15px;">ハードウェア</a> <a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/" style="font-size: 20px;">ブログ</a> <a href="/tags/%E3%83%9E%E3%83%B3%E3%82%AC/" style="font-size: 10px;">マンガ</a> <a href="/tags/%E4%BC%81%E7%94%BB%E7%89%A9/" style="font-size: 11px;">企画物</a> <a href="/tags/%E5%8D%A0%E3%81%84/" style="font-size: 18px;">占い</a> <a href="/tags/%E9%9B%91%E8%B2%A8/" style="font-size: 14px;">雑貨</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">12月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">6月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">1月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">12月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">11月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">10月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">8月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">7月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">6月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">5月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">4月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">3月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">2月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">1月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">12月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">11月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">10月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">9月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">8月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">7月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">6月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">5月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">4月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">3月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">2月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">1月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">10月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">9月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">8月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">6月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">5月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">4月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">2月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">1月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">12月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">11月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">10月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">9月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">8月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">7月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">6月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">5月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">4月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">3月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">2月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">1月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">12月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">11月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">10月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">9月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">8月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">7月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">6月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">5月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">4月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">3月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">2月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">1月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">11月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">10月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">9月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">8月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">7月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">6月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">5月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">4月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">3月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">2月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">1月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">12月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">11月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">10月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">9月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">8月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">7月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">6月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">5月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">4月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">3月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">2月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">1月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">12月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">11月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">9月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">7月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">5月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">4月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">2月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">1月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">12月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">11月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/10/">10月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">9月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">8月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">7月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">6月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">5月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">3月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">1月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">12月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">11月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">10月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">9月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">8月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">7月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/06/">6月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/05/">5月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">4月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">3月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">2月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">1月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">12月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">11月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">10月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">9月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08/">8月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">7月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">6月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">5月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/04/">4月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/03/">3月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/02/">2月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/01/">1月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/12/">12月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/11/">11月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/08/">8月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/07/">7月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/06/">6月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/05/">5月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/04/">4月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/03/">3月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/02/">2月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/01/">1月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/12/">12月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/11/">11月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/10/">10月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/09/">9月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/08/">8月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/07/">7月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/06/">6月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/05/">5月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/04/">4月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/03/">3月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/02/">2月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/01/">1月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/12/">12月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/11/">11月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/10/">10月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/09/">9月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/08/">8月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/07/">7月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/06/">6月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/05/">5月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/04/">4月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/03/">3月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/02/">2月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/01/">1月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2004/12/">12月 2004</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2004/11/">11月 2004</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2004/10/">10月 2004</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2004/09/">9月 2004</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/12/01/test/">test</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/13/0613-thin-client/">シンクライアントを買いましたのでその話</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/23/0123-cheero/">cheeroのフルワイヤレスイヤホンCHE-624を買ったのでレビューする</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/12/0112-linuxldac/">Linuxでbluez-alsaを使いLDACやらAACやらaptXをBluetoothで送信する話</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Barippi<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>MPD 0.19.10をCygwinでビルドし、Windowsサービスで動かす話 | 取るに足らぬ者</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="なんとなくMPD(Music Player Daemon)に興味が湧いてUbuntuに入れて動かしてみたらいいねってことでこれをWindowsサービスで動かすところまでやってみました。　MPD 0.17.04なら&lt;a href&#x3D;”https:&#x2F;&#x2F;www.musicpd.org&#x2F;download.html&quot; target:”_blank”&gt;公式サイトでダウンロードできて、&amp;l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MPD 0.19.10をCygwinでビルドし、Windowsサービスで動かす話">
+<meta property="og:url" content="http://barippi.github.io/2015/06/29/35546711/index.html">
+<meta property="og:site_name" content="取るに足らぬ者">
+<meta property="og:description" content="なんとなくMPD(Music Player Daemon)に興味が湧いてUbuntuに入れて動かしてみたらいいねってことでこれをWindowsサービスで動かすところまでやってみました。　MPD 0.17.04なら&lt;a href&#x3D;”https:&#x2F;&#x2F;www.musicpd.org&#x2F;download.html&quot; target:”_blank”&gt;公式サイトでダウンロードできて、&amp;l">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2015-06-29T13:12:29.000Z">
+<meta property="article:modified_time" content="2021-12-01T13:32:40.798Z">
+<meta property="article:author" content="Barippi">
+<meta property="article:tag" content="ソフトウェア">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="取るに足らぬ者" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">取るに足らぬ者</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">そろそろ落ち着きたい</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSSフィード"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="検索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://barippi.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-35546711" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2015/06/29/35546711/" class="article-date">
+  <time class="dt-published" datetime="2015-06-29T13:12:29.000Z" itemprop="datePublished">2015-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      MPD 0.19.10をCygwinでビルドし、Windowsサービスで動かす話
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>　なんとなくMPD(Music Player Daemon)に興味が湧いてUbuntuに入れて動かしてみたらいいねってことでこれをWindowsサービスで動かすところまでやってみました。<br/>　MPD 0.17.04なら&lt;a href=”<a target="_blank" rel="noopener" href="https://www.musicpd.org/download.html&quot;">https://www.musicpd.org/download.html&quot;</a> target:”_blank”&gt;公式サイト</a>でダウンロードできて、&lt;a href=”<a target="_blank" rel="noopener" href="https://www.nanshiki.co.jp/software/index.html?sexe&quot;">https://www.nanshiki.co.jp/software/index.html?sexe&quot;</a> target:”_blank”&gt;sexe</a>を使って簡単にWindowsサービス化させることができるのですが、このバージョンはあまりに古い。そして日本語解釈に難があるのです。3時間くらい格闘して「こりゃ駄目だ」ってことで最新版をCygwinを使ってビルドしてそのバイナリをWindowsサービスにしました。<br/>　Cygwinを使ってビルドするのは「&lt;a href=”<a target="_blank" rel="noopener" href="https://qiita.com/fabiiw05/items/7687348a410897eca2bc&quot;">https://qiita.com/fabiiw05/items/7687348a410897eca2bc&quot;</a> target:”_blank”&gt;Windows(Cygwin)でも mpd + ncmpcppを使いたい</a>」で詳しく書いてくれた人がいたのでそれを参考にしながらやってみました。cyg-fastでパッケージ入れようとしたけどMD5値が違うとか言って延々とダウンロードしてたので諦めてsetup-x86_64.exeから入れました。選ぶのが面倒臭かったのでフルインストールしました。フルインストールすると10GBくらいダウンロードしてインストールフォルダが40GBくらい必要になります。ディスク容量に余裕のない場合は上記ページの通りやりましょう。<br/>　上記ページでのMPDは0.19.09ですがwgetで0.19.10のソースコード「<a target="_blank" rel="noopener" href="https://www.musicpd.org/download/mpd/0.19/mpd-0.19.10.tar.xz%E3%80%8D%E3%81%AB%E3%81%97%E3%81%A6%E8%A7%A3%E5%87%8D%E3%80%81%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E7%A7%BB%E5%8B%95%E3%81%AF%E8%90%BD%E3%81%A8%E3%81%97%E3%81%9F%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AB%E6%BA%96%E3%81%98%E3%81%A6%E8%A1%8C%E3%81%88%E3%81%B0%E5%A4%A7%E4%B8%88%E5%A4%AB%E3%81%A7%E3%81%99%E3%80%82make%E3%81%A7%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E5%87%BA%E3%82%8B%E3%82%BD%E3%83%BC%E3%82%B9%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%82%E5%90%8C%E3%81%98%E3%81%A7%E3%80%81%E7%9B%B4%E3%81%99%E3%81%A8%E3%81%93%E3%82%8D%E3%82%82%E5%90%8C%E3%81%98%E3%81%A7%E3%81%99%E3%80%82vim%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9%E3%81%8C%E3%82%8F%E3%81%8B%E3%82%89%E3%81%AA%E3%81%84%E3%81%AE%E3%81%A7%E3%81%82%E3%82%8C%E3%81%B0nano%E3%81%A8%E3%81%84%E3%81%86%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF%E3%82%82%E3%81%82%E3%82%8B%E3%81%AE%E3%81%A7%E3%81%9D%E3%82%8C%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82">https://www.musicpd.org/download/mpd/0.19/mpd-0.19.10.tar.xz」にして解凍、ディレクトリ移動は落としたファイルに準じて行えば大丈夫です。makeでエラーが出るソースファイルも同じで、直すところも同じです。vimエディタの使い方がわからないのであればnanoというエディタもあるのでそれを使ってみてください。</a><br/>　mpd.confも上記ページの通りで動きます。楽曲フォルダを移動するなら、ですが。もともと別フォルダ、または別ドライブにある場合はその旨を書かなければなりません。例えば「Z:\music」フォルダに楽曲が入っているならばCygwinでの書き方は「/cygdrive/Z/music」になります。頭に「/cygdrive」がついてフォルダ区切り文字が「/」になります。サウンドデバイスはOSSを使うことになるかと思いますが、そこに「dsd_usb “yes”」と入れるとDSDネイティブ再生に対応したUSBサウンドデバイスにDSDのまま垂れ流します。確かDoP形式での対応だったと思います。<br/>　上記のビルド解説ページを下まで行えばNcmppもできあがって、とりあえず曲が聞けるようになったと思います。MPDクライアントはこれだけではなくてぐぐればいろいろ出てきます。日本語が文字化けしない優秀Windowsアプリとしては「&lt;a href=”<a target="_blank" rel="noopener" href="https://www.soramimi.jp/skympc/&quot;">https://www.soramimi.jp/skympc/&quot;</a> target:”_blank”&gt;SkyMPC</a>」などがあります。iOS、Androidのアプリもたくさんあります。<br/>　が、なぜかlocalhostからしかつなげられない…。セキュリティソフトの保護を切ってみてもダメ。まあ、今のところはこれでもいいんだけど、原因がわかった方、または「他端末から全然つながるし」って人は詳細な環境を是非教えてください。よろしくお願いします。bind_ip_addressも”any”なんだけどなぁ。telnetでつなげてみると一瞬つながってコネクションを切られます。Ubuntuのは普通につながるのになぁ。変なの。Cygwin版の制限なのかしら。<br/>　気を取り直してMPDのWindowsサービス化を行うことにします。まずは「cygserver」をサービス化しましょう。詳細なやり方は「&lt;a href=”<a target="_blank" rel="noopener" href="https://www.saitoh.inzai.chiba.jp/report/r20120103-0.html&quot;">https://www.saitoh.inzai.chiba.jp/report/r20120103-0.html&quot;</a> target:”_blank”&gt;Cygwinを使い倒そう 【3】 cygserver編</a>」で分かります。そしてWindowsのシステム環境変数の「Path」に「d:\cygwin64\bin;d:\cygwin64\usr\sbin」を追加。これはCygwinを「D:\cygwin64」にインストールした場合です。私の場合なので各々のインストールパスに対応した値を追加してください。<br/>　そしてWindowsサービス用のmpd.confを「/etc/mpd.conf」として作成してください。ビルドした際のmpd.confだとホームディレクトリ以下にプレイリストやデータベースを作成する形となりましたが、Windowsサービスを起動するユーザーである「SYSTEM」はそこを見ることもファイルを作ることもできませんので適当に「/var/mpd」とかディレクトリを作ったり、もしくは音楽ファイルの入っているディレクトリに「mpd」ディレクトリを作りそこに入れるという手もあります。SYSTEMユーザーは「/var」も見れないので「$ chown -R SYSTEM /var」とし「/var」ディレクトリの所有者をSYSTEMに変えてください。同様に「/etc」ディレクトリも変えておきましょう。いや「/etc」は変える必要はないかもしれないです。でも保険として。<br/>　次にinitをWindowsサービス化します。これも「&lt;a href=”<a target="_blank" rel="noopener" href="https://www.saitoh.inzai.chiba.jp/report/r20150526-0.html&quot;">https://www.saitoh.inzai.chiba.jp/report/r20150526-0.html&quot;</a> target:”_blank”&gt;Cygwinを使い倒そう 【4】 init編</a>」を読んでください。<br/>　そして「/etc/inittab」 のどこかに「md:3:wait:/usr/local/bin/mpd.exe /etc/mpd.conf」と記入します。rc.dの後ろあたりがいいかもしれません。最初の「md」はIDなので他と被らないようにしてください。<br/>　そうしてCygwin上で「cygrunsrv –start init」とすればWindowsサービスの「CYGWIN init」が起動し、同時にMPDが動き始めるはずです。HDDがガリガリ言い出して音楽ファイルを読み込んでいるようであれば成功です(データベースファイルをコピーしたらしないかも)。<br/>　おめでとうございます。これで作業は全て終了です。楽しいミュージックライフをお楽しみください。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://barippi.github.io/2015/06/29/35546711/" data-id="ckwnjshds0293e5sw0w7s6daq" data-title="MPD 0.19.10をCygwinでビルドし、Windowsサービスで動かす話" class="article-share-link">共有</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ソフトウェア</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/07/03/35877402/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">次の記事</strong>
+      <div class="article-nav-title">
+        
+          プログラミング、Terminalに最適なフォント「Ricty」をWindows7で生成する話
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/06/27/35288466/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前の記事</strong>
+      <div class="article-nav-title">Ubuntu15.04のproftpdでFTP over TLSを設定する話</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">カテゴリ</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88/">イベント</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/">インターネットサービス</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/">ソフトウェア</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/">ハードウェア</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9B%91%E8%B2%A8/">雑貨</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグ</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OneCalender-%E3%82%B8%E3%83%A7%E3%83%AB%E3%83%86-%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E3%82%A2%E3%83%97%E3%83%AA/" rel="tag">OneCalender ジョルテ カレンダーアプリ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%81%8A%E5%8B%A7%E3%82%81%E3%81%97%E3%81%A6%E3%81%84%E3%81%8D%E3%81%9F%E3%81%84/" rel="tag">お勧めしていきたい</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%A2%E3%82%A4%E3%83%9E%E3%82%B9/" rel="tag">アイマス</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%A2%E3%83%A1%E3%83%96%E3%83%AD/" rel="tag">アメブロ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88/" rel="tag">イベント</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/" rel="tag">インターネットサービス</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%B2%E3%83%BC%E3%83%A0/" rel="tag">ゲーム</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ソフトウェア</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" rel="tag">ハードウェア</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/" rel="tag">ブログ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E3%83%9E%E3%83%B3%E3%82%AC/" rel="tag">マンガ</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BC%81%E7%94%BB%E7%89%A9/" rel="tag">企画物</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%A0%E3%81%84/" rel="tag">占い</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%91%E8%B2%A8/" rel="tag">雑貨</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">タグクラウド</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/OneCalender-%E3%82%B8%E3%83%A7%E3%83%AB%E3%83%86-%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC%E3%82%A2%E3%83%97%E3%83%AA/" style="font-size: 10px;">OneCalender ジョルテ カレンダーアプリ</a> <a href="/tags/%E3%81%8A%E5%8B%A7%E3%82%81%E3%81%97%E3%81%A6%E3%81%84%E3%81%8D%E3%81%9F%E3%81%84/" style="font-size: 13px;">お勧めしていきたい</a> <a href="/tags/%E3%82%A2%E3%82%A4%E3%83%9E%E3%82%B9/" style="font-size: 14px;">アイマス</a> <a href="/tags/%E3%82%A2%E3%83%A1%E3%83%96%E3%83%AD/" style="font-size: 16px;">アメブロ</a> <a href="/tags/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88/" style="font-size: 13px;">イベント</a> <a href="/tags/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8D%E3%83%83%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/" style="font-size: 12px;">インターネットサービス</a> <a href="/tags/%E3%82%B2%E3%83%BC%E3%83%A0/" style="font-size: 19px;">ゲーム</a> <a href="/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2/" style="font-size: 17px;">ソフトウェア</a> <a href="/tags/%E3%83%8F%E3%83%BC%E3%83%89%E3%82%A6%E3%82%A7%E3%82%A2/" style="font-size: 15px;">ハードウェア</a> <a href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/" style="font-size: 20px;">ブログ</a> <a href="/tags/%E3%83%9E%E3%83%B3%E3%82%AC/" style="font-size: 10px;">マンガ</a> <a href="/tags/%E4%BC%81%E7%94%BB%E7%89%A9/" style="font-size: 11px;">企画物</a> <a href="/tags/%E5%8D%A0%E3%81%84/" style="font-size: 18px;">占い</a> <a href="/tags/%E9%9B%91%E8%B2%A8/" style="font-size: 14px;">雑貨</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">アーカイブ</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">12月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">6月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">1月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">12月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">11月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">10月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">9月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">8月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">7月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">6月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">5月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">4月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">3月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">2月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">1月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">12月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">11月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">10月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">9月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">8月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">7月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">6月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">5月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">4月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">3月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">2月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">1月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">12月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">11月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">10月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">9月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">8月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">7月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">6月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">5月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">4月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">3月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">2月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">1月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">12月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">11月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">10月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">9月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">8月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">7月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">6月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">5月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">4月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">3月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">2月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">1月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">12月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">11月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">10月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">9月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">8月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">7月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">6月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">5月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">4月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">3月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">2月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">1月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">12月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">11月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">10月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">9月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">8月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">7月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">6月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">5月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">4月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">3月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">2月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">1月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">11月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">10月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">9月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">8月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07/">7月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">6月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">5月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">4月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/03/">3月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">2月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/01/">1月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">12月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">11月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/10/">10月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/09/">9月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/08/">8月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">7月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">6月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">5月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">4月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">3月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">2月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/01/">1月 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/12/">12月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/11/">11月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/09/">9月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/07/">7月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/05/">5月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/04/">4月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/02/">2月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/01/">1月 2011</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/12/">12月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/11/">11月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/10/">10月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/09/">9月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/08/">8月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/07/">7月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/06/">6月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/05/">5月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/03/">3月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2010/01/">1月 2010</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/12/">12月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/11/">11月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/10/">10月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/09/">9月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/08/">8月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/07/">7月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/06/">6月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/05/">5月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/04/">4月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/03/">3月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/02/">2月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2009/01/">1月 2009</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/12/">12月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/11/">11月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/10/">10月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/09/">9月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/08/">8月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/07/">7月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/06/">6月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/05/">5月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/04/">4月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/03/">3月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/02/">2月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2008/01/">1月 2008</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/12/">12月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/11/">11月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/08/">8月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/07/">7月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/06/">6月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/05/">5月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/04/">4月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/03/">3月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/02/">2月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2007/01/">1月 2007</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/12/">12月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/11/">11月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/10/">10月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/09/">9月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/08/">8月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/07/">7月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/06/">6月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/05/">5月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/04/">4月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/03/">3月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/02/">2月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2006/01/">1月 2006</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/12/">12月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/11/">11月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/10/">10月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/09/">9月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/08/">8月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/07/">7月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/06/">6月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/05/">5月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/04/">4月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/03/">3月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/02/">2月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2005/01/">1月 2005</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2004/12/">12月 2004</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2004/11/">11月 2004</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2004/10/">10月 2004</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2004/09/">9月 2004</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最近の投稿</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/12/01/test/">test</a>
+          </li>
+        
+          <li>
+            <a href="/2021/12/01/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/13/0613-thin-client/">シンクライアントを買いましたのでその話</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/23/0123-cheero/">cheeroのフルワイヤレスイヤホンCHE-624を買ったのでレビューする</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/12/0112-linuxldac/">Linuxでbluez-alsaを使いLDACやらAACやらaptXをBluetoothで送信する話</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 Barippi<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
